@@ -1,5 +1,6 @@
 # 《载歌在谷·云集》系列活动官方网站
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9cd6c3afcf92479f8187767fa06c58c2)](https://app.codacy.com/gh/zgzgorg/yj.zgzg.io?utm_source=github.com&utm_medium=referral&utm_content=zgzgorg/yj.zgzg.io&utm_campaign=Badge_Grade_Settings)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/zgzgorg/yj.zgzg.io/main.svg)](https://results.pre-commit.ci/latest/github/zgzgorg/yj.zgzg.io/main)
 
 The Website is served at [zgzg.io](http://zgzg.io/).
