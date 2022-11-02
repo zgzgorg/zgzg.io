@@ -75,6 +75,17 @@ body {
   }
 }
 
+.list-item-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.zgzg-position .list-item-image {
+  display: block;
+  height: 300px;
+  width: 300px;
+}
+
 #detailed-info {
   font-size:1.2em;
   color:white;
