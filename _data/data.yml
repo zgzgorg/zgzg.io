@@ -1,8 +1,6 @@
 main:
   - name: "社区主页"
     url: "/"
-  - name: "购票"
-    url: "/singerticket/"
   - name: "2022 歌手赛"
     url: "/singer/"
     weight: 1
@@ -21,6 +19,10 @@ main:
   - name: "关于我们"
     url: "/about/"
     weight: 6
+  - name: "购票"
+    url: "/singerticket/"
+    weight: 7
+    call-to-action: true
 
 footer:
   - name: "关于我们"
