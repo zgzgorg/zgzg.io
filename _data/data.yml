@@ -76,13 +76,13 @@ programmes:
   - name: 职挂云帆
     image: https://tva1.sinaimg.cn/large/008i3skNgy1gt4hqf0i8ij30i00i0wg2.jpg
     description: 规划职业生涯，提升职业技能，了解不同行业，收获创业灵感。
-    contact:
-      - "[YouTube 频道](https://www.youtube.com/channel/UCG2VTUUT3OWEYcAEi3ELamA)"
+    button-url: https://www.youtube.com/channel/UCG2VTUUT3OWEYcAEi3ELamA
+    button-text: YouTube 频道
   - name: 一饱演福
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1659910251/zgzg-io-website/1_fivcxb.png
     description: 戏剧/表演爱好者相互交流，共同创作，共同成长的平台。我们会定期举行线上/线下话剧 or 表演相关的活动。
-    contact:
-      - "[往期精选](/ybyf/)"
+    button-url: /ybyf/
+    button-text: 往期精选
   - name: 书影婆娑
     image: https://tva1.sinaimg.cn/large/008i3skNgy1gumieg96wqj60lw0lwmyt02.jpg
     description: 我们组织多种书籍电影类文化活动：线下分享会、客厅沙龙、好书共读、P2P图书馆、朗读会、电影马拉松……
@@ -91,15 +91,18 @@ programmes_chunwan:
   - name: 歌手赛
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1655097027/singer_osizeh.png
     description: 2022 "载歌在谷" 歌手赛，我们在成功的经验上进一步扩大规模，全新规划，为您打造一年一度的，高水准的华人歌手赛。
-    contact: "[详情](/singer/)"
+    button-url: /singer/
+    button-text: 详情
   - name: 春节晚会
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1638942437/zgzg-io-website/WechatIMG869_k2uxam.jpg
     description: 承袭自2015年Google春晚，现面向整个湾区。由200余名主要来自湾区高科技公司的志愿者和演员耗时半年精心打造，是湾区规模最大，观众最多，最具硅谷特色的春节晚会。
-    contact: "[详情](/gala/)"
+    button-url: /gala/
+    button-text: 详情
   - name: 游园会
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1638942438/zgzg-io-website/WechatIMG870_vnlf8i.jpg
     description: 春联，剪纸，书法，糖画，汉服，诗词，小舞台，为湾区华人朋友们打造一个最具有中华传统的特色游园会。完全免费，尤其适合家庭，让孩子们体验中国文化。
-    contact: "[详情](/tour/)"
+    button-url: /tour/
+    button-text: 详情
 
 past-programmes:
   - name: 想唱就唱
