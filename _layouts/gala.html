@@ -37,10 +37,14 @@ layout: default
 
 <!-- Tab content -->
 <div id="show-list" class="tab-content">
-    {% include galalist.html %}
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        {% include galalist.html %}
+    </div>
 </div>
 
 <div id="sponsor" class="tab-content">
-    {% assign sponsor_type = site.data.data-sponsor.sponsors %}
-    {% include sponsor-template.html %}
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        {% assign sponsor_type = site.data.data-sponsor.sponsors %}
+        {% include sponsor-template.html %}
+    </div>
 </div>
