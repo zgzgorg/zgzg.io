@@ -13,8 +13,12 @@ h1.underline {
   padding: 0;
   font-weight: bold;
   text-decoration: none;
+  display: inline-block;
   position: relative;
-  left: 40%;
+}
+
+.underline-col {
+  text-align: center;
 }
 
 h1.underline:after {
