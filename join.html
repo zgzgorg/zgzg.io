@@ -1,0 +1,17 @@
+---
+title: 加入我们
+layout: page
+permalink: /join/
+---
+<div class="row bg-light">
+    {% for position in site.gala_positions %}
+    <div class="col-12 d-flex zgzg-position">
+        <div class="flex-shrink-0">
+            <div class="me-1 list-item-image" style="background-image: url({{ position.image }})"></div>
+        </div>
+        <div class="flex-grow-1 ms-1">
+            <p class="galalist-description">{{ position.content | markdownify }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
