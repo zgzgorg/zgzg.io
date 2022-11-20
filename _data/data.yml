@@ -2,20 +2,23 @@ main:
   - name: "主页"
     url: "/"
   - name: "近期活动"
-    url: "/recent"
-    weight: 1
+    items:
+    - name: "2023 春晚"
+      url: "/gala/"
+    - name: "2023 春晚游园"
+      url: "/gala/"
+    - name: "2023 歌手赛"
+      url: "/singer/"
+    - name: "2023 中秋游园"
+      url: "/tour/"
   - name: "云集栏目"
     url: "/yj/"
-    weight: 2
   - name: "赞助招商"
     url: "#sponsors"
-    weight: 3
   - name: "往届回顾"
     url: "/past-events/"
-    weight: 4
   - name: "关于我们"
     url: "/about/"
-    weight: 5
 
 footer:
   - name: "关于我们"
