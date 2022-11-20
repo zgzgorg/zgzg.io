@@ -1,15 +1,23 @@
 <div id="main-menu" class="main-menu">
   {% assign mainmenu = site.data.data.main}
-  <ul>
+  <ul class="nav nav-pills">
     {% for item in mainmenu %}
-    <li class="{% if item.url == page.url %}active{% endif %}">
-      <a href="{{ item.url | relative_url }}" class="{% if item.call-to-action %}button{% endif %}">{{ item.name }}</a>
-      {% for subitem in item.items %}
-      <li class="{% if subitem.url == page.url %}active{% endif %}">
-          <a href="{{ subitem.url | relative_url }}" class="{% if subitem.call-to-action %}button{% endif %}">{{ subitem.name }}</a>
-      </li>
-      {% endfor %}
-    </li>
+      {% if item.url %}
+        <li class="{% if item.url == page.url %}active{% endif %}">
+          <a href="{{ item.url | relative_url }}" class="{% if item.call-to-action %}button{% endif %}">{{ item.name }}</a>
+        </li>
+      {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+          <ul class="dropdown-menu">
+            {% for subitem in item.items %}
+              <li>
+                <a class="dropdown-item" href="{{ subitem.url | relative_url }}">{{ subitem.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
