@@ -1,28 +1,21 @@
 main:
-  - name: "社区主页"
+  - name: "主页"
     url: "/"
-  - name: "2022 歌手赛"
-    url: "/singer/"
+  - name: "近期活动"
+    url: "/recent"
     weight: 1
-  - name: "2022 中秋游园"
-    url: "/tour/"
-    weight: 2
-  - name: "2022 春晚"
-    url: "/gala/"
-    weight: 3
   - name: "云集栏目"
     url: "/yj/"
-    weight: 4
+    weight: 2
+  - name: "赞助招商"
+    url: "#sponsors"
+    weight: 3
   - name: "往届回顾"
     url: "/past-events/"
-    weight: 5
+    weight: 4
   - name: "关于我们"
     url: "/about/"
-    weight: 6
-  - name: "购票"
-    url: "/singerticket/"
-    weight: 7
-    call-to-action: true
+    weight: 5
 
 footer:
   - name: "关于我们"
