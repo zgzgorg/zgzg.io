@@ -9,14 +9,13 @@ menuTrigger.onclick = function() {
 };
 
 function openTab(evt, tabName) {
-  let i;
-  const tabContent = document.getElementsByClassName('tab-content');
-  for (i = 0; i < tabContent.length; i++) {
-    tabContent[i].style.display = 'none';
+  const tabContents = document.getElementsByClassName('tab-content');
+  for (const tabContent of tabContents) {
+    tabContent.style.display = 'none';
   }
   const tabLinks = document.getElementsByClassName('tab-links');
-  for (i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].classList.remove('active');
+  for (const tabLink of tabLinks) {
+    tabLink.classList.remove('active');
   }
   document.getElementById(tabName).style.display = 'block';
   evt.currentTarget.className += ' active';
