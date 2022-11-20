@@ -16,7 +16,7 @@ function openTab(evt, tabName) {
   }
   const tabLinks = document.getElementsByClassName('tab-links');
   for (i = 0; i < tabLinks.length; i++) {
-    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+    tabLinks[i].classList.remove('active');
   }
   document.getElementById(tabName).style.display = 'block';
   evt.currentTarget.className += ' active';
