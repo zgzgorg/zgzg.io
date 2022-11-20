@@ -5,8 +5,9 @@
   padding: 0;
   list-style: none;
   position: relative;
-  margin-top: 80px;
   justify-content: center;
+  border-bottom: 2px solid $steel;
+  margin: 80px 15% 0 15%;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -41,11 +42,4 @@
     text-decoration: none;
     transition: all 225ms ease-in 0s;
   }
-}
-
-hr.solid {
-  border-top: 0;
-  border-bottom: 2px solid $steel;
-  margin: 0 0 0 20%;
-  width: 60%;
 }
