@@ -10,7 +10,7 @@
     > li {
       list-style: none;
       font-size: 1rem;
-      > a:not(.btn) {
+      > a:not(.button) {
         margin: 10px 12px 10px 12px;
         display: inline-block;
         font-weight: normal;
@@ -22,7 +22,7 @@
         }
       }
       &.active {
-        > a:not(.btn) {
+        > a:not(.button) {
           color: $primary;
           font-weight: bold;
           text-decoration: none;
