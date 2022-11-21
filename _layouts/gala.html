@@ -5,22 +5,11 @@ layout: default
     <div class="container">
         <div class="row">
             <div class="col-12 mb-6 col-md-6 col-lg-6 align-self-center">
-                <h1>2022载歌在谷线下春节活动重磅回归！</h1>
-                <h3>春节晚会：</h3>
+                <h1>2023年载歌载谷春节晚会</h1>
                 <p>
-                    时间：2022年1月15日周六，7pm PST <br>
-                    地点：SJCPA，255 S Almaden Blvd, San Jose, CA <br>
-                    <a target="_blank" style="color:white; text-decoration: underline;"
-                        href='https://www.google.com/maps/place/San+Jos%C3%A9+Center+for+the+Performing+Arts/@37.3299526,-121.8945752,17z/data=!3m1!4b1!4m5!3m4!1s0x808fcca56a4608fd:0x4de477db5cc261e4!8m2!3d37.3299526!4d-121.8923865?shorturl=1'>点击查看地图</a><br>
+                    时间：2022年1月21日周六<br>
+                    地点：San Jose Center for Performing Arts 255 S Almaden Blvd, San Jose, CA <br>
                 </p>
-                <h3>游园会:</h3>
-                <p>
-                    时间：2022年1月15日周六，1pm – 4pm PST<br>
-                    地点：春晚剧场SJCPA门前广场</p>
-                <div id="ticket-button-gala" style="display:none">
-                    <a class="button home-button primary-text" style="text-align: center; display:block"
-                        href="/ticket">春晚购票</a>
-                </div>
             </div>
             <div class="col-12 mb-6 col-md-6 col-lg-6 align-self-center">
 
@@ -31,20 +20,68 @@ layout: default
 
 <!-- Tab links -->
 <div class="tab">
-    <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-list">节目表</button>
-    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="sponsor">赞助商</button>
+    <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="about-gala">关于春晚</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-list">节目表</button>
+</div>
+
+<div id="about-gala" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        <div class="text-center pb-3">
+            <h1 class="underline">关于“载歌在谷”春节晚会</h1>
+        </div>
+        <p class="black">
+        “载歌在谷”春晚自2015年来已经连续举办了8届，受到社会各界，尤其是北美华人圈的广泛关注，合作媒体包括吃货小分队，新浪微博，星岛电台星电视，
+            美国中文电台，美国中文电视，喜马拉雅等。近三年，我们的春晚还接连登上了CCTV4，作为海外华人的代表给全球华人拜年，影响颇广。</p>
+
+        <p class="black">
+        近几年来，“载歌在谷”春晚的观众群体已经从湾区华人社区扩大到了北美，乃至全球多个国家和地区。2022 年最近一次的线下春晚，
+            我们的筹备工作规模更是史无前例。
+        </p>
+
+        <div class="pb-3">
+        </div>
+
+        <table class="gala">
+            <tr class="gala">
+                <th class="gala">100进16</th>
+                <th class="gala">50进6</th>
+                <th class="gala">150+</th>
+                <th class="gala">150+</th>
+            </tr>
+            <tr class="gala">
+                <td class="gala">节目甄选</td>
+                <td class="gala">主持人甄选</td>
+                <td class="gala">志愿者</td>
+                <td class="gala">演职人员</td>
+            </tr>
+        </table>
+
+        <div class="pb-6">
+        </div>
+
+        <table class="gala">
+            <tr class="gala">
+                <th class="gala">10+</th>
+                <th class="gala">20+</th>
+                <th class="gala">7大</th>
+                <th class="gala">73万</th>
+            </tr>
+            <tr class="gala">
+                <td class="gala">媒体合作宣传</td>
+                <td class="gala">赞助商及合作伙伴</td>
+                <td class="gala">社交媒体运营</td>
+                <td class="gala">宣传浏览量</td>
+            </tr>
+        </table>
+        <div class="text-center pt-6">
+            <h1 class="underline">往届春晚精彩回顾</h1>
+        </div>
+    </div>
 </div>
 
 <!-- Tab content -->
 <div id="show-list" class="tab-content">
     <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
         {% include galalist.html %}
-    </div>
-</div>
-
-<div id="sponsor" class="tab-content">
-    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
-        {% assign sponsor_type = site.data.data-sponsor.sponsors %}
-        {% include sponsor-template.html %}
     </div>
 </div>
