@@ -1,12 +1,10 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <div id="main-menu-mobile" class="main-menu-mobile">
   {% assign mainmenu = site.data.data.main %}
   <ul class="nav nav-pills">
       {% for item in mainmenu %}
         {% if item.url %}
           <li class="{% if item.url == page.url %}active{% endif %}">
-            <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
+            <a href="{{ item.url | relative_url }}" class="{% if item.call-to-action %}button{% endif %}">{{ item.name }}</a>
           </li>
         {% else %}
           <li class="nav-item dropdown">
