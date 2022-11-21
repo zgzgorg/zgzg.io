@@ -13,8 +13,6 @@ main:
       url: "/tour/"
   - name: "云集栏目"
     url: "/yj/"
-  - name: "赞助招商"
-    url: "#sponsors"
   - name: "往届回顾"
     url: "/past-events/"
   - name: "关于我们"
