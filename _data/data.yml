@@ -19,6 +19,9 @@ main:
     url: "/past-events/"
   - name: "关于我们"
     url: "/about/"
+  - name: "活动购票"
+    url: "/singerticket/"
+    call-to-action: true
 
 footer:
   - name: "关于我们"
