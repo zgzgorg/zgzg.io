@@ -10,7 +10,7 @@
         </li>
       {% else %}
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button">{{ item.name }}</a>
+          <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button">{{ item.name }}</a>
           <ul class="dropdown-menu">
             {% for subitem in item.items %}
               <li>
