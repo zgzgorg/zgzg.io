@@ -1,5 +1,5 @@
 ---
-image: https://via.placeholder.com/400.png
+image: https://picsum.photos/seed/zzz/360
 ---
 ### 赞助组
 赞助组前期会制定合理的、分层的赞助计划，也会通过官方文案等形式与社会各界建立广泛的联系，增强载歌载谷在湾区的知名度。主要职责：

@@ -1,5 +1,5 @@
 ---
-image: https://via.placeholder.com/400.png
+image: https://picsum.photos/seed/xcz/360
 ---
 ### 宣传组
 宣传组是每次晚会志愿者中人数最多的小组，包括下面文案组，渠道组，网站组和设计组。主要职责：
