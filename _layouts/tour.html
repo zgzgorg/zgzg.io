@@ -37,9 +37,9 @@ layout: default
         <!-- List of activities on the Tour, presented as cards. -->
         <div class="row justify-content-center">
             {% if site.data.data.tourslist %}
-            {% for programme in site.data.data.tourslist %}
-            {% include programme.html %}
-            {% endfor %}
+                {% for programme in site.data.data.tourslist %}
+                    {% include programme.html %}
+                {% endfor %}
             {% endif %}
         </div>
     </div>
