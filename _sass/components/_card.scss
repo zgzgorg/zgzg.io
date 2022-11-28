@@ -87,3 +87,72 @@
     color: #AF1D25;
   }
 }
+
+.small-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: $white-offset;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 320px;
+  height: 436px;
+  left: 16px;
+  top: 16px;
+  align-items: flex-start;
+  padding: 0px;
+  .small-card-image {
+    width: 320px;
+    height: 160px;
+    display: flex;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .small-card-title {
+    color: $primary;
+    margin-bottom: 0px;
+    text-align: center;
+    height: 36px;
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+  .small-card-description{
+    padding: 0 30px;
+//     width: 312px;
+    height: 78px;
+    display: inline-block;
+  }
+  .small-card-content {
+    background-color: $white-offset;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    list-style-position: inside;
+    box-sizing: border-box;
+
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: #000000;
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    align-items: center;
+    flex-grow: 1;
+  }
+}
+
