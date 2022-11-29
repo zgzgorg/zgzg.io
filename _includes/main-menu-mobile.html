@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div id="main-menu-mobile" class="main-menu-mobile">
     {% assign mainmenu = site.data.data.main %}
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav mb-2 mb-lg-0">
         {% for item in mainmenu %}
           {% if item.url %}
             <li class="{% if item.url == page.url %}active{% endif %}">
