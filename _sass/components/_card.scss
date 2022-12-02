@@ -38,9 +38,8 @@
     align-self: stretch;
     flex-grow: 0;
   }
-  .large-card-description{
+  .large-card-description {
     padding: 0 30px;
-//     width: 312px;
     height: 78px;
     display: inline-block;
   }
@@ -68,9 +67,8 @@
     box-sizing: border-box;
     flex-direction: row;
     padding: 12px 24px;
-//     width: 104px;
     height: 46px;
-    border: 1px solid #AF1D25;
+    border: 1px solid $primary;
     border-radius: 4px;
     background-color: inherit;
     flex: none;
@@ -84,7 +82,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: #AF1D25;
+    color: $primary;
   }
 }
 
@@ -128,7 +126,7 @@
     align-self: stretch;
     flex-grow: 0;
   }
-  .small-card-description{
+  .small-card-description {
     padding: 0 30px;
 //     width: 312px;
     height: 78px;
@@ -146,7 +144,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
-    color: #000000;
+    color: $black;
 
     flex: none;
     order: 1;
