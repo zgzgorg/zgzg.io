@@ -1,12 +1,31 @@
-.row.gala-grid {
+.row.gala-text-grid {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
 }
 
-.col.gala-grid {
+.col.gala-text-grid {
   color: $primary;
   font-weight: bold;
   font-size: 36px;
   text-align: center;
+}
+
+.col.gala-text-grid-content {
+  color: $black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.row.gala-photo-grid {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.col.gala-photo-grid {
+  width: 350px;
+  height: 264px;
+  margin-right: 20px;
 }
