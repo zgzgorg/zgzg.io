@@ -11,14 +11,16 @@ layout: default
             地点：San Jose Center for Performing Arts<br>
             255 S Almaden Blvd, San Jose, CA
         </h2>
-        <button class="btn btn-primary btn-lg">购票链接</button>
+        <button class="btn btn-primary btn-lg tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="buy-ticket">活动购票</button>
     </div>
 </div>
 
 <!-- Tab links -->
 <div class="tab">
     <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="about-gala">关于春晚</button>
-    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-list">节目表</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-and-host-signup">节目及主持人招募</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-and-host-signup">春晚当天</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="buy-ticket">活动购票</button>
 </div>
 
 <div id="about-gala" class="tab-content">
@@ -93,16 +95,105 @@ layout: default
             </div>
         </div>
     </div>
-</div>
-
-<div class="container pb-6">
-    <div style="margin-left: 45%;">
-        <a type="button" class="btn btn-secondary btn-lg" href="/past-events/">更多精彩回顾</a>
+    <div class="container pb-6">
+        <div style="margin-left: 45%;">
+            <a type="button" class="btn btn-secondary btn-lg" href="/past-events/">更多精彩回顾</a>
+        </div>
     </div>
 </div>
-<!-- Tab content -->
-<div id="show-list" class="tab-content">
+
+<div id="show-and-host-signup" class="tab-content">
     <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
-        {% include galalist.html %}
+        <div class="text-center pb-3">
+            <h1 class="underline">节目征集</h1>
+        </div>
+        <h2 style="font-weight: bold">基本原则</h2>
+        <ul>
+            <li>海选评审将以节目、主持人提交的视频小样为唯一评审依据，未提交视频小样的节目和主持人报名不予入选；</li>
+            <li>节目小样必须是近期内创作或编排的2023年春晚节目音频/视频</li>
+            <li>语言类节目（相声，小品，儿童剧）: 总时长请控制在15分钟以内；音乐舞蹈类节目: 总时长请控制在5分钟以内； 其它类节目（武术，魔术等）: 总时长请控制在3分钟以内</li>
+            <li>主持人小样可以是自我介绍及一小段主持演示视频。时长1-2 分钟；视频素材分辨率：720p及以上</li>
+            <li>若确认进入线下预审，将以当天实际表现进行评分；</li>
+            <li>评审团由评审委员会组成；评审委员会成员由历届春晚核心贡献者+顾问组成；评审委员会将共同做出最终决定，每个节目的具体评分与意见将不予公开。</li>
+        </ul>
+        <div class="pb-3"></div>
+        <h2 style="font-weight: bold">节目评审</h2>
+        <ul>
+            <li>评审将主要从节目质量、创新性和多元化几个方面进行打分；</li>
+            <li>节目尽量是全新的、没有公开演出或发布过的；通过评选的节目在晚会正式演出前也优先考虑不在其他网络平台和线下场合发布本届春晚的演出版本；</li>
+            <li>节目质量包括（但不限于）歌唱类的唱功、台风；舞蹈或语言类的编排以及整体效果等，可以理解为节目的基本分；</li>
+            <li>除节目本身质量外，还会参考完整度，多样性，创新性，主题性，可行性等，可以理解为节目的附加分；</li>
+            <li>评审团将会考虑上述因素作为最终评审委讨论的依据。</li>
+            <li>节目评审将采取“demo海选 + 现场评审”相结合的方式进行；</li>
+            <li>评审委员会将会根据提交的demo对所有报名的节目进行海选（报名截止后一周内出结果）；</li>
+            <li>所有报名的节目都会收到通过或未通过通知。通过海选的节目将进入线下评审环节；</li>
+            <li>所有进入评审的节目将收到本次晚会节目组发送的入选或落选通知。</li>
+        </ul>
+        <div class="pb-3"></div>
+        <img class="show-signup" src="https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670290979/zgzg-io-website/group_IMG_9866_xelck2_crop_pzk6ur.jpg" alt="">
+        <div class="text-center pt-3 pb-3">
+            <h1 class="underline">主持人征集</h1>
+        </div>
+        <h2 style="font-weight: bold">征集规则</h2>
+        <ul>
+            <li>评审将主要从主持人气质，谈吐以及临场反应能力几个方面进行打分；</li>
+            <li>主持人不分国籍，中英双语主持优先考虑；有舞台经验主持优先考虑。主持人小样可以是自我介绍及一小段主持演示视频。时长1-2 分钟。</li>
+            <li>若确认现场评审，将以当天实际表现进行评分；</li>
+            <li>评审团由评审委员会组成；评审委员会成员由历届春晚核心贡献者+顾问组成；评审委员会将共同做出最终决定，每个节目的具体评分与意见将不予公开。</li>
+        </ul>
+        <div class="pb-3"></div>
+        <h2 style="font-weight: bold">征集流程</h2>
+        <ul>
+            <li>主持人评审将采取“demo海选 + 现场评审（暂定）”相结合的方式进行；</li>
+            <li>评审委员会将会根据提交的demo对所有报名的主持人进行海选（报名截止后一周内出结果）；</li>
+            <li>所有通过海选的主持人将收到本次晚会节目组发送的现场评审通知，进入线下评审环节；选拔将分为两轮，单人展示与双人配合，具体问题将于评审现场发放</li>
+            <li>评审委员会根据实际表现，打分并讨论选出最终登上春晚的节目；</li>
+            <li>所有报名的主持人将收到本次晚会节目组发送的入选或落选通知。</li>
+        </ul>
+        <div class="pb-3"></div>
+        <img class="show-signup" src="https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670292006/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/%E4%B8%BB%E6%8C%81%E4%BA%BA_1_rc3zuj_crop_r0saov.png" alt="">
+        <div class="container text-center pt-10">
+            <div class="row icon-grid">
+                <img class="col icon-grid-header" src="https://res.cloudinary.com/zaigezaigu/image/upload/v1670292294/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/57160108e78eea2f124469d54b4e016_htmtuk.png" alt="">
+                <img class="col icon-grid-header" src="https://res.cloudinary.com/zaigezaigu/image/upload/v1670292304/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/c5f1b5336703b828abbe4a4c3106633_orm6sj.png" alt="">
+                <img class="col icon-grid-header" src="https://res.cloudinary.com/zaigezaigu/image/upload/v1670292308/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/e3b1a11d6130b8c093fd97cdf35ea32_bi4tyu.png" alt="">
+            </div>
+            <div class="row icon-grid">
+                <div class="col icon-grid-text-header">报名时间</div>
+                <div class="col icon-grid-text-header">演出时间</div>
+                <div class="col icon-grid-text-header">演出地点</div>
+            </div>
+            <div class="row icon-grid">
+                <div class="col icon-grid-text-bold">报名截止时间: 10月9日 11:59pm PST</div>
+                <div class="col icon-grid-text-bold">2023年1月21日</div>
+                <div class="col icon-grid-text-bold">San Jose Center for the Performing Arts</div>
+            </div>
+            <div class="row icon-grid">
+                <div class="col icon-grid">第一轮线上评审结果通知: 10月14日<br>
+                    第二轮线下评审时间：11月5日 - 11月6日 (暂定)</div>
+                <div class="col icon-grid"></div>
+                <div class="col icon-grid">届时会按照Santa Clara公共安全要求做好防护准备</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="buy-ticket" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        <div class="text-center pb-3">
+            <h1 class="underline">活动购票</h1>
+        </div>
+        <p class="black">
+            “载歌在谷”春晚自2015年来已经连续举办了8届，受到社会各界，尤其是北美华人圈的广泛关注，合作媒体包括吃货小分队，新浪微博，星岛电台星电视，
+            美国中文电台，美国中文电视，喜马拉雅等。近三年，我们的春晚还接连登上了CCTV4，作为海外华人的代表给全球华人拜年，影响颇广。</p>
+
+        <p class="black">
+            近几年来，“载歌在谷”春晚的观众群体已经从湾区华人社区扩大到了北美，乃至全球多个国家和地区。2022 年最近一次的线下春晚，
+            我们的筹备工作规模更是史无前例。
+        </p>
+
+        <div class="pb-3">
+        </div>
+
     </div>
 </div>

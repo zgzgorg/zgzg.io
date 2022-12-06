@@ -29,3 +29,44 @@
   height: 264px;
   margin-right: 20px;
 }
+
+.show-signup {
+  width: 920px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row.icon-grid {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.col.icon-grid-header {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60px;
+  margin-bottom: 16px;
+}
+
+.col.icon-grid-text-header {
+  color: $primary;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.col.icon-grid-text-bold {
+  color: $black;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.col.icon-grid {
+  color: $black;
+  font-size: 20px;
+  text-align: center;
+}
