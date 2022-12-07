@@ -15,6 +15,13 @@
   margin-right: 720px;
   color: $white;
 
+  p {
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+
   @media (max-width: 1199.98px) {
     margin: auto 32px auto 32px;
 
@@ -27,12 +34,18 @@
     margin: 0;
     font-weight: 700;
     font-size: 48px;
+    a {
+      color: $white;
+    }
   }
 
   h2 {
     margin: 24px 0 0 0;
     font-weight: 700;
     font-size: 20px;
+    a {
+      color: $white;
+    }
   }
 
   button {
@@ -48,22 +61,6 @@
     margin: 32px 0 0 0;
     font-weight: 700;
     font-size: 20px;
-  }
-}
-
-.hero-short {
-  height: 480px;
-
-  @media (max-width: 1199.98px) {
-    height: 320px;
-  }
-}
-
-.hero-long {
-  height: 720px;
-
-  @media (max-width: 1199.98px) {
-    height: 480px;
   }
 }
 

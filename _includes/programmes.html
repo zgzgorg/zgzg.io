@@ -1,24 +1,24 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center g-1 g-md-2 p-1 p-md-3">
   {% if site.data.data.programmes %}
     {% for programme in site.data.data.programmes %}
-      {% include large-card.html %}
+      {% include programme.html %}
     {% endfor %}
   {% endif %}
 
   {% if show_join_us == true %}
+  <div class="col-12 col-md-6 col-lg-4">
     <a href="mailto:contact-us@zgzg.io" id="join">
-      <div class="col-12 col-md-6 col-lg-4 mb-5">
-        <div class="programme">
-            <div class="programme-image">
-              +
-            </div>
-          <h2 class="programme-title">加入我们</h2>
-          <div class="programme-content">
-            <p class="programme-description">加入我们社区，孵化你的兴趣小组；或者，帮助已有栏目办得更好！</p>
+      <div class="programme">
+          <div class="programme-image">
+            +
           </div>
+        <h2 class="programme-title">加入我们</h2>
+        <div class="programme-content">
+          <p class="programme-description">加入我们社区，孵化你的兴趣小组；或者，帮助已有栏目办得更好！</p>
         </div>
       </div>
     </a>
+  </div>
   {% endif %}
 </div>
 
@@ -27,7 +27,7 @@
   <h2>已完结栏目</h2>
   {% if show_concluded_programmes == true %}
     <p>完成了历史使命，也值得拥有姓名！</p>
-    <div class="row" id="concluded-programmes">
+    <div class="row g-1 g-md-2 p-1 p-md-3" id="concluded-programmes">
       {% for programme in site.data.data.past-programmes %}
         {% include programme.html %}
       {% endfor %}
