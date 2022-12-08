@@ -1,13 +1,13 @@
  <div class="row list-item-large list-item-rounded gx-0 my-1 my-lg-3">
         <div class="col-12 d-flex bg-light">
             <div class="flex-shrink-0">
-                <div class="me-1 list-item-image square">
+                <div class="me-1 list-item-image">
                         {% if sponsor.website %}
                         <a href="{{ sponsor.website }}">
-                            <img alt="{{ sponsor.name }}" src="{{ sponsor.image }}" />
+                            <img class="square-center" alt="{{ sponsor.name }}" src="{{ sponsor.image }}" />
                         </a>
                         {% else %}
-                        <img alt="{{ sponsor.name }}" src="{{ sponsor.image }}" />
+                        <img class="square-center" alt="{{ sponsor.name }}" src="{{ sponsor.image }}" />
                         {% endif %}
                 </div>
             </div>

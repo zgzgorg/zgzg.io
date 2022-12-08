@@ -10,11 +10,9 @@
         {% endif %}
     </div>
     {% endif %}
-    <div class="sponsor-card-content">
-        {% if sponsor.contact.size > 0 %}
-        {% for contact in sponsor.contact %}
-        {{ contact | markdownify }}
-        {% endfor %}
+    <div class="sponsor-card-name">
+        {% if sponsor.name %}
+        {{sponsor.name}}
         {% endif %}
     </div>
     <div class="sponsor-card-content mt-1">
@@ -22,28 +20,4 @@
         {{sponsor.description}}
         {% endif %}
     </div>
-<!--    <div class="sponsor-contact mt-1">-->
-<!--        <p class='mb-0'>-->
-<!--            {% if sponsor.phone %}-->
-<!--            {{sponsor.phone}}-->
-<!--            {% endif %}-->
-<!--        </p>-->
-<!--        <p class='mb-0'>-->
-<!--            {% if sponsor.email %}-->
-<!--            {{sponsor.email}}-->
-<!--            {% endif %}-->
-<!--        </p>-->
-<!--        <p class='mb-0'>-->
-<!--            {% if sponsor.website-name %}-->
-<!--            <a href={{sponsor.website}}>{{sponsor.website-name}}</a>-->
-<!--            {% elsif sponsor.website %}-->
-<!--            <a href={{sponsor.website}}>{{sponsor.website}}</a>-->
-<!--            {% endif %}-->
-<!--        </p>-->
-<!--        <p class='mb-0'>-->
-<!--            {% if sponsor.other %}-->
-<!--            {{sponsor.other}}-->
-<!--            {% endif %}-->
-<!--        </p>-->
-<!--    </div>-->
 </div>
