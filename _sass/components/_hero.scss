@@ -41,6 +41,18 @@
     font-weight: 700;
     font-size: 20px;
   }
+
+  h1 + p {
+    margin-top: 24px;
+    margin-bottom: 68px;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 32px;
+    color: $white;
+  }
 }
 
 .hero-short {
@@ -51,3 +63,6 @@
   height: 720px;
 }
 
+.hero-content-sponsor {
+  margin-top: 152px
+}
