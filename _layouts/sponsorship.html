@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="hero p-4 p-md-8 p-lg-10 sponsorship-image">
+    <div class="hero-content hero-content-sponsor">
+        <h1>诚邀招商：</h1>
+        <p>你是不是觉得，2020 - 2022年是隐没的两年？作为商家，你是不是苦于没有曝光，流量不足？酒香也怕巷子深。在此，“载歌在谷”携各位热情的志愿者小伙伴们，郑重推出2023年线下兔年春晚及游园活动！正在进行时，诚邀您的参加！</p>
+        <p>联系我们：sponsor-gala@zgzg.io</p>
+
+    </div>
+</div>
+
+<!-- Tab links -->
+<div class="tab">
+<!--    <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="join-us">加入我们</button>-->
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="tour">2022春晚游园</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="expectation">敬请期待</button>
+</div>
+
+<!-- Tab content -->
+<!--<div id="join-us" class="tab-content">-->
+
+<!--</div>-->
+
+<div id="tour" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        <h1>2022春晚/游园</h1>
+        <p>“载歌在谷”春晚是以湾区各大高科技公司员工为贡献主体举办的数千人规模春节系列活动，也是湾区规格最高，受众最广的春节晚会之一，总筹备工作超过150 天。
+        </p>
+        {% assign sponsor_type = site.data.data-sponsor.sponsors %}
+        {% include sponsor-template.html %}
+    </div>
+</div>
+<div id="expectation" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+
+    </div>
+</div>
