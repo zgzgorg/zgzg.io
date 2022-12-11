@@ -11,16 +11,13 @@
     <!-- sponsors by level, such as 白金赞助 -->
     {% for sponsor_level in sponsor_type.sponsor-levels %}
     <div class="row">
-        <div class="col home-section-header" style="padding-top: 96px">
+        <div class="col home-section-header pt-9" >
             <!-- sponsor level heading, such as the text 白金赞助 or 虚位以待 -->
             <div class="row">
                 <div class="col pb-3 text-center">
                     <h1 class="underline">{{sponsor_level.level-heading}}</h1>
                 </div>
             </div>
-<!--            <div class="home-section-content">-->
-<!--                <p class="py-2"><br></p>-->
-<!--            </div>-->
         </div>
     </div>
     {% if sponsor_level.sponsor-elements %}
@@ -44,7 +41,7 @@
                             </div>
                         {% else %}
                             <div>
-                            {% include sponsor-long.html %}<br>
+                            {% include sponsor-long.html %}
                             </div>
                         {% endif %}
 
