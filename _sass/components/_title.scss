@@ -6,3 +6,23 @@
     font-size: 50px;
   }
 }
+
+.underline {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.underline:after {
+  border-bottom: 4px solid $primary;
+  bottom: -15px;
+  content: '';
+  left: 25%;
+  position: absolute;
+  right: 0;
+  top: -10px;
+  width: 50%;
+}

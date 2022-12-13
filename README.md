@@ -1,6 +1,6 @@
 # 《载歌在谷》志愿者社区官方网站
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c7624c6e88564a0988cb2a0dd82ebd85)](https://www.codacy.com/gh/zgzgorg/yj.zgzg.io/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zgzgorg/yj.zgzg.io&amp;utm_campaign=Badge_Grade)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/zgzgorg/yj.zgzg.io/main.svg)](https://results.pre-commit.ci/latest/github/zgzgorg/yj.zgzg.io/main)
@@ -37,7 +37,7 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 - `pages`：这里存放了每个页面的内容。每个页面都是一个单独的 Markdown 文本文档。在每个文件开头，有个符合 YAML 语法的区块，叫“[front matter](https://jekyllrb.com/docs/front-matter/)“，是会被 Jekyll 特殊处理的“元数据”（metadata）。元数据包括（显示在浏览器标签页卡片上的）标题、布局（layout）名称等。对于布局，大部分的页面都可以使用 `layout: page`（例如[《关于我们》](https://github.com/zgzgorg/yj.zgzg.io/blob/68c1e9f1d7072eda10a20c168512daa451b29a22/pages/about.md?plain=1#L3)、[《常见问题》](https://github.com/zgzgorg/yj.zgzg.io/blob/68c1e9f1d7072eda10a20c168512daa451b29a22/pages/faq.md?plain=1#L3)）。
 - `_data`：这里存放了任何需要被 enumerate （“枚举”/“罗列”/“用循环读出”）出来的信息。每个文件都是一个 YAML 文件。例如：
   - `data.yml`：定义了网站顶栏、底栏应该有哪些链接；我们有哪些伙伴社区、赞助商；春晚板块有哪些节目；歌手赛有哪些节目；云集板块有哪些栏目…… **这是最主要的、最杂的数据文件。** 当某个列表太大时，您也可以选择把它单独拆出来、成为一个单独的文件，就像下面两项这样👇
-  - `past-events.yml`：定义了[《往届活动》](https://www.zgzg.io/past-events/)页面的内容。
+  - `past-events.yml`：定义了[《往届回顾》](https://www.zgzg.io/past-events/)页面的内容。
   - `trailer-images.yml`：罗列了一些春晚宣传片的拍摄花絮照片。
 
 ⚠️ **注意**：本代码库虽然包含一个 `images` 文件夹，但它仅应该被用来存放 svg 等源代码格式的图片。若需要存放 jpg、png 等二进制格式的图片，请使用我们自己的 Cloudinary 服务。
@@ -117,6 +117,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/xubowenhaoren"><img src="https://avatars.githubusercontent.com/u/20229080?v=4?s=100" width="100px;" alt="Bowen Xu"/><br /><sub><b>Bowen Xu</b></sub></a><br /><a href="https://github.com/zgzgorg/yj.zgzg.io/commits?author=xubowenhaoren" title="Code">💻</a></td>
       <td align="center"><a href="https://github.com/rtq998916"><img src="https://avatars.githubusercontent.com/u/92650213?v=4?s=100" width="100px;" alt="rtq998916"/><br /><sub><b>rtq998916</b></sub></a><br /><a href="https://github.com/zgzgorg/yj.zgzg.io/commits?author=rtq998916" title="Code">💻</a></td>
       <td align="center"><a href="http://floraxue.github.io"><img src="https://avatars.githubusercontent.com/u/5152856?v=4?s=100" width="100px;" alt="Flora Xue"/><br /><sub><b>Flora Xue</b></sub></a><br /><a href="https://github.com/zgzgorg/yj.zgzg.io/commits?author=floraxue" title="Code">💻</a> <a href="https://github.com/zgzgorg/yj.zgzg.io/pulls?q=is%3Apr+reviewed-by%3Afloraxue" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center"><a href="https://github.com/ckt624"><img src="https://avatars.githubusercontent.com/u/13848196?v=4?s=100" width="100px;" alt="Kongtao Chen"/><br /><sub><b>Kongtao Chen</b></sub></a><br /><a href="https://github.com/zgzgorg/yj.zgzg.io/commits?author=ckt624" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

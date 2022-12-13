@@ -1,0 +1,81 @@
+.card-custom {
+  align-items: flex-start;
+  background-color: $white-offset;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  left: 16px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  top: 16px;
+  .card-image {
+    align-self: stretch;
+    display: flex;
+    flex: none;
+    flex-grow: 0;
+    margin-bottom: 20px;
+    order: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .card-title {
+    align-self: stretch;
+    flex: none;
+    flex-grow: 0;
+    font-family: 'Noto Sans SC';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 0;
+    order: 0;
+    text-align: center;
+  }
+
+  .card-description {
+    display: inline-block;
+    height: 78px;
+    padding: 0 30px;
+  }
+
+  .card-content {
+    align-items: center;
+    align-self: stretch;
+    background-color: $white-offset;
+    box-sizing: border-box;
+    color: $black;
+    flex: none;
+    font-family: 'Noto Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    list-style-position: inside;
+    order: 1;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}
+
+// For `.large-card`, see `.programme`.
+
+.small-card {
+  height: 436px;
+  width: 320px;
+  .small-card-image {
+    height: 160px;
+    width: 320px;
+  }
+
+  .small-card-title {
+    color: $primary;
+  }
+
+  .small-card-content {
+    flex-grow: 1;
+    font-size: 20px;
+    line-height: 32px;
+  }
+}

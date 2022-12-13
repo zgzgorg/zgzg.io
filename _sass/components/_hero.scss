@@ -1,30 +1,51 @@
 .hero {
-  background: url(https://res.cloudinary.com/zaigezaigu/image/upload/v1665641160/cld-sample-2.jpg);
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
   background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('https://res.cloudinary.com/zaigezaigu/image/upload/v1665641160/cld-sample-2.jpg');
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
   overflow: hidden;
 }
 
 .hero-content {
+  color: $white;
   margin-left: 160px;
   margin-right: 720px;
-  color: $white;
+
+  p {
+    color: $white;
+    a {
+      color: $white;
+    }
+  }
+
+  @media (max-width: 1199.98px) {
+    margin: auto 32px auto 32px;
+
+    h1 {
+      font-size: 36px;
+    }
+  }
 
   h1 {
-    margin: 0;
-    font-weight: 700;
     font-size: 48px;
+    font-weight: 700;
+    margin: 0;
+    a {
+      color: $white;
+    }
   }
 
   h2 {
-    margin: 24px 0 0 0;
-    font-weight: 700;
     font-size: 20px;
+    font-weight: 700;
+    margin: 24px 0 0 0;
+    a {
+      color: $white;
+    }
   }
 
   button {
@@ -32,22 +53,25 @@
   }
 
   #hero-divider {
-    margin: 32px 0 0 0;
     border-bottom: 4px solid $white;
+    margin: 32px 0 0 0;
   }
 
   h3 {
-    margin: 32px 0 0 0;
-    font-weight: 700;
     font-size: 20px;
+    font-weight: 700;
+    margin: 32px 0 0 0;
   }
 }
 
-.hero-short {
-  height: 480px;
+.hero-galatour {
+  background-image: url(' https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670563167/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%89%AA%E5%BD%B1/IMG_0779_idi6tx.jpg');
 }
 
-.hero-long {
-  height: 720px;
+.hero-singer {
+  background-image: url('https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670565567/zgzg-io-website/2022%20singers/DSC02710-2_bwjybv.jpg');
 }
 
+.hero-tour {
+  background-image: url('https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670565862/zgzg-io-website/%E5%BE%80%E5%B1%8A%E5%9B%9E%E9%A1%BE/R5A_5400_q5ja6y.jpg');
+}
