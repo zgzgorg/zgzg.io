@@ -158,17 +158,14 @@ sponsors:
       sponsor-elements:
         - name: Anna
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670308954/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Ivy_Zhang_and_Anna_Duan_Realty_Team_s3t45u.png
-          description: Ivy Zhang & Anna Duan 团队是Coldwell Banker全职资深Top地产经纪团队，是Top Agent Network的成员，交易过上百套房屋买卖，得到客户们Zillow 和Google 全五星好评，团队资源丰富，能在房屋买卖，贷款，投资，装修，出租，设计等方面提供给客户们全方位的服务和咨询。永远将客户的利益放在首位，根据客户的具体情况，需求和预算，帮助客人制定专属地产投资规划。
+          description: Ivy Zhang & Anna Duan 团队是 Coldwell Banker 全职资深 Top 地产经纪团队，是 Top Agent Network 的成员，交易过上百套房屋买卖，得到客户们 Zillow 和 Google 全五星好评。团队资源丰富，能在房屋买卖、贷款、投资、装修、出租、设计等方面提供给客户们全方位的服务和咨询。永远将客户的利益放在首位，根据客户的具体情况、需求和预算，帮助客人制定专属地产投资规划。
           website:
         - name: EDS
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670310255/zgzg-io-website/%E8%B5%9E%E5%8A%A9/EDS_Logo_black_mnrrkn.png
-          description: Enjoy Dance Studio 成立于2016年，是湾区最大的华人街舞工作室。我们的地点遍布南湾，半岛，东湾等地区。EDS为学生们提供高水平的KPOP，Hiphop，爵士，现代舞，机械舞，House，Locking，高跟鞋爵士等各类课程。特别于今年，我们开始扩展Hiphop宝宝班课程的投入和设计，受到的家长们的广泛好评。
+          image: /images/eds.svg
+          description: Enjoy Dance Studio 成立于 2016 年，是湾区最大的华人街舞工作室。我们的地点遍布南湾、半岛、东湾等地区。EDS 为学生们提供高水平的 k-pop、hip-hop、爵士、现代舞、机械舞、house、locking、高跟鞋爵士等各类课程。特别于今年，我们开始扩展 hip-hop 宝宝班课程的投入和设计，受到家长们的广泛好评。
         - name: Lusso
           image: https://res.cloudinary.com/zaigezaigu/image/upload/v1670309781/zgzg-io-website/%E8%B5%9E%E5%8A%A9/lusso_logo_daqkws.jpg
-          description: Lusso成立于2017年，由一批有情怀，具有创新精神的建筑、设计行业专业人士所创建。Lusso坐落于矽谷的中心，拥有12000平方尺的展厅。 Lusso品牌专注于高端全定制橱柜设计，高端欧橡地板和现代欧式瓷砖。
-        - name: Yami
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480747/zgzg-io-website/%E8%B5%9E%E5%8A%A9/yami1_s7icau.jpg
-          description: 待确定
+          description: Lusso 成立于 2017 年，由一批有情怀、具有创新精神的建筑、设计行业专业人士创建。Lusso 坐落于矽谷的中心，拥有12,000平方尺的展厅。 Lusso 品牌专注于高端全定制橱柜设计、高端欧橡地板和现代欧式瓷砖。
 
     - level-name: gold
       level-heading: 金牌赞助
@@ -176,25 +173,22 @@ sponsors:
       sponsor-elements:
         - name: Steve Chen
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/c_scale,q_80,w_200/v1638483572/zgzg-io-website/Steve_Chen_%E7%9B%B4%E6%92%AD%E5%8F%8A%E5%BE%AE%E4%BF%A1%E7%BE%A4logo_kbn5in.jpg
-          description: Steve 作为资深房屋贷款顾问及销售经理，服务在湾区享有极好口碑。他的专长包括 Relocation Loan，涉及 RSU 收入及海外资产的贷款。最近十年 Steve 连续荣获富国银行房贷最高荣誉 President’s Club Member 头衔
+          description: Steve 作为资深房屋贷款顾问及销售经理，服务在湾区享有极好口碑。他的专长包括 Relocation Loan，涉及 RSU 收入及海外资产的贷款。最近十年 Steve 连续荣获富国银行房贷最高荣誉 President’s Club Member 头衔。
         - name: 红叶故事
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/c_pad,h_224,w_224/v1636691899/zgzg-io-website/b5dcJAY_dd9ixh.png
-          description: 红叶故事是北美最大的交友平台，全球超过100万用户。用红叶手机APP，你可以直接和对方视频和语音聊天，也可以发送图片和语音。独家的“真心话”测试，可以精准地计算你们之间性格匹配度。红叶也有自己的朋友圈。可以晒生活，晒品味。也可以查看周围小伙伴的日常。朋友圈评论或点赞等互动功能让你分分钟就能和陌生人打开话题。比较害羞，不想让熟人看到？红叶贴心地提供了隐身功能，让你的照片资料只展示给指定用户。
+          description: 红叶故事是北美最大的交友平台，全球超过 100 万用户。用红叶手机 app，你可以直接和对方视频和语音聊天，也可以发送图片和语音。独家的“真心话”测试，可以精准地计算你们之间的性格匹配度。红叶也有自己的朋友圈。可以晒生活、晒品味，也可以查看周围小伙伴的日常。朋友圈评论或点赞等互动功能让你分分钟就能和陌生人打开话题。比较害羞、不想让熟人看到？红叶贴心地提供了隐身功能，让你的照片资料只展示给指定用户。
         - name: Robinland
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480775/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Robinland_logo2_ikkfxd.png
-          description: Robinland 是去中心化金融与传统金融之间的桥梁,旨在降低房地产投资⻔槛,让大众能享受到机构投资者才能获得的收益。
-        - name: 528 剧本杀
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670481606/zgzg-io-website/%E8%B5%9E%E5%8A%A9/528_app_icon1_golpgj.jpg
-          description: 待确定
+          description: Robinland 是去中心化金融与传统金融之间的桥梁，旨在降低房地产投资⻔槛，让普罗大众能享受到机构投资者才能获得的收益。
 
     - level-name: food
       level-heading: 餐饮赞助
       elements-div-style-id: last-row-partners
       elements-div-style-class: col-6 col-lg-3 mb-1 food-sponsor
       sponsor-elements:
-        - name: helion一番膳意
+        - name: helion 一番膳意
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480731/zgzg-io-website/%E8%B5%9E%E5%8A%A9/helion%E4%B8%80%E7%95%AA%E8%86%B3%E6%84%8F_vfky2d.png
-          description: 【一番膳意】是解放双手的首选! 经名厨精心炮制，用野生三文鱼或金枪鱼，零添加。可口、营养又方便，加热90秒即可食用! 不管是工作午餐、加班，还是周末宅家，【一番膳意】带给你“食材讲究，一点也不将就”的一餐
+          description: 一番膳意是解放双手的首选！经名厨精心炮制，用野生三文鱼或金枪鱼，零添加。可口、营养又方便，加热90秒即可食用！不管是工作午餐、加班，还是周末宅家，一番膳意带给你“食材讲究，一点也不将就”的一餐。
 
     - level-name: media
       level-heading: 媒体合作
