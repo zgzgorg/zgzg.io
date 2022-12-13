@@ -66,7 +66,10 @@
 
   h1 + p {
     margin-top: 24px;
-    margin-bottom: 68px;
+  }
+
+  #hero-divider + p {
+    margin-top: 32px;
   }
 }
 
