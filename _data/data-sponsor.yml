@@ -157,22 +157,27 @@ sponsors:
       elements-div-style-class: col-6 col-lg-3 mb-1
       sponsor-elements:
         - name: Anna
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670308954/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Ivy_Zhang_and_Anna_Duan_Realty_Team_s3t45u.png
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671080169/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Ivy_Zhang_and_Anna_Duan_Realty_Team_1_1_qfcp4j.png
           description: Ivy Zhang & Anna Duan 团队是 Coldwell Banker 全职资深 Top 地产经纪团队，是 Top Agent Network 的成员，交易过上百套房屋买卖，得到客户们 Zillow 和 Google 全五星好评。团队资源丰富，能在房屋买卖、贷款、投资、装修、出租、设计等方面提供给客户们全方位的服务和咨询。永远将客户的利益放在首位，根据客户的具体情况、需求和预算，帮助客人制定专属地产投资规划。
           website:
         - name: EDS
           image: /images/eds.svg
           description: Enjoy Dance Studio 成立于 2016 年，是湾区最大的华人街舞工作室。我们的地点遍布南湾、半岛、东湾等地区。EDS 为学生们提供高水平的 k-pop、hip-hop、爵士、现代舞、机械舞、house、locking、高跟鞋爵士等各类课程。特别于今年，我们开始扩展 hip-hop 宝宝班课程的投入和设计，受到家长们的广泛好评。
         - name: Lusso
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/v1670309781/zgzg-io-website/%E8%B5%9E%E5%8A%A9/lusso_logo_daqkws.jpg
-          description: Lusso 成立于 2017 年，由一批有情怀、具有创新精神的建筑、设计行业专业人士创建。Lusso 坐落于矽谷的中心，拥有12,000平方尺的展厅。 Lusso 品牌专注于高端全定制橱柜设计、高端欧橡地板和现代欧式瓷砖。
-
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671073621/zgzg-io-website/%E8%B5%9E%E5%8A%A9/lusso_logo_gtmb1f.png
+          description: Lusso 成立于 2017 年，由一批有情怀、具有创新精神的建筑、设计行业专业人士创建。Lusso 坐落于矽谷的中心，拥有 12,000 平方尺的展厅。 Lusso 品牌专注于高端全定制橱柜设计、高端欧橡地板和现代欧式瓷砖。
+        - name: Yami
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671079564/zgzg-io-website/%E8%B5%9E%E5%8A%A9/d665113a07ce78d72928b0b67a254482_0x0_cekjdb.png
+          description: 亚米是北美最大亚洲商品购物平台，网站于 2013 年 3 月上线，主营最具特色的亚洲商品，涵盖食品、美妆、养生、电器、图书等类别。经过近几年的飞速发展，亚米在北美华人圈建立了良好的品牌形象，成为北美华人线上购物的首选。
+        - name: 新东方比邻
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671156291/zgzg-io-website/%E8%B5%9E%E5%8A%A9/xdf%E6%AF%94%E9%82%BB_zamwyt.png
+          description: “新东方比邻”是新东方教育科技集团旗下独资子公司，专为中国学生提高国际综合能力与文化素养，通过独立研发和引进科创、阅读、演讲、戏剧等综合性国际化素养课程，让中国孩子通过互联网提升国际对接力，讲好中国故事。
     - level-name: gold
       level-heading: 金牌赞助
       elements-div-style-class: col-6 col-lg-3 mb-1 gold-sponsor
       sponsor-elements:
         - name: Steve Chen
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/c_scale,q_80,w_200/v1638483572/zgzg-io-website/Steve_Chen_%E7%9B%B4%E6%92%AD%E5%8F%8A%E5%BE%AE%E4%BF%A1%E7%BE%A4logo_kbn5in.jpg
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670217971/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Steven_Chen_sq_vmjs70.png
           description: Steve 作为资深房屋贷款顾问及销售经理，服务在湾区享有极好口碑。他的专长包括 Relocation Loan，涉及 RSU 收入及海外资产的贷款。最近十年 Steve 连续荣获富国银行房贷最高荣誉 President’s Club Member 头衔。
         - name: 红叶故事
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/c_pad,h_224,w_224/v1636691899/zgzg-io-website/b5dcJAY_dd9ixh.png
@@ -188,29 +193,38 @@ sponsors:
       sponsor-elements:
         - name: helion 一番膳意
           image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480731/zgzg-io-website/%E8%B5%9E%E5%8A%A9/helion%E4%B8%80%E7%95%AA%E8%86%B3%E6%84%8F_vfky2d.png
-          description: 一番膳意是解放双手的首选！经名厨精心炮制，用野生三文鱼或金枪鱼，零添加。可口、营养又方便，加热90秒即可食用！不管是工作午餐、加班，还是周末宅家，一番膳意带给你“食材讲究，一点也不将就”的一餐。
+          description: 一番膳意是解放双手的首选！经名厨精心炮制，用野生三文鱼或金枪鱼，零添加。可口、营养又方便，加热 90 秒即可食用！不管是工作午餐、加班，还是周末宅家，一番膳意带给你“食材讲究，一点也不将就”的一餐。
 
     - level-name: media
       level-heading: 媒体合作
       elements-div-style-id: last-row-partners
       elements-div-style-class: col-4 col-lg-3 mb-1
       sponsor-elements:
-        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480771/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E7%A1%85%E6%98%9F%E4%BA%BA_logo_vmnhqz.jpg
-        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480767/zgzg-io-website/%E8%B5%9E%E5%8A%A9/USChitu_Logo_z0idzb.jpg
+        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671074829/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E7%A1%85%E6%98%9F%E4%BA%BA_logo_vkv2lk.png
+        - image: /images/cthm.svg
         - name: 北美新浪
-          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1639787253/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/unnamed_xkujck.jpg
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480687/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E5%8C%97%E7%BE%8E%E6%96%B0%E6%B5%AALOGO_je77xx.png
           description: 新浪微博是中国最大的社交媒体之一，用户平均每天发布超过1亿条微博内容。由于信息传播高效性和广泛性，很多新鲜事物或热点事件通过微博得到广泛认知和关注。
           website-name: 北美新浪
           website: https://www.weibo.com/sinaus
-        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480762/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E9%9D%9E%E9%B1%BC%E5%89%A7%E7%A4%BElogo_bkmc8k.jpg
+        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671074830/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E9%9D%9E%E9%B1%BC%E5%89%A7%E7%A4%BElogo_zityrq.png
         - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480733/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E7%BE%8E%E5%9B%BD%E4%B8%AD%E6%96%87%E7%94%B5%E5%8F%B0logo_hto07x.png
-        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480625/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Copy_of_%E7%A1%85%E8%B0%B7%E8%84%B1%E5%8F%A3%E7%A7%80_%E7%94%BB%E6%9D%BF_1_cueiyc.png
         - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670480625/zgzg-io-website/%E8%B5%9E%E5%8A%A9/Cathy_logo_gu1zx2.png
-        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/c_pad,h_224,w_224/v1636691899/zgzg-io-website/b5dcJAY_dd9ixh.png
+        - image: /images/ggtkx.svg
+        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670217975/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E7%BA%A2%E5%8F%B6%E6%95%85%E4%BA%8B_ykfnpr.png
+        - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671081216/zgzg-io-website/%E8%B5%9E%E5%8A%A9/%E5%90%83%E8%B4%A7%E5%B0%8F%E5%88%86%E9%98%9F_%E9%80%8F%E6%98%8E%E8%83%8C%E6%99%AF_uojg7o.png
 
     - level-name: others
       level-heading: 合作伙伴
       elements-div-style-id: last-row-partners
       elements-div-style-class: col-4 col-lg-3 mb-1 partner-sponsor
       sponsor-elements:
+        - name: 528 剧本杀
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1671073620/zgzg-io-website/%E8%B5%9E%E5%8A%A9/528_app_icon1_eboba2.png
+          description: 528 entertainment SJ是一家“好玩”的店，湾区娱乐的风向标。我们有剧本杀、桌游、泡泡玛特盲盒，手工 workshop（Tufting，流体熊/画，即将上线的奶油胶），可承接公司团建。
 
+        - name: Uphonest
+          image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670217981/zgzg-io-website/%E8%B5%9E%E5%8A%A9/UpHonest_Capital_pnhiyf.png
+          description: "UpHonest Capital 威诚资本成立于2015年，由硅谷知名投资人郭威创立，以全球化视角，专注投资硅谷和中国的早期优质初创企业。成立至今，机构累计投资超过 400 家初创企业，30 个独角兽项目。知名案例包括 Hims&Hers (NYSE:HIMS)、Vicarious Surgical (NYSE:RBOT)、Knightscope (NASDAQ: KSCP)、\
+                        SCOUT (ASX：SCT.AU)、Instacart、Grubmarket、Lime、Checkr、Rippling、Dialpad、Boom Supersonic、Ironclad、Rescale 等。UpHonest Capital 立足跨境创新，通过运营旗下拥有 10w+ 影响力的科技自媒体、国际化孵化加速平台、覆盖硅谷科技人才的智库与活跃的创业者社群等多元业态，深耕早期孵\
+                          化投资，构建了独特且完善的早期跨境投资生态，赋能未来创变者。"
