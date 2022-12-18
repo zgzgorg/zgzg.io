@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row">
-        <h1>节目表</h1>
+        <div class="col pb-3 text-center">
+            <h1 class="underline">节目介绍</h1>
+        </div>
     </div>
     <div class="row row-cols-1 row-cols-lg-2">
         {% for item in site.data.data.galalist %}
@@ -10,7 +12,7 @@
                 <div class="galalist-pic me-1" style="background-image: url({{ item.image }})"></div>
               </div>
               <div class="flex-grow-1 ms-1 overflow-auto">
-                    <span class="badge rounded-pill text-bg-primary"> {{ item.type }} </span>
+                    <span class="show-type"> {{ item.type }} </span>
                     <h3> {{ item.title }} </h3>
                     <p class="galalist-description">{{ item.description }}</p>
               </div>
