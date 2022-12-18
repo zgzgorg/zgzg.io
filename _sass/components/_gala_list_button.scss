@@ -24,7 +24,7 @@
 
 .gala-list-text::before {
   content: '';
-  height: calc(100% - 24px);
+  height: calc(100% - 20px);
   float: right;
 }
 
@@ -34,14 +34,14 @@
   height: 999vw;
   position: absolute;
   box-shadow: inset calc(100px - 999vw) calc(80px - 999vw) 0 0 #fff;
-  margin-left: -100px;
+  margin-left: -110px;
 }
 
 .gala-list-btn{
   float: right;
   clear: both;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 20px;
   border-radius: 4px;
   color:  $primary;
   text-decoration: underline;
