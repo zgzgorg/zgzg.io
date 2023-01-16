@@ -538,17 +538,13 @@ p.black-p {
     max-width: 700pxš
 }
 
-@media (min-width: 992px){
    .footer .col-12.col-lg-8.px-2.px-md-0{
     flex: 0 0 auto;
     width: 50%;
-
-}}
-
-@media (min-width: 992px){
+   }
     .footer .col-12.col-lg-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
     margin-left: 10%;
     margin-top: 6%;
-}}
+   }
