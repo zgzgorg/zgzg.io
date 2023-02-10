@@ -27,3 +27,8 @@ permalink: /about/
 ![](https://res.cloudinary.com/xinbenlv/image/upload/v1630469810/zgzg/front-page_about-photo.png)
 
 [^1]: 另请参考我们的[发展历史](/history/)及[常见问题解答](/faq/)。
+
+
+<div style="visibility: hidden;" id="carousel">
+    {% include carousel.html height="50" unit="%" duration="7" number="1" %}
+</div>
