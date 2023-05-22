@@ -1,5 +1,5 @@
 ---
-image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670296924/zgzg-io-website/%E6%88%90%E4%B8%BA%E5%BF%97%E6%84%BF%E8%80%85/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221030103509_zsklmr.jpg
+image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670299953/zgzg-io-website/%E4%BA%91%E9%9B%86/%E4%BA%91%E9%9B%86%EF%BC%9A%E6%97%A5%E5%B8%B8%E6%B4%BB%E5%8A%A8/1_fivcxb_ostgwp.png
 ---
 
 ### 一饱演福
