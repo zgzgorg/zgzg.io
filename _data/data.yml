@@ -544,15 +544,15 @@ singerlist:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1687243342/zgzg-io-website/2023%E6%AD%8C%E6%89%8B%E8%B5%9B/bin_cs9mvh.jpg
     name: Binbin
     description: 小时候，音乐是我的导师，我踉踉跄跄的跟着大合唱团吼出一首首稚嫩的童谣。考学时，音乐是我的偶像，被题海压垮的我，总能瞬间逃进CD里，当个五分钟的小歌迷。成人后，音乐是我的密友，夜间的一首简单恬静的乐曲，就能治愈我偶尔疲惫的身心。我是Binbin，一个乐于享受和分享音乐的人。
+  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1687279658/zgzg-io-website/2023%E6%AD%8C%E6%89%8B%E8%B5%9B/yang_tb0pp6.png
+    name: Mike杨皓翔
+    description: 说唱爱好者，Stanford Sing++ 阿卡贝拉团成员
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1687243336/zgzg-io-website/2023%E6%AD%8C%E6%89%8B%E8%B5%9B/patrick_rti2wb.jpg
     name: Patrick
     description: 大家好！我是Patrick，在美国出生长大的华裔。白天是一名热衷于科技的工作者，晚上则是一名热爱歌唱的梦想家。你常常可以发现我在和朋友们一起创作旋律，或者用Google Translate来掩盖我糟糕的中文水平。期待与大家一起玩得开心！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1687243406/zgzg-io-website/2023%E6%AD%8C%E6%89%8B%E8%B5%9B/gong_olqzug.jpg
     name: Nikki Gong
     description: 大家好，我是Nikki。不喜欢冥想的女高音不是一个好数据科学家 静如处子，动如逗逼的一只脱兔 喜爱自然，阳光；喜欢简单，纯粹 希望通过歌声把欢乐和温暖带给更多的人
-  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1687279658/zgzg-io-website/2023%E6%AD%8C%E6%89%8B%E8%B5%9B/yang_tb0pp6.png
-    name: Mike杨皓翔
-    description: 说唱爱好者，Stanford Sing++ 阿卡贝拉团成员
 
 galatour_picture_tradition:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089337/zgzg-io-website/2022-游园/书法_zg2rig.jpg
