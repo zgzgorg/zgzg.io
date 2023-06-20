@@ -1,6 +1,8 @@
 main:
   - name: "主页"
     url: "/"
+  - name: "志愿者入门"
+    url: "https://zgzg.li/onboard"
   - name: "近期活动"
     items:
     - name: "2023 春晚"
