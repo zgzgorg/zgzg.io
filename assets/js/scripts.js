@@ -58,7 +58,8 @@ if (currentUrl.includes('/english/')) {
   menuContWeb.children[0].children[5].children[0].textContent = 'About Us';
   // 活动购票
   menuContWeb.children[0].children[8].children[0].textContent = 'Tickets';
-} else{
+}
+else{
   const chineseLink = menuContWeb.children[0].children[7];
   // hide chinese link
   chineseLink.style.display = 'none';
