@@ -25,6 +25,32 @@
   }
 }
 
+.button_w {
+  -webkit-transition: all 0.15s ease;
+  background: #fff;
+  border-radius: 4px;
+  color: $primary;
+  display: inline-block;
+  //box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  font-weight: normal;
+  height: 40px;
+  letter-spacing: 0.025em;
+  line-height: 40px;
+  padding: 0 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  &:hover {
+    background-color: darken(#fff, 10%);
+    color: #fff;
+    text-decoration: none;
+    //box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
 .btn:disabled {
   border: 0;
 }
