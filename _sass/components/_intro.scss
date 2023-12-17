@@ -58,21 +58,37 @@
     line-height: 32px;
   }
 
+  .custom-header-style {
+    color: darken($primary, 10%);
+  }
+
   .custom-text-style {
-    color: darken($primary, 20%);
-    font-weight: 700;
-    line-height: 32px;
+    .b {
+      font-weight: 5000;
+    }
+    color: darken($primary, 10%);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
   }
 
   .home-section-content {
     margin: auto;
-    width: 60%;
+    width: 85%;
   }
 
   .home-section-content_top {
     margin: auto;
     width: 85%;
     font-size: 20px;
+    .row {
+      .col {
+        width: 60%
+      }
+      .col_2 {
+        width: 20%
+      }
+    }
   }
 }
 
