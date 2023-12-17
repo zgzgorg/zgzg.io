@@ -33,7 +33,7 @@
   color: #fff;
   display: inline-block;
   //box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: normal;
   height: 50px;
   width: 140px;
@@ -45,6 +45,7 @@
   text-align: center;
   transition: all 0.15s ease;
   white-space: nowrap;
+  margin: 5px 0px 5px 20px;
   &:hover {
     background-color: lighten($primary, 10%);
     color: #fff;
@@ -62,7 +63,7 @@
   color: $primary;
   display: inline-block;
   //box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: normal;
   height: 50px;
   width: 140px;
@@ -74,6 +75,7 @@
   text-align: center;
   transition: all 0.15s ease;
   white-space: nowrap;
+  margin: 5px 0px 5px 20px;
   &:hover {
     background-color: darken(#fff, 10%);
     color: $primary;

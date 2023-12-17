@@ -58,7 +58,7 @@
     line-height: 32px;
   }
 
-  .custom-header-style {
+  .header-color-darkenred {
     color: darken($primary, 10%);
   }
 
@@ -74,19 +74,19 @@
 
   .home-section-content {
     margin: auto;
-    width: 85%;
+    width: 60%;
   }
 
   .home-section-content_top {
     margin: auto;
-    width: 85%;
+    width: 80%;
     font-size: 20px;
     .row {
       .col {
-        width: 60%
+        width: 50%
       }
       .col_2 {
-        width: 20%
+        width: 50%
       }
     }
   }
