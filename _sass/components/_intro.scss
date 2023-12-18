@@ -90,6 +90,12 @@
       }
     }
   }
+
+  @media (max-width: 720px) {
+    .home-section-content_top {
+      width: 80vw; /*this makes the container take 80% of the viewport's width*/
+    }
+  }
 }
 
 .pb-large {
