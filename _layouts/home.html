@@ -22,47 +22,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="intro">
   <div class="container-fluid">
     {% include sponsor-ad-banner.html %}
-    <div class="container">
-      <div class="row justify-content-end p-0 py-md-3 py-md-8">
-        <div id="content" class="col-12 col-md-7 col-lg-5 p-3 p-md-3 p-lg-6 content-singer-background">
-          <a onclick="return false;" target="_blank" href="javascript:void(0)" style="color: #ffffff;">
-            <h2>2024“万事兴龙”春晚与游园会筹备中！</h2>
-          </a>
-          <p class="mb-1 mt-2">
-            湾区最有年味，最有趣味的龙年春晚<br>
-            即将掀起一场无与伦比的大狂欢！<br>
-          </p>
-          <p>
-            不仅有精彩的演出，惊喜的嘉宾<br>
-            更有您的机会成为舞台的主角！<br><br>
-            演出时间：2024年1月20日<br>
-          </p>
-          <div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 10px">
-            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: flex-end; gap: 5px 10px;">
-              <!-- <a target="_blank" href="https://www.eventbrite.com/e/2023-tickets-661472922317?aff=ebdssbdestsearch">
-                <button type="button" class="btn btn-light btn-primary btn-sm btn-singer">点击购票</button>
-              </a> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
+
   </div>
 </div>
 
 <div class="strip">
-  <div class="container">
-      <div class="home-section-header pb-large">
-        <h2 class="underline">关于 “载歌在谷”</h2>
-        <p class="py-1"></p>
-        <div class="home-section-content">
-          <p class="py-2">“载歌在谷”社区是一个以硅谷高科技华人从业者为主要贡献者的非盈利组织。“载歌在谷”社区旨在丰富硅谷华人的文化生活、弘扬中华文化。社区以文艺活动为主要载体，如“载歌在谷”春节晚会。</p>
-          <b>春晚YouTube直播链接: </b><a href="https://zgzg.link/2023-live"><u>zgzg.link/2023-live</u></a><br>
-          <br>
-        </div>
-        <div class="text-center">
-          <iframe class="video" src="https://www.youtube.com/embed/MHJdObJ79To" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>        </div>
+  <div class="container pb-4 pt-5">
+    {% include galaInfo.html %}
+  </div>
+</div>
+
+<div class="strip">
+  <div class="container pt-1 pb-3">
+    <div class="home-section-header pt-5">
+      <h2 class="underline">关于 “载歌在谷”</h2>
+      <div class="home-section-content pt-3">
+        <p>载歌在谷社区是一个以硅谷高科技华人从业者为主要贡献者，以文艺文化活动为载体，旨在促进贡献者的快乐、友谊和成长的社区。</p>
+        <p>源自2015年的谷歌内部春晚，“载歌在谷"社区于2017年起走出谷歌、成为面向整个硅谷和旧金山湾区的独立的非盈利社区。</p>
       </div>
+    </div>
   </div>
 </div>
 
@@ -82,12 +61,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% endif %}
 
 <div class="strip">
-  <div class="container pb-6 pb-md-6" id="yj">
-
+  <div class="container pt-1 pb-6 pb-md-6" id="yj">
     <div class="home-section-header pb-small">
-      <h2 class="underline">“云集”系列栏目</h2>
+      <h2 class="underline">云集社团</h2>
       <div class="home-section-content">
-        <p class="py-2">载歌在谷社区孵化了许多群体，常年举办各种活动。快来参加吧！</p>
+        <p class="py-2">载歌在谷社区孵化了许多兴趣社团，常年举办各种活动。快来参加吧！</p>
       </div>
     </div>
 
@@ -105,9 +83,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="strip">
-  <div class="container" id="friends">
-
-    <div class="home-section-header pb-small">
+  <div class="container pb-5 pt-6" id="friends">
+    <div class="home-section-header">
       <h2 class="underline">伙伴社区</h2>
       <div class="home-section-content">
         <p class="py-2">湾区其他以华人为主的非盈利组织。</p>
@@ -116,29 +93,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="row justify-content-start">
       {% for friend in site.data.data.friends %}
-      <div class="col-6 col-md-4 col-lg-3 mb-5 pl-3 pr-3">
-        <div class="friend friend-summary">
-          <div class="friend-content">
-            {% if friend.image %}
-            <div class="friend-image">
-              <a href="{{ friend.website }}">
-                <img alt="{{ friend.name }}" src="{{ friend.image }}" />
-              </a>
-            </div>
-            {% endif %}
-            <a href="{{ friend.website }}">
-              <h3>{{ friend.name }}</h3>
-            </a>
-            <div class="friend-content">
-              <p class="friend-description">{{ friend.description }}</p>
-              {% if friend.contact.size > 0 %}
-              {% for contact in friend.contact %}
-              {{ contact | markdownify }}
-              {% endfor %}
-              {% endif %}
-            </div>
-          </div>
-        </div>
+      <div class="col-6">
+        {% include friends.html %}
       </div>
       {% endfor %}
     </div>
