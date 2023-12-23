@@ -35,12 +35,13 @@ layout: default
 <!-- Tab links -->
 <div class="tab">
     <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="about-gala">关于春晚</button>
-    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="show-and-host-signup">节目介绍</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="shows-info">节目介绍</button>
     <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="gala-day">春晚当天</button>
     <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="buy-ticket">活动购票</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="ytVideos">往年视频</button>
 </div>
 <div id="about-gala" class="tab-content">
-    <div class="container pt-6 pb-3">
+    <div class="container pt-3 pb-6">
         <div class="row">
             <div class="col pb-3 text-center">
                 <h1 class="underline">关于 载歌在谷 春晚</h1>
@@ -67,14 +68,14 @@ layout: default
     </div>
 </div>
 <div id="shows-info" class="tab-content">
-    <div class="container pt-3 pb-3 pt-md-3 pb-md-3">
+    <div class="container pt-3 pb-6 pt-md-3 pb-md-6">
 <!--        <img style="display: block; margin-left: auto; margin-right: auto; width: 160px;" src="https://res.cloudinary.com/zaigezaigu/image/upload/v1670297802/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/e6cae4eea00ebcc78f46d37aef65e1c_hshqnm.png" />-->
 <!--        <p class="pt-6" style="font-size: 24px; color: #949494;">2023年春晚正在精心筹备中，更多详情敬请期待！</p>-->
         {% include galalist.html %}
     </div>
 </div>
 <div id="gala-day" class="tab-content">
-    <div class="container pt-3 pb-3 pt-md-3 pb-md-3">
+    <div class="container pt-3 pb-6 pt-md-3 pb-md-6">
         <div class="row">
             <div class="col pb-3 text-center">
                 <h1 class="underline">春晚当天</h1>
@@ -105,8 +106,8 @@ layout: default
     </div>
 </div>
 <div id="buy-ticket" class="tab-content">
-    <div class="container pt-3 pb-3 pt-md-3 pb-md-3">
-        <div class="row pt-3">
+    <div class="container pt-3 pb-3 pt-md-6 pb-md-6">
+        <div class="row">
             <div class="col pb-3 text-center">
                 <h1 class="underline">活动购票&常见问题</h1>
             </div>
@@ -155,14 +156,13 @@ layout: default
         </div>
     </div>  
 </div>
-<div id="ytVideos" class="tab-content pb-3 pt-3">
-    <div class="row">
-        <div class="col pb-3 text-center">
-            <h1 class="underline">往年视频</h1>
+<div id="ytVideos" class="tab-content">
+    <div class="container pt-3 pb-6 pt-md-3 pb-md-6">
+        <div class="row">
+            <div class="col pb-3 text-center">
+                <h1 class="underline">往年视频</h1>
+            </div>
         </div>
-    </div>
-    <div class="container text-center">
-
         <div id="ytCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
 
@@ -182,8 +182,7 @@ layout: default
             <a class="carousel-control-next" href="#ytCarousel" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
             </a>
-          </div>
-        
+        </div>
     </div>
 </div>
 
