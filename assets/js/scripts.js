@@ -11,6 +11,7 @@ menuTrigger.onclick = function() {
   body.classList.toggle('lock-scroll');
 };
 
+/* func to switch tab in gala page*/
 function openTab(evt) {
   const tabContents = document.getElementsByClassName('tab-content');
   for (const tabContent of tabContents) {
