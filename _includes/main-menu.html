@@ -6,7 +6,10 @@
     {% for item in mainmenu %}
       {% if item.icon %}
         <li class="{% if item.url == page.url %}active{% endif %}">
-          <a href="{{ item.url | relative_url }}" class="material-icons">language</a>
+          <a href="{{ item.url | relative_url }}">
+            <span class="material-icons">language</span>
+            <span>{{item.name}}</span>
+          </a>
         </li>
       {% else %}
         {% if item.url %}
