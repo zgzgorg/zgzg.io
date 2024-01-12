@@ -102,7 +102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div>Cell: {{sponsor.cell}}</div>
           {% endif %}
           {% if sponsor.email %}
-            <div>Email: {{sponsor.email}}</div>
+            <div>Email: <a href="mailto:{{sponsor.email}}">{{sponsor.email}}</a></div>
           {% endif %}
           {% if sponsor.website %}
             <div><a href="{{sponsor.website}}">{{sponsor.website}}</a></div>
