@@ -1,13 +1,12 @@
 .hero {
-  align-items: center;
-  background-blend-mode: multiply;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-image: url('https://res.cloudinary.com/zaigezaigu/image/upload/v1665641160/cld-sample-2.jpg');
-  background-position: center;
-  background-size: cover;
+  min-height: 400px;
+  color: $white;
   display: flex;
   justify-content: flex-start;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;  
 }
 
 .hero-content {

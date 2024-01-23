@@ -1,16 +1,12 @@
 .row.gala-text-grid {
-  @media (min-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-  }
-  @media (max-width: 1199.98px) {
-    margin-left: 2px;
-    margin-right: 2px;
-  }
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .col.gala-text-grid {
+  @media screen and (max-width: 540px) {
+    font-size: 24px;
+  }
   color: $primary;
   font-size: 36px;
   font-weight: bold;
@@ -18,7 +14,7 @@
 }
 
 .col.gala-text-grid-content {
-  color: $black;
+  color: $primary;
   font-weight: bold;
   text-align: center;
 }
@@ -95,4 +91,27 @@
 
 .show-type {
   color: $primary;
+}
+
+.wrapper_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  //grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1;
+  grid-row-start: span 2;
+}
+.two {
+  .h3 {
+    font-weight: bold;
+  }
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 2;
+  grid-row: 2;
 }
