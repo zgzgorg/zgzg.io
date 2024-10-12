@@ -904,38 +904,59 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
   <script>
     function drag1(elt) {
       var dc = document.getElementById('drawer-content');
-      var pos1=0, pos2=0, pos3=0, pos4=0;
       var mx0, my0, height0, classname0;
-      elt.onmousedown = drag1MouseDown;
+      elt.onmousedown  = drag1MouseDown;
+      elt.ontouchstart = drag1MouseDown;
       function drag1MouseDown(e) {
-        e.stopPropagation();
+        // 只有点到drawer本身，而且不可是其上面的内容时，才触发拖拽操作，否则停止
+        if (e.target.id != 'drawerTabGroup' &&
+            e.target.id != 'drawer' &&
+            e.target.id != 'drawer-slider-container' &&
+            e.target.id != 'drawer-content' &&
+            e.target.id != 'drawerTab0' &&
+            e.target.id != 'drawerTab1' &&
+            e.target.id != 'drawerTab2'
+        ) {
+          return;
+        }
         height0 = parseInt(dc.offsetHeight);
-        console.log("height0=" + height0);
         e = e || window.event;
-        e.preventDefault();
+        if (e.target.id != 'drawerTab0' &&
+            e.target.id != 'drawerTab1' &&
+            e.target.id != 'drawerTab2') {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+
+        if (e.touches && e.touches.length === 1) {
+          e = e.touches.item(0);
+        }
         mx0 = e.clientX;
         my0 = e.clientY;
-        classname0 = e.className;
         dc.className = "";
         dc.style.height = height0 + "px";
         document.onmouseup = endDrag1Element;
+        elt.ontouchend = endDrag1Element;
+        elt.ontouchcancel = endDrag1Element;
         document.onmousemove = elementDrag1;
+        elt.ontouchmove = elementDrag1;
       }
       function elementDrag1(e) {
         e = e || window.event;
         e.preventDefault();
+        if (e.touches && e.touches.length === 1) {
+          e = e.touches.item(0);
+        }
         const dx0 = e.clientX - mx0, dy0 = e.clientY - my0;
         dc.style.height = (- dy0 + height0) + "px";
-        // set the element's new position:
-        // elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
       }
       function endDrag1Element(e) {
         document.onmouseup = null;
         document.onmousemove = null;
-        const dx0 = e.clientX - mx0, dy0 = e.clientY - my0;
-        const h = parseInt(- dy0 + height0);
-        console.log(h);
+        elt.ontouchend = null;
+        elt.ontouchcancel = null;
+        elt.ontouchmove = null;
+        const h = dc.offsetHeight;
         if (h > 250) {
           dc.classList = 'drawer-open';
         } else {
@@ -968,6 +989,7 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
  //   drawerEle.onclick = drawerSliderEle.onclick;
     drag1(drawerTabGroupEle);
     drag1(drawerSliderContainerEle);
+    drag1(drawerEle);
   </script>
 
   <!-- 顶层切换tab -->
