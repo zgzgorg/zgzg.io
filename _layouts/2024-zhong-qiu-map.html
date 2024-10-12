@@ -89,7 +89,6 @@
 
       #drawer-content {
         animation-fill-mode: forwards;
-        height: 100px;
         /* width: 100vw; */
       }
 
@@ -98,38 +97,19 @@
       }
 
       .drawer-open {
-        animation-name: slideUp;
-
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
+        height: 500px;
+        transition-property: height;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
       }
 
       .drawer-close {
-        animation-name: slideDown;
-
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
+        height: 100px;
+        transition-property: height;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
       }
 
-      @keyframes slideUp {
-        from {
-          height: 100px;
-        }
-
-        to {
-          height: 500px;
-        }
-      }
-
-      @keyframes slideDown {
-        from {
-          height: 500px;
-        }
-
-        to {
-          height: 100px;
-        }
-      }
     </style>
 
     <!-- 节目单 样式 -->
@@ -621,7 +601,7 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
           </div>
         </div>
         <div class="drawer-content__container">
-          <div id="drawer-content">
+          <div id="drawer-content" class="drawer-close">
             <img src="/images/2024-map/tourGuide.png" alt="游园指南" />
           </div>
         </div>
@@ -922,6 +902,72 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
 
   <!-- drawer script -->
   <script>
+    function drag1(elt) {
+      var dc = document.getElementById('drawer-content');
+      var mx0, my0, height0, classname0;
+      elt.onmousedown  = drag1MouseDown;
+      elt.ontouchstart = drag1MouseDown;
+      function drag1MouseDown(e) {
+        // 只有点到drawer本身，而且不可是其上面的内容时，才触发拖拽操作，否则停止
+        if (e.target.id != 'drawerTabGroup' &&
+            e.target.id != 'drawer' &&
+            e.target.id != 'drawer-slider-container' &&
+            e.target.id != 'drawer-content' &&
+            e.target.id != 'drawerTab0' &&
+            e.target.id != 'drawerTab1' &&
+            e.target.id != 'drawerTab2'
+        ) {
+          return;
+        }
+        height0 = parseInt(dc.offsetHeight);
+        e = e || window.event;
+        if (e.target.id != 'drawerTab0' &&
+            e.target.id != 'drawerTab1' &&
+            e.target.id != 'drawerTab2') {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+
+        if (e.touches && e.touches.length === 1) {
+          e = e.touches.item(0);
+        }
+        mx0 = e.clientX;
+        my0 = e.clientY;
+        dc.className = "";
+        dc.style.height = height0 + "px";
+        document.onmouseup = endDrag1Element;
+        elt.ontouchend = endDrag1Element;
+        elt.ontouchcancel = endDrag1Element;
+        document.onmousemove = elementDrag1;
+        elt.ontouchmove = elementDrag1;
+      }
+      function elementDrag1(e) {
+        e = e || window.event;
+        e.preventDefault();
+        if (e.touches && e.touches.length === 1) {
+          e = e.touches.item(0);
+        }
+        const dx0 = e.clientX - mx0, dy0 = e.clientY - my0;
+        dc.style.height = (- dy0 + height0) + "px";
+      }
+      function endDrag1Element(e) {
+        document.onmouseup = null;
+        document.onmousemove = null;
+        elt.ontouchend = null;
+        elt.ontouchcancel = null;
+        elt.ontouchmove = null;
+        const h = dc.offsetHeight;
+        if (h > 250) {
+          dc.classList = 'drawer-open';
+        } else {
+          dc.classList = 'drawer-close';
+        }
+        dc.style.height = "";
+      }
+    }
+    const drawerEle = document.getElementById('drawer');
+    const drawerTabGroupEle = document.getElementById('drawerTabGroup');
+    const drawerSliderContainerEle = document.getElementById('drawer-slider-container');
     const drawerSliderEle = document.getElementById('drawer-slider');
     const drawerContentEle = document.getElementById('drawer-content');
     let isDrawerOpen = false;
@@ -930,10 +976,20 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
 
       if (siteStates.isDrawerOpen) {
         drawerContentEle.className = 'drawer-open';
+        drawerContentEle.style.height = '';
       } else {
         drawerContentEle.className = 'drawer-close';
+        drawerContentEle.style.height = '';
       }
+      event.stopPropagation();
     };
+    drawerSliderEle.onmousedown = () => {
+      event.stopPropagation();
+    }
+ //   drawerEle.onclick = drawerSliderEle.onclick;
+    drag1(drawerTabGroupEle);
+    drag1(drawerSliderContainerEle);
+    drag1(drawerEle);
   </script>
 
   <!-- 顶层切换tab -->
