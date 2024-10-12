@@ -89,7 +89,6 @@
 
       #drawer-content {
         animation-fill-mode: forwards;
-        height: 100px;
         /* width: 100vw; */
       }
 
@@ -98,38 +97,19 @@
       }
 
       .drawer-open {
-        animation-name: slideUp;
-
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
+        height: 500px;
+        transition-property: height;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
       }
 
       .drawer-close {
-        animation-name: slideDown;
-
-        animation-duration: 0.2s;
-        animation-timing-function: ease-out;
+        height: 100px;
+        transition-property: height;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
       }
 
-      @keyframes slideUp {
-        from {
-          height: 100px;
-        }
-
-        to {
-          height: 500px;
-        }
-      }
-
-      @keyframes slideDown {
-        from {
-          height: 500px;
-        }
-
-        to {
-          height: 100px;
-        }
-      }
     </style>
 
     <!-- 节目单 样式 -->
@@ -621,7 +601,7 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
           </div>
         </div>
         <div class="drawer-content__container">
-          <div id="drawer-content">
+          <div id="drawer-content" class="drawer-close">
             <img src="/images/2024-map/tourGuide.png" alt="游园指南" />
           </div>
         </div>
@@ -922,6 +902,51 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
 
   <!-- drawer script -->
   <script>
+    function drag1(elt) {
+      var dc = document.getElementById('drawer-content');
+      var pos1=0, pos2=0, pos3=0, pos4=0;
+      var mx0, my0, height0, classname0;
+      elt.onmousedown = drag1MouseDown;
+      function drag1MouseDown(e) {
+        e.stopPropagation();
+        height0 = parseInt(dc.offsetHeight);
+        console.log("height0=" + height0);
+        e = e || window.event;
+        e.preventDefault();
+        mx0 = e.clientX;
+        my0 = e.clientY;
+        classname0 = e.className;
+        dc.className = "";
+        dc.style.height = height0 + "px";
+        document.onmouseup = endDrag1Element;
+        document.onmousemove = elementDrag1;
+      }
+      function elementDrag1(e) {
+        e = e || window.event;
+        e.preventDefault();
+        const dx0 = e.clientX - mx0, dy0 = e.clientY - my0;
+        dc.style.height = (- dy0 + height0) + "px";
+        // set the element's new position:
+        // elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      }
+      function endDrag1Element(e) {
+        document.onmouseup = null;
+        document.onmousemove = null;
+        const dx0 = e.clientX - mx0, dy0 = e.clientY - my0;
+        const h = parseInt(- dy0 + height0);
+        console.log(h);
+        if (h > 250) {
+          dc.classList = 'drawer-open';
+        } else {
+          dc.classList = 'drawer-close';
+        }
+        dc.style.height = "";
+      }
+    }
+    const drawerEle = document.getElementById('drawer');
+    const drawerTabGroupEle = document.getElementById('drawerTabGroup');
+    const drawerSliderContainerEle = document.getElementById('drawer-slider-container');
     const drawerSliderEle = document.getElementById('drawer-slider');
     const drawerContentEle = document.getElementById('drawer-content');
     let isDrawerOpen = false;
@@ -930,10 +955,19 @@ TradeUp is a Nasdaq-listed fintech company that can support your investments wit
 
       if (siteStates.isDrawerOpen) {
         drawerContentEle.className = 'drawer-open';
+        drawerContentEle.style.height = '';
       } else {
         drawerContentEle.className = 'drawer-close';
+        drawerContentEle.style.height = '';
       }
+      event.stopPropagation();
     };
+    drawerSliderEle.onmousedown = () => {
+      event.stopPropagation();
+    }
+ //   drawerEle.onclick = drawerSliderEle.onclick;
+    drag1(drawerTabGroupEle);
+    drag1(drawerSliderContainerEle);
   </script>
 
   <!-- 顶层切换tab -->
