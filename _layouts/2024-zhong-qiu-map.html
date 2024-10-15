@@ -3112,19 +3112,19 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
       const stampCards = [];
       const collectedStamps = new Set();
 
-      // querySnapshot.forEach((doc) => {
-      //   const boothIndex = doc.data().booth;
-      [
-        'cuisine-2',
-        'cuisine-3',
-        'cuisine-4',
-        'cuisine-6',
-        'kids-1',
-        'kids-2',
-        'kids-3',
-        'function-1112',
-      ].forEach((doc) => {
-        const boothIndex = doc;
+      querySnapshot.forEach((doc) => {
+        const boothIndex = doc.data().booth;
+        // [
+        //   'cuisine-2',
+        //   'cuisine-3',
+        //   'cuisine-4',
+        //   'cuisine-6',
+        //   'kids-1',
+        //   'kids-2',
+        //   'kids-3',
+        //   'function-1112',
+        // ].forEach((doc) => {
+        //   const boothIndex = doc;
 
         if (boothIndex === 'function-1112') {
           Cookies.set('redeemed', '1');
