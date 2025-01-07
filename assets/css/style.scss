@@ -646,11 +646,11 @@ a.disabled {
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
 #mainSponsor {
-    flex-direction: column !important; /* Change direction to column */
+    flex-direction: column !important;
 }
 #mainSponsor > div {
-    width: 100% !important; /* Set width to 100% for child divs */
+    width: 100% !important;
 }
 }
