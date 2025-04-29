@@ -20,7 +20,7 @@ main:
   - name: "TICKETS"
     url: "/ticket"
     call-to-action: true
-    # active: false
+    active: false
 
 gala_ticket_link: "/ticket"
 eventbrite_ticket_link: "https://zgzg.li/2025-ticket-website"
