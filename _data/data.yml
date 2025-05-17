@@ -27,9 +27,9 @@ eventbrite_ticket_link: "https://zgzg.li/2025-ticket-website"
 taro_ticket_link: "https://zgzg.li/2025-ticket-taro"
 gala_auidence_guide_link: "https://drive.google.com/file/d/1UR1OrsDq6ijATcHJMQc8YbqgP3plsa9R/view?usp=sharing"
 singer_ticket_link: "https://zgzg.li/2024s-tickets"
-2025s_prelim_ticket_link: "https://zgzg.li/2025s-prelim-tickets"
-2025s_ticket_link: "https://zgzg.li/2025s-tickets"
-2025s_youth_ticket_link: "https://zgzg.li/2025s-youth-tickets"
+2025s_prelim_ticket_link: "https://zgzg.li/2025s-prelim-ticket"
+2025s_ticket_link: "https://zgzg.li/2025s-ticket"
+2025s_youth_ticket_link: "https://zgzg.li/2025s-youth-ticket"
 home_image_link: "https://res.cloudinary.com/zaigezaigu/image/upload/v1736054382/2025%E8%9B%87%E5%B9%B4%E6%98%A5%E6%99%9A%E7%BD%91%E9%A1%B5banner-1230_pktphi1_ew7yqx.png"
 gala_stream_link: "https://www.youtube.com/embed/76kZnnX66ac?si=PyglxFfcxzba_F57"
 gala_sponsor_img: "https://res.cloudinary.com/zaigezaigu/image/upload/v1737920698/%E8%B5%9E%E5%8A%A9%E5%95%86%E9%95%BF%E5%9B%BE0126_fgz6dr.jpg"
@@ -568,7 +568,7 @@ singerlist:
     name: 张韶杭
     description: 张韶杭(Sean Zhang)就读于 John Muir Elementary School 5th Grade，性格开朗温和，喜欢交朋友，和同学们一起玩。他喜欢唱歌，也擅长钢琴演奏，参加过湾区多次声乐比赛并获得名次。他也喜欢数学和写作，创作fan book小说，日常还参加了篮球训练，并且通过了武术蓝绿带考级。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746344035/zgzg-io-website/2025%20singers/Anastasia_Miin_Wide_e1qhnn.jpg
-    name: Anastasia Min
+    name: Anastasia Miin
     description: Anastasia is a 14 years old 9th grade student from California. She began her vocal study at the age 7 and since then has participated in a variety of choirs and solo competitions. Anastasia has placed top 3 at NATS Western Region, first place in NATs SF, VOCE State, USIMC, and other competitions. Besides singing, Anastasia also plays the piano and enjoys Kpop dance classes during her free time.
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746344166/zgzg-io-website/2025%20singers/Ivy_Deng_Wide_yhulea.jpg
     name: Ivy Deng
@@ -594,21 +594,21 @@ singerlist:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746344496/zgzg-io-website/2025%20singers/Maureen_Liu_Wide_p8oom6.jpg
     name: Maureen Liu
     description: 大家好！我是Maureen (晓晓）Liu，一个爱笑爱唱的阳光女孩！我喜欢唱歌，手工和花样游泳，每周训练让我学会了坚持与团队合作。音乐是我的快乐源泉，从儿童歌曲到流行曲，从中文歌到英文歌我都爱哼唱，站在舞台上用歌声传递快乐是我的梦想！希望能把这份热爱唱给你们听，请多多支持哦～谢谢！
-  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746345688/zgzg-io-website/2025%20singers/Zeng_Boxin_Wide_rtovut.jpg
+  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746506584/zgzg-io-website/2025%20singers/Zeng_Boxin_Wide_pememy.jpg
     name: 曾博欣
-    description: 曾博欣，8月的阳光女孩，带着对世界的好奇心快乐的成长。她是人见人爱的开心果，既能在音乐世界里自在徜徉，用清亮歌喉唱响童真，又像永不停歇的小探险家，总在观察思考中抛出其妙的问题。钢琴键上跃动的指尖、书本里专注的眼神、运动场上不服输的倔强、都在讲述这个女孩用热爱浇灌梦想、在挑战中不断突破自我成长的故事。
+    description: 曾博欣，8岁的阳光女孩，带着对世界的好奇心快乐的成长。她是人见人爱的开心果，既能在音乐世界里自在徜徉，用清亮歌喉唱响童真，又像永不停歇的小探险家，总在观察思考中抛出其妙的问题。钢琴键上跃动的指尖、书本里专注的眼神、运动场上不服输的倔强、都在讲述这个女孩用热爱浇灌梦想、在挑战中不断突破自我成长的故事。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746403121/zgzg-io-website/2025%20singers/Wu_Feibi_Wide_i7by8z.jpg
     name: 吴飞碧
     description: 吴飞碧（Phoebe Wagner) 是一位来自加州山景城的12岁歌手、词曲创作者和表演者。她一直学习声乐和小提琴，曾与 iSing 女声合唱团以及包括Palo Alto Players 在内的湾区多家剧团合作演出。她参与过多部音乐剧，担任过主演和配角，包括《冰雪奇缘少儿版》、《音乐之声》和《查理和巧克力工厂少儿版》等。Phoebe 也喜欢创作原创音乐和诗歌。她的一首原创诗歌曾获得 Inklings 图书比赛的奖项，她的作品灵感多来自生活中的故事与情感。在舞台之外，她也展现出领导力——曾亲自策划并带领邻里孩子们举办了一周的夏令营，结合创意、组织能力和她对分享的热情。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746343882/zgzg-io-website/2025%20singers/Alicia_Chen_Wide_psca7s.jpg
     name: Alicia Chen
     description: Hello, my name is Alicia Chen. I'm 14 years old this year and currently in 9th grade. Singing is one of my favorite things to do, and I have been singing since I was 4 years old. My favorite singers are Selena Gomez and Rosé. Some of my other hobbies are dancing and playing the piano. Through this competition, I hope that I can develop lots of new friendships and have a great experience.
-  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746345368/zgzg-io-website/2025%20singers/Cindy_Peng_Wide_vmxtzq.jpg
+  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746777682/zgzg-io-website/2025%20singers/Cindy_Peng_Wide_New_lcbgyv.jpg
     name: Cindy Peng
     description: 我是来自K班的Cindy Peng！从小“我”就是个"小戏精"，最爱跟着爸爸的钢琴又唱又跳，把客厅当成“我”的专属舞台。每年最盼望的就是春节，因为可以一遍遍看春晚学表演！3岁开始，“我”就和爸爸在社区图书馆音乐会演出，现在已经是个拥有15次舞台经验的"小演员"啦！这次载歌载谷的舞台，“我”要把这份快乐传递给在场的每一位大朋友小朋友！
-  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746345255/zgzg-io-website/2025%20singers/Shen_Huaiyu_Wide_efnh4z.jpg
-    name: 沈淮玙
-    description: 我叫沈淮玙，是一个在家里无时无刻都要哼两首歌的人。我的偶像是单依纯！她给我带来了非常大的影响，让我一个小i人变得想要站在舞台上，表现一下自己。所以我很感谢有这次比赛的机会。
+  - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1747028329/zgzg-io-website/2025%20singers/Astrid_Zhou_Wide_lemubx.jpg
+    name: 周妙宸
+    description: 大家好，我是来自K班的Astrid，周妙宸～我喜欢唱歌，拉丁舞，画画，去年进入天使合唱团跟着小鹿老师学唱歌后，更加喜欢上了表演，合唱让我认识到了很多好朋友，后来还很幸运地参加了小小音乐剧的表演，让我更加享受在舞台上的感觉～
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746401881/zgzg-io-website/2025%20singers/Li_Zhengmo_Wide_mcdx36.jpg
     name: 李正墨
     description: 李正墨是一个阳光开朗的10岁女孩，歌声大气嘹亮，舞姿灵动。她从小热爱舞台，多次在本地少儿歌唱比赛中取得好成绩，用大气的嗓音演绎喜欢的歌曲。无论是比赛还是表演，她总是自信地展现歌舞才华，用表演传递快乐与活力。未来，她希望站上更大的舞台，用歌声与舞蹈点亮更多人的梦想！
@@ -616,7 +616,7 @@ singerlist:
     name: 李正墨&李正言
     description: 李正墨和李正言是一对活泼可爱的10岁双胞胎姐妹，凭借大气嘹亮的嗓音和默契的配合，成为备受喜爱的小歌手组合。她们曾多次登台表演，以纯净的歌声和治愈的笑容打动观众。此次，姐妹俩将深情演唱《是妈妈是女儿》，用童真诠释亲情的温暖，传递母女间最真挚的爱。期待她们用天籁之音，再次带来感动与惊喜！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746402596/zgzg-io-website/2025%20singers/Ella_Tang_Wide_nok3qp.jpg
-    name: Ella Tang
+    name: Ella Liu
     description: 大家好，我是Ella，我今年四岁。我喜欢唱歌、钢琴、画画、体操，虽然平时有点小害羞，但一唱起歌就开心得不得了！这是我第一次一个人上台，希望大家喜欢我的表演。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1746345470/zgzg-io-website/2025%20singers/Mia_Wang_Wide_oyjvjr.jpg
     name: Mia Wang
