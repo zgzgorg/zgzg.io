@@ -1,3 +1,117 @@
+
+<!-- Schema.org Organization Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "载歌在谷社区",
+  "alternateName": "ZGZG Community",
+  "description": " “载歌在谷”社区是一个以硅谷高科技从业者为主要贡献者的501c3非营利组织。社区以文化活动为载体，旨在丰富硅谷华人的日常文化与文艺生活，并最终为贡献者的自我提升提供实践的平台。",
+  "url": "https://zgzg.io",
+  "logo": "https://zgzg.io/images/zgzglogo.webp",
+  "foundingDate": "2018",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://zgzg.io"
+  },
+  "sameAs": [
+    "https://zgzg.io"
+  ],
+  "knowsAbout": [
+    "中华文化",
+    "春节晚会",
+    "秋季游园会",
+    "社区活动",
+    "文化推广"
+  ],
+  "areaServed": {
+    "@type": "Place",
+    "name": "旧金山湾区",
+    "description": "San Francisco Bay Area"
+  }
+}
+</script>
+
+<!-- Schema.org Event Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "2025年秋季游园会",
+  "description": "2025年秋季游园会活动，包含各种娱乐项目和表演",
+  "startDate": "2025-11-02T12:00:00-08:00",
+  "endDate": "2025-11-02T17:00:00-08:00",
+  "location": {
+    "@type": "Place",
+    "name": "West Valley College, Parking Lot 3",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14000 Fruitvale Ave",
+      "addressLocality": "Saratoga",
+      "addressRegion": "CA",
+      "postalCode": "95070",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "37.2639",
+      "longitude": "-121.9994"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "载歌在谷社区(ZGZG Community)",
+    "url": "https://zgzg.io"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://zgzg.li/2025f-yy-ticket?utm_source=zgzg-io&utm_medium=website&utm_campaign=2025f-yy-ticket",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-01-01"
+  },
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "2026年春节晚会",
+  "description": "2026年春节晚会，马年春晚庆祝活动",
+  "startDate": "2026-02-14T18:00:00-08:00",
+  "endDate": "2026-02-14T22:00:00-08:00",
+  "location": {
+    "@type": "Place",
+    "name": "SJCPA",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "255 S Almaden Blvd",
+      "addressLocality": "San Jose",
+      "postalCode": "95113",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "37.3318",
+      "longitude": "-121.8956"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "载歌在谷社区(ZGZG Community)",
+    "url": "https://zgzg.io"
+  },
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+}
+</script>
+
 <div class="container">
   <div class="home-section-header">
     <div class="home-section-content_top">
@@ -8,14 +122,16 @@
       </div>
       <div class="row">
         <div class="col-md-6 p-3">
-          <p class="custom-text-style"> <b>游园: </b>2025年11月02日 West Valley College</p>
-          <p class="custom-text-style"> <b>志愿者、摊位、赞助商招募中</b></p>
-          <a class="button_r list-item-button text-center" href="https://zgzg.li/2025f-yy-signup?zgzg-io">{{ "游园报名" }}</a>
+          <p class="custom-text-style"> <b>秋季游园会</b></p>
+          <p class="custom-text-style"> 2025年11月2日,中午12点-下午5点</p>
+          <p class="custom-text-style"> <a href="https://maps.app.goo.gl/edfgdC2p9bvNXUGK9">West Valley College, Parking Lot 3</a></p>
+          <a class="button_r list-item-button text-center" href="https://zgzg.li/2025f-yy-ticket?utm_source=zgzg-io&utm_medium=website&utm_campaign=2025f-yy-ticket">{{ "马上抢票" }}</a>
+          <p class="custom-text-style small-text"> 我们为载歌在谷志愿者（含演员及往期志愿者）提供少量亲友免费票，请询问你身边的载歌在谷志愿者领取。</p>
         </div>
         <div class="col-md-6 p-3">
           <p class="custom-text-style"> <b>春节晚会: </b> 2026年2月14日 SJCPA</p>
-          <p class="custom-text-style"> <b>志愿者招募中</b></p>
-          <a class="button_r list-item-button text-center" href="https://zgzg.li/2026-volunteer-signup?zgzg-io">{{ "春晚报名" }}</a>
+          <p class="custom-text-style"> <b>志愿者、赞助商招募中</b></p>
+          <a class="button_r list-item-button text-center" href="https://zgzg.li/2026-volunteer-signup?zgzg-io">{{ "报名做贡献" }}</a>
         </div>
       </div>
     </div>

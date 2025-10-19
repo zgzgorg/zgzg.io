@@ -1,6 +1,6 @@
 baseurl: '/'
 permalink: pretty
-title: '载歌在谷'
+title: '载歌在谷：硅谷高科技华人志愿者非盈利组织'
 
 google_analytics_id: "G-K92JCG018C"
 
@@ -13,11 +13,11 @@ logo:
   desktop_height: "36px"
 
 seo:
-  meta_og_title: "载歌在谷：硅谷地区华人志愿者社区"
+  meta_og_title: "载歌在谷：硅谷高科技华人志愿者非盈利组织"
   meta_og_type: "website"
   meta_og_url: "https://zgzg.io"
   meta_og_image: "/images/zgzglogo.webp"
-  meta_og_description: "载歌在谷：硅谷地区华人志愿者社区"
+  meta_og_description: “载歌在谷”社区是一个以硅谷高科技从业者为主要贡献者的501c3非营利组织。社区以文化活动为载体，旨在丰富硅谷华人的日常文化与文艺生活，并最终为贡献者的自我提升提供实践的平台。"
   meta_twitter_card: "summary_large_image"
   meta_twitter_site: "@zgzgorg"
   meta_twitter_creator: "@zgzgorg"
