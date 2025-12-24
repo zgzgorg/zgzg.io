@@ -169,18 +169,19 @@ layout: default
         </div>
 
         <!-- Programs Section -->
+        {% assign programs = "喜鹊喳喳喳,伎乐飞天,芦花,艺童迎春,红锈花,西游大裁员,草原赞歌,落叶归根-送别,云宫迅音/左手指月,拉疯在谷,热键逃离,弯弯的月亮,龙的传人,龙船调,钱途,蒙古舞ROAM,赛马,灯火里的中国" | split: "," %}
         <div class="row pt-4">
             <div class="col text-center pb-2">
                 <h3>🎭 节目单</h3>
             </div>
         </div>
         <div class="row row-cols-2 row-cols-md-4 g-3 text-center">
-            {% for i in (1..40) %}
+            {% for name in programs %}
             <div class="col fade-in">
                 <div class="card h-100 rounded-3">
                     <div class="card-body">
-                        <p class="card-text fw-bold">节目 {{ i }}</p>
-                        <p class="text-muted small mb-0">（待填节目名称）</p>
+                        <p class="card-text fw-bold">主持人 {{ forloop.index }}</p>
+                        <p class="text-muted small mb-0">{{ name }}</p>
                     </div>
                 </div>
             </div>
