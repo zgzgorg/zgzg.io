@@ -189,7 +189,7 @@ layout: default
         </div>
 
         <!-- Hosts Section -->
-        {% assign hosts = "圣斯,Roise,Peter,罗老师,张越,高曲,蒋瑜婧,Jessica" | split: "," %}
+        {% assign hosts = "罗泽中,朱毅,蒋瑜婧,黄圣斯,高曲天啸,张越,任蕾,李姿霖" | split: "," %}
         <div class="row pt-5">
             <div class="col text-center pb-2">
                 <h3>🎤 主持人名单</h3>
@@ -200,8 +200,7 @@ layout: default
             <div class="col fade-in">
                 <div class="card h-100 rounded-3">
                     <div class="card-body">
-                        <p class="card-text fw-bold">主持人 {{ forloop.index }}</p>
-                        <p class="text-muted small mb-0">{{ name }}</p>
+                        <p class="card-text fw-bold">{{ name }}</p>
                     </div>
                 </div>
             </div>
