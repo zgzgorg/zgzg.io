@@ -151,7 +151,65 @@ layout: default
         h1, h2, h3 { font-size: 1.3rem; }
         .custom-text-style { font-size: 1rem; }
     }
-</style>
+
+    /* ===== 主持人展示模块 ===== */
+    .host-card {
+        border: 2px solid rgba(255,215,0,0.25);
+        background: #fff;
+        transition: all 0.35s ease;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .host-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 28px rgba(179, 0, 0, 0.25);
+        border-color: var(--gala-gold);
+    }
+
+    /* 头像容器 */
+    .host-img-wrapper {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        padding: 4px;
+        background: linear-gradient(135deg, var(--gala-gold), var(--gala-red));
+    }
+
+    /* 头像本身 */
+    .host-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #fff;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    /* 名字 */
+    .host-name {
+        color: var(--gala-red);
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    /* 简介 */
+    .host-desc {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+        padding: 0 0.5rem;
+        white-space: pre-line;
+        text-align: justify;
+        text-align-last: left;
+    }
+
+    .host-desc p {
+        margin-bottom: 0.6rem;
+    }
+    </style>
 
 <div class="hero gala-bg"></div>
 <div class="container pt-4">
@@ -202,13 +260,38 @@ layout: default
     <div class="container">
         <div class="row">
             <div class="col text-center pb-4">
-                <h1 class="underline">🌟 春晚节目 🌟</h1>
+                <h1 class="underline">🌟 2026马年春晚 🌟</h1>
                 <p class="custom-text-style mt-3">
                     2026载歌在谷春晚即将拉开帷幕！<br>
                     我们从近百个节目和主持人报名中，遴选出最具创意与感染力的表演者。<br>
                     以下为本届春晚节目与主持人名单。
                 </p>
             </div>
+        </div>
+
+        <!-- Hosts Section -->
+        <div class="row pt-5">
+            <div class="col text-center pb-4">
+                <h3 class="underline">🎤 主持人</h3>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for host in site.data.data.2026-gala-hosts %}
+            <div class="col fade-in">
+                <div class="card host-card h-100 text-center rounded-4">
+                    <div class="host-img-wrapper mx-auto mt-4">
+                        <img src="{{ host.image }}" alt="{{ host.name }}" class="host-img">
+                    </div>
+                    <div class="card-body pt-3">
+                        <h5 class="host-name">{{ host.name }}</h5>
+                        <p class="host-desc mt-2">
+                            {{ host.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
 
         <!-- Programs Section -->
@@ -225,25 +308,6 @@ layout: default
                     <div class="card-body">
                         <p class="card-text fw-bold">节目 {{ forloop.index }}</p>
                         <p class="text-muted small mb-0">{{ name }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-
-        <!-- Hosts Section -->
-        {% assign hosts = "罗泽中,朱毅,蒋瑜婧,黄圣斯,高曲天啸,张越,任蕾,李姿霖" | split: "," %}
-        <div class="row pt-5">
-            <div class="col text-center pb-2">
-                <h3>🎤 主持人名单</h3>
-            </div>
-        </div>
-        <div class="row row-cols-2 row-cols-md-5 g-3 text-center">
-            {% for name in hosts %}
-            <div class="col fade-in">
-                <div class="card h-100 rounded-3">
-                    <div class="card-body">
-                        <p class="card-text fw-bold">{{ name }}</p>
                     </div>
                 </div>
             </div>
