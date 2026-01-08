@@ -204,10 +204,32 @@ layout: default
         white-space: pre-line;
         text-align: justify;
         text-align-last: left;
+        margin-bottom: 0.25rem;
     }
 
-    .host-desc p {
-        margin-bottom: 0.6rem;
+    .host-highlights ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .host-highlights li {
+        position: relative;
+        padding-left: 1.2rem;   /* 文本统一起点 */
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+        margin-bottom: 0.35rem;
+        text-align: left;
+    }
+
+    .host-highlights li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0.2em;             /* 微调垂直位置 */
+        color: var(--gala-red); /* 或金色 */
+        font-size: 1rem;
     }
     </style>
 
@@ -279,15 +301,25 @@ layout: default
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             {% for host in site.data.data.2026-gala-hosts %}
             <div class="col fade-in">
-                <div class="card host-card h-100 text-center rounded-4">
+                <div class="card host-card h-100 rounded-4">
                     <div class="host-img-wrapper mx-auto mt-4">
                         <img src="{{ host.image }}" alt="{{ host.name }}" class="host-img">
                     </div>
                     <div class="card-body pt-3">
-                        <h5 class="host-name">{{ host.name }}</h5>
-                        <p class="host-desc mt-2">
+                        <h5 class="host-name text-center">{{ host.name }}</h5>
+                        <p class="host-desc">
                             {{ host.description }}
                         </p>
+
+                        {% if host.highlights %}
+                        <div class="host-highlights">
+                            <ul>
+                                {% for item in host.highlights %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
