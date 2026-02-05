@@ -883,3 +883,16 @@ galatour_picture_type:
     name: 李姿霖 (少儿主持人)
     description: |
       热爱阅读、朗诵和主持。已通过朗诵十级;曾主持校园运动会;硅谷基金会四周年主主持之一;硅谷新春游园会中文主持。
+
+2026-gala-programs:
+  - name: 喜鹊喳喳喳
+    image:
+    description: 以传统民乐为基底，融合现代舞台语言，呈现新春喜庆氛围。
+
+  - name: 云宫迅音 / 左手指月
+    image:
+    description: 经典旋律与现代编曲交织，带来熟悉又新鲜的听觉体验。
+
+  - name: 赛马
+    image:
+    description: 蒙古族经典舞蹈作品，节奏热烈，气势奔放。

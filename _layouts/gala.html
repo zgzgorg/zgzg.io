@@ -231,6 +231,36 @@ layout: default
         color: var(--gala-red); /* 或金色 */
         font-size: 1rem;
     }
+
+    .program-card { @extend .host-card; }   /* 如果你不用 SCSS，就直接复制 */
+    .program-img-wrapper {
+        width: 140px;
+        height: 140px;
+        overflow: hidden;
+        border-radius: 12px;
+    }
+
+    .program-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    .program-name {
+        font-weight: 600;
+        color: var(--gala-red);
+        margin-bottom: 0.4rem;
+    }
+
+    .program-desc {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.6;
+        text-align: justify;
+        text-align-last: left;
+        margin-bottom: 0;
+    }
     </style>
 
 <div class="hero gala-bg"></div>
@@ -327,19 +357,45 @@ layout: default
         </div>
 
         <!-- Programs Section -->
-        {% assign programs = "喜鹊喳喳喳,伎乐飞天,芦花,艺童迎春,红锈花,西游大裁员,草原赞歌,落叶归根-送别,云宫迅音/左手指月,拉疯在谷,热键逃离,弯弯的月亮,龙的传人,龙船调,钱途,蒙古舞ROAM,赛马,灯火里的中国" | split: "," %}
-        <div class="row pt-4">
-            <div class="col text-center pb-2">
-                <h3>🎭 节目单</h3>
+        <div class="row pt-5">
+            <div class="col text-center pb-4">
+                <h3 class="underline">🎭 节目</h3>
             </div>
         </div>
-        <div class="row row-cols-2 row-cols-md-4 g-3 text-center">
-            {% for name in programs %}
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for program in site.data.data.2026-gala-programs %}
             <div class="col fade-in">
-                <div class="card h-100 rounded-3">
-                    <div class="card-body">
-                        <p class="card-text fw-bold">节目 {{ forloop.index }}</p>
-                        <p class="text-muted small mb-0">{{ name }}</p>
+                <div class="card program-card h-100 rounded-4">
+
+                    <!-- 节目图片 -->
+                    <div class="program-img-wrapper mx-auto mt-4">
+                        <img src="{{ program.image }}"
+                             alt="{{ program.name }}"
+                             class="program-img">
+                    </div>
+
+                    <!-- 内容 -->
+                    <div class="card-body pt-3">
+                        <h5 class="program-name text-center">
+                            {{ program.name }}
+                        </h5>
+
+                        {% if program.description %}
+                        <p class="program-desc">
+                            {{ program.description }}
+                        </p>
+                        {% endif %}
+
+                        {% if program.highlights %}
+                        <div class="program-highlights">
+                            <ul>
+                                {% for item in program.highlights %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
