@@ -3,6 +3,79 @@ title: Index
 layout: default
 bodyClass: page-home
 ---
+
+<style>
+  .gala-hero-strip {
+    position: relative;
+    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1766560231/zgzg-io-website/2026%E6%98%A5%E6%99%9A/gala-bg.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #fff;
+  }
+
+  .gala-hero-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(128, 0, 0, 0.75),
+        rgba(128, 0, 0, 0.55)
+    );
+    z-index: 0;
+  }
+
+  .gala-hero-strip > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== Hero Banner 字体颜色 ===== */
+  .gala-hero-strip {
+    color: #fff;
+  }
+
+  /* 主标题 */
+  .gala-hero-strip .gala-hero-title {
+    color: #fff;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.45);
+  }
+
+  /* 英文副标题 */
+  .gala-hero-strip .gala-hero-subtitle {
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* 时间 / 地点 */
+  .gala-hero-strip .gala-info-line {
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* 地址（原 text-muted 在深色背景会太灰） */
+  .gala-hero-strip .gala-info-line.text-muted {
+    color: rgba(255,255,255,0.7) !important;
+  }
+
+  /* 粗体 label */
+  .gala-hero-strip .gala-info-line b {
+      color: #ffd700; /* 金色强调 */
+  }
+
+  /* ===== Hero 区域购票按钮反色 ===== */
+  .gala-hero-strip .ticket-btn {
+    background: linear-gradient(135deg, #ffd700, #ffb300);
+    color: #8b0000;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(255, 215, 0, 0.45);
+  }
+
+  .gala-hero-strip .ticket-btn:hover {
+    background: linear-gradient(135deg, #ffcc00, #ffa000);
+    color: #6b0000;
+    transform: translateY(-2px);
+  }
+
+</style>
 <head>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -26,7 +99,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div> -->
 
 
-<div class="strip">
+<div class="strip gala-hero-strip">
   <div class="container pb-4 pt-5">
     {% include 2025-fall-event-info.html %}
   </div>
@@ -37,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="col pb-3 text-center">
         <h1 class="underline">春晚直播</h1>
         <div>
-          
+
           <iframe style="width: 80vw; height: 80vh; border: none;" src="{{site.data.data.gala_stream_link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
@@ -106,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="flex-shrink-0 d-flex justify-content-center align-items-center" style="width: 50%;">
           <img class="img-fluid" style="width: 80%; height: auto;" src="{{sponsor.image}}" alt="{{sponsor.name}}">
         </div>
-        
+
         <div class="flex-grow-1 text-break" style="width: 50%;">
           <h2>{{sponsor.name}}</h2>
           <p>{{sponsor.description}}</p>
@@ -120,7 +193,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div><a href="{{sponsor.website}}">{{sponsor.website}}</a></div>
           {% endif %}
         </div>
-      </div>      
+      </div>
       {% endfor %}
     {% endfor %}
   </div>

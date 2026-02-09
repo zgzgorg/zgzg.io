@@ -844,7 +844,6 @@ galatour_picture_type:
       美国加州旧金山湾区知名专业中英双语主持人，中国传媒大学播音与主持艺术学士，香港理工大学双语研究硕士。她以融合国际视野与东方气韵的主持风格，活跃于中、英、美多国舞台，主持领域涵盖大型文艺晚会、官方庆典及高规格国际盛会。曾任中国教育电视台、云南卫视节目主持人，并作为国家外派主持人驻英国伦敦，参与官方文化交流，屡获中国地方政府及驻外使领馆邀请，担任重要活动中英双语主持。
 
       代表性主持经历:
-    highlights:
       - 中国—南亚博览会开幕式
       - 中国驻曼彻斯特总领馆“全英元宵晚会”及“新春招待会”
       - 中国驻旧金山总领馆“内蒙古与加州建立友好关系25周年庆”及电影《南京照相馆》旧金山首映式
@@ -883,3 +882,189 @@ galatour_picture_type:
     name: 李姿霖 (少儿主持人)
     description: |
       热爱阅读、朗诵和主持。已通过朗诵十级;曾主持校园运动会;硅谷基金会四周年主主持之一;硅谷新春游园会中文主持。
+
+2026-gala-programs:
+  - name: 舞蹈《喜鹊喳喳喳》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770259475/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E5%96%9C%E9%B9%8A%E5%96%B3%E5%96%B3%E5%96%B3_gqzyzo.png
+    description: |
+      表演团体：SVDA
+      编导老师：Bing Wang，Kitty Xu
+      演员名单：Yvonne Xu, Cindy Wang, Amy Wang, Bella Wang, Cathy Wang, Jenny Wang, Jessica Wang, Kelly Wang, Lucy Wang, Maggie Wang, Nancy Wang, Olivia Wang, Polly Wang, Queenie Wang, Ruby Wang, Tina Wang
+
+      接下来的节目，将为我们带来一段活力四溢的舞蹈盛宴。一群象征吉祥的小喜鹊，在青山绿林间自由穿梭，跳跃、追逐，带来幸福的歌声与快乐的舞步。她们不只是林间最灵动的精灵，更是舞台上的佼佼者——每一次比赛，她们都是当之无愧的第一名！
+  - name: 舞蹈《伎乐飞天》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770259558/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E4%BC%8E%E4%B9%90%E9%A3%9E%E5%A4%A9_pgumki.jpg
+    description: |
+      表演团体：谷妹Googirl古典舞团
+
+      谷妹Googirl是以谷歌工程师为主的舞蹈团，现在有古典舞，芭蕾，现代舞，拉丁，街舞五个分支。谷妹古典舞团自从2018年开始每年参加载歌在谷春节晚会到现在已经是第九年了。
+  - name: 歌曲《芦花》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666824/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%8A%A6%E8%8A%B1_vt82iz.jpg
+    description: |
+      演唱：Grace Li
+      伴舞：Vivian Chang，Audrey Zhang，Ariana Lau
+
+      芦花是一首情感内敛、意境深远的抒情作品。歌曲以秋日芦苇为意象，通过舒缓而富有层次的旋律，描绘出关于亲情、爱情与生命坚韧的情感画面。旋律清雅悠长，情绪含蓄而真挚，既有淡淡的思念与感伤，也蕴含着温柔而坚定的力量。在歌声与舞蹈的相互映衬下，营造出安静而富有诗意的舞台氛围，引导观众在音乐中感受岁月流淌与情感沉淀之美
+
+      舞者Vivian Chang 張韶葳，今年16岁。在矽谷舞蹈學院學習舞蹈已有 11 年，透過長時間的訓練與堅持，獲得了多項獎項。從在地區性比賽中榮獲第一名、在全國賽中獲得第五名，到獲得《星島》才藝小姊（Miss Talent Sing Tao）稱號。星岛封面佳丽Audrey Zhang 和 Ariana Lau 也将作为伴舞一同呈现舞台。
+  - name: 儿童串烧《艺童迎春》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666827/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%89%BA%E7%AB%A5%E8%BF%8E%E6%98%A5_ixoaip.jpg
+    description: |
+      歌曲《海洋奇缘》：Ivy Deng
+
+      11岁的 Ivy Deng 将演唱《海洋奇缘2》中的歌曲《Beyond》。她目前在旧金山音乐学院的预科课程中学习声乐，曾荣获 American Protégé 比赛一等奖，并担任过两部音乐剧的主角。Ivy 热爱通过音乐表达自我。《Beyond》是一首讲述自我发现和追求梦想勇气的歌曲。Ivy 希望通过这首歌，鼓励孩子们勇敢地追逐自己的梦想。
+
+      歌曲《Memory》：Ellie Futon
+
+      "Memory" is a show tune composed by Andrew Lloyd Webber, with lyrics by Trevor Nunn based on poems by T. S. Eliot. It was written for the 1981 musical Cats, where it is sung primarily by the character Grizabella as a melancholic remembrance of her glamorous past and as a plea for acceptance. "Memory" is the climax of the musical and by far its best-known song, having achieved mainstream success outside of the musical. According to musicologist Jessica Sternfeld, writing in 2006, it is "by some estimations the most successful song ever from a musical.
+
+      竹笛《竹笛声声迎马年》：雅韵国乐社
+
+      雅韵国乐社成立于2022年，是由著名笛箫演奏家喻晓庆老师和古琴演奏家王曼老师联合创办。串烧曲目一：扬鞭催马运粮忙。中国最有名的一首竹笛经典曲，展现中国五十年代农民们获得大丰收后，高高兴兴地赶着马车运送粮食的欢乐场景，寓意新的一年五谷丰登收获满满串烧曲目二：就是哪吒动画电影《哪吒2·魔童闹海》的主题曲。这首曲子笛声高昂嘹亮，一套长拳英姿飒爽，高燃的乐曲契合节日热烈的氛围，也全方位展现了孩子们的青春活力。
+
+      儿童街舞《Mini Legend》：EDS Junior
+
+      EDS Junior 是 Enjoy Dance Studio（湾区） 旗下的青少年舞蹈团队，主要训练方向包括 Hip-hop、Kpop、Jazz Funk 和编舞。 获得2026 KAOS舞蹈比赛Junior组冠军。团队以舞台表演为核心、强调团队合作，孩子们在演出、创意与热爱中不断成长，准备作为新一代舞者自信闪耀。
+  - name: 歌舞《红袖花》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666824/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E7%BA%A2%E8%A2%96%E8%8A%B1_v5tw3x.jpg
+    description: |
+      演唱：金沐洋，洋毅
+      舞蹈：孙文龙，杨洋
+
+      《红绣花》是一首由门尼作词作曲的歌曲。歌曲以林觉民《与妻书》为情感内核，将铁骨柔情与革命信仰交织，是一首情感极其深沉且富有家国情怀的作品。带来表演的两位歌手金沐阳和洋溢，都是2025年载歌在谷歌手赛决赛选手，他们将演绎门尼和汪苏泷改编的双男声版本。双男声的碰撞，既有对往昔岁月的深情回望，更有热血男儿的家国担当。让我们在和声中，感受那份穿越时空的炽热与坚定。
+
+      金沐阳：歌唱爱好者，湾区乐队主唱，要不是这次要唱歌可能就说相声了
+
+      洋溢：大家好我是洋溢，兴趣使然的唱歌&跳舞选手，喜欢在剧场也喜欢在热闹的街道上唱歌，只要有听众就会感到快乐。
+
+      杨洋：毕业于北京舞蹈学院古典舞表演系。曾任中国歌剧舞剧院主要演员。现任美国IPAA团长及编导。
+
+      孙文龙（Dragon Sun）：2004年毕业于沈阳音乐学院舞蹈系，同年进入中国歌剧舞剧院。中国国家一级舞蹈演员，曾获中国舞剧最高奖项“荷花奖”一等奖及2006年CCTV电视舞蹈大赛最佳表演奖。代表作包括《兵马俑》《大唐贵妃》等。
+  - name: 小品《西游大裁员》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666892/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%A5%BF%E6%B8%B8%E5%A4%A7%E8%A3%81%E5%91%98_nfhyji.jpg
+    description: |
+      表演团体：素人剧社
+
+      编剧：牛大童，昭阳，金晔，赵小睿
+      演员：桑秀媛，纪舒，王宁，金晔，牛大童，李婷玉，一灵
+      舞美：笑梅
+      台词指导：杨铱
+      中控：珍珍，佩云
+
+      不怕妖魔挡道，就怕灵山裁员！当“九九八十一难”遇上“末位淘汰”，取经团队瞬间陷入内卷！谁是干活不计产出的“小白”，谁是专画大饼的“老油条”？为了保住编制，师徒四人各显神通。在这场没有妖怪的职场博弈中，不知最终是化险为夷，还是真经未取，团队先散？请看《西游大裁员》——Journey to The Reorg
+  - name: 乐器《草原赞歌》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666889/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%8D%89%E5%8E%9F%E8%B5%9E%E6%AD%8C_ze430u.jpg
+    description: |
+      大提琴：易舟
+      钢琴：周宇超
+
+      《草原赞歌》是作曲家陈铭志先生于20世纪50-60年代创作的复调音乐代表作，诞生于中国民族化探索的思潮背景下。作品以蒙古族音乐为核心素材，巧妙融合西方复调技法，通过大提琴与钢琴的对话，构建出层次丰富的音响空间。旋律线条兼具悠扬的抒情性与欢快的舞动感，既描绘了草原的辽阔意境，又通过赛马般的节奏律动，生动展现了蒙古族人民奔放不羁的性格与多彩生活。
+
+      与陈铭志先生的对话。在多次拜访陈铭志先生后，我逐渐理解了他创作《草原赞歌》的深层意图—用西方复调技法编制蒙古族音乐的灵魂，让大提琴与钢琴的对话成为草原的“声音画像”。在抒情段落，我刻意延长滑音的尾音，让音符如马头琴的“诺古拉”颤音般缓缓消散。在华彩段落，我偶尔加入乐谱未标注的滑音，让大提琴更贴近蒙古族音乐的即兴传统。在欢快段落，我运用顿弓和跳弓强化赛马般的律动，通过弓速变化和重音强调 营造骏马驰骋的层次感。每一次演奏，都是对陈铭志先生创作意图的致敬—扎根传统，勇于创新，让草原的魂在琴弦上重生。
+
+      易舟 - ⼤提琴演奏家与⾳乐教育者，现居旧⾦⼭湾区。曾与多个乐团合作演出经典协奏曲，出版个⼈专辑，并演出谭盾《卧⻁藏⻰》。
+
+      周宇超，软件工程师与钢琴演奏者，现居旧金山湾区。获2025奥伯林成人赛第四名，曾入选PianoTexas并公演贝多芬协奏曲。
+  - name: 合唱《落叶归根｜送别》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666896/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%90%BD%E5%8F%B6%E5%BD%92%E6%A0%B9_ccxhcd.jpg
+    description: |
+      表演团体：Leap·声跃音社
+
+      《落叶归根·送别》是一次横跨太平洋的音乐对话，也是一场连接故土与新家的情感仪式。我们巧妙地将王力宏经典作品《落叶归根》中对故乡的眷恋与李叔同传世名曲《送别》中的东方离愁融为一体。
+
+      这首歌，唱给每一个在海外漂泊的游子。当《落叶归根》中“举头望无尽灰云，那季节叫做寂寞”的现代乡愁，遇上《送别》里“长亭外，古道边，芳草碧连天”的古典意境，我们试图捕捉的，是每一位海外华人心底那份共通的、复杂的情感——既有对远方故土的深切回望，也有在异国他乡建立新生的勇气与期盼。
+
+      艺术特色与舞台呈现：
+
+      情感的双重奏鸣： 节目以《送别》纯净的童声开场，象征着对故乡最初、最纯真的记忆。随后，成人合唱团以《落叶归根》的深情旋律介入，交织出成熟、深沉的人生感慨。两首曲目并非简单串烧，而是在和声与配器上深度融合，形成一场跨越时空与年龄的对话。
+  - name: 乐队《云宫迅音｜左手指月》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666927/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E4%BA%91%E5%AE%AB%E8%BF%85%E9%9F%B3_ufspan.jpg
+    description: |
+      表演团体：离璞乐队
+
+      离璞乐队是由一群在湾区的音乐爱好者们组成的国风流行乐队，我们拥有二胡、古筝、琵琶、箜篌、唢呐等丰富的民乐阵容，更拥有吉他、键盘、贝斯和架子鼓的摇滚配置。无论是经典还是潮流，我们都期待通过我们的改编和演绎，为大家带来拥有国风民乐特色的精彩演出。本次我们会给大家带来两首曲目，一首是86版西游记的主题曲《云宫迅音》，这首曲子几乎是中国最早的国风电子音乐，又在近些年因为游戏《黑神话·悟空》而再次引领潮流。我们也将带来属于我们自己风格的演绎，希望能在新年给大家增添属于我们这一代原汁原味的音乐。另一首是流行歌曲《左手指月》，因萨顶顶强势的高音演绎而为人熟知，我们也希望用这样一首歌曲给大家带来更多震撼，更祝愿大家在新的一年能够步步登高！
+  - name: 脱口秀《拉疯在谷》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666952/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E6%8B%89%E7%96%AF%E5%9C%A8%E8%B0%B7_iucpws.jpg
+    description: |
+      表演：Rachel47
+
+      CrazyLaugh拉疯文化 - 海外亚裔喜剧制作平台，在纽约，DC和LA有三家喜剧俱乐部拉疯喜剧。出品北美首档中文脱口秀综艺《超Fun脱口秀团建》及Rachel47专场《精卫与海》等。用笑声激发凝聚力 Let’s Make CrazyLaugh！
+
+      表演人介绍：Rachel47｜拉疯喜剧主理人｜中英文双语脱口秀演员
+
+      个人专场《精卫X海》已巡演北美与亚洲18城
+  - name: 歌曲《龙船调》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666888/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E9%BE%99%E8%88%B9%E8%B0%83_%E8%8A%82%E7%9B%AE%E7%85%A7%E7%89%87_1_zzpex0.jpg
+    description: |
+      演唱：徐海平
+
+      徐海平—— 曾任中学高级教师，师从中国音乐学院杨曙光教授、朱以为教授。曾荣获三湘群星奖金奖、影视歌手大赛金奖等专业奖项。曾担任湖南省歌舞剧院、湖南省交响乐团主持人及歌手，随团赴香港、澳门、台湾、日本及欧洲多地演出数百场。2013年赴奥地利维也纳参加中国艺术节，在金色大厅演出，荣获“杰出演员奖”。旅居美国后，持续活跃于中美文化交流舞台，曾主持美中建交40周年音乐会、“飞扬春晚”等大型文艺活动。《龙船调》是流传于湖北恩施一带的土家族民歌，旋律明快生动，富有浓郁的民俗风情和生活气息。作品以轻松活泼的对唱形式，展现喜庆热闹的节日氛围，与春节晚会所传达的团圆、祝福与迎新的主题相得益彰，深受观众喜爱。
+  - name: 舞蹈《热键逃离》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666895/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E7%83%AD%E9%94%AE%E9%80%83%E7%A6%BB_se2sid.jpg
+    description: |
+      表演团体：谷妹现代舞团
+      编舞老师：Chanson
+      演员：安琪，wanwan，苏楠，果果，Ivy，Kathy，lrene，猩猩，Jun，queenie，杨露，若曦
+
+      谷妹现代舞团成立短短不到两年时间，已经编创出了许多优秀的作品。热键逃离是chason老师的原创现代舞，灵感来源于硅谷当下工程师们的工作状态。
+  - name: 武术《龙的传人》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666938/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E9%BE%99%E7%9A%84%E4%BC%A0%E4%BA%BA_oeygaj.jpg
+    description: |
+      表演团体：龙韵功夫学院
+      领队：师傅Long Yuan
+      演员名单：Tharun Arya，Felicity He，Derek Liu， Yiwen Gong，Sanskriti Pandey， Zachary Easow， Vincent Huang，Nivaan Shah， Andrew Tang，Aditya Thyagarajan， Jiaxun Huang， Akash Rao，Alex Fu，Camden Nguyen，Alex Tan， Hayden Hu， Sebastian Wu， Alisa Yuan，Jay Zhang，Dylan Zhang， Lucas He， Alex Prasad， Reyaan Thiruvikraman， Anisha Roy，Alessandro Garcia，Daphne Mu，Orion Yang，Aarna Gundavarapu，Ava-Rose Zhang
+      助理：Vicky Ding, Yuanchen
+
+      《龙的传人》是一场融合中华传统武术精神与现代舞台艺术表达的大型武术演出，由美国龍韵少林功夫學院倾力呈现。节目以“龙”为精神象征，寓意力量、传承与团结，展现中华武术刚健有力、生生不息的文化内涵。
+
+      整场演出以气势磅礴的集体拳术开场，动作整齐划一、刚柔并济；随后呈现震撼人心的集体兵器表演，刀、棍、剑、双鞭交错配合，气势如虹。节目中融入精心编排的混合实战对抗，并结合高难度跳跃技巧与富有层次感的跌罗汉造型，将力量、美感与团队协作完美融合。
+
+      在音乐、灯光与舞台节奏的层层推进下，整场演出行云流水、节奏分明，营造出强烈的视觉冲击与情绪张力。《龙的传人》不仅是一场功夫技艺的展示，更是一次跨越文化的精神呈现！
+  - name: 人声合唱《弯弯的月亮》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666888/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E5%BC%AF%E5%BC%AF%E7%9A%84%E6%9C%88%E4%BA%AE_%E8%8A%82%E7%9B%AE%E7%85%A7%E7%89%87_xxlgfx.jpg
+    description: |
+      表演团体：拾乐团
+      演员：采薇 王艺 果果 致昊 石尚 王超
+
+      阿卡贝拉又叫无伴奏人声合唱，演唱者不依赖伴奏和乐器，将人声发挥到极致，不仅唱优美和谐的和声，还模仿各种乐器，对专业要求很高，且风格多变，题材多样有趣。拾乐团（Find A Cappella）是一群热爱阿卡贝拉的硅谷青年成立的人声乐团，立足于热爱，我们热爱唱歌，热爱和声，致力于寻找最美妙的音乐，做大家身边最靠谱的阿卡贝拉！《弯弯的月亮》是一首温柔动人的经典华语歌曲，诉说着思乡的情感与人间的温情。拾乐团以纯净的人声编织月色，用和声描绘家的方向，在无伴奏的歌声中，让思念在每个音符中轻轻荡漾。
+  - name: 小品《这个童话不对劲》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770259401/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%BF%99%E4%B8%AA%E7%AB%A5%E8%AF%9D%E4%B8%8D%E5%AF%B9%E5%8A%B2_vmojqa.jpg
+    description: |
+      表演团体：来人即兴
+      演员：高曲、日天、二幺、史蒂芬
+
+      在小朋友们熟悉的童话故事里，主角是美丽的白雪公主，反派是心狠手辣的恶毒皇后。还有皇后派出的心软善良的猎人，以及森林里一只戏份不多的大灰狼。如果每一个角色都爱岗敬业的话，一切本该按照剧本发展———但今天，这个故事好像哪里出了点问题。。。
+  - name: 蒙古舞《ROAM》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770669767/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%92%99%E5%8F%A4%E8%88%9EROAM_1_zde2he.jpg
+    description: |
+      表演团体：IPAA
+      演员：楊洋，董霁雯，刘嫣，严峻，郑慧芬，陆玉华，陸雁明，王若熙，姚小英，胡英，商晓燕，李冬梅，陳纤琴，周頌婧云，范笑，张罄予，楊清心，江文婧
+
+      "藝" 美國國際藝術團 (IPAA) 成立於 2018 年，是一家充滿活力的非營利舞蹈公司，紮根於舊金山灣區，致力於透過肢體動作和舞蹈編排來頌揚文化。
+
+      我們相信，舞蹈擁有展現民族傳統多樣性和豐富性的力量，同時也能講述深刻的個人故事。我們包容性強的團隊由專業的芭蕾舞者、民族民俗舞者以及訓練有素的舞蹈愛好者組成，他們來自灣區各地不同的背景。儘管我們來自不同的生活經歷，但我們都以舞蹈作為與世界溝通的通用語言。
+
+      自 2018 年成立以來，IPAA 已創作並展示了約 65 部原創舞蹈作品，涵蓋了多種全球風格和文化。我們與 40 多個才華橫溢的客座表演藝術團體合作，共同慶祝我們的多樣性以及對舞蹈、音樂和文化的共同熱愛。我們致力於打造一個真正包容且充滿活力的藝術社群。
+
+      牧歌隨風而起, 悠然奔放。草原遊牧之魂, 隨水草而行, 隨四季而迁, 訴說著遊牧民族自由而豪迈的生命贊歌!
+  - name: 乐器《赛马》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666916/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E8%B5%9B%E9%A9%AC_v0sb6l.jpg
+    description: |
+      表演团体：北美青年中乐团(NACYO)
+
+      北美青年中乐团（North America Chinese Youth Orchestra，NACYO）是一支立足旧金山东湾三谷地区、以中国传统民族乐器为核心的青少年乐团，面向一年级至十二年级学生，提供系统而专业的中乐教育。乐团在传承中华优秀音乐文化的同时，融合西方多元音乐理念，注重培养学生的艺术修养、跨文化理解力与社会责任感。作为非营利音乐教育机构，NACYO的教学项目已成功进入奥克兰及旧金山等公立学区的正式课程体系，成为当地多元文化音乐教育的重要组成部分。尽管成立时间不长，乐团在专业音乐家的指导下迅速成长，已在湾区多项社区文化活动中亮相，并在国际赛事中屡获佳绩。
+
+      演出曲目《赛马》是一首富有民族特色的中国经典器乐作品，描绘了内蒙古人民在节庆时赛马的热闹场景，旋律欢快奔放，充满生命力。
+  - name: 歌曲《灯火里的中国》
+    image: https://res.cloudinary.com/zaigezaigu/image/upload/v1770666857/zgzg-io-website/2026%E6%98%A5%E6%99%9A/%E7%81%AF%E7%81%AB%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD_odvnzu.jpg
+    description: |
+      歌手： Jiayi Huang 、Ailsa Song
+      Tinkle Seed 小乐芽音乐启蒙学生代表（Audrey Zhang，Channing Dong, Jonas Dong, Eowyn Liu, Lucas Sun, Jinghe Xu）
+      伴舞：Wenyi Guo、Huilin Zhang、Coco Tan、小熊、Charlotte Mei、Alice Chen
+      编舞：钱琨 QueenieQ
+
+      《灯火里的中国》由歌手Jiayi Huang、和Tinkle Seed小乐芽音乐启蒙主办人 Ailsa 老师 带领，携手 6 位小学员，并联合 6 位舞蹈演员 共同呈现。是一首充满温度与画面感的作品，用温柔而坚定的旋律，描绘了城市夜色中万家灯火的宁静与繁华。
+
+      小乐芽 Tinkle Seed 是面向 2–6 岁儿童的音乐启蒙课程，在湾区半岛及南湾开设课程。课程以奥尔夫音乐教学法为核心，通过音乐游戏、节奏律动和乐器体验，引导孩子在快乐与互动中自然感受音乐、爱上音乐。创始人 Ailsa Song 是一位热爱音乐与教育事业的湾区斜杠青年，拥有多年的音乐学习、舞台演出及比赛经验。她致力于以富有趣味性和互动性的音乐启蒙方式，引导孩子在快乐中感受音乐，激发表达能力与创造力。
+
+      歌手Jiayi Huang是一位热爱唱歌的精算师。曾获得《载歌在谷·歌手赛》冠军、北京电视台《水立方杯·中文歌曲大赛》旧金山冠军、MHACC全美阳光精神健康杯歌唱大赛冠军。现任载歌在谷一饱演福云集音乐会组长和出品人。曾担任载歌在谷歌手赛评委、硅谷歌友会大型活动导演。多次参加《载歌在谷春晚》《云集音乐会》《中国之夜》等大型演出活动。
