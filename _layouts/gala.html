@@ -234,17 +234,21 @@ layout: default
 
     .program-card { @extend .host-card; }   /* 如果你不用 SCSS，就直接复制 */
     .program-img-wrapper {
-        width: 140px;
-        height: 140px;
-        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 4 / 5;     /* 你也可以 1 / 1 */
+        background: #f7f7f7;     /* 兜底背景 */
         border-radius: 12px;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .program-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;    /* 👈 关键 */
     }
 
     .program-name {
@@ -260,38 +264,149 @@ layout: default
         text-align: justify;
         text-align-last: left;
         margin-bottom: 0;
+        white-space: pre-line;
     }
-    </style>
+
+    .program-desc-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #555;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 10;     /* 显示行数 */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .program-desc.expanded .program-desc-text {
+        -webkit-line-clamp: unset;
+    }
+
+    .program-desc-toggle {
+        background: none;
+        border: none;
+        padding: 0;
+        margin-top: 0.25rem;
+
+        font-size: 0.85rem;
+        color: #c33;
+        cursor: pointer;
+    }
+
+    .gala-section-title {
+        color: var(--gala-red);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+    .event-info-line {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+        }
+
+    .ticket-action .ticket-btn {
+        min-width: 160px;
+    }
+
+    .ticket-faq p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #555;
+        margin-bottom: 0.4rem;
+    }
+
+    @media (max-width: 767.98px) {
+        .gala-section-title {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .event-info-line {
+            font-size: 0.9rem;
+            text-align: center; /* 手机上居中，更易读 */
+        }
+
+        .ticket-action {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .ticket-btn {
+            width: 70%;
+            max-width: 220px;
+        }
+
+        .ticket-faq p {
+            text-align: center;
+        }
+    }
+
+</style>
+
+<script>
+    document.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('program-desc-toggle')) return;
+
+        const wrapper = e.target.closest('.program-desc');
+        wrapper.classList.toggle('expanded');
+
+        e.target.textContent =
+            wrapper.classList.contains('expanded') ? '收起' : '展开';
+    });
+    </script>
 
 <div class="hero gala-bg"></div>
-<div class="container pt-4">
-    <div class="container">
-        <div class="home-section-header fade-in">
-            <div class="home-section-content_top">
-                <div class="row"><h2 class="pb-3 text-start">🐉 2026马年 载歌在谷 春晚 🧧</h2></div>
-                <div class="row fade-in align-items-start">
-                    <div class="col-md-6 text-start mb-3 mb-md-0">
-                        <p class="custom-text-style"><b>春晚时间:</b> 2026年02月14日 周六</p>
-                        <p class="custom-text-style"><b>春晚地点:</b> San Jose Center for the Performing Arts</p>
-                        <p class="custom-text-style"><b>春晚地址:</b> 255 S Almaden Blvd, San Jose, CA 95113</p>
-                        <div class="ticket-action mt-4">
-                            <a href="https://zgzg.li/2026-ticket-website"
-                               class="btn ticket-btn"
-                               target="_blank">
-                                🎟️ 立即购票
-                            </a>
-                        </div>
-                        <div class="ticket-faq">
-                            <p>🎉 <b>早鸟优惠：</b>2025/12/12 – 2026/1/11 期间购票，自动享受 <b>8 折</b> 优惠</p>
-                            <p>🔁 <b>退票政策：</b>购票后 <b>24 小时内</b> 可无条件退票（手续费不退），超过 24 小时不可退票</p>
-                            <p>👶 <b>儿童政策：</b>4 岁及以下儿童，如 <b>不占用座位</b>，无需购票</p>
-                        </div>
-                    </div>
-                </div>
+<div class="container pt-5">
+    <div class="home-section-header fade-in">
+      <div class="row align-items-start">
+        <!-- 左侧中文 -->
+        <div class="col-md-6 mb-3 mb-md-0">
+          <h2 class="gala-section-title">🐉 2026 载歌在谷 春节联欢晚会 🧧</h2>
+          <div class="event-info">
+            <p class="event-info-line">📅 <b>时间:</b> 2026/02/14（周六）19:30</p>
+            <p class="event-info-line">📍 <b>地点:</b> San Jose Center for the Performing Arts</p>
+            <p class="event-info-line text-muted small">255 S Almaden Blvd, San Jose, CA 95113</p>
+
+            <div class="ticket-action mt-3">
+              <a href="https://zgzg.li/2026-ticket-website" class="btn ticket-btn" target="_blank">
+                🎟️ 立即购票
+              </a>
             </div>
+
+            <div class="ticket-faq mt-3">
+              <p>🔁 <b>退票政策:</b> 购票后 <b>24 小时内</b> 可无条件退票（手续费不退），超过 24 小时不可退票</p>
+              <p>👶 <b>儿童政策:</b> 4 岁及以下儿童，如 <b>不占用座位</b>，无需购票</p>
+            </div>
+          </div>
         </div>
+
+        <!-- 右侧英文 -->
+        <div class="col-md-6">
+          <h2 class="gala-section-title">🐉 2026 ZaiGeZaiGu Chinese New Year Gala 🧧</h2>
+          <div class="event-info">
+            <p class="event-info-line">📅 <b>Time:</b> 2026/02/14 (Sat) 7:30 PM</p>
+            <p class="event-info-line">📍 <b>Venue:</b> San Jose Center for the Performing Arts</p>
+            <p class="event-info-line text-muted small">255 S Almaden Blvd, San Jose, CA 95113</p>
+
+            <div class="ticket-action mt-3">
+              <a href="https://zgzg.li/2026-ticket-website" class="btn ticket-btn" target="_blank">
+                🎟️ Buy Tickets
+              </a>
+            </div>
+
+            <div class="ticket-faq mt-3">
+              <p>🔁 <b>Refund Policy:</b> Tickets can be refunded <b>within 24 hours</b> after purchase (fees non-refundable). After 24 hours, tickets are non-refundable.</p>
+              <p>👶 <b>Children Policy:</b> Children 4 and under do not need tickets if <b>no seat is required</b>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
 
 <div id="about-gala" class="tab-content fade-in">
     <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
@@ -337,9 +452,16 @@ layout: default
                     </div>
                     <div class="card-body pt-3">
                         <h5 class="host-name text-center">{{ host.name }}</h5>
-                        <p class="host-desc">
-                            {{ host.description }}
-                        </p>
+                        {% if host.description %}
+                        <div class="host-desc program-desc">
+                            <div class="program-desc-text">
+                                {{ host.description }}
+                            </div>
+                            <button class="program-desc-toggle" type="button">
+                                展开
+                            </button>
+                        </div>
+                        {% endif %}
 
                         {% if host.highlights %}
                         <div class="host-highlights">
@@ -382,9 +504,14 @@ layout: default
                         </h5>
 
                         {% if program.description %}
-                        <p class="program-desc">
-                            {{ program.description }}
-                        </p>
+                        <div class="program-desc">
+                            <div class="program-desc-text">
+                                {{ program.description }}
+                            </div>
+                            <button class="program-desc-toggle" type="button">
+                                展开
+                            </button>
+                        </div>
                         {% endif %}
 
                         {% if program.highlights %}
