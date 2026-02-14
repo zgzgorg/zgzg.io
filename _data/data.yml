@@ -77,14 +77,8 @@ programmes_chunwan:
     button-text: 详情
     thanks_label: 特别鸣谢
     thanks_icons:
-      - image: https://via.placeholder.com/80?text=1
-        name: 鸣谢一
-        url: "#"
-      - image: https://via.placeholder.com/80?text=2
-        name: 鸣谢二
-        url: "#"
-      - image: https://via.placeholder.com/80?text=3
-        name: 鸣谢三
+      - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1771112602/zgzg-io-website/2026%E6%98%A5%E6%99%9A/diamond_icons.png
+        name: 特别鸣谢
         url: "#"
   - name: 歌手赛
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670565567/zgzg-io-website/2022%20singers/DSC02710-2_bwjybv.jpg
