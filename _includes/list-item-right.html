@@ -8,6 +8,16 @@
       {% if item.button-text %}
       <a class="button list-item-button" href="{{ item.button-url }}">{{ item.button-text }}</a>
       {% endif %}
+      {% if item.thanks_label and item.thanks_icons %}
+      <p class="item-thanks-label mt-3 mb-2 small text-muted">{{ item.thanks_label }}</p>
+      <div class="item-thanks-icons d-flex gap-3 flex-wrap align-items-center">
+        {% for icon in item.thanks_icons %}
+        <a href="{{ icon.url | default: '#' }}" class="item-thanks-icon" title="{{ icon.name }}" target="_blank" rel="noopener">
+          <img src="{{ icon.image }}" alt="{{ icon.name }}" width="48" height="48" loading="lazy" style="object-fit: contain; max-height: 48px;">
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>
