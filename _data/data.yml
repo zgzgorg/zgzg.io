@@ -10,7 +10,7 @@ main:
   - name: "云集社团"
     url: "/yj/"
   - name: "赞助招商"
-    url: "/galatour#sponsors-galatour"
+    url: "/sponsorship/"
   - name: "En"
     url: "/english/"
     icon: true
