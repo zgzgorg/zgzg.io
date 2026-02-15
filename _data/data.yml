@@ -10,7 +10,7 @@ main:
   - name: "云集社团"
     url: "/yj/"
   - name: "赞助招商"
-    url: "/galatour#sponsors-galatour"
+    url: "/sponsorship/"
   - name: "En"
     url: "/english/"
     icon: true
@@ -75,6 +75,11 @@ programmes_chunwan:
     description: 承袭自2015年Google春晚，现面向整个湾区。由200余名主要来自湾区高科技公司的志愿者和演员耗时半年精心打造，是湾区规模最大，观众最多，最具硅谷特色的春节晚会。
     button-url: /gala/
     button-text: 详情
+    thanks_label: 特别鸣谢
+    thanks_icons:
+      - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1771112602/zgzg-io-website/2026%E6%98%A5%E6%99%9A/diamond_icons.png
+        name: 特别鸣谢
+        url: "#"
   - name: 歌手赛
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670565567/zgzg-io-website/2022%20singers/DSC02710-2_bwjybv.jpg
     description: “载歌在谷”歌手赛，我们在成功的经验上进一步扩大规模，全新规划，为您打造一年一度的，高水准的华人歌手赛。
