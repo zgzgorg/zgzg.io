@@ -41,6 +41,12 @@ bodyClass: page-home
     text-shadow: 0 3px 12px rgba(0,0,0,0.45);
   }
 
+  /* 2026 春季歌手赛标题：桌面更紧凑，移动端自然换行 */
+  .gala-hero-strip .spring-2026-event-title {
+    font-size: clamp(1.65rem, 2.6vw, 2.45rem);
+    line-height: 1.2;
+  }
+
   /* 英文副标题 */
   .gala-hero-strip .gala-hero-subtitle {
     color: rgba(255,255,255,0.85);
@@ -101,7 +107,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="strip gala-hero-strip">
   <div class="container pb-4 pt-5">
-    {% include 2025-fall-event-info.html %}
+    {% include 2026-spring-event-info.html %}
   </div>
 </div>
 
