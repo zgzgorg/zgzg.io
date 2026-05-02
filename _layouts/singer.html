@@ -1,86 +1,608 @@
 ---
 layout: default
 ---
-<div class="hero p-4 p-md-8 p-lg-10 hero-singer">
-    <div class="hero-container" style="display: flex; flex-wrap: wrap; width: 100%;">
-        <div class="hero-content" style="flex: 1 1 50%; padding: 1rem;">
-            <h1>
-                2025「我最闪亮」<br>
-                成人组歌手赛
+<style>
+    :root {
+        --singer-red: #b30000;
+        --singer-gold: #ffd700;
+        --singer-bg-light: #fff9f2;
+    }
+
+    body {
+        background-color: var(--singer-bg-light);
+    }
+
+    .singer-page-title {
+        color: var(--singer-red);
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .singer-hero-card {
+        position: relative;
+        border-radius: 20px;
+        padding: 0;
+        color: #2a0a0a;
+        box-shadow: 0 14px 32px rgba(128, 0, 0, 0.28);
+        overflow: hidden;
+        background-color: #fff9f2;
+    }
+
+    /* 虚化海报背景层 */
+    .singer-hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -12px;
+        background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1777702958/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E6%A8%AA%E6%9D%BF%E6%B5%B7%E6%8A%A5_kj4jif.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(4px);
+        transform: scale(1.03);
+        z-index: 0;
+    }
+
+    /* 折中：上半部更透海报，下半部渐强压住留白 */
+    .singer-hero-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(255, 255, 255, 0.14) 48%,
+            rgba(255, 255, 255, 0.38) 100%
+        );
+        z-index: 1;
+    }
+
+    .singer-hero-inner {
+        position: relative;
+        z-index: 2;
+        padding: 2rem;
+        background: rgba(255, 252, 248, 0.68);
+        border: 1px solid rgba(179, 0, 0, 0.12);
+        border-radius: 16px;
+        margin: 1rem;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .singer-hero-card .gala-hero-title,
+    .singer-hero-inner .gala-hero-title {
+        color: #7a0000;
+        text-shadow: none;
+    }
+
+    .singer-hero-card .gala-hero-subtitle,
+    .singer-hero-inner .gala-hero-subtitle {
+        color: rgba(42, 10, 10, 0.72);
+    }
+
+    .singer-hero-card .gala-info-line,
+    .singer-hero-inner .gala-info-line {
+        color: #3a1a1a;
+        margin-bottom: 0.45rem;
+    }
+
+    .singer-hero-card .gala-info-line b,
+    .singer-hero-inner .gala-info-line b {
+        color: #b8860b;
+    }
+
+    .singer-hero-card .gala-info-line.text-muted,
+    .singer-hero-inner .gala-info-line.text-muted {
+        color: rgba(58, 26, 26, 0.62) !important;
+    }
+
+    .ticket-btn {
+        background: linear-gradient(135deg, #ffd700, #ffb300);
+        color: #8b0000;
+        font-weight: 700;
+        border-radius: 999px;
+        text-decoration: none;
+        border: none;
+        box-shadow: 0 8px 22px rgba(255, 215, 0, 0.45);
+        transition: all 0.25s ease;
+        display: inline-block;
+    }
+
+    .ticket-btn:hover {
+        background: linear-gradient(135deg, #ffcc00, #ffa000);
+        color: #6b0000;
+        transform: translateY(-2px);
+    }
+
+    .program-card {
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        background: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .program-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 6px 20px rgba(179, 0, 0, 0.2);
+        border-color: var(--singer-gold);
+    }
+
+    .program-img-wrapper {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        background: #f7f7f7;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .program-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .program-name {
+        font-weight: 700;
+        color: var(--singer-red);
+        margin-bottom: 0.4rem;
+    }
+
+    .age-group-title {
+        display: inline-block;
+        color: #7a0000;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        margin-top: 1.2rem;
+        margin-bottom: 0.35rem;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 180, 0, 0.86));
+        box-shadow: 0 8px 20px rgba(255, 179, 0, 0.28);
+        border: 1px solid rgba(179, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+        animation: badgePulse 2.2s ease-in-out infinite;
+    }
+
+    .age-group-title::before {
+        content: "★ ";
+        color: #b30000;
+    }
+
+    .age-group-title::after {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -30%;
+        width: 38%;
+        height: 180%;
+        background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.45),
+            rgba(255, 255, 255, 0)
+        );
+        transform: rotate(18deg);
+        animation: badgeShine 2.8s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    @keyframes badgePulse {
+        0%, 100% {
+            box-shadow: 0 8px 20px rgba(255, 179, 0, 0.28);
+            transform: translateY(0);
+        }
+        50% {
+            box-shadow: 0 10px 26px rgba(255, 179, 0, 0.44);
+            transform: translateY(-1px);
+        }
+    }
+
+    @keyframes badgeShine {
+        0% {
+            left: -40%;
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        60% {
+            left: 110%;
+            opacity: 0;
+        }
+        100% {
+            left: 110%;
+            opacity: 0;
+        }
+    }
+
+    .song-set {
+        display: inline-block;
+        max-width: 100%;
+        margin: 0 auto 0.35rem;
+        text-align: left;
+        padding: 0.35rem 0.45rem 0.15rem;
+        border-radius: 14px;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.55),
+            rgba(255, 240, 220, 0.35)
+        );
+        border: 1px solid rgba(179, 0, 0, 0.12);
+        box-shadow: 0 6px 18px rgba(90, 0, 0, 0.08);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .song-block {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.55rem;
+        margin-bottom: 0.55rem;
+        transition: transform 0.2s ease;
+    }
+
+    .song-block:hover {
+        transform: translateX(2px);
+    }
+
+    .song-block:last-child {
+        margin-bottom: 0;
+    }
+
+    .song-tag {
+        flex: 0 0 auto;
+        margin-top: 0.15rem;
+        padding: 0.12rem 0.45rem;
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: #7a0000;
+        background: linear-gradient(145deg, rgba(255, 248, 220, 0.95), rgba(255, 210, 120, 0.75));
+        border: 1px solid rgba(179, 0, 0, 0.28);
+        line-height: 1.1;
+        white-space: nowrap;
+        box-shadow:
+            0 2px 0 rgba(255, 255, 255, 0.65) inset,
+            0 4px 10px rgba(179, 0, 0, 0.12);
+    }
+
+    .song-block-body {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .song-kind {
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: rgba(122, 0, 0, 0.72);
+        letter-spacing: 0.06em;
+    }
+
+    .song-title {
+        position: relative;
+        overflow: hidden;
+        margin-top: 0.08rem;
+        font-size: 1.02rem;
+        font-weight: 800;
+        line-height: 1.28;
+        letter-spacing: 0.02em;
+        word-break: break-word;
+        padding: 0.22rem 0.45rem 0.28rem 0.55rem;
+        border-radius: 10px;
+        color: #5a0000;
+        background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.72) 0%,
+            rgba(255, 236, 200, 0.42) 45%,
+            rgba(255, 255, 255, 0.35) 100%
+        );
+        border: 1px solid rgba(255, 179, 0, 0.55);
+        text-shadow:
+            0 1px 0 rgba(255, 255, 255, 0.75),
+            0 10px 22px rgba(179, 0, 0, 0.12);
+        animation: titleGlow 2.6s ease-in-out infinite;
+    }
+
+    .song-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        border-radius: 10px 0 0 10px;
+        background: linear-gradient(180deg, #ffd700, #b30000);
+        opacity: 0.95;
+        pointer-events: none;
+    }
+
+    .song-title::after {
+        content: "";
+        position: absolute;
+        top: -35%;
+        left: -35%;
+        width: 42%;
+        height: 170%;
+        background: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.55),
+            rgba(255, 255, 255, 0)
+        );
+        transform: rotate(18deg);
+        animation: titleShine 2.9s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    @keyframes titleGlow {
+        0%, 100% {
+            box-shadow:
+                0 4px 14px rgba(120, 0, 0, 0.1),
+                0 0 0 rgba(255, 215, 0, 0);
+        }
+        50% {
+            box-shadow:
+                0 6px 18px rgba(120, 0, 0, 0.14),
+                0 0 18px rgba(255, 215, 0, 0.28);
+        }
+    }
+
+    @keyframes titleShine {
+        0% {
+            left: -45%;
+            opacity: 0;
+        }
+        20% {
+            opacity: 1;
+        }
+        55% {
+            left: 115%;
+            opacity: 0;
+        }
+        100% {
+            left: 115%;
+            opacity: 0;
+        }
+    }
+
+    .program-desc {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.6;
+        text-align: justify;
+        text-align-last: left;
+        margin-bottom: 0;
+        white-space: pre-line;
+    }
+
+    .program-desc-text {
+        display: -webkit-box;
+        line-clamp: 6;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .program-desc.expanded .program-desc-text {
+        line-clamp: unset;
+        -webkit-line-clamp: unset;
+    }
+
+    .program-desc-toggle {
+        background: none;
+        border: none;
+        padding: 0;
+        margin-top: 0.25rem;
+        font-size: 0.85rem;
+        color: #c33;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    document.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('program-desc-toggle')) return;
+        const wrapper = e.target.closest('.program-desc');
+        wrapper.classList.toggle('expanded');
+        e.target.textContent = wrapper.classList.contains('expanded') ? '收起' : '展开';
+    });
+</script>
+
+<div class="container pt-5">
+    <div class="singer-hero-card mb-5">
+        <div class="singer-hero-inner">
+            <h1 class="gala-hero-title mb-2">
+                🎤 2026载歌在谷“童声闪耀”青少年歌手赛
             </h1>
-            <h2>
-                复赛：2025 年 5 月 24 日<br>
-                地点：Starbright Theater, Campbell, CA<br>
-                决赛：2025 年 7 月 19 日<br>
-                地点：Hammer Theater, San Jose, CA
-            </h2>
-            <a href="{{site.data.data.singer_2025_prelim_ticket_link}}">
-                <button class="btn btn-primary btn-extend px-xl-5">复赛购票链接</button>
-            </a>
-            <a href="{{site.data.data.singer_2025_ticket_link}}">
-                <button class="btn btn-primary btn-extend px-xl-5">决赛购票链接</button>
-            </a>
-        </div>
+            <h4 class="gala-hero-subtitle mb-4">
+                2026 ZaiGeZaiGu Youth Singer Competition
+            </h4>
 
-        <div class="hero-content" style="flex: 1 1 50%; padding: 1rem;">
-            <h1>
-                2025「童星闪耀」<br>
-                青少年组歌手赛
-            </h1>
-            <h2>
-                决赛：2025 年 5 月 25 日<br>
-                地点：Starbright Theater, Campbell, CA
-                </br>
-                </br>
-                </br>
-            </h2>
-            <a href="{{site.data.data.singer_2025_youth_ticket_link}}">
-                <button class="btn btn-primary btn-extend px-xl-5">购票链接</button>
-            </a>
-        </div>
-    </div>
+            <div class="gala-info">
+                <p class="gala-info-line">
+                    🏆 <b>决赛时间：</b>2026/05/17 1pm - 5pm
+                </p>
+                <p class="gala-info-line">
+                    📍 <b>决赛地点：</b>Starbright Theater
+                </p>
+                <p class="gala-info-line text-muted small">
+                    1770 W Campbell Ave, Campbell, CA 95008
+                </p>
+            </div>
 
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="tab">
-                <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="2025s-youth-singer-list">青少年组决赛</button>
-                <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="2025s-prelim-singer-list">成人组复赛</button>
+            <div class="mt-4 p-3 rounded" style="background: rgba(255, 215, 0, 0.22); border: 1px solid rgba(179, 0, 0, 0.18);">
+                <p class="mb-2 fw-bold fs-5 text-danger">
+                    🔥 决赛门票火热开售中
+                </p>
+                <a class="ticket-btn btn btn-lg px-4 py-3"
+                   href="https://zgzg.li/2026s-youth-ticket"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    🎟️ 立即抢票 · Buy Final Tickets Now
+                </a>
             </div>
         </div>
     </div>
-    <div class="row">
+
+    <div class="row pt-2">
+        <div class="col text-center pb-4">
+            <h3 class="singer-page-title">🌟 决赛选手介绍</h3>
+        </div>
+    </div>
+
+    <h4 class="age-group-title">K-1年级组</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
+        {% for singer in site.data.data.2026s-youth-finalists limit:5 %}
         <div class="col">
-            <div id="2025s-youth-singer-list" class="tab-content">
-                <div id="galalist-space">
-                    <div class="container">
-                        <div class="row g-1 g-md-2 p-1 p-md-3">
-                            {% for programme in site.data.data.singer_2025_youth_singerlist %}
-                            {% include programme.html %}
-                            {% endfor %}
+            <div class="card program-card h-100 rounded-4">
+                <div class="program-img-wrapper mx-auto mt-4">
+                    <img src="{{ singer.image }}"
+                         alt="{{ singer.name }}"
+                         class="program-img">
+                </div>
+                <div class="card-body pt-3 text-center">
+                    <h5 class="program-name text-center">{{ singer.name }}</h5>
+                    <div class="song-set text-start">
+                        <div class="song-block">
+                            <span class="song-tag" title="第一轮完整伴奏演唱曲目">第1轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">伴奏</div>
+                                <div class="song-title">{{ singer.round1_song }}</div>
+                            </div>
                         </div>
+                        <div class="song-block">
+                            <span class="song-tag" title="第二轮清唱演唱曲目">第2轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">清唱</div>
+                                <div class="song-title">{{ singer.round2_song }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-desc">
+                        <div class="program-desc-text">{{ singer.description }}</div>
+                        <button class="program-desc-toggle" type="button">展开</button>
                     </div>
                 </div>
             </div>
-            <div id="2025s-prelim-singer-list" class="tab-content">
-                <div id="galalist-space">
-                    <div class="container">
-                        <div class="row g-1 g-md-2 p-1 p-md-3">
-                            {% for programme in site.data.data.singer_2025_prelim_singerlist %}
-                            {% include programme.html %}
-                            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="age-group-title">2-3年级组</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
+        {% for singer in site.data.data.2026s-youth-finalists offset:5 limit:5 %}
+        <div class="col">
+            <div class="card program-card h-100 rounded-4">
+                <div class="program-img-wrapper mx-auto mt-4">
+                    <img src="{{ singer.image }}"
+                         alt="{{ singer.name }}"
+                         class="program-img">
+                </div>
+                <div class="card-body pt-3 text-center">
+                    <h5 class="program-name text-center">{{ singer.name }}</h5>
+                    <div class="song-set text-start">
+                        <div class="song-block">
+                            <span class="song-tag" title="第一轮完整伴奏演唱曲目">第1轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">伴奏</div>
+                                <div class="song-title">{{ singer.round1_song }}</div>
+                            </div>
                         </div>
+                        <div class="song-block">
+                            <span class="song-tag" title="第二轮清唱演唱曲目">第2轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">清唱</div>
+                                <div class="song-title">{{ singer.round2_song }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-desc">
+                        <div class="program-desc-text">{{ singer.description }}</div>
+                        <button class="program-desc-toggle" type="button">展开</button>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-</div>
 
+    <h4 class="age-group-title">4-5年级组</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
+        {% for singer in site.data.data.2026s-youth-finalists offset:10 limit:5 %}
+        <div class="col">
+            <div class="card program-card h-100 rounded-4">
+                <div class="program-img-wrapper mx-auto mt-4">
+                    <img src="{{ singer.image }}"
+                         alt="{{ singer.name }}"
+                         class="program-img">
+                </div>
+                <div class="card-body pt-3 text-center">
+                    <h5 class="program-name text-center">{{ singer.name }}</h5>
+                    <div class="song-set text-start">
+                        <div class="song-block">
+                            <span class="song-tag" title="第一轮完整伴奏演唱曲目">第1轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">伴奏</div>
+                                <div class="song-title">{{ singer.round1_song }}</div>
+                            </div>
+                        </div>
+                        <div class="song-block">
+                            <span class="song-tag" title="第二轮清唱演唱曲目">第2轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">清唱</div>
+                                <div class="song-title">{{ singer.round2_song }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-desc">
+                        <div class="program-desc-text">{{ singer.description }}</div>
+                        <button class="program-desc-toggle" type="button">展开</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-<div class="container">
-    {% assign sponsor_type = site.data.data-sponsor.sponsors-singer %}
-    {% include sponsor-template.html %}
+    <h4 class="age-group-title">6-10年级组</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        {% for singer in site.data.data.2026s-youth-finalists offset:15 limit:5 %}
+        <div class="col">
+            <div class="card program-card h-100 rounded-4">
+                <div class="program-img-wrapper mx-auto mt-4">
+                    <img src="{{ singer.image }}"
+                         alt="{{ singer.name }}"
+                         class="program-img">
+                </div>
+                <div class="card-body pt-3 text-center">
+                    <h5 class="program-name text-center">{{ singer.name }}</h5>
+                    <div class="song-set text-start">
+                        <div class="song-block">
+                            <span class="song-tag" title="第一轮完整伴奏演唱曲目">第1轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">伴奏</div>
+                                <div class="song-title">{{ singer.round1_song }}</div>
+                            </div>
+                        </div>
+                        <div class="song-block">
+                            <span class="song-tag" title="第二轮清唱演唱曲目">第2轮</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">清唱</div>
+                                <div class="song-title">{{ singer.round2_song }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-desc">
+                        <div class="program-desc-text">{{ singer.description }}</div>
+                        <button class="program-desc-toggle" type="button">展开</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
