@@ -644,14 +644,20 @@ singerlist:
 2026s-youth-finalists:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703807/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Elena_He_trj42f.jpg
     name: Elena He
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: "How Far I'll Go"
+    round2_song: For the first time in forever
+    description: |
+      大家好，我是Elena，今年6岁。我是一只喜欢唱歌的小蝴蝶，喜欢在舞台上自由自在地“飞”。从小我就特别喜欢唱歌和表演，每次站上舞台，我都会用心设计动作，把我的热情展现给大家。我已经拿到了好几个歌唱比赛的奖项，比如American Protege We Sing Pop比赛（不限年龄组）的二等奖，还有湖南卫视“名师有高徒”幼儿组的冠军。多次的表演也让我收获了满满的掌声和鼓励。我希望以后能飞到更多更大的舞台，把我对唱歌的热爱分享给更多人听。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703804/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Cindy_Peng_n2up5t.jpg
     name: Cindy Peng
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: Part of Your World
+    round2_song: Candle on the Water
+    description: |
+      Cindy是一名一年级的小朋友，喜欢唱歌、钢琴、中国舞和主持。音乐是她生活的一部分：入睡、坐车、日常点滴中都离不开旋律的陪伴。
+
+      她喜欢反复欣赏喜爱的舞台表演，并尝试模仿，在轻松自然中培养表达与自信。在家里，客厅就是她的小舞台——爸爸弹琴，她唱歌；也常和朋友们参与图书馆与社区的公益演出。曾参加本地歌唱比赛并取得不错的成绩，也在合唱团中积累舞台经验。
+
+      入围“载歌载谷”决赛，她期待把这份热爱分享给更多人。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703807/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Valerie_Zhang_zso5gp.jpg
     name: Valerie Zhang
     round1_song: 待公布
@@ -659,9 +665,11 @@ singerlist:
     description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703810/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/astrid_zhou_iuzfix.jpg
     name: Astrid Zhou
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: Tomorrow
+    round2_song: I see the light
+    description: |
+      大家好，我是Astrid，周妙宸，是一个爱唱歌，爱笑的小女孩～
+      我喜欢唱歌，不管是在家里、车上、教室里、公园里，我都会忍不住哼起来～我还喜欢画画和跳拉丁舞～我也参加过一些表演，每一次站在舞台上，我都特别开心，就像在和大家分享我的小快乐一样！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703808/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E4%BB%99%E4%BB%99_vp1h3o.jpg
     name: 仙仙
     round1_song: 待公布
@@ -701,14 +709,16 @@ singerlist:
       这次来到比赛舞台，我不仅带来了我的小嗓门，还带了一大口袋的快乐！希望我的歌声能像彩色泡泡一样，飞进每个人的心里。请大家记住这个爱唱歌的战放，看我在这个舞台上，美美地绽放！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703807/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Jaslin_Wang_lgkzsg.jpg
     name: Jaslin Wang
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: 今天是你的生日，妈妈
+    round2_song: How can I keep from singing
+    description: |
+      我是Jaslin Wang（王梓琳），今年9岁。我学习声乐已有两年多的时间，对舞台充满热爱。在艺术成长的道路上，我跟随我的老师，不仅专注于独唱技巧的打磨，还积极参与合唱及各类综合性艺术表演，积累了丰富的舞台经验。唱歌是我表达情感、分享快乐的方式，希望能通过这次比赛展示我的进步与风采。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703805/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Jennifer_Yu_e4rgec.jpg
     name: Jennifer Yu
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: Red River Valley
+    round2_song: Greensleeves
+    description: |
+      大家好，我叫Jennifer, 今年11岁。5岁起加入合唱团学习声乐，在歌声中不断挑战自我、锻炼自我，收获成长，也收获友谊。在团队中学会合作，增强集体意识，让我变得更加自信与坚定。我喜欢小动物，也热爱花样游泳和跳舞。这是我第一次站上这么大的舞台，虽然有一点点紧张，但更多的是期待与开心——期待在舞台上遇见更好的自己！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703811/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Alexander_Wang_o788gs.jpg
     name: Alexander Wang
     round1_song: 待公布
@@ -721,14 +731,15 @@ singerlist:
     description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703807/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Aaron_Zhu_ggwsid.jpg
     name: Aaron Chu
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: 周杰伦 - 霍元甲
+    round2_song: 张韶涵 - 篇章
+    description: |
+      朱逸轩，小四，来自旧金山，喜欢唱歌与舞台表演。平时学习小提琴、钢琴，也会弹吉他和打鼓，喜欢跳舞，希望用音乐留下自己的声音。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777704103/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Yolanda_Cui_jlzmth.jpg
     name: Yolanda Cui
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: Se Tu M’ami
+    round2_song: 玛依拉
+    description: Yolanda 出生于美丽的加州硅谷，六岁开始接触独唱和合唱，擅长体操，喜欢画画和钢琴，获得过很多独唱和合唱的奖项，和体操年龄组北加州冠军。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777704060/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/LyraYang_lzlxm0.jpg
     name: Lyra Yang
     round1_song: 待公布
@@ -736,9 +747,10 @@ singerlist:
     description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703810/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Pernella_Wang_vbl37n.jpg
     name: Pernella Wang
-    round1_song: 待公布
-    round2_song: 待公布
-    description: 2026 青少年歌手赛决赛选手介绍占位。敬请期待正式发布。
+    round1_song: Could Have Been Me
+    round2_song: Foolish Questions
+    description: |
+      我是一个13岁热爱唱歌的女孩，从5岁半参加合唱团起，歌声就一直伴随我成长。我不仅享受舞台上的合唱时光，也喜爱尝试各种音乐形式，从古典到流行，每一种旋律都让我着迷。音乐是我最好的朋友，希望能用歌声传递更多欢乐！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1777703808/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/Alicia_Chen_eabajl.png
     name: Alicia Chen
     round1_song: 待公布
