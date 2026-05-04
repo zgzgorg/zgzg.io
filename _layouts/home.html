@@ -7,64 +7,101 @@ bodyClass: page-home
 <style>
   .gala-hero-strip {
     position: relative;
-    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1766560231/zgzg-io-website/2026%E6%98%A5%E6%99%9A/gala-bg.jpg");
+    overflow: hidden;
+    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1777702958/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E6%A8%AA%E6%9D%BF%E6%B5%B7%E6%8A%A5_kj4jif.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
-    color: #fff;
+    color: #2a0a0a;
   }
 
+  /* 轻微虚化背景层（在浅色罩之下） */
   .gala-hero-strip::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1777702958/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E6%A8%AA%E6%9D%BF%E6%B5%B7%E6%8A%A5_kj4jif.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    filter: blur(4px);
+    transform: scale(1.03);
+    z-index: 0;
+  }
+
+  /* 折中：上半部更“透海报”，下半部渐强压住大块留白，保证文字区对比 */
+  .gala-hero-strip::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        rgba(128, 0, 0, 0.75),
-        rgba(128, 0, 0, 0.55)
+      to bottom,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.14) 48%,
+      rgba(255, 255, 255, 0.38) 100%
     );
-    z-index: 0;
+    z-index: 1;
   }
 
   .gala-hero-strip > .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    /* 比默认 .container 略宽，给长标题更多单行空间 */
+    max-width: 1280px;
+  }
+
+  /* 磨砂浅色底板：文字改深色，适配偏亮海报 */
+  .gala-hero-strip .home-section-content_top {
+    background: rgba(255, 252, 248, 0.68);
+    border: 1px solid rgba(179, 0, 0, 0.12);
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+
+  @media (max-width: 575.98px) {
+    .gala-hero-strip .home-section-content_top {
+      padding: 1.15rem 1.15rem;
+    }
   }
 
   /* ===== Hero Banner 字体颜色 ===== */
   .gala-hero-strip {
-    color: #fff;
+    color: #2a0a0a;
   }
 
   /* 主标题 */
   .gala-hero-strip .gala-hero-title {
-    color: #fff;
-    text-shadow: 0 3px 12px rgba(0,0,0,0.45);
+    color: #7a0000;
+    text-shadow: none;
   }
 
   /* 2026 春季歌手赛标题：桌面更紧凑，移动端自然换行 */
   .gala-hero-strip .spring-2026-event-title {
-    font-size: clamp(1.65rem, 2.6vw, 2.45rem);
+    font-size: clamp(1.65rem, 2.6vw, 2.55rem);
     line-height: 1.2;
   }
 
   /* 英文副标题 */
   .gala-hero-strip .gala-hero-subtitle {
-    color: rgba(255,255,255,0.85);
+    color: rgba(42, 10, 10, 0.72);
   }
 
   /* 时间 / 地点 */
   .gala-hero-strip .gala-info-line {
-    color: rgba(255,255,255,0.9);
+    color: #3a1a1a;
   }
 
   /* 地址（原 text-muted 在深色背景会太灰） */
   .gala-hero-strip .gala-info-line.text-muted {
-    color: rgba(255,255,255,0.7) !important;
+    color: rgba(58, 26, 26, 0.62) !important;
   }
 
   /* 粗体 label */
   .gala-hero-strip .gala-info-line b {
-      color: #ffd700; /* 金色强调 */
+      color: #b8860b; /* 深金色强调，浅色底上更清晰 */
   }
 
   /* ===== Hero 区域购票按钮反色 ===== */
