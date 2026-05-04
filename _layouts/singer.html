@@ -369,6 +369,18 @@ layout: default
         }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+        .age-group-title,
+        .song-title {
+            animation: none;
+        }
+        .age-group-title::after,
+        .song-title::before,
+        .song-title::after {
+            animation: none;
+        }
+    }
+
     .program-desc {
         font-size: 0.9rem;
         color: #555;
@@ -454,9 +466,15 @@ layout: default
         </div>
     </div>
 
+    {% assign youth_finalists = site.data.data["2026s-youth-finalists"] %}
+    {% assign g_k1 = youth_finalists | where: "grade_group", "K-1" %}
+    {% assign g_23 = youth_finalists | where: "grade_group", "2-3" %}
+    {% assign g_45 = youth_finalists | where: "grade_group", "4-5" %}
+    {% assign g_610 = youth_finalists | where: "grade_group", "6-10" %}
+
     <h4 class="age-group-title">K-1年级组</h4>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
-        {% for singer in site.data.data.2026s-youth-finalists limit:5 %}
+        {% for singer in g_k1 %}
         <div class="col">
             <div class="card program-card h-100 rounded-4">
                 <div class="program-img-wrapper mx-auto mt-4">
@@ -494,7 +512,7 @@ layout: default
 
     <h4 class="age-group-title">2-3年级组</h4>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
-        {% for singer in site.data.data.2026s-youth-finalists offset:5 limit:5 %}
+        {% for singer in g_23 %}
         <div class="col">
             <div class="card program-card h-100 rounded-4">
                 <div class="program-img-wrapper mx-auto mt-4">
@@ -532,7 +550,7 @@ layout: default
 
     <h4 class="age-group-title">4-5年级组</h4>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mb-2">
-        {% for singer in site.data.data.2026s-youth-finalists offset:10 limit:5 %}
+        {% for singer in g_45 %}
         <div class="col">
             <div class="card program-card h-100 rounded-4">
                 <div class="program-img-wrapper mx-auto mt-4">
@@ -570,7 +588,7 @@ layout: default
 
     <h4 class="age-group-title">6-10年级组</h4>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-        {% for singer in site.data.data.2026s-youth-finalists offset:15 limit:5 %}
+        {% for singer in g_610 %}
         <div class="col">
             <div class="card program-card h-100 rounded-4">
                 <div class="program-img-wrapper mx-auto mt-4">
