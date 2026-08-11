@@ -1,0 +1,343 @@
+---
+layout: default
+---
+<style>
+    :root {
+        --mf-dark: #2f3640;
+        --mf-darker: #262d36;
+        --mf-gold: #c9a962;
+        --mf-light: #f5f3ef;
+    }
+
+    .mf-page {
+        background-color: var(--mf-light);
+    }
+
+    .mf-hero {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        color: #fff;
+        background: linear-gradient(180deg, #4a5568 0%, var(--mf-dark) 60%, var(--mf-darker) 100%);
+        box-shadow: 0 14px 32px rgba(38, 45, 54, 0.35);
+        text-align: center;
+        padding: 3rem 1.5rem;
+    }
+
+    .mf-hero-kicker {
+        letter-spacing: 0.35em;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.75);
+        text-transform: uppercase;
+    }
+
+    .mf-hero-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        letter-spacing: 0.25em;
+        margin: 0.8rem 0 0.4rem;
+        color: #fff;
+    }
+
+    .mf-hero-subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 0.6em;
+        color: var(--mf-gold);
+        margin-bottom: 1.6rem;
+    }
+
+    .mf-hero-facts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .mf-fact {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(201, 169, 98, 0.45);
+        border-radius: 12px;
+        padding: 0.6rem 1.2rem;
+        min-width: 150px;
+    }
+
+    .mf-fact-label {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--mf-gold);
+        letter-spacing: 0.15em;
+        margin-bottom: 0.15rem;
+    }
+
+    .mf-fact-value {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .mf-section {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 28px rgba(38, 45, 54, 0.12);
+        padding: 2.5rem 2rem;
+        margin-top: 2.5rem;
+        overflow: hidden;
+    }
+
+    .mf-section-tag {
+        display: inline-block;
+        background: var(--mf-dark);
+        color: var(--mf-gold);
+        border-radius: 999px;
+        padding: 0.3rem 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.8rem;
+    }
+
+    .mf-section-title {
+        color: var(--mf-dark);
+        font-weight: 800;
+        margin-bottom: 0.4rem;
+    }
+
+    .mf-section-slogan {
+        color: #8a7343;
+        font-size: 1.05rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .mf-poster {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 12px 28px rgba(38, 45, 54, 0.28);
+    }
+
+    .mf-block-title {
+        color: var(--mf-dark);
+        font-weight: 800;
+        border-left: 5px solid var(--mf-gold);
+        padding-left: 0.7rem;
+        margin: 1.6rem 0 0.8rem;
+        font-size: 1.15rem;
+    }
+
+    .mf-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    .mf-list li {
+        padding: 0.45rem 0 0.45rem 1.6rem;
+        position: relative;
+        line-height: 1.7;
+        color: #444;
+    }
+
+    .mf-list li::before {
+        content: "◆";
+        color: var(--mf-gold);
+        position: absolute;
+        left: 0.2rem;
+        font-size: 0.75rem;
+        top: 0.72rem;
+    }
+
+    .mf-quote {
+        font-style: normal;
+        color: #5a6470;
+        line-height: 2;
+        border-left: 4px solid rgba(201, 169, 98, 0.6);
+        padding: 0.4rem 0 0.4rem 1.1rem;
+        margin: 1.2rem 0;
+    }
+
+    .mf-cta {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--mf-gold), #b08d45);
+        color: #fff;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 0.85rem 2.2rem;
+        text-decoration: none;
+        box-shadow: 0 8px 22px rgba(176, 141, 69, 0.45);
+        transition: all 0.25s ease;
+    }
+
+    .mf-cta:hover {
+        transform: translateY(-2px);
+        color: #fff;
+        background: linear-gradient(135deg, #d4b671, #9c7c3a);
+    }
+
+    .mf-deadline {
+        display: inline-block;
+        margin-left: 0.9rem;
+        color: #8a1f1f;
+        font-weight: 700;
+    }
+
+    .mf-ending {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        background: linear-gradient(180deg, var(--mf-dark), var(--mf-darker));
+        border-radius: 20px;
+        padding: 2.6rem 1.5rem;
+        margin: 2.5rem 0 1rem;
+        line-height: 2.1;
+    }
+
+    .mf-ending .mf-ending-strong {
+        color: var(--mf-gold);
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 767px) {
+        .mf-hero-title {
+            font-size: 1.7rem;
+            letter-spacing: 0.12em;
+        }
+
+        .mf-hero-subtitle {
+            letter-spacing: 0.3em;
+        }
+
+        .mf-section {
+            padding: 1.8rem 1.2rem;
+        }
+    }
+</style>
+
+<div class="mf-page">
+<div class="container pt-5 pb-6">
+
+    <!-- Hero -->
+    <div class="mf-hero">
+        <div class="mf-hero-kicker">ZGZG Music Festival 2026</div>
+        <h1 class="mf-hero-title">逆向悬浮</h1>
+        <div class="mf-hero-subtitle">DEFYING GRAVITY</div>
+        <p class="mb-1" style="color: rgba(255,255,255,0.85);">载歌在谷第一届音乐节 · 属于湾区华人乐迷自己的舞台</p>
+        <div class="mf-hero-facts">
+            <div class="mf-fact">
+                <span class="mf-fact-label">演出日期</span>
+                <span class="mf-fact-value">10.25.2026</span>
+            </div>
+            <div class="mf-fact">
+                <span class="mf-fact-label">演出地点</span>
+                <span class="mf-fact-value">Leo J Ryan Park</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: 志愿者招募 -->
+    <div class="mf-section">
+        <span class="mf-section-tag">音乐节 · 志愿者招募</span>
+        <h2 class="mf-section-title">载歌在谷第一届音乐节志愿者招募！</h2>
+        <p class="mf-section-slogan">🌊 舞台会浮起来，因为有你的托举</p>
+
+        <div class="row g-4 align-items-start">
+            <div class="col-md-7">
+                <p>🎉 载歌在谷第一届音乐节《逆向悬浮 Defying Gravity》志愿者招募启动啦！</p>
+                <p>🎵 这是属于湾区华人乐迷自己的舞台，我们想邀请同样热爱音乐的你，一起策划、执行、创造！</p>
+
+                <h5 class="mf-block-title">📒 招募岗位</h5>
+                <ul class="mf-list">
+                    <li><b>赞助组：</b>招商 · 赞助商对接</li>
+                    <li><b>宣传组：</b>美工 · 文案 · 排版 · 摄像 · 剪辑 · 后期</li>
+                    <li><b>音乐节策划与执行：</b>活动策划 · 内联 · 观众对接 / check-in · 现场维持</li>
+                </ul>
+
+                <h5 class="mf-block-title">🎁 你将收获</h5>
+                <ul class="mf-list">
+                    <li>载歌在谷限定周边</li>
+                    <li>音乐节幕后全流程体验</li>
+                    <li>结识乐队与新伙伴</li>
+                </ul>
+
+                <h5 class="mf-block-title">❤️ 我们期待这样的你</h5>
+                <ul class="mf-list">
+                    <li>热爱音乐，积极主动</li>
+                    <li>有责任心，乐于合作</li>
+                </ul>
+
+                <div class="mt-4">
+                    <a class="mf-cta" href="https://zgzg.li/mf-volunteer-application" target="_blank" rel="noopener noreferrer">
+                        👉 立即报名加入
+                    </a>
+                    <span class="mf-deadline">📅 报名截止：2026 年 8 月 30 日</span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="mf-poster" src="{{ '/images/2026-music-festival/volunteer-poster.png' | relative_url }}"
+                     alt="载歌在谷第一届音乐节志愿者招募海报">
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: 演出乐队招募 -->
+    <div class="mf-section">
+        <span class="mf-section-tag">音乐节 · 演出乐队招募</span>
+        <h2 class="mf-section-title">逆向 · 悬浮，让音乐悬浮于人海之上</h2>
+
+        <div class="row g-4 align-items-start">
+            <div class="col-md-7">
+                <div class="mf-quote">
+                    世界总在顺着惯性奔走，匆忙、重复、随波逐流。<br>
+                    但音乐从不从众。<br>
+                    逆向，是反向生长的态度；悬浮，是挣脱地面的自由。
+                </div>
+
+                <p>第一届载歌在谷音乐节正式以 <b>【逆向 · 悬浮】</b> 为主题，开启参演乐队招募。</p>
+                <p>我们希望打破「台上表演、台下旁观」的单向模式，让音乐人真正走向听众，实现音乐与听众的双向共振、近距离交流。</p>
+                <p>无论风格，不问资历。只要你的音乐有情绪、有表达、有力量，这里，就是你的舞台。</p>
+
+                <h5 class="mf-block-title">01 全风格开放：招募 6-8 支乐队</h5>
+                <p class="mb-1">不限曲风，我们热烈欢迎：</p>
+                <p>摇滚 / 民谣 / 流行 / 国风 / 朋克 / 爵士 / 电子 / 独立 / 另类 / 原创</p>
+
+                <h5 class="mf-block-title">02 重要要求：共同造势，全程共创</h5>
+                <p>为让「逆向 · 悬浮」主题完整落地、让舞台更有温度、有故事，本次参演乐队需配合前期宣发共创。舞台不止属于演出当天，更属于全程成长。乐队需配合前期宣传及现场策划：</p>
+                <ul class="mf-list">
+                    <li><b>✅ 排练花絮记录：</b>日常排练片段、排练日常、乐队创作瞬间、即兴片段拍摄</li>
+                    <li><b>✅ 素材授权转发：</b>配合主办方素材整理、转发宣传，共同扩大声量</li>
+                    <li><b>✅ 互动内容准备：</b>预留现场互动、音乐分享、听众交流环节设计</li>
+                </ul>
+                <p class="mt-3">我们希望：舞台不是临时上场，而是共同筹备、共同成长的结果。让听众从前期就认识你们、期待你们，让演出不再是陌生亮相，而是双向奔赴的见面。</p>
+
+                <h5 class="mf-block-title">03 你能获得什么</h5>
+                <ul class="mf-list">
+                    <li><b>🎵 近距离听众深度互动：</b>打破舞台隔阂，积累真实、粘性的现场听众</li>
+                    <li><b>🎵 完整乐队影像素材：</b>排练 + 现场高清照片，可用于乐队作品集、账号运营</li>
+                    <li><b>🎵 同圈层音乐人交流：</b>与不同风格乐队同台、交流创作、碰撞新灵感</li>
+                </ul>
+
+                <h5 class="mf-block-title">04 报名方式</h5>
+                <div class="mt-3">
+                    <a class="mf-cta" href="https://zgzg.li/mf-band-application" target="_blank" rel="noopener noreferrer">
+                        👉 乐队报名表格
+                    </a>
+                    <span class="mf-deadline">📅 报名截止：2026.08.31</span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="mf-poster" src="{{ '/images/2026-music-festival/band-poster.jpg' | relative_url }}"
+                     alt="载歌在谷第一届音乐节演出乐队招募海报">
+            </div>
+        </div>
+    </div>
+
+    <!-- Ending -->
+    <div class="mf-ending">
+        <p class="mb-1">世俗向前，我们逆向；万物沉落，我们悬浮。</p>
+        <p class="mb-1">音乐最珍贵的从不是舞台灯光，而是有人倾听，有人共鸣，有人为你的热爱驻足。</p>
+        <p class="mb-3">跳出惯性，挣脱平庸，让你的声音，悬浮在湾区的上空。</p>
+        <p class="mf-ending-strong mb-0">第一届载歌在谷音乐节【逆向 · 悬浮】舞台，期待与你同台，与热爱相遇。</p>
+    </div>
+
+</div>
+</div>
