@@ -7,6 +7,8 @@ main:
     url: "/galatour/"
   - name: "歌手赛"
     url: "/singer/"
+  - name: "音乐节"
+    url: "/music-festival/"
   - name: "云集社团"
     url: "/yj/"
   - name: "赞助招商"
