@@ -8,7 +8,7 @@ bodyClass: page-home
   .gala-hero-strip {
     position: relative;
     overflow: hidden;
-    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1777702958/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E6%A8%AA%E6%9D%BF%E6%B5%B7%E6%8A%A5_kj4jif.png");
+    background-image: url("{{ site.data.data.home_image_link }}");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@ bodyClass: page-home
     content: "";
     position: absolute;
     inset: -12px;
-    background-image: url("https://res.cloudinary.com/zaigezaigu/image/upload/v1777702958/zgzg-io-website/2026%E9%9D%92%E5%B0%91%E5%B9%B4%E6%AD%8C%E6%89%8B%E8%B5%9B/%E6%A8%AA%E6%9D%BF%E6%B5%B7%E6%8A%A5_kj4jif.png");
+    background-image: url("{{ site.data.data.home_image_link }}");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -78,8 +78,8 @@ bodyClass: page-home
     text-shadow: none;
   }
 
-  /* 2026 春季歌手赛标题：桌面更紧凑，移动端自然换行 */
-  .gala-hero-strip .spring-2026-event-title {
+  /* 2027 春晚招募标题：桌面更紧凑，移动端自然换行 */
+  .gala-hero-strip .cny-2027-event-title {
     font-size: clamp(1.65rem, 2.6vw, 2.55rem);
     line-height: 1.2;
   }
@@ -92,6 +92,21 @@ bodyClass: page-home
   /* 时间 / 地点 */
   .gala-hero-strip .gala-info-line {
     color: #3a1a1a;
+  }
+
+  .gala-hero-strip .event-date {
+    display: inline-block;
+    padding: 0.08rem 0.4rem;
+    border-radius: 4px;
+    background: rgba(255, 215, 0, 0.3);
+    color: #6b0000;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .gala-hero-strip .event-date-deadline {
+    background: #8b0000;
+    color: #fff;
   }
 
   /* 地址（原 text-muted 在深色背景会太灰） */
@@ -144,7 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="strip gala-hero-strip">
   <div class="container pb-4 pt-5">
-    {% include 2026-spring-event-info.html %}
+    {% include 2027-spring-event-info.html %}
   </div>
 </div>
 
