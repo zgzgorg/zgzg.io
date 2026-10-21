@@ -80,26 +80,81 @@
     color: #e0c27a;
   }
 
-  /* Eventbrite 官方购票窗口：白底卡片，嵌在音乐节深色区里 */
-  .mf-home-tickets {
+  /* 海报卡片可以翻面：正面是海报，背面是 Eventbrite 官方购票窗口 */
+  .mf-flip {
+    max-width: 420px;
+    margin: 0 auto;
+    perspective: 1600px;
+  }
+
+  .mf-flip-inner {
+    display: grid;
+    transition: transform 0.7s ease;
+    transform-style: preserve-3d;
+  }
+
+  .mf-flip.is-flipped .mf-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* 两面叠在同一个格子里，卡片高度取两面中较高的一面 */
+  .mf-flip-face {
+    grid-area: 1 / 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .mf-flip-back {
+    transform: rotateY(180deg);
     background: #fff;
     color: #2f3640;
     border-radius: 16px;
-    padding: 1.5rem;
-    margin-top: 2.5rem;
+    padding: 1.1rem;
+    text-align: left;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mf-flip.is-flipped .mf-flip-front,
+  .mf-flip:not(.is-flipped) .mf-flip-back {
+    pointer-events: none;
+  }
+
+  .mf-tickets-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
   }
 
   .mf-home-tickets-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: #2f3640;
-    margin-bottom: 1rem;
+    margin: 0;
+  }
+
+  .mf-flip-back-btn {
+    background: none;
+    border: 1px solid #c9a962;
+    color: #8a7343;
+    border-radius: 999px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.85rem;
+    cursor: pointer;
   }
 
   .mf-home-tickets-fallback {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #6b7280;
-    margin: 0.75rem 0 0;
+    margin: 0.6rem 0 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mf-flip-inner {
+      transition: none;
+    }
   }
 
   .mf-home-cta:hover {
@@ -191,11 +246,6 @@
       display: block;
       text-align: center;
     }
-
-    .mf-home-tickets {
-      margin: 2rem 1.25rem 0;
-      padding: 1.1rem 0.9rem;
-    }
   }
 </style>
 
@@ -220,26 +270,34 @@
           </div>
         </div>
         <div class="mf-home-ctas">
-          <a class="mf-home-cta" href="#mf-tickets">立即购票 ↓</a>
+          <a class="mf-home-cta" href="#mf-tickets" data-mf-flip="open">立即购票</a>
           <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
         </div>
       </div>
       <div class="col-md-5 text-center mf-home-poster-col">
-        <a href="{{ '/music-festival/' | relative_url }}">
-          <img class="mf-home-poster"
-               src="{{ '/images/2026-music-festival/band-poster.jpg' | relative_url }}"
-               alt="载歌在谷第一届音乐节《逆向悬浮 Defying Gravity》海报">
-        </a>
+        <div class="mf-flip" id="mf-flip">
+          <div class="mf-flip-inner">
+            <div class="mf-flip-face mf-flip-front">
+              <a href="{{ '/music-festival/' | relative_url }}">
+                <img class="mf-home-poster"
+                     src="{{ '/images/2026-music-festival/band-poster.jpg' | relative_url }}"
+                     alt="载歌在谷第一届音乐节《逆向悬浮 Defying Gravity》海报">
+              </a>
+            </div>
+            <div class="mf-flip-face mf-flip-back" id="mf-tickets" aria-hidden="true">
+              <div class="mf-tickets-head">
+                <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
+                <button type="button" class="mf-flip-back-btn" data-mf-flip="close">← 看海报</button>
+              </div>
+              <div id="eventbrite-widget-container-2001158142875"></div>
+              <p class="mf-home-tickets-fallback">
+                购票窗口没有出现？请
+                <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">在 Eventbrite 上购票</a>。
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="mf-home-tickets" id="mf-tickets">
-      <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
-      <div id="eventbrite-widget-container-2001158142875"></div>
-      <p class="mf-home-tickets-fallback">
-        购票窗口没有出现？请
-        <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">在 Eventbrite 上购票</a>。
-      </p>
     </div>
   </div>
 </div>
@@ -250,6 +308,30 @@
     widgetType: 'checkout',
     eventId: '2001158142875',
     iframeContainerId: 'eventbrite-widget-container-2001158142875',
-    iframeContainerHeight: 520
+    iframeContainerHeight: window.innerWidth < 768 ? 430 : 520
   });
+</script>
+<script>
+  (function () {
+    var card = document.getElementById('mf-flip');
+    if (!card) return;
+    var back = document.getElementById('mf-tickets');
+    function setFlipped(flipped) {
+      card.classList.toggle('is-flipped', flipped);
+      back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+      if (flipped) {
+        var r = card.getBoundingClientRect();
+        if (r.top < 0 || r.bottom > window.innerHeight) {
+          card.scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+      }
+    }
+    document.querySelectorAll('[data-mf-flip]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        setFlipped(el.getAttribute('data-mf-flip') === 'open');
+      });
+    });
+    if (location.hash === '#mf-tickets') setFlipped(true);
+  })();
 </script>
