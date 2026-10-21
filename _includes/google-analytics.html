@@ -1,8 +1,13 @@
 {% if jekyll.environment == "production" %}
     {% assign gid = site.env.NETLIFY_GOOGLE_ANALYTICS_ID %}
     {% if gid %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ gid }}"></script>
     <script>
+      zgzgPhase(2, function () {
+        var sc = document.createElement('script');
+        sc.async = true;
+        sc.src = 'https://www.googletagmanager.com/gtag/js?id={{ gid }}';
+        document.head.appendChild(sc);
+      });
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
@@ -12,8 +17,13 @@
       gtag('config', '{{ $gid }}');
     </script>
     {% elsif site.google_analytics_id %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
     <script>
+      zgzgPhase(2, function () {
+        var sc = document.createElement('script');
+        sc.async = true;
+        sc.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}';
+        document.head.appendChild(sc);
+      });
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {

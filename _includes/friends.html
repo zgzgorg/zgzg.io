@@ -4,7 +4,7 @@
             <div class="friend-content">
                 {% if friend.image %}
                 <div class="friend-image">
-                    <img alt="{{ friend.image }}" src="{{ friend.image }}"/>
+                    <img alt="{{ friend.image }}" src="{{ friend.image }}" loading="lazy" decoding="async"/>
                 </div>
                 {% endif %}
             </div>

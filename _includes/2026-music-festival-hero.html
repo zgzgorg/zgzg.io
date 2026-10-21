@@ -283,15 +283,14 @@
             <div class="mf-flip-face mf-flip-front">
               <a href="{{ '/music-festival/' | relative_url }}">
                 {%- comment -%}
-                  海报是首屏最大的元素（LCP）。先用内联的 24px 模糊小图垫底，
-                  再按屏幕宽度加载 480/840/1280 三档 WebP，旧浏览器用 840 的 JPEG。
+                  海报是首屏最大的元素（LCP）。
+                  phase 0：内联的 24px 模糊小图垫底，再加载 400px 宽、约 32 KB 的 WebP，3G 网络也能很快显示。
+                  phase 1：页面加载完以后，只在网速快、没开省流量、屏幕需要更高清时，换成 840px 的清晰版。
                 {%- endcomment -%}
                 <picture>
-                  <source type="image/webp"
-                          srcset="{{ '/images/2026-music-festival/lineup-poster-480.webp' | relative_url }} 480w,
-                                  {{ '/images/2026-music-festival/lineup-poster-840.webp' | relative_url }} 840w,
-                                  {{ '/images/2026-music-festival/lineup-poster-1280.webp' | relative_url }} 1280w"
-                          sizes="(max-width: 767.98px) calc(100vw - 2.5rem), 420px">
+                  <source type="image/webp" id="mf-poster-src"
+                          srcset="{{ '/images/2026-music-festival/lineup-poster-400.webp' | relative_url }}"
+                          data-hd="{{ '/images/2026-music-festival/lineup-poster-840.webp' | relative_url }}">
                   <img class="mf-home-poster"
                        src="{{ '/images/2026-music-festival/lineup-poster-840.jpg' | relative_url }}"
                        width="1280" height="1707"
@@ -325,7 +324,7 @@
     if (!card) return;
     var back = document.getElementById('mf-tickets');
 
-    // Eventbrite 的脚本不挡首屏：页面加载完、浏览器空闲时再加载；
+    // phase 2：Eventbrite 的脚本（约 1 MB）等浏览器空闲或者用户开始操作时再加载；
     // 观众更早点了「立即购票」，就立刻加载。
     var ebRequested = false;
     function loadEventbrite() {
@@ -344,12 +343,19 @@
       };
       document.body.appendChild(sc);
     }
-    window.addEventListener('load', function () {
-      if (window.requestIdleCallback) {
-        window.requestIdleCallback(loadEventbrite, {timeout: 3000});
-      } else {
-        setTimeout(loadEventbrite, 1500);
-      }
+    zgzgPhase(2, loadEventbrite);
+
+    // phase 1：网速快时把海报换成清晰版。先在后台下载好，再替换，避免闪烁。
+    zgzgPhase(1, function () {
+      var src = document.getElementById('mf-poster-src');
+      var img = card.querySelector('.mf-home-poster');
+      var c = navigator.connection || {};
+      var slow = c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
+      var needHd = img.clientWidth * (window.devicePixelRatio || 1) > 440;
+      if (!src || slow || !needHd) return;
+      var hd = new Image();
+      hd.onload = function () { src.srcset = src.getAttribute('data-hd'); };
+      hd.src = src.getAttribute('data-hd');
     });
     function setFlipped(flipped) {
       if (flipped) loadEventbrite();
