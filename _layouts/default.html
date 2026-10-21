@@ -93,16 +93,49 @@
   {% comment %}
     内联了首屏样式的页面（目前只有首页），底部脚本加 defer：HTML 一次到齐时，
     解析器不会卡在这几个脚本上，浏览器可以先画出首屏。defer 脚本仍按顺序执行。
-    这些页面的内联脚本不能依赖 jQuery 或 Bootstrap。
+    这些页面的内联脚本不能依赖 jQuery 或 Bootstrap，页面上也不能用 Bootstrap 4 的 data-toggle。
   {% endcomment %}
   {% if page.critical_css %}{% assign body_script_defer = 'defer' %}{% else %}{% assign body_script_defer = '' %}{% endif %}
   <script type="text/javascript" src="{{ "/assets/js/scripts.js" | relative_url }}" {{ body_script_defer }}></script>
   <script type="text/javascript" src="{{ "/assets/js/sidenotes.js" | relative_url }}" {{ body_script_defer }}></script>
+  {% if page.critical_css %}
+  {% comment %}
+    这些页面不用 jQuery 和 Bootstrap 4，只有菜单的下拉需要 Bootstrap 5。
+    Bootstrap 5 等到 phase 1 再下载，首屏阶段的带宽留给 LCP 海报。
+    访客在 phase 1 之前点了下拉菜单，就立刻下载 Bootstrap 5，下载完打开刚点的菜单。
+  {% endcomment %}
+  <script>
+    (function () {
+      var src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js';
+      var script = null, pending = null;
+      function loadBootstrap() {
+        if (script) return;
+        script = document.createElement('script');
+        script.src = src;
+        script.onload = function () {
+          if (pending) window.bootstrap.Dropdown.getOrCreateInstance(pending).show();
+          pending = null;
+        };
+        document.body.appendChild(script);
+      }
+      document.addEventListener('click', function (e) {
+        if (window.bootstrap) return;
+        var toggle = e.target.closest && e.target.closest('[data-bs-toggle="dropdown"]');
+        if (!toggle) return;
+        e.preventDefault();
+        pending = toggle;
+        loadBootstrap();
+      }, true);
+      zgzgPhase(1, loadBootstrap);
+    })();
+  </script>
+  {% else %}
   <!-- jQuery and Bootstrap JS -->
-  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}" {{ body_script_defer }}></script>
-  <script src="{{ "/assets/js/popper.min.js" | relative_url }}" {{ body_script_defer }}></script>
-  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/popper.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
   <!-- End JQuery and Bootstrap JS-->
+  {% endif %}
   {% include google-analytics.html %}
 </body>
 </html>

@@ -1,4 +1,7 @@
+{% comment %} 内联首屏样式的页面在 default.html 里按需加载 Bootstrap 5 {% endcomment %}
+{% unless page.critical_css %}
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endunless %}
 
 <div id="main-menu" class="main-menu">
   {% assign mainmenu = site.data.data.main %}
