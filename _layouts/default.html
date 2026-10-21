@@ -36,7 +36,7 @@
       });
     })();
     zgzgPhase(1, function () {
-      zgzgLoadCss('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap');
+      zgzgLoadCss('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=optional');
       zgzgLoadCss('https://fonts.googleapis.com/icon?family=Material+Icons&display=block');
       zgzgLoadCss('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
       zgzgLoadCss('https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css');
@@ -48,6 +48,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block">
     <link rel="stylesheet" href="https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css">
   </noscript>
+  <style>
+    /* 图标字体在 phase 1 才到。先给图标留出固定的一格，字体到了以后不挤动旁边的内容 */
+    .material-icons, .material-symbols-outlined {
+      display: inline-block;
+      width: 1em;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  </style>
   <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/webp" href="/images/zgzglogo.webp">
