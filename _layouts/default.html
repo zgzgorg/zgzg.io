@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
   <meta charset="utf-8">
+  <script>
+    // 分阶段加载。phase 0：首屏需要的 HTML、style.css 和首屏图片，照常加载。
+    // phase 1：window load 之后，加载字体、图标等不影响首屏布局的样式。
+    // phase 2：浏览器空闲或者用户第一次滚动、点击之后，加载统计脚本、购票窗口等。
+    (function () {
+      var queues = {1: [], 2: []}, reached = 0;
+      function run(n) {
+        if (reached >= n) return;
+        reached = n;
+        queues[n].splice(0).forEach(function (fn) { fn(); });
+      }
+      window.zgzgPhase = function (n, fn) {
+        if (n <= reached) fn(); else queues[n].push(fn);
+      };
+      window.zgzgPhaseNow = function (n) {
+        for (var i = reached + 1; i <= n; i++) run(i);
+      };
+      window.zgzgLoadCss = function (href) {
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = href;
+        document.head.appendChild(l);
+      };
+      window.addEventListener('load', function () {
+        run(1);
+        var go = function () { window.zgzgPhaseNow(2); };
+        if (window.requestIdleCallback) window.requestIdleCallback(go, {timeout: 4000});
+        else setTimeout(go, 2000);
+        ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (e) {
+          window.addEventListener(e, go, {once: true, passive: true});
+        });
+      });
+    })();
+    zgzgPhase(1, function () {
+      zgzgLoadCss('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap');
+      zgzgLoadCss('https://fonts.googleapis.com/icon?family=Material+Icons&display=block');
+      zgzgLoadCss('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
+      zgzgLoadCss('https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css');
+    });
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block">
+    <link rel="stylesheet" href="https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css">
+  </noscript>
   <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/webp" href="/images/zgzglogo.webp">
-  <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
   <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
   {% if page.description %}
   <meta name="description" content="{{ page.description }}" />

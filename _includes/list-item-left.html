@@ -18,6 +18,6 @@
       </div>
       {% endif %}
     </div>
-    <div class="col col-lg-7 col-12 list-item-image" data-bg="{{ item.image }}"></div>
+    <div class="col col-lg-7 col-12 list-item-image" data-bg="{{ item.image | replace: 'res.cloudinary.com/zaigezaigu/image/upload/', 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_1100/' }}"></div>
   </div>
 </div>
