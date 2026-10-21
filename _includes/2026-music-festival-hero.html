@@ -145,6 +145,12 @@
     cursor: pointer;
   }
 
+  .mf-tickets-loading {
+    padding: 3rem 0;
+    text-align: center;
+    color: #6b7280;
+  }
+
   .mf-home-tickets-fallback {
     font-size: 0.8rem;
     color: #6b7280;
@@ -305,7 +311,9 @@
                 <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
                 <button type="button" class="mf-flip-back-btn" data-mf-flip="close">← 看海报</button>
               </div>
-              <div id="eventbrite-widget-container-2001158142875"></div>
+              <div id="eventbrite-widget-container-2001158142875">
+                <p id="mf-tickets-loading" class="mf-tickets-loading">购票窗口加载中…</p>
+              </div>
               <p class="mf-home-tickets-fallback">
                 购票窗口没有出现？请
                 <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">在 Eventbrite 上购票</a>。
@@ -326,22 +334,34 @@
 
     // phase 2：Eventbrite 的脚本（约 1 MB）等浏览器空闲或者用户开始操作时再加载；
     // 观众更早点了「立即购票」，就立刻加载。
-    var ebRequested = false;
+    // phase 2 只下载 Eventbrite 的加载器（几 KB）。购票窗口的 iframe 和约 1 MB 的
+    // 结账程序等观众第一次点「立即购票」才创建：没人看的窗口不占流量，
+    // 它自己加载时的跳动也不会算进首页的 CLS。
+    var ebScript = null, ebWanted = false, ebCreated = false;
+    function createWidget() {
+      if (ebCreated || !ebWanted || !window.EBWidgets) return;
+      ebCreated = true;
+      window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '2001158142875',
+        iframeContainerId: 'eventbrite-widget-container-2001158142875',
+        iframeContainerHeight: window.innerWidth < 768 ? 430 : 520
+      });
+      var loading = document.getElementById('mf-tickets-loading');
+      if (loading) loading.remove();
+    }
     function loadEventbrite() {
-      if (ebRequested) return;
-      ebRequested = true;
-      var sc = document.createElement('script');
-      sc.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
-      sc.async = true;
-      sc.onload = function () {
-        window.EBWidgets.createWidget({
-          widgetType: 'checkout',
-          eventId: '2001158142875',
-          iframeContainerId: 'eventbrite-widget-container-2001158142875',
-          iframeContainerHeight: window.innerWidth < 768 ? 430 : 520
-        });
-      };
-      document.body.appendChild(sc);
+      if (ebScript) return;
+      ebScript = document.createElement('script');
+      ebScript.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+      ebScript.async = true;
+      ebScript.onload = createWidget;
+      document.body.appendChild(ebScript);
+    }
+    function openTickets() {
+      ebWanted = true;
+      loadEventbrite();
+      createWidget();
     }
     zgzgPhase(2, loadEventbrite);
 
@@ -358,7 +378,7 @@
       hd.src = src.getAttribute('data-hd');
     });
     function setFlipped(flipped) {
-      if (flipped) loadEventbrite();
+      if (flipped) openTickets();
       card.classList.toggle('is-flipped', flipped);
       back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
       if (flipped) {
