@@ -32,13 +32,35 @@ bodyClass: page-home
 
   @media (max-width: 575.98px) {
     .gala-hero-strip > .container {
-      padding-top: 1.75rem !important;
-      padding-bottom: 1rem !important;
+      padding: 1.75rem 0.9rem 1.25rem !important;
+    }
+
+    /* include 里还套了一层 .container，手机上会出现两层左右留白 */
+    .gala-hero-strip .container .container {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .gala-hero-strip .home-section-content_top {
-      padding: 1rem;
+      width: 100%;
+      padding: 1.1rem 1rem;
       border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    .gala-hero-strip .gala-hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem !important;
+    }
+
+    /* 「海选报名：」一类的标签单独占一行，日期块不再被挤断 */
+    .gala-hero-strip .gala-info-line b {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .gala-hero-strip .mt-4.p-3 {
+      padding: 0.9rem !important;
     }
 
     .gala-hero-strip .cny-2027-event-title {
@@ -47,7 +69,7 @@ bodyClass: page-home
     }
 
     .gala-hero-strip .gala-info-line {
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.7rem;
       font-size: 0.95rem;
       line-height: 1.4;
     }
