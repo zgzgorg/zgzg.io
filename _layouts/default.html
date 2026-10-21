@@ -90,12 +90,18 @@
     {{content}}
   </div>
   {% include footer.html %}
-  <script type="text/javascript" src="{{ "/assets/js/scripts.js" | relative_url }}"></script>
-  <script type="text/javascript" src="{{ "/assets/js/sidenotes.js" | relative_url }}"></script>
+  {% comment %}
+    内联了首屏样式的页面（目前只有首页），底部脚本加 defer：HTML 一次到齐时，
+    解析器不会卡在这几个脚本上，浏览器可以先画出首屏。defer 脚本仍按顺序执行。
+    这些页面的内联脚本不能依赖 jQuery 或 Bootstrap。
+  {% endcomment %}
+  {% if page.critical_css %}{% assign body_script_defer = 'defer' %}{% else %}{% assign body_script_defer = '' %}{% endif %}
+  <script type="text/javascript" src="{{ "/assets/js/scripts.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script type="text/javascript" src="{{ "/assets/js/sidenotes.js" | relative_url }}" {{ body_script_defer }}></script>
   <!-- jQuery and Bootstrap JS -->
-  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/popper.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script src="{{ "/assets/js/popper.min.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}" {{ body_script_defer }}></script>
   <!-- End JQuery and Bootstrap JS-->
   {% include google-analytics.html %}
 </body>
