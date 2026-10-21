@@ -180,6 +180,14 @@
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
   }
 
+  /* HTML 里海报在前、文字在后。3G 下页面一段一段到达，先到的海报不会被后到的文字挤动。
+     桌面上用 row-reverse 让海报留在右边，手机上海报自然在上面 */
+  @media (min-width: 768px) {
+    .mf-home-strip .row {
+      flex-direction: row-reverse;
+    }
+  }
+
   /* 手机：海报做成顶部横幅，文字居中，两项信息并排 */
   @media (max-width: 767.98px) {
     .mf-home-strip > .container {
@@ -191,13 +199,11 @@
     }
 
     .mf-home-text {
-      order: 2;
       padding: 0 1.25rem;
       text-align: center;
     }
 
     .mf-home-poster-col {
-      order: 1;
       padding: 1.5rem 1.25rem 0.5rem;
     }
 
@@ -261,28 +267,6 @@
 <div class="strip mf-home-strip">
   <div class="container pt-5 pb-5">
     <div class="row align-items-center g-4">
-      <div class="col-md-7 mf-home-text">
-        <div class="mf-home-kicker">ZGZG Music Festival 2026<span class="mf-home-kicker-extra"> · 第一届载歌在谷音乐节</span></div>
-        <h1 class="mf-home-title">逆向悬浮</h1>
-        <div class="mf-home-subtitle">DEFYING GRAVITY</div>
-        <p class="mf-home-desc" style="color: rgba(255, 255, 255, 0.85);">
-          世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台，10 月 25 日不见不散！
-        </p>
-        <div class="mf-home-facts">
-          <div class="mf-home-fact">
-            <span class="mf-home-fact-label">演出日期</span>
-            <span class="mf-home-fact-value">10/25（周日）<br>12:00 - 18:00</span>
-          </div>
-          <div class="mf-home-fact">
-            <span class="mf-home-fact-label">演出地点</span>
-            <span class="mf-home-fact-value">Leo J Ryan Park<br>650 Shell Blvd, Foster City</span>
-          </div>
-        </div>
-        <div class="mf-home-ctas">
-          <a class="mf-home-cta" href="#mf-tickets" data-mf-flip="open">立即购票</a>
-          <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
-        </div>
-      </div>
       <div class="col-md-5 text-center mf-home-poster-col">
         <div class="mf-flip" id="mf-flip">
           <div class="mf-flip-inner">
@@ -320,6 +304,28 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="col-md-7 mf-home-text">
+        <div class="mf-home-kicker">ZGZG Music Festival 2026<span class="mf-home-kicker-extra"> · 第一届载歌在谷音乐节</span></div>
+        <h1 class="mf-home-title">逆向悬浮</h1>
+        <div class="mf-home-subtitle">DEFYING GRAVITY</div>
+        <p class="mf-home-desc" style="color: rgba(255, 255, 255, 0.85);">
+          世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台，10 月 25 日不见不散！
+        </p>
+        <div class="mf-home-facts">
+          <div class="mf-home-fact">
+            <span class="mf-home-fact-label">演出日期</span>
+            <span class="mf-home-fact-value">10/25（周日）<br>12:00 - 18:00</span>
+          </div>
+          <div class="mf-home-fact">
+            <span class="mf-home-fact-label">演出地点</span>
+            <span class="mf-home-fact-value">Leo J Ryan Park<br>650 Shell Blvd, Foster City</span>
+          </div>
+        </div>
+        <div class="mf-home-ctas">
+          <a class="mf-home-cta" href="#mf-tickets" data-mf-flip="open">立即购票</a>
+          <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
         </div>
       </div>
     </div>
