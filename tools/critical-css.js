@@ -23,6 +23,10 @@ const viewports = [
   [1024, 768], [1280, 800], [1366, 900], [1920, 1080],
 ];
 
+// 首屏以下再多保留这么高的布局。3G 下 Chrome 会提前加载视口以下约 2500px 以内的懒加载图片，
+// 这段布局和完整样式不一致的话，本来不该加载的图片会提前下载，和首屏海报抢带宽。
+const belowFold = +(process.env.BELOW_FOLD || 3000);
+
 // 在页面里运行：返回要保留的规则路径，例如 "12" 或 "40.3"（@media 里的第 3 条）
 function pickRules(vh) {
   const sheet = [...document.styleSheets]
@@ -94,7 +98,7 @@ function emitRules(keepList) {
   for (const [width, height] of viewports) {
     const page = await browser.newPage({viewport: {width, height}, javaScriptEnabled: false});
     await page.goto(url, {waitUntil: 'load'});
-    (await page.evaluate(pickRules, height)).forEach((k) => keep.add(k));
+    (await page.evaluate(pickRules, height + belowFold)).forEach((k) => keep.add(k));
     await page.close();
   }
   const page = await browser.newPage();
