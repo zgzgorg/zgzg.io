@@ -164,9 +164,12 @@
 
   /* 海报按原始比例完整显示 */
   .mf-home-poster {
+    display: block;
     width: 100%;
     max-width: 420px;
     height: auto;
+    margin: 0 auto;
+    background-size: cover;
     border-radius: 16px;
     box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
   }
@@ -279,9 +282,23 @@
           <div class="mf-flip-inner">
             <div class="mf-flip-face mf-flip-front">
               <a href="{{ '/music-festival/' | relative_url }}">
-                <img class="mf-home-poster"
-                     src="{{ '/images/2026-music-festival/band-poster.jpg' | relative_url }}"
-                     alt="载歌在谷第一届音乐节《逆向悬浮 Defying Gravity》海报">
+                {%- comment -%}
+                  海报是首屏最大的元素（LCP）。先用内联的 24px 模糊小图垫底，
+                  再按屏幕宽度加载 480/840/1280 三档 WebP，旧浏览器用 840 的 JPEG。
+                {%- endcomment -%}
+                <picture>
+                  <source type="image/webp"
+                          srcset="{{ '/images/2026-music-festival/lineup-poster-480.webp' | relative_url }} 480w,
+                                  {{ '/images/2026-music-festival/lineup-poster-840.webp' | relative_url }} 840w,
+                                  {{ '/images/2026-music-festival/lineup-poster-1280.webp' | relative_url }} 1280w"
+                          sizes="(max-width: 767.98px) calc(100vw - 2.5rem), 420px">
+                  <img class="mf-home-poster"
+                       src="{{ '/images/2026-music-festival/lineup-poster-840.jpg' | relative_url }}"
+                       width="1280" height="1707"
+                       fetchpriority="high"
+                       style="background-image: url(data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAABwBgCdASoYACEAPu1qrU8ppiQiKrgMATAdiWMAv7AKV12Wl3fbN+A+73M3t96mhop0QONg+MmcS92ZwHgA/uTqeOD7LWkCYiectIGMDUY7ZZA8SbVdAVoU7hb3Fnl630p8X3e2qv+0EhrDqXGsR6kXdYXslIeCDMH0+qli0BiPEOcaBdrYlx4nH1kxSgHotBmnWs9MCOsbaGhA4YJ7v/njoTs92VhnapwhoJ/FxqrE67YmmMDOlhCyEkxe3pDRMXsMKEAtZiiWZ8Jlgz+5VMeeWChypuTARNASq+vhaBBJSYiUXeUxLFAC0N6lOHaKxHp/FjvNoSYhGQr+k8AAAA==);"
+                       alt="第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》海报：2026.10.25 12:00-18:00，Leo J. Ryan Park，演出阵容 Flatdog、Hoowan、Midnight Vanette、Phantora、四害 Scourge、Take Turns Jazz Ensemble、TakoTaco、特门道 Tremendo">
+                </picture>
               </a>
             </div>
             <div class="mf-flip-face mf-flip-back" id="mf-tickets" aria-hidden="true">
@@ -302,21 +319,40 @@
   </div>
 </div>
 
-<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
-<script>
-  window.EBWidgets && window.EBWidgets.createWidget({
-    widgetType: 'checkout',
-    eventId: '2001158142875',
-    iframeContainerId: 'eventbrite-widget-container-2001158142875',
-    iframeContainerHeight: window.innerWidth < 768 ? 430 : 520
-  });
-</script>
 <script>
   (function () {
     var card = document.getElementById('mf-flip');
     if (!card) return;
     var back = document.getElementById('mf-tickets');
+
+    // Eventbrite 的脚本不挡首屏：页面加载完、浏览器空闲时再加载；
+    // 观众更早点了「立即购票」，就立刻加载。
+    var ebRequested = false;
+    function loadEventbrite() {
+      if (ebRequested) return;
+      ebRequested = true;
+      var sc = document.createElement('script');
+      sc.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js';
+      sc.async = true;
+      sc.onload = function () {
+        window.EBWidgets.createWidget({
+          widgetType: 'checkout',
+          eventId: '2001158142875',
+          iframeContainerId: 'eventbrite-widget-container-2001158142875',
+          iframeContainerHeight: window.innerWidth < 768 ? 430 : 520
+        });
+      };
+      document.body.appendChild(sc);
+    }
+    window.addEventListener('load', function () {
+      if (window.requestIdleCallback) {
+        window.requestIdleCallback(loadEventbrite, {timeout: 3000});
+      } else {
+        setTimeout(loadEventbrite, 1500);
+      }
+    });
     function setFlipped(flipped) {
+      if (flipped) loadEventbrite();
       card.classList.toggle('is-flipped', flipped);
       back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
       if (flipped) {
