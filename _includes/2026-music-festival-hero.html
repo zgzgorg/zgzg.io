@@ -63,6 +63,45 @@
     text-decoration: none;
   }
 
+  .mf-home-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .mf-home-cta-ghost {
+    background: transparent;
+    color: #c9a962;
+    border: 1px solid #c9a962;
+  }
+
+  .mf-home-cta-ghost:hover {
+    background: rgba(201, 169, 98, 0.12);
+    color: #e0c27a;
+  }
+
+  /* Eventbrite 官方购票窗口：白底卡片，嵌在音乐节深色区里 */
+  .mf-home-tickets {
+    background: #fff;
+    color: #2f3640;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .mf-home-tickets-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #2f3640;
+    margin-bottom: 1rem;
+  }
+
+  .mf-home-tickets-fallback {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0.75rem 0 0;
+  }
+
   .mf-home-cta:hover {
     background: #e0c27a;
     color: #262d36;
@@ -144,9 +183,18 @@
       line-height: 1.35;
     }
 
+    .mf-home-ctas {
+      flex-direction: column;
+    }
+
     .mf-home-cta {
       display: block;
       text-align: center;
+    }
+
+    .mf-home-tickets {
+      margin: 2rem 1.25rem 0;
+      padding: 1.1rem 0.9rem;
     }
   }
 </style>
@@ -164,14 +212,17 @@
         <div class="mf-home-facts">
           <div class="mf-home-fact">
             <span class="mf-home-fact-label">演出日期</span>
-            <span class="mf-home-fact-value">2026/10/25<br>周日</span>
+            <span class="mf-home-fact-value">10/25（周日）<br>12:00 - 18:00</span>
           </div>
           <div class="mf-home-fact">
             <span class="mf-home-fact-label">演出地点</span>
-            <span class="mf-home-fact-value">Leo J Ryan Park<br>Foster City</span>
+            <span class="mf-home-fact-value">Leo J Ryan Park<br>650 Shell Blvd, Foster City</span>
           </div>
         </div>
-        <a class="mf-home-cta" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
+        <div class="mf-home-ctas">
+          <a class="mf-home-cta" href="#mf-tickets">立即购票 ↓</a>
+          <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
+        </div>
       </div>
       <div class="col-md-5 text-center mf-home-poster-col">
         <a href="{{ '/music-festival/' | relative_url }}">
@@ -181,5 +232,24 @@
         </a>
       </div>
     </div>
+
+    <div class="mf-home-tickets" id="mf-tickets">
+      <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
+      <div id="eventbrite-widget-container-2001158142875"></div>
+      <p class="mf-home-tickets-fallback">
+        购票窗口没有出现？请
+        <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">在 Eventbrite 上购票</a>。
+      </p>
+    </div>
   </div>
 </div>
+
+<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+<script>
+  window.EBWidgets && window.EBWidgets.createWidget({
+    widgetType: 'checkout',
+    eventId: '2001158142875',
+    iframeContainerId: 'eventbrite-widget-container-2001158142875',
+    iframeContainerHeight: 520
+  });
+</script>
