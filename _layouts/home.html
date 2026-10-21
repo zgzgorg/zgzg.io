@@ -5,42 +5,11 @@ bodyClass: page-home
 ---
 
 <style>
+  /* 春晚招募：素色暖底，不再铺 2025 蛇年 banner 的虚化图 */
   .gala-hero-strip {
     position: relative;
-    overflow: hidden;
-    background-image: url("{{ site.data.data.home_image_link }}");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #fff8ef 0%, #fdeee6 55%, #f9e1d6 100%);
     color: #2a0a0a;
-  }
-
-  /* 轻微虚化背景层（在浅色罩之下） */
-  .gala-hero-strip::before {
-    content: "";
-    position: absolute;
-    inset: -12px;
-    background-image: url("{{ site.data.data.home_image_link }}");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    filter: blur(4px);
-    transform: scale(1.03);
-    z-index: 0;
-  }
-
-  /* 折中：上半部更“透海报”，下半部渐强压住大块留白，保证文字区对比 */
-  .gala-hero-strip::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.04) 0%,
-      rgba(255, 255, 255, 0.14) 48%,
-      rgba(255, 255, 255, 0.38) 100%
-    );
-    z-index: 1;
   }
 
   .gala-hero-strip > .container {
@@ -179,6 +148,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div> -->
 
+
+{% include 2026-music-festival-hero.html %}
 
 <div class="strip gala-hero-strip">
   <div class="container pb-4 pt-5">

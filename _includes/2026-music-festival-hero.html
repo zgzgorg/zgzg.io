@@ -1,0 +1,121 @@
+<style>
+  .mf-home-strip {
+    background: linear-gradient(180deg, #4a5568 0%, #2f3640 55%, #262d36 100%);
+    color: #fff;
+  }
+
+  .mf-home-kicker {
+    letter-spacing: 0.3em;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+
+  .mf-home-title {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: #fff;
+    margin: 0.6rem 0 0.2rem;
+  }
+
+  .mf-home-subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    color: #c9a962;
+    margin-bottom: 1.2rem;
+  }
+
+  .mf-home-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.4rem 0 1.6rem;
+  }
+
+  .mf-home-fact {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(201, 169, 98, 0.45);
+    border-radius: 12px;
+    padding: 0.55rem 1.1rem;
+  }
+
+  .mf-home-fact-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: #c9a962;
+  }
+
+  .mf-home-fact-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .mf-home-cta {
+    display: inline-block;
+    background: #c9a962;
+    color: #262d36;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.7rem 1.8rem;
+    text-decoration: none;
+  }
+
+  .mf-home-cta:hover {
+    background: #e0c27a;
+    color: #262d36;
+  }
+
+  /* 海报只露出上半部分（主标题和悬浮的人），裁掉底部已过期的报名二维码 */
+  .mf-home-poster {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 16px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+  }
+
+  @media (max-width: 767.98px) {
+    .mf-home-cta {
+      display: block;
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="strip mf-home-strip">
+  <div class="container pt-5 pb-5">
+    <div class="row align-items-center g-4">
+      <div class="col-md-7">
+        <div class="mf-home-kicker">ZGZG Music Festival 2026 · 第一届载歌在谷音乐节</div>
+        <h1 class="mf-home-title">逆向悬浮</h1>
+        <div class="mf-home-subtitle">DEFYING GRAVITY</div>
+        <p style="color: rgba(255, 255, 255, 0.85);">
+          世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台，10 月 25 日不见不散！
+        </p>
+        <div class="mf-home-facts">
+          <div class="mf-home-fact">
+            <span class="mf-home-fact-label">演出日期</span>
+            <span class="mf-home-fact-value">2026/10/25（周日）</span>
+          </div>
+          <div class="mf-home-fact">
+            <span class="mf-home-fact-label">演出地点</span>
+            <span class="mf-home-fact-value">Leo J Ryan Park, Foster City</span>
+          </div>
+        </div>
+        <a class="mf-home-cta" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
+      </div>
+      <div class="col-md-5 text-center">
+        <a href="{{ '/music-festival/' | relative_url }}">
+          <img class="mf-home-poster"
+               src="{{ '/images/2026-music-festival/band-poster.jpg' | relative_url }}"
+               alt="载歌在谷第一届音乐节《逆向悬浮 Defying Gravity》海报">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
