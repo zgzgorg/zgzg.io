@@ -45,6 +45,7 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - tools
   - Gemfile
   - Gemfile.lock
   - node_modules
