@@ -2,7 +2,7 @@
   <div class="programme">
     {% if programme.image %}
       <div class="programme-image">
-        <img alt="{{ programme.name }}" src="{{ programme.image }}" />
+        <img alt="{{ programme.name }}" src="{{ programme.image }}" loading="lazy" decoding="async" />
       </div>
     {% endif %}
     <h2 class="programme-title">{{ programme.name }}</h2>

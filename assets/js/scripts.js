@@ -70,3 +70,26 @@ function openTab(evt) {
   evt.currentTarget.className += ' active';
 }
 
+
+// Lazy-load background images marked with data-bg (e.g. list-item-image).
+// Browsers fetch inline CSS backgrounds eagerly, even below the fold.
+(function() {
+  const els = document.querySelectorAll('[data-bg]');
+  const show = (el) => {
+    el.style.backgroundImage = 'url("' + el.dataset.bg + '")';
+    el.removeAttribute('data-bg');
+  };
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(show);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        show(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin: '400px 0px'});
+  els.forEach((el) => io.observe(el));
+})();
