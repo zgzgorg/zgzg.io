@@ -2,12 +2,54 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8">
+  {% comment %}
+    标题、SEO、分享卡片和 schema.org 的信息放在 head 最前面，在内联样式和脚本之前。
+    慢网下浏览器和抓取程序读到 HTML 开头的几 KB 就能拿到这些信息。
+  {% endcomment %}
+  {% assign site_origin = site.seo.meta_og_url %}
+  <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}" />
+  {% endif %}
+  <link rel="canonical" href="{{ site_origin }}{{ page.url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content="{{ site.seo.meta_og_title }}" />
+  <meta property="og:type" content="{{ site.seo.meta_og_type }}" />
+  <meta property="og:url" content="{{ site_origin }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site_origin }}{{ site.seo.meta_og_image }}" />
+  <meta property="og:description" content="{{ site.seo.meta_og_description }}" />
+  <meta name="twitter:card" content="{{ site.seo.meta_twitter_card }}" />
+  <meta name="twitter:site" content="{{ site.seo.meta_twitter_site }}" />
+  <meta name="twitter:creator" content="{{ site.seo.meta_twitter_creator }}" />
+  {% if page.schema_org %}{% include {{ page.schema_org }} %}{% endif %}
   <script>
-    // 分阶段加载。phase 0：首屏需要的 HTML、style.css（首页内联首屏部分）和首屏图片，照常加载。
-    // phase 1：window load 之后，加载字体、图标等不影响首屏布局的样式。
+    // 分阶段加载。phase 0：首屏需要的 HTML、style.css（首页只有内联的首屏部分）和首屏图片，照常加载。
+    // phase 1：window load 之后，加载完整的 style.css（首页）、字体、图标等不影响首屏布局的样式。
     // phase 2：浏览器空闲或者用户第一次滚动、点击之后，加载统计脚本、购票窗口等。
+    // 慢网（zgzgIsSlow）：不下载中文网络字体，phase 2 只在用户第一次滚动、点击之后才开始。
     (function () {
-      var queues = {1: [], 2: []}, reached = 0;
+      var queues = {1: [], 2: []}, reached = 0, slow = null;
+      // 先看 navigator.connection（Chrome、Android）；iOS Safari 没有这个接口，
+      // 就用已下载的同源大文件（20 KB 以上）的实际下载速度估算，低于约 250 KB/s 算慢网。
+      window.zgzgIsSlow = function () {
+        if (slow !== null) return slow;
+        var c = navigator.connection || {};
+        slow = !!c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
+        if (!slow && window.performance && performance.getEntriesByType) {
+          var bytes = 0, ms = 0;
+          performance.getEntriesByType('resource').forEach(function (e) {
+            if (e.transferSize > 20000 && e.responseEnd > e.responseStart) {
+              bytes += e.transferSize;
+              ms += e.responseEnd - e.responseStart;
+            }
+          });
+          if (ms > 0 && bytes / ms < 250) slow = true;
+        }
+        return slow;
+      };
       function run(n) {
         if (reached >= n) return;
         reached = n;
@@ -28,17 +70,27 @@
       window.addEventListener('load', function () {
         run(1);
         var go = function () { window.zgzgPhaseNow(2); };
-        if (window.requestIdleCallback) window.requestIdleCallback(go, {timeout: 4000});
-        else setTimeout(go, 2000);
+        if (!window.zgzgIsSlow()) {
+          if (window.requestIdleCallback) window.requestIdleCallback(go, {timeout: 4000});
+          else setTimeout(go, 2000);
+        }
         ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (e) {
           window.addEventListener(e, go, {once: true, passive: true});
         });
       });
     })();
     zgzgPhase(1, function () {
-      zgzgLoadCss('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=optional');
+      {% if page.critical_css %}
+      // 内联了首屏样式的页面，完整的 style.css 等首屏图片下载完（window load）再加载，不和 LCP 海报抢带宽。
+      zgzgLoadCss('{{ '/assets/css/style.css' | relative_url }}');
+      {% endif %}
+      // 字体用 display=optional：慢网时字体来不及用在本页，下载了也白费流量，所以慢网直接用系统字体。
+      if (!zgzgIsSlow()) zgzgLoadCss('https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=optional');
+      {% unless page.critical_css %}
+      // 内联了首屏样式的页面（首页）不用图标字体。
       zgzgLoadCss('https://fonts.googleapis.com/icon?family=Material+Icons&display=block');
       zgzgLoadCss('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=block');
+      {% endunless %}
       zgzgLoadCss('https://cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css');
     });
   </script>
@@ -57,31 +109,16 @@
       white-space: nowrap;
     }
   </style>
-  <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/webp" href="/images/zgzglogo.webp">
   {% if page.critical_css %}
   {% comment %}
-    首屏样式直接内联，完整的 style.css 改成不阻塞渲染：先 preload，下载完再换成 stylesheet。
+    首屏样式直接内联，完整的 style.css 在 phase 1（window load 之后）加载，见上面的 zgzgPhase(1)。
     内联的样式由 tools/critical-css.js 生成，style.scss 改了以后要重新生成。
   {% endcomment %}
   <style>{% include {{ page.critical_css }} %}</style>
-  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></noscript>
   {% else %}
   <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
   {% endif %}
-  {% if page.description %}
-  <meta name="description" content="{{ page.description }}" />
-  {% endif %}
-  <meta property="og:title" content="{{ site.seo.meta_og_title }}" />
-  <meta property="og:type" content="{{ site.seo.meta_og_type }}" />
-  <meta property="og:url" content="{{ site.seo.meta_og_url }}" />
-  <meta property="og:image" content="{{ site.seo.meta_og_image }}" />
-  <meta property="og:description" content="{{ site.seo.meta_og_description }}" />
-  <meta name="twitter:card" content="{{ site.seo.meta_twitter_card }}" />
-  <meta name="twitter:site" content="{{ site.seo.meta_twitter_site }}" />
-  <meta name="twitter:creator" content="{{ site.seo.meta_twitter_creator }}" />
 </head>
 <body class='page {{page.bodyClass}}'>
   {% include main-menu-mobile.html %}
@@ -102,7 +139,7 @@
   {% comment %}
     这些页面不用 jQuery 和 Bootstrap 4，只有菜单的下拉需要 Bootstrap 5。
     Bootstrap 5 等到 phase 1 再下载，首屏阶段的带宽留给 LCP 海报。
-    访客在 phase 1 之前点了下拉菜单，就立刻下载 Bootstrap 5，下载完打开刚点的菜单。
+    慢网时不主动下载。访客在下载之前点了下拉菜单，就立刻下载 Bootstrap 5，下载完打开刚点的菜单。
   {% endcomment %}
   <script>
     (function () {
@@ -126,7 +163,7 @@
         pending = toggle;
         loadBootstrap();
       }, true);
-      zgzgPhase(1, loadBootstrap);
+      zgzgPhase(1, function () { if (!zgzgIsSlow()) loadBootstrap(); });
     })();
   </script>
   {% else %}

@@ -1,0 +1,60 @@
+{% comment %}
+  首页的 schema.org 结构化数据：社区（NGO）、网站和首屏的音乐节活动。
+  音乐节的信息和 _includes/2026-music-festival-hero.html 保持一致，活动结束后删掉 Event 这一项。
+{% endcomment %}
+{% assign site_origin = site.seo.meta_og_url %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NGO",
+      "@id": "{{ site_origin }}/#organization",
+      "name": "载歌在谷",
+      "alternateName": "ZaiGeZaiGu",
+      "url": "{{ site_origin }}/",
+      "logo": "{{ site_origin }}/images/zgzglogo.webp",
+      "description": "{{ page.description }}",
+      "sameAs": [
+        "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a",
+        "https://www.weibo.com/zgzggala",
+        "https://www.facebook.com/zaigezaigu/",
+        "https://www.youtube.com/channel/UCY7-f7HBl8kvmoGtQX4TGUg",
+        "https://www.instagram.com/zaigezaigu/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site_origin }}/#website",
+      "url": "{{ site_origin }}/",
+      "name": "载歌在谷",
+      "inLanguage": "zh-Hans",
+      "publisher": {"@id": "{{ site_origin }}/#organization"}
+    },
+    {
+      "@type": "MusicEvent",
+      "name": "第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》",
+      "startDate": "2026-10-25T12:00:00-07:00",
+      "endDate": "2026-10-25T18:00:00-07:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "url": "{{ site_origin }}/music-festival/",
+      "image": "{{ site_origin }}/images/2026-music-festival/lineup-poster-840.jpg",
+      "description": "世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台。",
+      "location": {
+        "@type": "Place",
+        "name": "Leo J. Ryan Park",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "650 Shell Blvd",
+          "addressLocality": "Foster City",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": {"@id": "{{ site_origin }}/#organization"},
+      "offers": {"@type": "Offer", "url": "https://zgzg.li/mf-2026"}
+    }
+  ]
+}
+</script>
