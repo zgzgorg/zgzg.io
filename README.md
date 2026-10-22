@@ -53,6 +53,8 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 
 首页通过 `_includes/home-events.html` 横向轮播活动，默认展示音乐节，每 9 秒切换。音乐节海报点击后翻面购票，春晚海报直达节目及主持人报名。观众把鼠标移进轮播、用键盘操作、点小点或者横滑之后，轮播停住；鼠标和焦点都离开 1 分钟之后，轮播才继续。购票时轮播也停住。经维护者批准，2027 春晚招募海报随本次网站静态文件发布，存放在 `images/2027-gala/`。轮播底部有两个小点，当前活动的小点显示为横线。
 
+首页的「云集社团」也是一个轮播：社团卡片排成一行，宽屏一次显示三张，中等宽度显示两张，手机上显示一张。社团轮播和活动轮播一样每 9 秒移动一张卡片，移到最后一个位置之后回到开头。观众点小点、在小点上按左右方向键或者横滑，轮播也移动一张卡片，并且停住；鼠标和焦点都离开 1 分钟之后，轮播才继续。两个轮播共用 `assets/js/carousel.js` 的切换逻辑和 `_includes/carousel-style.html` 的小点样式。首页在 include `programmes.html` 之前设置 `programmes_carousel = true` 才启用社团轮播，云集专页 `/yj/` 仍然显示网格。
+
 首页轮播下方的 `_includes/home-logo-marquee.html` 显示「我们的志愿者们主要来自硅谷科技圈」：公司 logo 一排向右滚动，学校 logo 一排向左滚动。logo 清单在 `_data/home-logos.yml`，图片存放在 `images/home-logos/`。经维护者批准，这批 logo 的 WebP 也放在仓库里。原图下载好之前，页面先用单色轮廓拼图 `images/home-logos/silhouettes.webp`（约 8 KB）占位；增删 logo 之后，请运行 `python3 tools/home-logo-silhouettes.py` 重新生成拼图。
 
 首页最下方的「报名服务」章节放着书法「有爱载歌，有家在谷」和报名按钮。书法图片在 `images/volunteer/`。

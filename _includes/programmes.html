@@ -1,4 +1,42 @@
 {%- assign t = site.data.i18n[page.lang] -%}
+{%- comment -%}
+  首页在 include 之前设 programmes_carousel = true，社团卡片排成一行横向轮播，
+  共用 _includes/carousel-style.html 和 assets/js/carousel.js；云集专页仍然是网格。
+{%- endcomment -%}
+{%- if programmes_carousel == true %}
+<style>
+  .yj-carousel-track { justify-content: center; }
+  .yj-carousel.is-ready .yj-carousel-viewport { overflow: hidden; }
+  .yj-carousel.is-ready .yj-carousel-track {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    transition: transform 500ms ease-in-out;
+  }
+  .yj-carousel-controls { display: none; justify-content: center; padding-top: 0.25rem; }
+  .yj-carousel.is-ready .yj-carousel-controls { display: flex; }
+  .yj-carousel-controls button { color: #262d36; }
+  .yj-carousel button:focus-visible { outline: 3px solid #1384c7; outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .yj-carousel.is-ready .yj-carousel-track { transition: none; }
+  }
+</style>
+<section class="yj-carousel p-1 p-md-3" data-carousel-auto data-carousel-interval="9000" data-carousel-resume="60000" aria-label="{{ t.home.yj_heading }}" aria-roledescription="{{ t.home.events_carousel }}">
+  <div class="yj-carousel-viewport" data-carousel-viewport>
+    <div class="row g-1 g-md-2 yj-carousel-track" data-carousel-track>
+      {% for programme in site.data.data.programmes %}
+        {% include programme.html %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="yj-carousel-controls" aria-label="{{ t.home.yj_choose }}">
+    {%- assign k_name = 'name' | append: t.data_suffix -%}
+    {% for programme in site.data.data.programmes %}
+    {%- assign p_name = programme[k_name] | default: programme.name -%}
+    <button type="button" class="carousel-dot" data-carousel-dot aria-current="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="yj-slide-{{ forloop.index }}" aria-label="{{ p_name }}"></button>
+    {% endfor %}
+  </div>
+</section>
+{%- else -%}
 <div class="row justify-content-center g-1 g-md-2 p-1 p-md-3">
   {% if site.data.data.programmes %}
     {% for programme in site.data.data.programmes %}
@@ -22,6 +60,7 @@
   </div>
   {% endif %}
 </div>
+{%- endif %}
 
 {% if show_join_us == true %}
   <p>{{ t.programmes.onboard }}</p>

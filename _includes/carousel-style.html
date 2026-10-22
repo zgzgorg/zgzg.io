@@ -1,0 +1,28 @@
+{%- comment -%}
+  首页两个轮播共用的小点样式：小点是 8px 的圆点，当前位置的小点拉长成横线。
+  小点的颜色跟随按钮的 color，由各个轮播自己设置。切换逻辑在 assets/js/carousel.js。
+{%- endcomment -%}
+<style>
+  .carousel-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+  .carousel-dot[hidden] { display: none; }
+  .carousel-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: currentColor;
+    transition: width 300ms ease;
+  }
+  .carousel-dot[aria-current="true"]::before { width: 28px; }
+</style>
+<script src="{{ '/assets/js/carousel.js' | relative_url }}" defer></script>
