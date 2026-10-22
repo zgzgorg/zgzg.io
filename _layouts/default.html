@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <script>
-    // 分阶段加载。phase 0：首屏需要的 HTML、style.css 和首屏图片，照常加载。
+    // 分阶段加载。phase 0：首屏需要的 HTML、style.css（首页内联首屏部分）和首屏图片，照常加载。
     // phase 1：window load 之后，加载字体、图标等不影响首屏布局的样式。
     // phase 2：浏览器空闲或者用户第一次滚动、点击之后，加载统计脚本、购票窗口等。
     (function () {
@@ -60,7 +60,17 @@
   <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/webp" href="/images/zgzglogo.webp">
+  {% if page.critical_css %}
+  {% comment %}
+    首屏样式直接内联，完整的 style.css 改成不阻塞渲染：先 preload，下载完再换成 stylesheet。
+    内联的样式由 tools/critical-css.js 生成，style.scss 改了以后要重新生成。
+  {% endcomment %}
+  <style>{% include {{ page.critical_css }} %}</style>
+  <link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"></noscript>
+  {% else %}
   <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet">
+  {% endif %}
   {% if page.description %}
   <meta name="description" content="{{ page.description }}" />
   {% endif %}
@@ -80,12 +90,18 @@
     {{content}}
   </div>
   {% include footer.html %}
-  <script type="text/javascript" src="{{ "/assets/js/scripts.js" | relative_url }}"></script>
-  <script type="text/javascript" src="{{ "/assets/js/sidenotes.js" | relative_url }}"></script>
+  {% comment %}
+    内联了首屏样式的页面（目前只有首页），底部脚本加 defer：HTML 一次到齐时，
+    解析器不会卡在这几个脚本上，浏览器可以先画出首屏。defer 脚本仍按顺序执行。
+    这些页面的内联脚本不能依赖 jQuery 或 Bootstrap。
+  {% endcomment %}
+  {% if page.critical_css %}{% assign body_script_defer = 'defer' %}{% else %}{% assign body_script_defer = '' %}{% endif %}
+  <script type="text/javascript" src="{{ "/assets/js/scripts.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script type="text/javascript" src="{{ "/assets/js/sidenotes.js" | relative_url }}" {{ body_script_defer }}></script>
   <!-- jQuery and Bootstrap JS -->
-  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/popper.min.js" | relative_url }}"></script>
-  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
+  <script src="{{ "/assets/js/jquery-3.5.1.slim.min.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script src="{{ "/assets/js/popper.min.js" | relative_url }}" {{ body_script_defer }}></script>
+  <script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}" {{ body_script_defer }}></script>
   <!-- End JQuery and Bootstrap JS-->
   {% include google-analytics.html %}
 </body>
