@@ -34,27 +34,18 @@
                 </div>
             </div>
             <div class="col-12 col-lg-5" style="margin-left: auto;">
-                <div class="footer-icon py-1 pst-md-2">
-                    <!-- wechat icon -->
-                    <a href="https://mp.weixin.qq.com/s/MQrUzT-XkxsRdRQQRpb4Fw">
-                        <img src="/images/social/wechat.svg" width="40" height="40" alt="wechat" loading="lazy" decoding="async" />
+                {%- comment -%} 第一行是最主要的三个平台，图标大一些；第二行是活动报名平台和其余平台。带 qr 的国内平台点开弹出二维码，海外平台直接打开链接。清单在 _data/social.yml {%- endcomment -%}
+                {%- assign rows = "primary|others" | split: "|" %}
+                {%- for row in rows %}
+                <div class="footer-icon footer-icon--{{ row }} py-1 pst-md-2">
+                    {%- if row == "others" %}{% assign row_items = site.data.social.events | concat: site.data.social.others %}{% else %}{% assign row_items = site.data.social[row] %}{% endif %}
+                    {%- for item in row_items %}
+                    <a href="{{ item.url }}"{% if item.qr %} data-social-qr="{{ '/images/social/qr/' | append: item.key | append: '.webp' | relative_url }}" data-social-name="{{ item.name }}" aria-haspopup="dialog"{% endif %}>
+                        <img src="{{ '/images/social/' | append: item.icon | relative_url }}" width="40" height="40" alt="{{ item.name }}" loading="lazy" decoding="async" />
                     </a>
-                    <a href="https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a?xhsshare=CopyLink&appuid=5dd45355000000000100bfb8&apptime=1670394983">
-                        <img src="/images/social/xhs.svg" width="40" height="40" alt="xhs" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://www.weibo.com/zgzggala">
-                        <img src="/images/social/weibo.svg" width="40" height="40" alt="weibo" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://www.facebook.com/zaigezaigu/">
-                        <img src="/images/social/facebook.svg" width="40" height="40" alt="facebook" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://www.youtube.com/channel/UCY7-f7HBl8kvmoGtQX4TGUg">
-                        <img src="/images/social/youtube.svg" width="40" height="40" alt="youtube" loading="lazy" decoding="async" />
-                    </a>
-                    <a href="https://www.instagram.com/zaigezaigu/">
-                        <img src="/images/social/instagram.svg" width="40" height="40" alt="instagram" loading="lazy" decoding="async" />
-                    </a>
+                    {%- endfor %}
                 </div>
+                {%- endfor %}
                 <div class="footer-link">
                     <li>
                         <a href="/gala/">春节晚会</a>
@@ -97,3 +88,47 @@
         </div>
     </div>
 </div>
+
+<!-- 点页脚的国内平台图标弹出二维码；浏览器不支持 dialog 时照常打开该平台的链接 -->
+<dialog class="social-dialog" id="social-dialog" aria-labelledby="social-dialog-title">
+  <div class="social-dialog-body">
+    <button type="button" class="social-dialog-close" aria-label="关闭">&times;</button>
+    <img width="540" height="540" decoding="async" alt="">
+    <p id="social-dialog-title"><span class="social-dialog-name"></span><br><span class="social-dialog-hint"></span></p>
+  </div>
+</dialog>
+<style>
+    .social-dialog { width: min(320px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 12px; text-align: center; }
+    .social-dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+    .social-dialog-body { position: relative; padding: 1.75rem 1.5rem 1.25rem; }
+    .social-dialog img { display: block; width: 100%; max-width: 240px; height: auto; margin: 0 auto 0.75rem; }
+    .social-dialog p { margin: 0; color: #1f1415; font-weight: 500; line-height: 1.6; }
+    .social-dialog-hint { color: #666; font-size: 0.9rem; font-weight: 400; }
+    .social-dialog-close { position: absolute; top: 0.25rem; right: 0.5rem; width: 44px; height: 44px; border: 0; background: none; color: #666; font-size: 1.75rem; line-height: 1; cursor: pointer; }
+</style>
+<script>
+    (function() {
+        var dialog = document.getElementById('social-dialog');
+        if (!dialog || typeof dialog.showModal !== 'function') return;
+        var img = dialog.querySelector('img');
+        document.querySelectorAll('[data-social-qr]').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                var name = link.getAttribute('data-social-name');
+                img.src = link.getAttribute('data-social-qr');
+                img.alt = '载歌在谷' + name + '二维码';
+                dialog.querySelector('.social-dialog-name').textContent = '载歌在谷' + name;
+                dialog.querySelector('.social-dialog-hint').textContent =
+                    name === '微信公众号' ? '微信扫码关注' : '用' + name + ' App 扫码关注';
+                dialog.showModal();
+            });
+        });
+        dialog.querySelector('.social-dialog-close').addEventListener('click', function() {
+            dialog.close();
+        });
+        // 点二维码卡片外面的遮罩也能关闭
+        dialog.addEventListener('click', function(event) {
+            if (event.target === dialog) dialog.close();
+        });
+    })();
+</script>

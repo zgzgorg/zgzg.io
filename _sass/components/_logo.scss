@@ -1,12 +1,15 @@
+// 默认用四字横排 logo。768px 到 991px 之间导航菜单已经展开，放不下横排 logo，
+// 这一段换成圆形 logo
 .logo {
-  display: none;
-  @include media-breakpoint-up(sm) {
-    display: block;
+  display: block;
+  @include media-breakpoint-only(md) {
+    display: none;
   }
 
+  // 大屏用四字横排 logo，按图片比例算宽度
   img {
     height: 36px;
-    width: 36px;
+    width: auto;
   }
 
   a {
@@ -17,11 +20,11 @@
 }
 
 .logo-mobile {
-  display: block;
+  display: none;
   padding: 10px 0 10px 0;
   width: 40px;
-  @include media-breakpoint-up(sm) {
-    display: none;
+  @include media-breakpoint-only(md) {
+    display: block;
   }
 
   img {

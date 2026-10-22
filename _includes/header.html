@@ -1,12 +1,31 @@
 <div class="header sticky-top">
   <div class="container">
     <div class="logo">
-      <a href="{{ site.baseurl }}"><img height="{{ site.logo.desktop_height }}" alt="{{ site.title }}" src="{{ site.logo.desktop }}" /></a>
+      <a href="{{ site.baseurl }}"><img width="140" height="36" alt="{{ site.title }}" src="{{ site.logo.desktop }}" /></a>
     </div>
     <div class="logo-mobile">
       <a href="{{ site.baseurl }}"><img width="236" height="241" alt="{{ site.title }}" src="{{ site.logo.mobile }}" /></a>
     </div>
     {% include main-menu.html %}
+    {%- comment -%} 最主要的三个社交平台和两个活动报名平台；国内平台点开弹出二维码（弹窗在 footer.html） {%- endcomment %}
+    <div class="header-social">
+      {%- assign header_items = site.data.social.primary | concat: site.data.social.events %}
+      {%- for item in header_items %}
+      <a{% if item.icon == 'luma.svg' or item.icon == 'eventbrite.svg' %} class="header-social-event"{% endif %} href="{{ item.url }}"{% if item.qr %} data-social-qr="{{ '/images/social/qr/' | append: item.key | append: '.webp' | relative_url }}" data-social-name="{{ item.name }}" aria-haspopup="dialog"{% endif %}>
+        <img src="{{ '/images/social/' | append: item.icon | relative_url }}" width="30" height="30" alt="{{ item.name }}" decoding="async">
+      </a>
+      {%- endfor %}
+    </div>
+    <style>
+      .header-social { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; margin-right: 0.75rem; }
+      .header-social a { display: block; line-height: 0; }
+      /* 页脚用的是深色底上的白色图标，header 是白底，反相成浅灰圆底黑色图标 */
+      .header-social img { width: 30px; height: 30px; filter: invert(1); opacity: 0.8; }
+      .header-social a:hover img { opacity: 1; }
+      @media (min-width: 768px) { .header-social { margin-left: 0.5rem; margin-right: 0; } }
+      /* 576px 以下，以及 768px 到 991px 之间（导航菜单展开），header 放不下五个图标，活动平台只在页脚显示 */
+      @media (max-width: 575.98px), (min-width: 768px) and (max-width: 991.98px) { .header-social-event { display: none !important; } }
+    </style>
     {% include hamburger.html %}
   </div>
 </div>

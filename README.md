@@ -55,6 +55,10 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 
 首页轮播下方的 `_includes/home-logo-marquee.html` 显示「我们的志愿者们主要来自硅谷科技圈」：公司 logo 一排向右滚动，学校 logo 一排向左滚动。logo 清单在 `_data/home-logos.yml`，图片存放在 `images/home-logos/`。经维护者批准，这批 logo 的 WebP 也放在仓库里。原图下载好之前，页面先用单色轮廓拼图 `images/home-logos/silhouettes.webp`（约 8 KB）占位；增删 logo 之后，请运行 `python3 tools/home-logo-silhouettes.py` 重新生成拼图。
 
+首页最下方的「报名服务」章节放着书法「有爱载歌，有家在谷」和报名按钮。书法图片在 `images/volunteer/`。
+
+页脚的社交媒体图标分两行，清单在 `_data/social.yml`：第一行是最主要的微信公众号、小红书、YouTube，图标大一些；第二行是 Luma、Eventbrite 两个活动报名平台和其余平台。国内平台点开弹出二维码，海外平台点开直接跳转。二维码在 `images/social/qr/`，由 `tools/social-qr.py` 生成，中间叠了圆形社区 logo。header 右侧也放了这三个最主要的平台和两个活动报名平台（手机和 768px 到 991px 之间的屏幕上只放三个主要平台）。header 默认显示四字横排 logo `images/zgzglogo-horizontal.webp`；768px 到 991px 之间导航菜单已经展开、放不下横排 logo，这一段显示圆形 logo；横排 logo 取自共享云端硬盘「ZGZG Logo Various Size 载歌在谷各种尺寸的Logo」文件夹里的 `logo 16.png`。
+
 - `assets`：存放了一些脚本和样式表文件。
   - `assets/css/style.scss`：许多仅对《载歌在谷》有意义的样式（与"对其他网站也有用"相对），都被存放到了这里。如春晚横幅：https://github.com/zgzgorg/yj.zgzg.io/blob/d11235a52359996f299a1bdab37669251c10d21c/assets/css/style.scss#L357-L364
   - `assets/js/sidenotes.js`： is a pure-JavaScript plugin that puts `.footnotes` into `#sidebar`, aligning each piece of note at their corresponding superscript, developed by [@tslmy](https://github.com/tslmy).
