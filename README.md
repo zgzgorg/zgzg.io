@@ -54,6 +54,8 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
   - `assets/css/style.scss`：许多仅对《载歌在谷》有意义的样式（与"对其他网站也有用"相对），都被存放到了这里。如春晚横幅：https://github.com/zgzgorg/yj.zgzg.io/blob/d11235a52359996f299a1bdab37669251c10d21c/assets/css/style.scss#L357-L364
   - `assets/js/sidenotes.js`： is a pure-JavaScript plugin that puts `.footnotes` into `#sidebar`, aligning each piece of note at their corresponding superscript, developed by [@tslmy](https://github.com/tslmy).
   - `_includes/critical/home.css`：首页首屏用到的样式，内联进首页的 `<head>`，完整的 `style.css` 随后异步加载。这个文件由 `tools/critical-css.js` 从 `style.css` 生成。改了 `assets/css/style.scss` 或 `_sass/` 以后，请按脚本开头的说明重新生成，并一起提交。
+  - `_includes/schema-org/`：页面的 schema.org 结构化数据（JSON-LD）。页面在 front matter 里写 `schema_org: schema-org/xxx.html`，`_layouts/default.html` 就把它放进 `<head>` 的最前面。
+  - `_layouts/default.html` 开头的 `zgzgPhase` 脚本负责分阶段加载。`zgzgIsSlow()` 判断访客是不是慢网：慢网时不下载中文网络字体，统计脚本、购票窗口、Bootstrap 都等访客动手以后再下载。
 - `_sass`：这里存放各种对其他网站也有复用意义的样式表。其实，本网站采用的即是他人制作的、现成的主题——由 [Robert Austin](https://github.com/zerostaticthemes) 制作的 [Serif](https://github.com/zerostaticthemes/jekyll-serif-theme)。
 
 本网站托管于 [Netlify](https://www.netlify.com/) 之上，域名为 [zgzg.io](https://zgzg.io/)。请参见 [zgzg.link/site-notes](https://zgzg.link/site-notes) 更多信息，包括《载歌在谷》的所有网络服务资源、各代网站特点及制作背景等。（仅限内部访问。）

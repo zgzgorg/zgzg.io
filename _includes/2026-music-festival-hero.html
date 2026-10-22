@@ -369,14 +369,14 @@
       loadEventbrite();
       createWidget();
     }
-    zgzgPhase(2, loadEventbrite);
+    // 慢网时 phase 2 不下载 Eventbrite，访客点「立即购票」才下载。
+    zgzgPhase(2, function () { if (!zgzgIsSlow()) loadEventbrite(); });
 
     // phase 1：网速快时把海报换成清晰版。先在后台下载好，再替换，避免闪烁。
     zgzgPhase(1, function () {
       var src = document.getElementById('mf-poster-src');
       var img = card.querySelector('.mf-home-poster');
-      var c = navigator.connection || {};
-      var slow = c.saveData || /(^|-)(2g|3g)$/.test(c.effectiveType || '');
+      var slow = zgzgIsSlow();
       var needHd = img.clientWidth * (window.devicePixelRatio || 1) > 440;
       if (!src || slow || !needHd) return;
       var hd = new Image();
