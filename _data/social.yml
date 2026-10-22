@@ -9,7 +9,7 @@
 primary:
   - { key: wechat, name: 微信公众号, name_en: "WeChat", icon: wechat.svg, qr: "http://weixin.qq.com/r/uXQXD9bEdIsLrZJs9yGr", url: "https://mp.weixin.qq.com/s/MQrUzT-XkxsRdRQQRpb4Fw" }
   - { key: xhs, name: 小红书, name_en: "Xiaohongshu (RED)", icon: xhs.svg, qr: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a", url: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a" }
-  - { name: YouTube, icon: youtube.svg, url: "https://www.youtube.com/channel/UCY7-f7HBl8kvmoGtQX4TGUg" }
+  - { name: YouTube, icon: youtube.svg, url: "https://www.youtube.com/@ZGZG" }
 # events：活动报名平台，header 里排在主要平台后面，页脚排在第二行开头。
 events:
   - { name: Luma, icon: luma.svg, url: "https://luma.com/zgzg" }
