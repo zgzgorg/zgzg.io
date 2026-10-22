@@ -9,7 +9,8 @@
             <div class="friend-content">
                 {% if friend.image %}
                 <div class="friend-image">
-                    <img alt="{{ friend.image }}" src="{{ friend.image }}" loading="lazy" decoding="async"/>
+                    {%- comment -%} data.yml 里的 logo 路径是相对路径，加 relative_url 以后 /en/ 下的页面也能找到图片 {%- endcomment %}
+                    <img alt="{{ friend[k_name] | default: friend.name }}" src="{{ friend.image | relative_url }}" loading="lazy" decoding="async"/>
                 </div>
                 {% endif %}
             </div>
