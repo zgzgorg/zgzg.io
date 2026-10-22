@@ -50,6 +50,9 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
   - 一页之内。例如：**栏目卡片**（`_includes/programme.html`）被复用于首页。
   - 其他可复用的元件之内。例如，上述**栏目卡片**也在**云集节目列表**（`_includes/programmes.html`）里被复用：
     <img width="800" alt="image" src="https://user-images.githubusercontent.com/594058/194156682-19832792-da81-4f84-bcb7-a43cc2c3e5cf.png">
+
+首页通过 `_includes/home-events.html` 横向轮播活动，默认展示音乐节，每 9 秒切换。音乐节海报点击后翻面购票，春晚海报直达节目及主持人报名。轮播在观众操作或购票时暂停，访客也可手动切换或暂停。经维护者批准，2027 春晚招募海报随本次网站静态文件发布，存放在 `images/2027-gala/`。
+
 - `assets`：存放了一些脚本和样式表文件。
   - `assets/css/style.scss`：许多仅对《载歌在谷》有意义的样式（与"对其他网站也有用"相对），都被存放到了这里。如春晚横幅：https://github.com/zgzgorg/yj.zgzg.io/blob/d11235a52359996f299a1bdab37669251c10d21c/assets/css/style.scss#L357-L364
   - `assets/js/sidenotes.js`： is a pure-JavaScript plugin that puts `.footnotes` into `#sidebar`, aligning each piece of note at their corresponding superscript, developed by [@tslmy](https://github.com/tslmy).

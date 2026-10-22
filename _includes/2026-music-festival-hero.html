@@ -271,7 +271,7 @@
         <div class="mf-flip" id="mf-flip">
           <div class="mf-flip-inner">
             <div class="mf-flip-face mf-flip-front">
-              <a href="{{ '/music-festival/' | relative_url }}">
+              <a href="https://zgzg.li/mf-2026" data-mf-flip="open" aria-label="音乐节海报：打开购票窗口">
                 {%- comment -%}
                   海报是首屏最大的元素（LCP）。
                   phase 0：内联的 24px 模糊小图垫底，再加载 400px 宽、约 32 KB 的 WebP，3G 网络也能很快显示。
@@ -290,7 +290,7 @@
                 </picture>
               </a>
             </div>
-            <div class="mf-flip-face mf-flip-back" id="mf-tickets" aria-hidden="true">
+            <div class="mf-flip-face mf-flip-back" id="mf-tickets" aria-hidden="true" inert>
               <div class="mf-tickets-head">
                 <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
                 <button type="button" class="mf-flip-back-btn" data-mf-flip="close">← 看海报</button>
@@ -324,7 +324,7 @@
           </div>
         </div>
         <div class="mf-home-ctas">
-          <a class="mf-home-cta" href="#mf-tickets" data-mf-flip="open">立即购票</a>
+          <a class="mf-home-cta" href="https://zgzg.li/mf-2026" data-mf-flip="open">立即购票</a>
           <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
         </div>
       </div>
@@ -387,6 +387,13 @@
       if (flipped) openTickets();
       card.classList.toggle('is-flipped', flipped);
       back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+      back.inert = !flipped;
+      card.querySelector('.mf-flip-front').inert = flipped;
+      card.dispatchEvent(new CustomEvent('mf-ticket-state', {
+        bubbles: true, detail: {open: flipped}
+      }));
+      if (flipped) back.querySelector('[data-mf-flip="close"]').focus({preventScroll: true});
+      else card.querySelector('[data-mf-flip="open"]').focus({preventScroll: true});
       if (flipped) {
         var r = card.getBoundingClientRect();
         if (r.top < 0 || r.bottom > window.innerHeight) {
