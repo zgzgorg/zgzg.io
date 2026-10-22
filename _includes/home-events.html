@@ -1,0 +1,116 @@
+<style>
+  .home-events { background: #262d36; }
+  .home-events-controls {
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+  }
+  .home-events.is-ready .home-events-controls { display: flex; }
+  .home-events-controls button {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #c9a962;
+    border-radius: 24px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+  }
+  .home-events-controls button[aria-pressed="true"] {
+    background: #c9a962;
+    color: #262d36;
+  }
+  .home-events button:focus-visible,
+  .home-events a:focus-visible { outline: 3px solid #1384c7; outline-offset: 4px; }
+  .home-events.is-ready .home-events-viewport { overflow: hidden; }
+  .home-events.is-ready .home-events-track {
+    display: flex;
+    transition: transform 650ms ease-in-out;
+  }
+  .home-event { min-width: 0; }
+  .home-events.is-ready .home-event { flex: 0 0 100%; }
+  .home-event > .strip { height: 100%; }
+  .home-events .mf-home-poster,
+  .home-events .mf-flip,
+  .gala-home-poster { max-width: 380px; }
+  .gala-home-poster {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+  }
+  .home-events .gala-hero-strip > .container { max-width: 1140px; }
+  .home-events .gala-hero-strip .home-section-content_top {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    backdrop-filter: none;
+  }
+  .home-events .gala-hero-strip .home-section-header { margin: 0; }
+  .home-events .gala-hero-strip .home-section-header p {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+  }
+  .home-events .gala-hero-strip .home-section-header > .home-section-content_top { width: 100%; }
+  .home-events .gala-hero-strip .cny-2027-event-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    line-height: 1.35;
+  }
+  .gala-home-site { margin: 1rem 0 0; text-align: center; }
+  .gala-home-site a { color: #7a0000; }
+  .home-events .gala-hero-strip .ticket-btn { padding: 0.75rem 1.25rem !important; }
+  @media (max-width: 767.98px) {
+    .home-events .gala-hero-strip > .container { padding: 1.5rem 1.25rem 2rem !important; }
+    .gala-home-poster-col { margin-bottom: 1.5rem; }
+    .home-events .gala-hero-strip .home-section-content_top { padding: 0; }
+    .home-events-controls { gap: 0.4rem; }
+    .home-events-controls button { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .home-events.is-ready .home-events-track { transition: none; }
+  }
+</style>
+
+<section class="home-events" id="home-events" aria-label="近期活动" aria-roledescription="轮播">
+  <div class="home-events-controls" aria-label="选择活动">
+    <button type="button" data-event-index="0" aria-pressed="true" aria-controls="home-event-music">音乐节 · 购票</button>
+    <button type="button" data-event-index="1" aria-pressed="false" aria-controls="home-event-gala">春晚 · 节目及主持人报名</button>
+    <button type="button" data-event-playback>暂停轮播</button>
+  </div>
+  <div class="home-events-viewport">
+    <div class="home-events-track">
+      <div class="home-event" id="home-event-music" role="group" aria-roledescription="幻灯片" aria-label="1 / 2：音乐节">
+        {% include 2026-music-festival-hero.html %}
+      </div>
+      <div class="home-event" id="home-event-gala" role="group" aria-roledescription="幻灯片" aria-label="2 / 2：春晚招募">
+        <div class="strip gala-hero-strip">
+          <div class="container pb-5 pt-5">
+            <div class="row align-items-center">
+              <div class="col-md-5 gala-home-poster-col">
+                <a href="https://d.zgzg.io/2027cnyg/signup" aria-label="2027春晚海报：报名节目及主持人">
+                  <img class="gala-home-poster"
+                       src="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }}"
+                       data-srcset="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }} 420w, {{ '/images/2027-gala/recruitment-840.webp' | relative_url }} 840w"
+                       sizes="(max-width: 767px) calc(100vw - 40px), 380px"
+                       width="1024" height="1536" loading="lazy" decoding="async"
+                       alt="2027载歌在谷春节联欢晚会节目及主持人招募海报，报名截止2026年11月15日，官网 https://zgzg.io">
+                </a>
+                <p class="gala-home-site"><a href="https://zgzg.io">官网：https://zgzg.io</a></p>
+              </div>
+              <div class="col-md-7">
+                {% include 2027-spring-event-info.html %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="{{ '/assets/js/home-events.js' | relative_url }}" defer></script>
