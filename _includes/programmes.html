@@ -1,30 +1,55 @@
 {%- assign t = site.data.i18n[page.lang] -%}
 {%- comment -%}
-  首页在 include 之前设 programmes_carousel = true，社团卡片排成一行横向轮播，
-  共用 _includes/carousel-style.html 和 assets/js/carousel.js；云集专页仍然是网格。
+  首页在 include 之前设 programmes_carousel = true，每个社团占满一张幻灯片，
+  排法和活动轮播一样；共用 _includes/carousel-style.html 和 assets/js/carousel.js。
+  幻灯片模板在 programme-slide.html，云集专页仍然用 programme.html 排成网格。
 {%- endcomment -%}
 {%- if programmes_carousel == true %}
 <style>
-  .yj-carousel-track { justify-content: center; }
   .yj-carousel.is-ready .yj-carousel-viewport { overflow: hidden; }
   .yj-carousel.is-ready .yj-carousel-track {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    transition: transform 500ms ease-in-out;
+    display: flex;
+    transition: transform 650ms ease-in-out;
+  }
+  .yj-slide { min-width: 0; padding: 0.5rem; }
+  .yj-carousel.is-ready .yj-slide { flex: 0 0 100%; }
+  .yj-slide-inner {
+    height: 100%;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  .yj-slide-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .yj-slide-text { padding: 1.5rem 1.25rem 1.75rem; }
+  .yj-slide-title { font-size: clamp(1.35rem, 2.2vw, 1.75rem); margin-bottom: 0.75rem; }
+  .yj-slide-text p { font-size: 1rem; line-height: 1.65; }
+  .yj-slide-text ul { padding-left: 1.25rem; }
+  @media (min-width: 768px) {
+    .yj-slide-text { padding: 2rem 2.5rem; }
+    .yj-slide-image { align-self: stretch; }
+    .yj-slide-image img { height: 100%; min-height: 340px; }
   }
   .yj-carousel-controls { display: none; justify-content: center; padding-top: 0.25rem; }
   .yj-carousel.is-ready .yj-carousel-controls { display: flex; }
   .yj-carousel-controls button { color: #262d36; }
-  .yj-carousel button:focus-visible { outline: 3px solid #1384c7; outline-offset: 2px; }
+  .yj-carousel button:focus-visible,
+  .yj-carousel a:focus-visible { outline: 3px solid #1384c7; outline-offset: 2px; }
   @media (prefers-reduced-motion: reduce) {
     .yj-carousel.is-ready .yj-carousel-track { transition: none; }
   }
 </style>
 <section class="yj-carousel p-1 p-md-3" data-carousel-auto data-carousel-interval="9000" data-carousel-resume="60000" aria-label="{{ t.home.yj_heading }}" aria-roledescription="{{ t.home.events_carousel }}">
   <div class="yj-carousel-viewport" data-carousel-viewport>
-    <div class="row g-1 g-md-2 yj-carousel-track" data-carousel-track>
+    <div class="yj-carousel-track" data-carousel-track>
       {% for programme in site.data.data.programmes %}
-        {% include programme.html %}
+        {% include programme-slide.html %}
       {% endfor %}
     </div>
   </div>
