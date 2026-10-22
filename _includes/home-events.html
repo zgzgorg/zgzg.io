@@ -1,27 +1,40 @@
 <style>
   .home-events { background: #262d36; }
+  .home-events { position: relative; }
   .home-events-controls {
     display: none;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.65rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0.25rem;
+    transform: translateX(-50%);
+    align-items: center;
+    padding: 0 0.5rem;
+    z-index: 2;
   }
   .home-events.is-ready .home-events-controls { display: flex; }
   .home-events-controls button {
-    min-height: 44px;
-    padding: 0.5rem 1rem;
-    border: 1px solid #c9a962;
-    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 44px;
+    padding: 0;
+    border: 0;
     background: transparent;
     color: #fff;
     cursor: pointer;
-    font: inherit;
   }
-  .home-events-controls button[aria-pressed="true"] {
-    background: #c9a962;
-    color: #262d36;
+  /* 小点和横线同一个颜色：深色页用白色，春晚浅色页用深色 */
+  .home-events-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: currentColor;
+    transition: width 300ms ease;
   }
+  .home-events-dot[aria-current="true"]::before { width: 28px; }
+  .home-events[data-current="1"] .home-events-controls button { color: #262d36; }
   .home-events button:focus-visible,
   .home-events a:focus-visible { outline: 3px solid #1384c7; outline-offset: 4px; }
   .home-events.is-ready .home-events-viewport { overflow: hidden; }
@@ -69,8 +82,6 @@
     .home-events .gala-hero-strip > .container { padding: 1.5rem 1.25rem 2rem !important; }
     .gala-home-poster-col { margin-bottom: 1.5rem; }
     .home-events .gala-hero-strip .home-section-content_top { padding: 0; }
-    .home-events-controls { gap: 0.4rem; }
-    .home-events-controls button { padding: 0.5rem 0.75rem; font-size: 0.9rem; }
   }
   @media (prefers-reduced-motion: reduce) {
     .home-events.is-ready .home-events-track { transition: none; }
@@ -78,11 +89,6 @@
 </style>
 
 <section class="home-events" id="home-events" aria-label="近期活动" aria-roledescription="轮播">
-  <div class="home-events-controls" aria-label="选择活动">
-    <button type="button" data-event-index="0" aria-pressed="true" aria-controls="home-event-music">音乐节 · 购票</button>
-    <button type="button" data-event-index="1" aria-pressed="false" aria-controls="home-event-gala">春晚 · 节目及主持人报名</button>
-    <button type="button" data-event-playback>暂停轮播</button>
-  </div>
   <div class="home-events-viewport">
     <div class="home-events-track">
       <div class="home-event" id="home-event-music" role="group" aria-roledescription="幻灯片" aria-label="1 / 2：音乐节">
@@ -111,6 +117,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="home-events-controls" aria-label="选择活动">
+    <button type="button" class="home-events-dot" data-event-index="0" aria-current="true" aria-controls="home-event-music" aria-label="音乐节 · 购票"></button>
+    <button type="button" class="home-events-dot" data-event-index="1" aria-current="false" aria-controls="home-event-gala" aria-label="春晚 · 节目及主持人报名"></button>
   </div>
 </section>
 <script src="{{ '/assets/js/home-events.js' | relative_url }}" defer></script>

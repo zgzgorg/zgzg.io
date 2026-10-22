@@ -1,0 +1,110 @@
+# 首页活动轮播下方的两排 logo 滚动条（_includes/home-logo-marquee.html）。
+# logo 取自《载歌在谷社区简短介绍》幻灯片 https://zgzg.li/zg-intro 的「同事」「校友」两页，
+# SpaceX、Anthropic、OpenAI、ByteDance 四个 SVG 由 simple-icons（CC0）的图标加文字拼成。
+# 图片放在 images/home-logos/，高 96px（页面上显示 48px）。
+# 单色轮廓拼图 silhouettes.webp 的总宽度和各 logo 的 sx 由 tools/home-logo-silhouettes.py 生成。
+silhouettes_width: 4700
+companies:
+  - { name: Google, file: google.webp, w: 291, sx: 0 }
+  - { name: "X, the moonshot factory", file: x-moonshot.webp, w: 96, sx: 73 }
+  - { name: Microsoft, file: microsoft.webp, w: 451, sx: 97 }
+  - { name: Apple, file: apple.webp, w: 77, sx: 210 }
+  - { name: Amazon, file: amazon.webp, w: 318, sx: 229 }
+  - { name: Meta, file: meta.webp, w: 414, sx: 309 }
+  - { name: NVIDIA, file: nvidia.webp, w: 124, sx: 413 }
+  - { name: SpaceX, file: spacex.svg, w: 486 }
+  - { name: Anthropic, file: anthropic.svg, w: 564 }
+  - { name: OpenAI, file: openai.svg, w: 360 }
+  - { name: LinkedIn, file: linkedin.webp, w: 392, sx: 444 }
+  - { name: Uber, file: uber.webp, w: 277, sx: 542 }
+  - { name: Tesla, file: tesla.webp, w: 314, sx: 611 }
+  - { name: Netflix, file: netflix.webp, w: 355, sx: 689 }
+  - { name: Airbnb, file: airbnb.webp, w: 307, sx: 778 }
+  - { name: Cisco, file: cisco.webp, w: 182, sx: 855 }
+  - { name: IBM, file: ibm.webp, w: 258, sx: 901 }
+  - { name: Qualcomm, file: qualcomm.webp, w: 523, sx: 965 }
+  - { name: Palo Alto Networks, file: paloalto.webp, w: 523, sx: 1096 }
+  - { name: Juniper Networks, file: juniper.webp, w: 352, sx: 1227 }
+  - { name: Pure Storage, file: purestorage.webp, w: 315, sx: 1315 }
+  - { name: Western Digital, file: westerndigital.webp, w: 315, sx: 1394 }
+  - { name: Samsung, file: samsung.webp, w: 646, sx: 1473 }
+  - { name: TikTok, file: tiktok.webp, w: 85, sx: 1635 }
+  - { name: ByteDance 字节跳动, file: bytedance.svg, w: 450 }
+  - { name: Pinterest, file: pinterest.webp, w: 378, sx: 1656 }
+  - { name: Yahoo, file: yahoo.webp, w: 347, sx: 1750 }
+  - { name: eBay, file: ebay.webp, w: 240, sx: 1837 }
+  - { name: Autodesk, file: autodesk.webp, w: 576, sx: 1897 }
+  - { name: Waymo, file: waymo.webp, w: 113, sx: 2041 }
+  - { name: Pony.ai, file: ponyai.webp, w: 300, sx: 2069 }
+  - { name: GM, file: gm.webp, w: 96, sx: 2144 }
+  - { name: Walmart, file: walmart.webp, w: 392, sx: 2168 }
+  - { name: Visa, file: visa.webp, w: 296, sx: 2266 }
+  - { name: Wells Fargo, file: wellsfargo.webp, w: 1082, sx: 2340 }
+  - { name: Sequoia, file: sequoia.webp, w: 722, sx: 2610 }
+  - { name: EY, file: ey.webp, w: 96, sx: 2790 }
+  - { name: PwC, file: pwc.webp, w: 126, sx: 2814 }
+  - { name: "K&L Gates", file: klgates.webp, w: 655, sx: 2846 }
+  - { name: Langan, file: langan.webp, w: 716, sx: 3010 }
+  - { name: DEVCON, file: devcon.webp, w: 132, sx: 3189 }
+  - { name: South San Francisco Unified School District, file: ssfusd.webp, w: 78, sx: 3222 }
+  - { name: AAYA 亚美青年协会, file: aaya.webp, w: 96, sx: 3242 }
+  - { name: FUA, file: fua.webp, w: 86, sx: 3266 }
+schools:
+  - { name: 清华大学, file: tsinghua.webp, w: 96, sx: 3288 }
+  - { name: 北京大学, file: pku.webp, w: 96, sx: 3312 }
+  - { name: Stanford University, file: stanford.webp, w: 96, sx: 3336 }
+  - { name: UC Berkeley, file: berkeley.webp, w: 96, sx: 3360 }
+  - { name: 复旦大学, file: fudan.webp, w: 96, sx: 3384 }
+  - { name: 浙江大学, file: zju.webp, w: 96, sx: 3408 }
+  - { name: Carnegie Mellon University, file: cmu.webp, w: 96, sx: 3432 }
+  - { name: University of Michigan, file: michigan.webp, w: 90, sx: 3456 }
+  - { name: University of Washington, file: uw.webp, w: 143, sx: 3478 }
+  - { name: UC San Diego, file: ucsd.webp, w: 96, sx: 3514 }
+  - { name: 上海交通大学, file: sjtu.webp, w: 96, sx: 3538 }
+  - { name: 中国科学技术大学, file: ustc.webp, w: 96, sx: 3562 }
+  - { name: Yale University, file: yale.webp, w: 96, sx: 3586 }
+  - { name: Columbia University, file: columbia.webp, w: 89, sx: 3610 }
+  - { name: University of Pennsylvania, file: penn.webp, w: 84, sx: 3632 }
+  - { name: Caltech, file: caltech.webp, w: 96, sx: 3653 }
+  - { name: New York University, file: nyu.webp, w: 67, sx: 3677 }
+  - { name: University of Southern California, file: usc.webp, w: 96, sx: 3694 }
+  - { name: UC Irvine, file: uci.webp, w: 96, sx: 3718 }
+  - { name: UC Davis, file: ucdavis.webp, w: 96, sx: 3742 }
+  - { name: University of Illinois, file: illinois.webp, w: 96, sx: 3766 }
+  - { name: University of Wisconsin–Madison, file: wisconsin.webp, w: 144, sx: 3790 }
+  - { name: The Ohio State University, file: osu.webp, w: 98, sx: 3826 }
+  - { name: Johns Hopkins University, file: jhu.webp, w: 88, sx: 3850 }
+  - { name: Georgia Tech, file: gatech.webp, w: 96, sx: 3872 }
+  - { name: Tufts University, file: tufts.webp, w: 97, sx: 3896 }
+  - { name: Tulane University, file: tulane.webp, w: 68, sx: 3920 }
+  - { name: Boston University, file: bu.webp, w: 105, sx: 3937 }
+  - { name: Rensselaer Polytechnic Institute, file: rpi.webp, w: 96, sx: 3963 }
+  - { name: Rochester Institute of Technology, file: rit.webp, w: 95, sx: 3987 }
+  - { name: Rutgers University, file: rutgers.webp, w: 77, sx: 4011 }
+  - { name: University of Pittsburgh, file: pitt.webp, w: 96, sx: 4030 }
+  - { name: Indiana University, file: iu.webp, w: 76, sx: 4054 }
+  - { name: University of Utah, file: utah.webp, w: 101, sx: 4073 }
+  - { name: UT Dallas, file: utd.webp, w: 96, sx: 4098 }
+  - { name: Drexel University, file: drexel.webp, w: 96, sx: 4122 }
+  - { name: Truman State University, file: truman.webp, w: 102, sx: 4146 }
+  - { name: San José State University, file: sjsu.webp, w: 96, sx: 4172 }
+  - { name: Santa Clara University, file: scu.webp, w: 96, sx: 4196 }
+  - { name: University of San Francisco, file: usf.webp, w: 89, sx: 4220 }
+  - { name: Academy of Art University, file: aau.webp, w: 96, sx: 4242 }
+  - { name: Parsons School of Design, file: parsons.webp, w: 96, sx: 4266 }
+  - { name: Boston Architectural College, file: bac.webp, w: 96, sx: 4290 }
+  - { name: University of Waterloo, file: waterloo.webp, w: 138, sx: 4314 }
+  - { name: University of Toronto, file: toronto.webp, w: 128, sx: 4348 }
+  - { name: The University of Queensland, file: uq.webp, w: 100, sx: 4380 }
+  - { name: TU Delft, file: tudelft.webp, w: 94, sx: 4405 }
+  - { name: 中山大学, file: sysu.webp, w: 96, sx: 4429 }
+  - { name: 西安交通大学, file: xjtu.webp, w: 96, sx: 4453 }
+  - { name: 北京航空航天大学, file: buaa.webp, w: 96, sx: 4477 }
+  - { name: 北京交通大学, file: bjtu.webp, w: 96, sx: 4501 }
+  - { name: 北京邮电大学, file: bupt.webp, w: 96, sx: 4525 }
+  - { name: 华中科技大学, file: hust.webp, w: 126, sx: 4549 }
+  - { name: 华东师范大学, file: ecnu.webp, w: 96, sx: 4581 }
+  - { name: 南京理工大学, file: njust.webp, w: 91, sx: 4605 }
+  - { name: 西安电子科技大学, file: xidian.webp, w: 96, sx: 4628 }
+  - { name: 中南财经政法大学, file: zuel.webp, w: 96, sx: 4652 }
+  - { name: 北京第二外国语学院, file: bisu.webp, w: 95, sx: 4676 }

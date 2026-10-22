@@ -1,0 +1,107 @@
+{%- comment -%}
+  首页活动轮播下方的两排 logo：公司一排向右滚，学校一排向左滚。
+  每排把同一组 logo 排两遍，动画平移半个轨道长度，首尾无缝衔接。
+  56 是每个 logo 左右外边距之和（1.75rem × 2），改了外边距要一起改。
+  logo 清单在 _data/home-logos.yml。
+{%- endcomment -%}
+<style>
+  .home-logos { background: #fff; padding: 3rem 0 2rem; overflow: hidden; }
+  .home-logos-row + .home-logos-row { margin-top: 1.5rem; }
+  .home-logos-title {
+    margin: 0 0 0.75rem;
+    color: #262d36;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  .home-logos-viewport {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .home-logos-track {
+    display: flex;
+    width: max-content;
+    animation: home-logos-left 40s linear infinite;
+  }
+  .home-logos-row--right .home-logos-track { animation-name: home-logos-right; }
+  .home-logos-viewport:hover .home-logos-track { animation-play-state: paused; }
+  .home-logos-set { display: flex; align-items: center; flex: none; }
+  .home-logos-set img {
+    height: 48px;
+    width: auto;
+    margin: 0 1.75rem;
+  }
+  /* 原图下载好之前，先用单色轮廓拼图占位；--k 是显示高度和拼图高度 24px 之比 */
+  .home-logos-set img[style] {
+    --k: 2;
+    background: url("{{ '/images/home-logos/silhouettes.webp' | relative_url }}") no-repeat;
+    background-size: calc(var(--sprite-w) * var(--k) * 1px) 100%;
+    background-position: calc(var(--sx) * var(--k) * -1px) 0;
+  }
+  .home-logos-set img.is-loaded { background: none; }
+  @keyframes home-logos-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes home-logos-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @media (max-width: 767.98px) {
+    .home-logos-set img { height: 36px; margin: 0 1.25rem; }
+    .home-logos-set img[style] { --k: 1.5; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .home-logos-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; }
+    .home-logos-set[aria-hidden="true"] { display: none; }
+    .home-logos-set { flex-wrap: wrap; justify-content: center; row-gap: 1rem; }
+  }
+</style>
+
+<section class="home-logos" aria-labelledby="home-logos-heading" style="--sprite-w: {{ site.data.home-logos.silhouettes_width }}">
+  <div class="container home-section-header pb-3">
+    <h2 class="underline" id="home-logos-heading">我们的志愿者们主要来自硅谷科技圈</h2>
+  </div>
+  {%- assign rows = "companies|schools" | split: "|" -%}
+  {%- for key in rows -%}
+    {%- if key == "companies" -%}
+      {%- assign title = "看看有没有你的同事" -%}{%- assign dir = "right" -%}
+    {%- else -%}
+      {%- assign title = "看看有没有你的校友" -%}{%- assign dir = "left" -%}
+    {%- endif -%}
+  <div class="home-logos-row home-logos-row--{{ dir }}">
+    <h3 class="home-logos-title">{{ title }}</h3>
+    {%- comment -%} 按一组 logo 的总宽度算动画时长，两排都以每秒约 90px 的速度滚动 {%- endcomment -%}
+    {%- assign set_width = 0 -%}
+    {%- for logo in site.data.home-logos[key] -%}
+      {%- assign half = logo.w | divided_by: 2 -%}
+      {%- assign set_width = set_width | plus: half | plus: 56 -%}
+    {%- endfor -%}
+    {%- assign seconds = set_width | divided_by: 90 -%}
+    <div class="home-logos-viewport">
+      <div class="home-logos-track" style="animation-duration: {{ seconds }}s">
+        {%- for copy in (1..2) %}
+        <div class="home-logos-set"{% if copy == 2 %} aria-hidden="true"{% endif %}>
+          {%- for logo in site.data.home-logos[key] %}
+          <img src="{{ '/images/home-logos/' | append: logo.file | relative_url }}"
+               width="{{ logo.w }}" height="96" loading="lazy" decoding="async"{% if logo.sx %} style="--sx: {{ logo.sx }}"{% endif %}
+               alt="{% if copy == 1 %}{{ logo.name }}{% endif %}">
+          {%- endfor %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+  {%- endfor %}
+</section>
+<script>
+  // 原图下载好以后去掉轮廓占位。
+  // logo 先按懒加载处理，不和首屏抢带宽；整页加载完之后趁浏览器空闲把全部 logo
+  // 提前下载好，观众滚到这里或者看到第二轮的时候不会出现空白。
+  document.querySelectorAll('.home-logos img').forEach(function(img) {
+    if (img.complete && img.naturalWidth) img.classList.add('is-loaded');
+    else img.addEventListener('load', function() { img.classList.add('is-loaded'); });
+  });
+  window.addEventListener('load', function() {
+    var idle = window.requestIdleCallback || function(fn) { setTimeout(fn, 1); };
+    idle(function() {
+      document.querySelectorAll('.home-logos img[loading="lazy"]').forEach(function(img) {
+        img.loading = 'eager';
+      });
+    });
+  });
+</script>
