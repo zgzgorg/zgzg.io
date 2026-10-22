@@ -7,8 +7,7 @@
 {%- assign p_name = programme[k_name] | default: programme.name -%}
 {%- assign k_contact = 'contact' | append: t.data_suffix -%}
 {%- assign p_contact = programme[k_contact] | default: programme.contact -%}
-<div class="col-12 col-md-6 col-lg-4"
-  {%- if programmes_carousel == true %} id="yj-slide-{{ forloop.index }}" data-carousel-slide role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ forloop.index }} / {{ forloop.length }} {{ p_name }}"{% endif %}>
+<div class="col-12 col-md-6 col-lg-4">
   <div class="programme">
     {% if programme.image %}
       <div class="programme-image">

@@ -1,0 +1,47 @@
+{%- comment -%}
+  首页云集社团轮播的一张幻灯片：一个社团占满整个轮播，宽屏左边是大图、右边是文字，
+  手机上图片在上、文字在下。云集专页的网格仍然用 programme.html。
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- assign k_name = 'name' | append: t.data_suffix -%}
+{%- assign k_desc = 'description' | append: t.data_suffix -%}
+{%- assign k_button = 'button-text' | append: t.data_suffix -%}
+{%- assign k_url = 'button-url' | append: t.data_suffix -%}
+{%- assign k_contact = 'contact' | append: t.data_suffix -%}
+{%- assign p_name = programme[k_name] | default: programme.name -%}
+{%- assign p_contact = programme[k_contact] | default: programme.contact -%}
+{%- assign cdn = 'res.cloudinary.com/zaigezaigu/image/upload/' -%}
+<div class="yj-slide" id="yj-slide-{{ forloop.index }}" data-carousel-slide role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ forloop.index }} / {{ forloop.length }} {{ p_name }}">
+  <div class="row g-0 align-content-start align-content-md-stretch align-items-md-center yj-slide-inner">
+    {% if programme.image %}
+    <div class="col-md-5 yj-slide-image">
+      <img alt="{{ p_name }}"
+           src="{{ programme.image | replace: cdn, 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_800/' }}"
+           srcset="{{ programme.image | replace: cdn, 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_480/' }} 480w, {{ programme.image | replace: cdn, 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_800/' }} 800w, {{ programme.image | replace: cdn, 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_1200/' }} 1200w"
+           sizes="(max-width: 767px) calc(100vw - 2rem), 460px"
+           loading="lazy" decoding="async">
+    </div>
+    {% endif %}
+    <div class="col-md-7 yj-slide-text">
+      <h3 class="yj-slide-title">{{ p_name }}</h3>
+      <p>{{ programme[k_desc] | default: programme.description }}</p>
+      {% if p_contact.size > 0 %}
+        <ul>
+        {% for contact in p_contact %}
+          <li>{{ contact | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% if programme.highlights.size > 0 %}
+        <ul>
+        {% for highlight in programme.highlights %}
+          <li>{{ highlight | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% if programme.button-text %}
+        <a class="btn btn-secondary btn-md" href="{{ programme[k_url] | default: programme.button-url }}">{{ programme[k_button] | default: programme.button-text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
