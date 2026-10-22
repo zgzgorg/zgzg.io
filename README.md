@@ -67,6 +67,34 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
   - `_layouts/default.html` 开头的 `zgzgPhase` 脚本负责分阶段加载。`zgzgIsSlow()` 判断访客是不是慢网：慢网时不下载中文网络字体，统计脚本、购票窗口、Bootstrap 都等访客动手以后再下载。
 - `_sass`：这里存放各种对其他网站也有复用意义的样式表。其实，本网站采用的即是他人制作的、现成的主题——由 [Robert Austin](https://github.com/zerostaticthemes) 制作的 [Serif](https://github.com/zerostaticthemes/jekyll-serif-theme)。
 
+### 网站有中文版和英文版，两版共用模板
+
+中文页的网址不带前缀，英文页的网址以 `/en/` 开头。英文版只覆盖首页和主导航页面，归档、公告、理事会等页面只有中文版。旧网址 `/english/` 跳转到英文首页 `/en/`。
+
+```
+pages/
+├── index.md、gala.md ……      中文页（不改）
+└── en/                        英文页，网址 /en/…，_config.yml 自动给这里的页面设 lang: en
+    ├── index.md               英文首页，和中文首页共用 _layouts/home.html
+    ├── about.md、yj.md        和中文页共用 page、programmes 两个 layout
+    └── gala.html、singer.html、music-festival.html ……
+                               英文正文；样式和中文 layout 共用 _includes/page-assets/<页面名>.html
+_data/i18n/zh.yml、en.yml      页头、菜单、页脚、首页、二维码弹窗等界面文字，两个文件的键一一对应
+_includes/i18n.html            在 default.html 开头算出 t（当前语言的文字）和 alt_url（另一种语言的同一页面）
+```
+
+文字按长短放在三个地方：
+
+1. 页头、页脚、首页上的短句放在 `_data/i18n/zh.yml` 和 `en.yml`。模板写 `{{ t.home.about_heading }}` 这样的引用，中文页和英文页用同一个模板。
+2. 数据文件里的条目（社团、伙伴社区、游园摊位、菜单、社交平台、logo）在同一个条目里加带 `_en` 后缀的字段，例如 `name_en`、`description_en`、`button-url_en`。英文页优先取 `_en` 字段，没有 `_en` 字段时显示中文字段。
+3. 活动页的成段正文写在 `pages/en/` 下的英文页里。
+
+**加一句新的界面文字**：在 `zh.yml` 和 `en.yml` 的同一个位置各加一个键，然后在模板里写 `{{ t.<键> }}`。只改一个文件的话，另一种语言的页面会显示空白。
+
+**给一个已有的中文页加英文版**：在 `pages/en/` 下新建同名文件，front matter 写 `permalink: /en/<原网址>/`。构建之后，菜单的语言按钮和 `<head>` 里的 hreflang 自动指向两个版本。没有英文版的中文页，语言按钮跳到英文首页。
+
+**改了中文活动页的正文**：英文版不会自动更新，请同时改 `pages/en/` 下对应的英文页，或者在 PR 里写明英文版待更新。
+
 本网站托管于 [Netlify](https://www.netlify.com/) 之上，域名为 [zgzg.io](https://zgzg.io/)。请参见 [zgzg.link/site-notes](https://zgzg.link/site-notes) 更多信息，包括《载歌在谷》的所有网络服务资源、各代网站特点及制作背景等。（仅限内部访问。）
 
 #### 如何自由地排版

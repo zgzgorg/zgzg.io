@@ -1,0 +1,215 @@
+{%- comment -%} music-festival 页面的样式，中文 _layouts/music-festival.html 和英文 pages/en/music-festival.html 共用 {%- endcomment -%}
+<style>
+    :root {
+        --mf-dark: #2f3640;
+        --mf-darker: #262d36;
+        --mf-gold: #c9a962;
+        --mf-light: #f5f3ef;
+    }
+
+    .mf-page {
+        background-color: var(--mf-light);
+    }
+
+    .mf-hero {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        color: #fff;
+        background: linear-gradient(180deg, #4a5568 0%, var(--mf-dark) 60%, var(--mf-darker) 100%);
+        box-shadow: 0 14px 32px rgba(38, 45, 54, 0.35);
+        text-align: center;
+        padding: 3rem 1.5rem;
+    }
+
+    .mf-hero-kicker {
+        letter-spacing: 0.35em;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.75);
+        text-transform: uppercase;
+    }
+
+    .mf-hero-title {
+        font-size: 2.6rem;
+        font-weight: 800;
+        letter-spacing: 0.25em;
+        margin: 0.8rem 0 0.4rem;
+        color: #fff;
+    }
+
+    .mf-hero-subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 0.6em;
+        color: var(--mf-gold);
+        margin-bottom: 1.6rem;
+    }
+
+    .mf-hero-facts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .mf-fact {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(201, 169, 98, 0.45);
+        border-radius: 12px;
+        padding: 0.6rem 1.2rem;
+        min-width: 150px;
+    }
+
+    .mf-fact-label {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--mf-gold);
+        letter-spacing: 0.15em;
+        margin-bottom: 0.15rem;
+    }
+
+    .mf-fact-value {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .mf-section {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 28px rgba(38, 45, 54, 0.12);
+        padding: 2.5rem 2rem;
+        margin-top: 2.5rem;
+        overflow: hidden;
+    }
+
+    .mf-section-tag {
+        display: inline-block;
+        background: var(--mf-dark);
+        color: var(--mf-gold);
+        border-radius: 999px;
+        padding: 0.3rem 1.1rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.8rem;
+    }
+
+    .mf-section-title {
+        color: var(--mf-dark);
+        font-weight: 800;
+        margin-bottom: 0.4rem;
+    }
+
+    .mf-section-slogan {
+        color: #8a7343;
+        font-size: 1.05rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .mf-poster {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 12px 28px rgba(38, 45, 54, 0.28);
+    }
+
+    .mf-block-title {
+        color: var(--mf-dark);
+        font-weight: 800;
+        border-left: 5px solid var(--mf-gold);
+        padding-left: 0.7rem;
+        margin: 1.6rem 0 0.8rem;
+        font-size: 1.15rem;
+    }
+
+    .mf-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    .mf-list li {
+        padding: 0.45rem 0 0.45rem 1.6rem;
+        position: relative;
+        line-height: 1.7;
+        color: #444;
+    }
+
+    .mf-list li::before {
+        content: "◆";
+        color: var(--mf-gold);
+        position: absolute;
+        left: 0.2rem;
+        font-size: 0.75rem;
+        top: 0.72rem;
+    }
+
+    .mf-quote {
+        font-style: normal;
+        color: #5a6470;
+        line-height: 2;
+        border-left: 4px solid rgba(201, 169, 98, 0.6);
+        padding: 0.4rem 0 0.4rem 1.1rem;
+        margin: 1.2rem 0;
+    }
+
+    .mf-cta {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--mf-gold), #b08d45);
+        color: #fff;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 0.85rem 2.2rem;
+        text-decoration: none;
+        box-shadow: 0 8px 22px rgba(176, 141, 69, 0.45);
+        transition: all 0.25s ease;
+    }
+
+    .mf-cta:hover {
+        transform: translateY(-2px);
+        color: #fff;
+        background: linear-gradient(135deg, #d4b671, #9c7c3a);
+    }
+
+    .mf-deadline {
+        display: inline-block;
+        margin-left: 0.9rem;
+        color: #8a1f1f;
+        font-weight: 700;
+    }
+
+    .mf-ending {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        background: linear-gradient(180deg, var(--mf-dark), var(--mf-darker));
+        border-radius: 20px;
+        padding: 2.6rem 1.5rem;
+        margin: 2.5rem 0 1rem;
+        line-height: 2.1;
+    }
+
+    .mf-ending .mf-ending-strong {
+        color: var(--mf-gold);
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 767px) {
+        .mf-hero-title {
+            font-size: 1.7rem;
+            letter-spacing: 0.12em;
+        }
+
+        .mf-hero-subtitle {
+            letter-spacing: 0.3em;
+        }
+
+        .mf-section {
+            padding: 1.8rem 1.2rem;
+        }
+    }
+    /* 英文页：标题字距按中文设计，英文单词要收紧 */
+    html[lang="en"] .mf-hero-title { letter-spacing: 0.02em; }
+    html[lang="en"] .mf-hero-kicker { letter-spacing: 0.12em; }
+</style>

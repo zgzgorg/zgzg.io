@@ -56,3 +56,14 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
+
+# 页面语言。英文页放在 pages/en/，网址以 /en/ 开头；界面文字见 _data/i18n/。
+defaults:
+  - scope:
+      path: ""
+    values:
+      lang: zh
+  - scope:
+      path: "pages/en"
+    values:
+      lang: en

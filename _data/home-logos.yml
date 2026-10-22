@@ -3,6 +3,7 @@
 # SpaceX、Anthropic、OpenAI、ByteDance 四个 SVG 由 simple-icons（CC0）的图标加文字拼成。
 # 图片放在 images/home-logos/，高 96px（页面上显示 48px）。
 # 单色轮廓拼图 silhouettes.webp 的总宽度和各 logo 的 sx 由 tools/home-logo-silhouettes.py 生成。
+# 中文校名的 name_en 是英文页的图片说明（alt）。
 silhouettes_width: 4700
 companies:
   - { name: Google, file: google.webp, w: 291, sx: 0 }
@@ -50,18 +51,18 @@ companies:
   - { name: AAYA 亚美青年协会, file: aaya.webp, w: 96, sx: 3242 }
   - { name: FUA, file: fua.webp, w: 86, sx: 3266 }
 schools:
-  - { name: 清华大学, file: tsinghua.webp, w: 96, sx: 3288 }
-  - { name: 北京大学, file: pku.webp, w: 96, sx: 3312 }
+  - { name: 清华大学, name_en: "Tsinghua University", file: tsinghua.webp, w: 96, sx: 3288 }
+  - { name: 北京大学, name_en: "Peking University", file: pku.webp, w: 96, sx: 3312 }
   - { name: Stanford University, file: stanford.webp, w: 96, sx: 3336 }
   - { name: UC Berkeley, file: berkeley.webp, w: 96, sx: 3360 }
-  - { name: 复旦大学, file: fudan.webp, w: 96, sx: 3384 }
-  - { name: 浙江大学, file: zju.webp, w: 96, sx: 3408 }
+  - { name: 复旦大学, name_en: "Fudan University", file: fudan.webp, w: 96, sx: 3384 }
+  - { name: 浙江大学, name_en: "Zhejiang University", file: zju.webp, w: 96, sx: 3408 }
   - { name: Carnegie Mellon University, file: cmu.webp, w: 96, sx: 3432 }
   - { name: University of Michigan, file: michigan.webp, w: 90, sx: 3456 }
   - { name: University of Washington, file: uw.webp, w: 143, sx: 3478 }
   - { name: UC San Diego, file: ucsd.webp, w: 96, sx: 3514 }
-  - { name: 上海交通大学, file: sjtu.webp, w: 96, sx: 3538 }
-  - { name: 中国科学技术大学, file: ustc.webp, w: 96, sx: 3562 }
+  - { name: 上海交通大学, name_en: "Shanghai Jiao Tong University", file: sjtu.webp, w: 96, sx: 3538 }
+  - { name: 中国科学技术大学, name_en: "University of Science and Technology of China", file: ustc.webp, w: 96, sx: 3562 }
   - { name: Yale University, file: yale.webp, w: 96, sx: 3586 }
   - { name: Columbia University, file: columbia.webp, w: 89, sx: 3610 }
   - { name: University of Pennsylvania, file: penn.webp, w: 84, sx: 3632 }
@@ -97,14 +98,14 @@ schools:
   - { name: University of Toronto, file: toronto.webp, w: 128, sx: 4348 }
   - { name: The University of Queensland, file: uq.webp, w: 100, sx: 4380 }
   - { name: TU Delft, file: tudelft.webp, w: 94, sx: 4405 }
-  - { name: 中山大学, file: sysu.webp, w: 96, sx: 4429 }
-  - { name: 西安交通大学, file: xjtu.webp, w: 96, sx: 4453 }
-  - { name: 北京航空航天大学, file: buaa.webp, w: 96, sx: 4477 }
-  - { name: 北京交通大学, file: bjtu.webp, w: 96, sx: 4501 }
-  - { name: 北京邮电大学, file: bupt.webp, w: 96, sx: 4525 }
-  - { name: 华中科技大学, file: hust.webp, w: 126, sx: 4549 }
-  - { name: 华东师范大学, file: ecnu.webp, w: 96, sx: 4581 }
-  - { name: 南京理工大学, file: njust.webp, w: 91, sx: 4605 }
-  - { name: 西安电子科技大学, file: xidian.webp, w: 96, sx: 4628 }
-  - { name: 中南财经政法大学, file: zuel.webp, w: 96, sx: 4652 }
-  - { name: 北京第二外国语学院, file: bisu.webp, w: 95, sx: 4676 }
+  - { name: 中山大学, name_en: "Sun Yat-sen University", file: sysu.webp, w: 96, sx: 4429 }
+  - { name: 西安交通大学, name_en: "Xi'an Jiaotong University", file: xjtu.webp, w: 96, sx: 4453 }
+  - { name: 北京航空航天大学, name_en: "Beihang University", file: buaa.webp, w: 96, sx: 4477 }
+  - { name: 北京交通大学, name_en: "Beijing Jiaotong University", file: bjtu.webp, w: 96, sx: 4501 }
+  - { name: 北京邮电大学, name_en: "Beijing University of Posts and Telecommunications", file: bupt.webp, w: 96, sx: 4525 }
+  - { name: 华中科技大学, name_en: "Huazhong University of Science and Technology", file: hust.webp, w: 126, sx: 4549 }
+  - { name: 华东师范大学, name_en: "East China Normal University", file: ecnu.webp, w: 96, sx: 4581 }
+  - { name: 南京理工大学, name_en: "Nanjing University of Science and Technology", file: njust.webp, w: 91, sx: 4605 }
+  - { name: 西安电子科技大学, name_en: "Xidian University", file: xidian.webp, w: 96, sx: 4628 }
+  - { name: 中南财经政法大学, name_en: "Zhongnan University of Economics and Law", file: zuel.webp, w: 96, sx: 4652 }
+  - { name: 北京第二外国语学院, name_en: "Beijing International Studies University", file: bisu.webp, w: 95, sx: 4676 }

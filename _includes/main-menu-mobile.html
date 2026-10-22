@@ -1,15 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div id="main-menu-mobile" class="main-menu-mobile">
     {% assign mainmenu = site.data.data.main %}
+    {%- assign name_key = 'name' | append: t.data_suffix %}
     <ul class="navbar-nav mb-2 mb-lg-0">
         {% for item in mainmenu %}
-          {% if item.url %}
-            <li class="{% if item.url == page.url %}active{% endif %}">
-              <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
+          {%- assign item_name = item[name_key] | default: item.name %}
+          {% if item.lang_switch %}
+            <li>
+              <a href="{{ alt_url | relative_url }}" lang="{{ alt_t.html_lang }}" hreflang="{{ alt_t.hreflang }}">{{ t.switch_label }}</a>
+            </li>
+          {% elsif item.url %}
+            {%- assign item_url = t.prefix | append: item.url %}
+            <li class="{% if item_url == page.url %}active{% endif %}">
+              <a href="{{ item_url | relative_url }}">{{ item_name }}</a>
             </li>
           {% else %}
             <li class="nav-item dropdown">
-              <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button">{{ item.name }}</a>
+              <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button">{{ item_name }}</a>
               <ul class="dropdown-menu">
                 {% for subitem in item.items %}
                   <li>

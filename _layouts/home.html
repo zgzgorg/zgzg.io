@@ -3,6 +3,8 @@ title: Index
 layout: default
 bodyClass: page-home
 ---
+{%- comment -%} 中英文首页共用这个模板，文字在 _data/i18n/*.yml 的 home 一节 {%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
 
 <style>
   /* 春晚招募：素色暖底，不再铺 2025 蛇年 banner 的虚化图 */
@@ -190,10 +192,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="strip">
   <div class="container pt-1 pb-3">
     <div class="home-section-header pt-5">
-      <h2 class="underline">关于 "载歌在谷"</h2>
+      <h2 class="underline">{{ t.home.about_heading }}</h2>
       <div class="home-section-content pt-3">
-        <p>载歌在谷社区是一个以硅谷高科技华人从业者为主要贡献者，以文艺文化活动为载体，旨在促进贡献者的快乐、友谊和成长的社区。</p>
-        <p>源自2015年的谷歌内部春晚，"载歌在谷"社区于2017年起走出谷歌、成为面向整个硅谷和旧金山湾区的独立的非盈利社区。</p>
+        {{ t.home.about_body }}
       </div>
     </div>
   </div>
@@ -217,9 +218,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="strip">
   <div class="container pt-1 pb-6 pb-md-6" id="yj">
     <div class="home-section-header pb-small">
-      <h2 class="underline">云集社团</h2>
+      <h2 class="underline">{{ t.home.yj_heading }}</h2>
       <div class="home-section-content">
-        <p class="py-2">载歌在谷社区孵化了许多兴趣社团，常年举办各种活动。快来参加吧！</p>
+        <p class="py-2">{{ t.home.yj_body }}</p>
       </div>
     </div>
 
@@ -273,9 +274,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="strip">
   <div class="container pb-5 pt-6" id="friends">
     <div class="home-section-header">
-      <h2 class="underline">伙伴社区</h2>
+      <h2 class="underline">{{ t.home.friends_heading }}</h2>
       <div class="home-section-content">
-        <p class="py-2">湾区其他以华人为主的非盈利组织。</p>
+        <p class="py-2">{{ t.home.friends_body }}</p>
       </div>
     </div>
 
@@ -292,16 +293,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="strip">
   <div class="container pb-5 pt-5 text-center" id="volunteer">
     <div class="home-section-header">
-      <h2 class="underline">报名服务</h2>
+      <h2 class="underline">{{ t.home.signup_heading }}</h2>
     </div>
     <img class="volunteer-slogan"
          src="{{ '/images/volunteer/slogan-720.webp' | relative_url }}"
          srcset="{{ '/images/volunteer/slogan-720.webp' | relative_url }} 720w, {{ '/images/volunteer/slogan-1440.webp' | relative_url }} 1440w"
          sizes="(max-width: 767px) calc(100vw - 40px), 720px"
          width="720" height="110" loading="lazy" decoding="async"
-         alt="书法：有爱载歌，有家在谷">
+         alt="{{ t.home.signup_slogan_alt }}">
     <p>
-      <a class="btn btn-primary btn-lg" href="https://d.zgzg.io/signup">现在报名</a>
+      <a class="btn btn-primary btn-lg" href="https://d.zgzg.io/signup">{{ t.home.signup_button }}</a>
     </p>
   </div>
 </div>

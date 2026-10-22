@@ -1,20 +1,26 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- comment -%} 英文页优先用数据里带 _en 后缀的字段 {%- endcomment -%}
+{%- assign k_name = 'name' | append: t.data_suffix -%}
+{%- assign k_desc = 'description' | append: t.data_suffix -%}
+{%- assign k_button = 'button-text' | append: t.data_suffix -%}
 <div class="wrapper_grid">
     <div class="one">
         <div class="friend friend-summary">
             <div class="friend-content">
                 {% if friend.image %}
                 <div class="friend-image">
-                    <img alt="{{ friend.image }}" src="{{ friend.image }}" loading="lazy" decoding="async"/>
+                    {%- comment -%} data.yml 里的 logo 路径是相对路径，加 relative_url 以后 /en/ 下的页面也能找到图片 {%- endcomment %}
+                    <img alt="{{ friend[k_name] | default: friend.name }}" src="{{ friend.image | relative_url }}" loading="lazy" decoding="async"/>
                 </div>
                 {% endif %}
             </div>
         </div>
     </div>
     <div class="two">
-        <h3>{{ friend.name }}</h3>
-        <p class="friend-description">{{ friend.description }}</p>
+        <h3>{{ friend[k_name] | default: friend.name }}</h3>
+        <p class="friend-description">{{ friend[k_desc] | default: friend.description }}</p>
     </div>
     <div class="three">
-        <a class="btn btn-secondary btn-md" href="{{ friend.website }}">{{ "更多详情" }}</a>
+        <a class="btn btn-secondary btn-md" href="{{ friend.website }}">{{ t.programmes.friend_more }}</a>
     </div>
 </div>

@@ -88,26 +88,26 @@
   }
 </style>
 
-<section class="home-events" id="home-events" aria-label="近期活动" aria-roledescription="轮播">
+<section class="home-events" id="home-events" aria-label="{{ t.home.events_label }}" aria-roledescription="{{ t.home.events_carousel }}">
   <div class="home-events-viewport">
     <div class="home-events-track">
-      <div class="home-event" id="home-event-music" role="group" aria-roledescription="幻灯片" aria-label="1 / 2：音乐节">
+      <div class="home-event" id="home-event-music" role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ t.home.music_slide }}">
         {% include 2026-music-festival-hero.html %}
       </div>
-      <div class="home-event" id="home-event-gala" role="group" aria-roledescription="幻灯片" aria-label="2 / 2：春晚招募">
+      <div class="home-event" id="home-event-gala" role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ t.home.gala_slide }}">
         <div class="strip gala-hero-strip">
           <div class="container pb-5 pt-5">
             <div class="row align-items-center">
               <div class="col-md-5 gala-home-poster-col">
-                <a href="https://d.zgzg.io/2027cnyg/signup" aria-label="2027春晚海报：报名节目及主持人">
+                <a href="https://d.zgzg.io/2027cnyg/signup" aria-label="{{ t.home.gala_poster_label }}">
                   <img class="gala-home-poster"
                        src="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }}"
                        data-srcset="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }} 420w, {{ '/images/2027-gala/recruitment-840.webp' | relative_url }} 840w"
                        sizes="(max-width: 767px) calc(100vw - 40px), 380px"
                        width="1024" height="1536" loading="lazy" decoding="async"
-                       alt="2027载歌在谷春节联欢晚会节目及主持人招募海报，报名截止2026年11月15日，官网 https://zgzg.io">
+                       alt="{{ t.home.gala_poster_alt }}">
                 </a>
-                <p class="gala-home-site"><a href="https://zgzg.io">官网：https://zgzg.io</a></p>
+                <p class="gala-home-site"><a href="https://zgzg.io">{{ t.home.gala_site }}</a></p>
               </div>
               <div class="col-md-7">
                 {% include 2027-spring-event-info.html %}
@@ -118,9 +118,9 @@
       </div>
     </div>
   </div>
-  <div class="home-events-controls" aria-label="选择活动">
-    <button type="button" class="home-events-dot" data-event-index="0" aria-current="true" aria-controls="home-event-music" aria-label="音乐节 · 购票"></button>
-    <button type="button" class="home-events-dot" data-event-index="1" aria-current="false" aria-controls="home-event-gala" aria-label="春晚 · 节目及主持人报名"></button>
+  <div class="home-events-controls" aria-label="{{ t.home.events_choose }}">
+    <button type="button" class="home-events-dot" data-event-index="0" aria-current="true" aria-controls="home-event-music" aria-label="{{ t.home.music_dot }}"></button>
+    <button type="button" class="home-events-dot" data-event-index="1" aria-current="false" aria-controls="home-event-gala" aria-label="{{ t.home.gala_dot }}"></button>
   </div>
 </section>
 <script src="{{ '/assets/js/home-events.js' | relative_url }}" defer></script>

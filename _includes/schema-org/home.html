@@ -1,6 +1,7 @@
 {% comment %}
   首页的 schema.org 结构化数据：社区（NGO）、网站和首屏的音乐节活动。
   音乐节的信息和 _includes/2026-music-festival-hero.html 保持一致，活动结束后删掉 Event 这一项。
+  中英文首页共用这个文件，文字在 _data/i18n/*.yml 的 schema 一节；t 由 _includes/i18n.html 设定。
 {% endcomment %}
 {% assign site_origin = site.seo.meta_og_url %}
 <script type="application/ld+json">
@@ -10,8 +11,8 @@
     {
       "@type": "NGO",
       "@id": "{{ site_origin }}/#organization",
-      "name": "载歌在谷",
-      "alternateName": "ZaiGeZaiGu",
+      "name": {{ t.schema.org_name | jsonify }},
+      "alternateName": {{ t.schema.org_alternate | jsonify }},
       "url": "{{ site_origin }}/",
       "logo": "{{ site_origin }}/images/zgzglogo.webp",
       "description": "{{ page.description }}",
@@ -25,22 +26,23 @@
     },
     {
       "@type": "WebSite",
-      "@id": "{{ site_origin }}/#website",
-      "url": "{{ site_origin }}/",
-      "name": "载歌在谷",
-      "inLanguage": "zh-Hans",
+      "@id": "{{ site_origin }}{{ t.home_url }}#website",
+      "url": "{{ site_origin }}{{ t.home_url }}",
+      "name": {{ t.schema.site_name | jsonify }},
+      "inLanguage": "{{ t.html_lang }}",
       "publisher": {"@id": "{{ site_origin }}/#organization"}
     },
     {
       "@type": "MusicEvent",
-      "name": "第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》",
+      "name": {{ t.schema.mf_name | jsonify }},
       "startDate": "2026-10-25T12:00:00-07:00",
       "endDate": "2026-10-25T18:00:00-07:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-      "url": "{{ site_origin }}/music-festival/",
+      "url": "{{ site_origin }}{{ t.prefix }}/music-festival/",
+      "inLanguage": "{{ t.html_lang }}",
       "image": "{{ site_origin }}/images/2026-music-festival/lineup-poster-840.jpg",
-      "description": "世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台。",
+      "description": {{ t.schema.mf_desc | jsonify }},
       "location": {
         "@type": "Place",
         "name": "Leo J. Ryan Park",

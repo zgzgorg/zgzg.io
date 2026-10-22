@@ -1,0 +1,119 @@
+# 英文界面文字。键和 zh.yml 一一对应，改一边的时候另一边也要看一下。
+# 说明见 README.md「网站有中文版和英文版」一节。
+
+html_lang: en
+og_locale: en_US
+hreflang: en
+prefix: /en
+data_suffix: _en
+home_url: /en/
+alt_home: /
+switch_label: 中
+switch_lang: zh-Hans
+og_title: "ZaiGeZaiGu (载歌在谷): Silicon Valley Chinese Volunteer Community"
+og_description: "ZaiGeZaiGu (载歌在谷) is a volunteer community of Chinese tech professionals in Silicon Valley. We host the Lunar New Year Gala, the Garden Party, the Singer Contest, the Music Festival and year-round clubs."
+
+header:
+  site_title: ZaiGeZaiGu
+
+footer:
+  logo_alt: ZaiGeZaiGu
+  subscribe_label: " Subscribe to our newsletter for upcoming events!"
+  subscribe_placeholder: "e.g. email@example.com"
+  subscribe_button: Subscribe
+  copyright: "© ZaiGeZaiGu. All rights reserved."
+  links:
+    - { name: Lunar New Year Gala, url: /en/gala/ }
+    - { name: Singer Contest, url: /en/singer/ }
+    - { name: Garden Party, url: /en/galatour/ }
+    - { name: Music Festival, url: /en/music-festival/ }
+    - { name: Yunji Clubs, url: /en/yj/ }
+    - { name: Sponsorship, url: /en/sponsorship/ }
+    - { name: Join Us, url: /en/join/ }
+    - { name: About Us, url: /en/about/ }
+    - { name: Past Events (Chinese), url: /past-events/ }
+    - { name: Board (Chinese), url: /board/ }
+    - { name: IRS W-9 Letter, url: /assets/files/2025-W-9-CBT-dba-ZGZG.pdf, blank: true }
+  qr:
+    close: Close
+    name_prefix: "ZaiGeZaiGu on "
+    alt_prefix: "QR code for ZaiGeZaiGu on "
+    alt_suffix: ""
+    wechat_name: WeChat
+    wechat_hint: Scan with WeChat to follow us
+    hint_prefix: "Scan with the "
+    hint_suffix: " app to follow us"
+
+home:
+  events_label: Upcoming events
+  events_carousel: carousel
+  events_slide: slide
+  events_choose: Choose an event
+  music_slide: "1 / 2: Music Festival"
+  gala_slide: "2 / 2: Gala call for performers"
+  music_dot: "Music Festival: tickets"
+  gala_dot: "Lunar New Year Gala: sign up to perform or host"
+  gala_poster_label: "2027 Gala poster: sign up to perform or host"
+  gala_poster_alt: "Poster in Chinese: call for performers and hosts for the 2027 ZaiGeZaiGu Lunar New Year Gala. Sign-up closes November 15, 2026. Website: https://zgzg.io"
+  gala_site: "Website: https://zgzg.io"
+  logos_heading: Most of our volunteers work in Silicon Valley tech
+  logos_companies: Do you see your company?
+  logos_schools: Do you see your school?
+  about_heading: About ZaiGeZaiGu
+  about_body: >-
+    <p>ZaiGeZaiGu (载歌在谷) is a community of volunteers, most of them Chinese professionals in Silicon Valley tech. We use arts and cultural events to bring joy, friendship and growth to everyone who takes part.</p>
+    <p>ZaiGeZaiGu started in 2015 as the Lunar New Year Gala inside Google. In 2017 it became an independent nonprofit community open to all of Silicon Valley and the San Francisco Bay Area.</p>
+  yj_heading: Yunji Clubs
+  yj_body: ZaiGeZaiGu runs many interest clubs with events all year round. Come and join us!
+  friends_heading: Partner Communities
+  friends_body: Other nonprofit organizations of the Bay Area Chinese community.
+  signup_heading: Sign Up
+  signup_slogan_alt: "Chinese calligraphy: “With love we sing; in the Valley we find home.”"
+  signup_button: Sign Up Now
+
+mf_hero:
+  poster_label: "Music Festival poster: open the ticket window"
+  poster_alt: "Poster for the first ZaiGeZaiGu Music Festival, Defying Gravity (逆向悬浮): October 25, 2026, 12:00 PM to 6:00 PM, Leo J. Ryan Park. Lineup: Flatdog, Hoowan, Midnight Vanette, Phantora, Scourge (四害), Take Turns Jazz Ensemble, TakoTaco, Tremendo (特门道)"
+  tickets_title: Tickets
+  back: ← Back to poster
+  loading: Loading tickets…
+  fallback: Ticket window not showing? Please
+  fallback_link: buy tickets on Eventbrite
+  fallback_end: .
+  kicker_extra: " · The First ZaiGeZaiGu Music Festival"
+  title: Defying Gravity
+  subtitle: 逆向悬浮
+  desc: "The world moves forward; we go against the current. Everything sinks; we float. An outdoor stage for the Chinese music fans of the Bay Area. See you on October 25!"
+  date_label: Date
+  date_value: Sun, Oct 25<br>12:00 PM - 6:00 PM
+  venue_label: Venue
+  buy: Buy Tickets
+  more: About the Festival →
+
+gala_2027:
+  title: "2027 Lunar New Year Gala: Call for Performers and Hosts"
+  subtitle: 2027 载歌在谷春节联欢晚会
+  lines:
+    - '<b>Open call:</b> opens <span class="event-date">Sep 25, 2026</span>, <span class="event-date event-date-deadline">closes Nov 15, 2026</span>'
+    - '<b>First-round results:</b> <span class="event-date">Nov 22, 2026</span>; final selection of acts and hosts: <span class="event-date">Dec 20, 2026</span>'
+    - '<b>In-person audition:</b> <span class="event-date">Dec 5 - 6, 2026</span>, Bayside Performing Arts Center (tentative)'
+  note: Acts (except comedy skits) and hosts must attend the in-person audition to be selected. Comedy skits have a separate review in January 2027. Time and place to be announced.
+  show: '<b>Gala:</b> technical rehearsal on the evening of <span class="event-date">Feb 12, 2027</span>; full-day rehearsal and show on <span class="event-date">Feb 13, 2027</span>, San Jose Center for the Performing Arts (SJCPA)'
+  button: Sign Up to Perform or Host
+
+programmes:
+  join_title: Join Us
+  join_desc: Join our community and start your own interest club, or help an existing club grow!
+  onboard: 'New volunteer? Read our <a href="https://zgzg.link/onboard">onboarding guide</a> (in Chinese).'
+  concluded_heading: Past Clubs
+  concluded_body: These clubs have finished their run, and we still remember them!
+  concluded_link: 'See the <a href="/en/yj/">Yunji Clubs page</a>.'
+  more: More Yunji Clubs
+  friend_more: Learn More
+
+schema:
+  org_name: ZaiGeZaiGu
+  org_alternate: 载歌在谷
+  site_name: ZaiGeZaiGu
+  mf_name: "The First ZaiGeZaiGu Music Festival: Defying Gravity (逆向悬浮)"
+  mf_desc: "The world moves forward; we go against the current. Everything sinks; we float. An outdoor stage for the Chinese music fans of the Bay Area."

@@ -1,12 +1,18 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- comment -%} 英文页优先用数据里带 _en 后缀的字段 {%- endcomment -%}
+{%- assign k_name = 'name' | append: t.data_suffix -%}
+{%- assign k_desc = 'description' | append: t.data_suffix -%}
+{%- assign k_button = 'button-text' | append: t.data_suffix -%}
+{%- assign k_url = 'button-url' | append: t.data_suffix -%}
 <div class="container">
   <div class="row list-item px-lg-8 py-lg-6 px-md-4 py-md-3 px-1 py-2 list-item-large list-item-right">
     <div class="col col-lg-7 col-12 list-item-image" data-bg="{{ item.image | replace: 'res.cloudinary.com/zaigezaigu/image/upload/', 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_1100/' }}"></div>
     <div class="col col-lg-5 col-12 ps-lg-6 pl-0 list-item-content">
-      <h2 class="item-title">{{ item.name }}</h2>
+      <h2 class="item-title">{{ item[k_name] | default: item.name }}</h2>
       <hr class="list-item-bar"></hr>
-      <p class="item-description py-2">{{ item.description }}</p>
+      <p class="item-description py-2">{{ item[k_desc] | default: item.description }}</p>
       {% if item.button-text %}
-      <a class="button list-item-button" href="{{ item.button-url }}">{{ item.button-text }}</a>
+      <a class="button list-item-button" href="{{ item[k_url] | default: item.button-url }}">{{ item[k_button] | default: item.button-text }}</a>
       {% endif %}
       {% if item.thanks_label and item.thanks_icons %}
       <p class="item-thanks-label mt-3 mb-2 small text-muted">{{ item.thanks_label }}</p>

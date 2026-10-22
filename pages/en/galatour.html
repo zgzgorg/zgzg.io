@@ -1,0 +1,214 @@
+---
+title: Garden Party
+layout: default
+permalink: /en/galatour/
+description: "The ZaiGeZaiGu Garden Party brings folk activities, traditional games, crafts and a small stage to Bay Area families."
+---
+<div class="hero p-4 p-md-8 p-lg-10 hero-galatour">
+    <div class="hero-content">
+        <h1>
+            2025 Fall Garden Party
+        </h1>
+        <h2>
+            Date: Sunday, November 2, 2025, 12 PM - 5 PM Pacific Time <br>
+            <br>
+            Venue: <a href="https://maps.app.goo.gl/5x1Y8Sn7UJgyZdd28">West Valley College, Parking Lot 3</a>, 16000 Melsa Ln, Saratoga, CA 95070
+        </h2>
+        <a href="https://zgzg.li/2025f-yy-map?utm_source=zgzg.io">
+            <button class="btn btn-primary btn-lg">View the Map</button>
+        </a>
+    </div>
+</div>
+
+<div class="tab">
+    <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="about-galatour">About</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="stage-galatour">Stage Acts</button>
+    <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="map-galatour">Map and Booths</button>
+</div>
+
+<div id="about-galatour" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-8 pb-md-8">
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">What Is the Garden Party?</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <p class="py-1"></p>
+                <p class="black-p">
+                    The festival is here! Far from home, do you miss the lanterns and the joy of the holidays? Want to join the fun but do not know where to go?
+                </p>
+                <p class="black-p">
+                    Folk activities, traditional games and fun interactive booths are all at the ZaiGeZaiGu (载歌在谷) Garden Party! It is the biggest and liveliest Garden Party in the Bay Area, and the one most full of Chinese tradition. It is great for the whole family, so bring your children to experience Chinese culture! Many booths are free, and many give gifts and prizes!
+                </p>
+                <p class="py-1"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">Moments from Past Garden Parties</h1>
+                <p class="py-1"></p>
+            </div>
+        </div>
+        <div class="row pb-6">
+            <div class="col">
+                <img alt="Photos from past Garden Parties" loading="lazy" src="https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670350137/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%89%AA%E5%BD%B1/Group_%E6%B8%B8%E5%9B%AD%E5%89%AA%E5%BD%B1_b9jml7.png" class="mx-auto d-block" />
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_tour %}
+                {% for programme in site.data.data.galatour_picture_tour %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">Garden Party Volunteer Teams</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <p class="black-p">
+                    Stage volunteers can use their skills in these areas:
+                </p>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_volunteer %}
+                {% for programme in site.data.data.galatour_picture_volunteer %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">Sponsors and Partners</h1>
+            </div>
+            <div class="col col-12">
+                <img alt="2025 Fall Garden Party sponsors and partners" loading="lazy" src="https://res.cloudinary.com/zaigezaigu/image/upload/v1760400843/zgzg-io-website/2025-%E7%A7%8B%E5%AD%A3%E6%B8%B8%E5%9B%AD/e044ba60-e127-4d37-9a49-c4ff7f961248.png" class="mx-auto d-block" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="stage-galatour" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-8 pb-md-8">
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">Call for Stage Acts</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12">
+                <p class="py-1"></p>
+                <p class="black-p">
+                    For questions about stage volunteering or act sign-up, please contact the stage lead.
+                </p>
+                <ul>
+                    <li> Sign-up is closed. Thank you for your support!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <p class="py-1"></p>
+                <h1 class="underline">Types of Stage Acts</h1>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_type %}
+                {% for programme in site.data.data.galatour_picture_type %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div id="map-galatour" class="tab-content">
+    <div class="container pt-6 pb-6 pt-md-8 pb-md-8">
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">Garden Party Map</h1>
+                <p class="py-1"></p>
+            </div>
+        </div>
+        <div class="row pb-6">
+            <div class="col">
+                <div><img alt="Garden Party map (in Chinese)" loading="lazy" style="max-width: 100%; height: auto;" src="https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1673811477/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/Artboard_1_txqg5b.png"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h1 class="underline">All Booths</h1>
+                <p class="py-1"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <h2>Traditional Culture Booths</h2>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_tradition %}
+                {% for programme in site.data.data.galatour_picture_tradition %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col col-12 text-center">
+                <p class="py-1"></p>
+                <h2>Handcraft Booths</h2>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_handmade %}
+                {% for programme in site.data.data.galatour_picture_handmade %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <p class="py-1"></p>
+            <div class="col col-12 text-center">
+                <h2>Game Booths</h2>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_game %}
+                {% for programme in site.data.data.galatour_picture_game %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <p class="py-1"></p>
+            <div class="col col-12 text-center">
+                <h2>Interactive Booths</h2>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_interactive %}
+                {% for programme in site.data.data.galatour_picture_interactive %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="row">
+            <p class="py-1"></p>
+            <div class="col col-12 text-center">
+                <h2>Kids Booths</h2>
+            </div>
+        </div>
+        <div class="row g-1 g-md-2 p-1 p-md-3">
+            {% if site.data.data.galatour_picture_child %}
+                {% for programme in site.data.data.galatour_picture_child %}
+                    {% include programme.html %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

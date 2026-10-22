@@ -1,0 +1,142 @@
+---
+title: Join Us
+layout: default
+permalink: /en/join/
+description: "Volunteer with ZaiGeZaiGu: help run the Lunar New Year Gala, the Singer Contest, the Garden Party and the Yunji clubs."
+# 各团队的英文介绍，键是 collections/_*_positions/ 里的文件名；图片沿用中文版的 front matter
+teams:
+  jmz: |
+    ### Program Team
+
+    Main duties:
+
+    - Design the show flow and the contest format
+    - Run the open call, the preliminary round and the final
+    - Design the voting based on the contest rules
+    - Communicate with performers and hosts
+    - Work with the other teams on their needs
+  nlz: |
+    ### Internal Affairs Team
+
+    The Internal Affairs Team handles all internal communication and coordination. The team plays a key role in the success of each event! Main duties:
+
+    - Plan and run ticketing for the Singer Contest
+    - Run logistics on the days of the preliminary round and the final: volunteer and performer check-in, staff meals and more
+    - Organize team-building events for volunteers
+    - Design volunteer merchandise and perks
+  syz: |
+    ### Photo and Video Team
+
+    The ZaiGeZaiGu photo and video team brings together many top talents in the Bay Area. The team has made many popular works and has the best live-streaming skills in the Bay Area.
+
+    Main duties:
+
+    - Design, direct and shoot promotional videos, opening videos and warm-up videos
+    - Take photos and videos at the Garden Party
+    - Make recap videos of the Garden Party
+  xcz: |
+    ### Promotion Team
+
+    The Promotion Team is the largest volunteer team at every gala. The team includes the copywriting, channels, website and design teams. Main duties:
+
+    - Set the promotion goals and plan for the event
+    - Promote the event on many channels
+    - Run the WeChat Official Account and write copy
+    - Make graphic and motion designs (logo, program, posters, T-shirts and more)
+    - Design and build the website
+  zzz: |
+    ### Sponsorship Team
+
+    The Sponsorship Team makes a clear, tiered sponsorship plan early in the season. The team also builds wide connections with the community through official materials, and makes ZaiGeZaiGu better known in the Bay Area. Main duties:
+
+    - Write the sponsorship plan, the sponsor benefits table and the sponsorship brochure
+    - Find sponsors and partners, and agree on how to work together
+    - Collect promotional materials from sponsors
+    - Deliver the sponsor promotion as agreed
+    - Review the results of the sponsorship
+  yytd: |
+    ### Garden Party Team
+
+    We hold two Garden Parties each year, one in summer and one at the Lunar New Year. Each has its own theme and activities. We look forward to your ideas!
+
+    Main duties:
+
+    - Design, plan, revise and run the booths
+    - Buy supplies and set up prizes
+    - Plan the Garden Party promotion
+    - Confirm and set up the venue, and guide visitors
+  cpr: |
+    ### Producers
+
+    Yunji producers run volunteer recruiting at the start of each season. They help each club lead hold one event a month and review the results. They coordinate team building across clubs, review promotional copy, improve the rules, train the next club leads and co-producers, and set up the budget and volunteer committees.
+  nwl: |
+    ### Support Team: Relations
+
+    The Relations Team welcomes new volunteers, tracks participation, organizes team-building events and designs volunteer rewards. The team also talks with sponsors, contacts guests, keeps in touch with partner communities and keeps these resources organized.
+  syps: |
+    ### Books & Films
+
+    Books & Films builds an in-person community for culture lovers. We host book talks, living-room salons, book clubs, movie marathons, a peer-to-peer library and more. Story lovers find interesting content, and discussion lovers enjoy the exchange of ideas. Above all, you spend a pleasant time and meet interesting people!
+
+    If you love books and films, or want to build skills in planning, content creation, media promotion or public speaking, join our team and grow with us!
+  tyfy: |
+    ### Sports & Games
+
+    The ZGZG Sports & Games club designs the best online and in-person social activities, for people who like to stay home and for people who like to go out.
+
+    If you have lots of ideas or good entertainment resources, come and share them with friends who also want to connect. Leave your weekend to Sports & Games!
+  ybyf: |
+    ### Yibao Yanfu Theater Club (一饱演福)
+
+    A group of drama lovers in Silicon Valley started this ZaiGeZaiGu club. We build a place where theater and performance lovers can share, create and grow together. We regularly hold online and in-person drama and performance events. Join us and experience a different life!
+  yyz: |
+    ### Support Team: Operations
+
+    The Operations Team builds the ZaiGeZaiGu Yunji brand, grows the program and promotes events. The team reviews and manages promotional materials for each club (copy, posters, videos), runs our channels (WeChat Official Account, 1Point3Acres, Xiaohongshu and more), tries new channels and formats, and manages partners outside the clubs.
+  zgyf: |
+    ### Career Talks
+
+    Career Talks helps young people with goals plan their careers, build job skills, learn about different industries, find startup ideas and meet like-minded friends.
+
+    If you want to learn more about the workplace, plan events, edit videos, promote on new media, talk with industry leaders, practice planning and hosting, or try something new, join us!
+---
+<div class="hero p-4 p-md-8 p-lg-10"  style="background-image: url(https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670297184/zgzg-io-website/%E6%88%90%E4%B8%BA%E5%BF%97%E6%84%BF%E8%80%85/kimson-doan-AZMmUy2qL6A-unsplash_ywfkry.jpg); background-position: center;">
+    <div class="hero-content col-lg-6 col-10">
+        <h1>
+            Volunteer with ZaiGeZaiGu
+        </h1>
+        <h2>
+            Want to see how a gala is planned and run? Want to learn new skills, grow as a leader and meet great people? From the Lunar New Year Gala and the Singer Contest to the Garden Party and the Yunji clubs, there is a place for you. We look forward to having you!
+        </h2>
+        <h2>
+            <a class="btn btn-primary btn-lg tab-links" href="https://d.zgzg.io/signup">Sign Up Now</a>
+        </h2>
+    </div>
+</div>
+
+<div class="tab">
+  <button class="tab-links default-open" onclick="openTab(event)" data-tab-group="main" data-tab-id="gala">Gala / Singer Contest</button>
+  <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="tour">Garden Party</button>
+  <button class="tab-links" onclick="openTab(event)" data-tab-group="main" data-tab-id="yj">Yunji Clubs</button>
+</div>
+
+<div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+    {%- assign groups = "gala|tour|yj" | split: "|" %}
+    {%- for group in groups %}
+    {%- assign collection_name = group | append: "_positions" %}
+    <div id="{{ group }}" class="tab-content">
+        {%- for doc in site[collection_name] %}
+        <div class="row list-item-large list-item-rounded gx-0 my-1 my-lg-3">
+            <div class="col-12 d-flex bg-light">
+                <div class="flex-shrink-0">
+                    <div class="me-1 list-item-image square" style="background-image: url({{ doc.image }})"></div>
+                </div>
+                <div class="flex-grow-1 mx-0 ms-lg-1 me-lg-3 list-item-content">
+                    {{ page.teams[doc.slug] | markdownify }}
+                </div>
+            </div>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</div>
