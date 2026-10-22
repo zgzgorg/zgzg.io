@@ -5,7 +5,8 @@
 // 观众把鼠标移进轮播、用键盘操作、点小点或者横滑之后，自动轮播停住；
 // 鼠标和焦点都离开之后，再等 resumeDelay 才继续。页面不可见、轮播不在视口里
 // 或者系统要求减少动态效果时，轮播不自动切换。
-// 带 data-carousel-auto 的轮播由本脚本直接启用，不自动切换。
+// 带 data-carousel-auto 的轮播由本脚本直接启用；data-carousel-interval 和
+// data-carousel-resume 给出自动切换的间隔和恢复等待的毫秒数，不写就不自动切换。
 (function() {
   /**
    * 启用一个轮播。
@@ -175,6 +176,10 @@
   };
 
   document.querySelectorAll('[data-carousel-auto]').forEach(function(root) {
-    window.zgCarousel(root, {arrowKeys: true});
+    window.zgCarousel(root, {
+      arrowKeys: true,
+      interval: Number(root.dataset.carouselInterval) || 0,
+      resumeDelay: Number(root.dataset.carouselResume) || 0,
+    });
   });
 })();

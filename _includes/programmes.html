@@ -20,7 +20,7 @@
     .yj-carousel.is-ready .yj-carousel-track { transition: none; }
   }
 </style>
-<section class="yj-carousel p-1 p-md-3" data-carousel-auto aria-label="{{ t.home.yj_heading }}" aria-roledescription="{{ t.home.events_carousel }}">
+<section class="yj-carousel p-1 p-md-3" data-carousel-auto data-carousel-interval="9000" data-carousel-resume="60000" aria-label="{{ t.home.yj_heading }}" aria-roledescription="{{ t.home.events_carousel }}">
   <div class="yj-carousel-viewport" data-carousel-viewport>
     <div class="row g-1 g-md-2 yj-carousel-track" data-carousel-track>
       {% for programme in site.data.data.programmes %}
