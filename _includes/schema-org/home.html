@@ -15,12 +15,12 @@
       "url": "{{ site_origin }}/",
       "logo": "{{ site_origin }}/images/zgzglogo.webp",
       "description": "{{ page.description }}",
+      {%- comment -%} 社区在其他平台的官方主页，和页脚图标同出 _data/social.yml；微信的 url 是一篇公众号文章，不是账号主页，不列入 {%- endcomment %}
+      {%- assign profiles = site.data.social.primary | concat: site.data.social.events | concat: site.data.social.others | where_exp: "item", "item.key != 'wechat'" %}
       "sameAs": [
-        "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a",
-        "https://www.weibo.com/zgzggala",
-        "https://www.facebook.com/zaigezaigu/",
-        "https://www.youtube.com/channel/UCY7-f7HBl8kvmoGtQX4TGUg",
-        "https://www.instagram.com/zaigezaigu/"
+        {%- for item in profiles %}
+        {{ item.url | jsonify }}{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
       ]
     },
     {

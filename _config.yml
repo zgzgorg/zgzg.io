@@ -9,7 +9,7 @@ homepage:
 
 logo:
   mobile: "/images/zgzglogo.webp"
-  desktop: "/images/zgzglogo.webp"
+  desktop: "/images/zgzglogo-horizontal.webp"
   desktop_height: "36px"
 
 seo:
@@ -19,8 +19,8 @@ seo:
   meta_og_image: "/images/zgzglogo.webp"
   meta_og_description: "载歌在谷：硅谷地区华人志愿者社区"
   meta_twitter_card: "summary_large_image"
-  meta_twitter_site: "@zgzgorg"
-  meta_twitter_creator: "@zgzgorg"
+  meta_twitter_site: "@zaigezaigu"
+  meta_twitter_creator: "@zaigezaigu"
 
 collections_dir: collections
 
