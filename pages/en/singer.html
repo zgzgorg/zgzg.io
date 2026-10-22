@@ -1,0 +1,82 @@
+---
+title: Singer Contest
+layout: default
+permalink: /en/singer/
+description: "The ZaiGeZaiGu Singer Contest is an annual contest for Chinese-language singers in the Bay Area. Meet the finalists of the 2026 Youth Singer Contest."
+# 年级组的英文名称，顺序和中文页 _layouts/singer.html 一致
+grade_groups:
+  - { key: "K-1", title: "Grades K-1" }
+  - { key: "2-3", title: "Grades 2-3" }
+  - { key: "4-5", title: "Grades 4-5" }
+  - { key: "6-10", title: "Grades 6-10" }
+---
+{% include page-assets/singer.html %}
+
+<div class="container pt-5">
+    <div class="singer-hero-card mb-5">
+        <div class="singer-hero-inner">
+            <h1 class="gala-hero-title mb-2">
+                🎤 2026 ZaiGeZaiGu Youth Singer Contest
+            </h1>
+            <h4 class="gala-hero-subtitle mb-4">
+                2026 载歌在谷“童星闪耀”青少年歌手赛
+            </h4>
+
+            <div class="gala-info">
+                <p class="gala-info-line">
+                    🏆 <b>Final:</b> Sunday, May 17, 2026, 1 PM - 5 PM
+                </p>
+                <p class="gala-info-line">
+                    📍 <b>Venue:</b> Starbright Theater
+                </p>
+                <p class="gala-info-line text-muted small">
+                    1770 W Campbell Ave, Campbell, CA 95008
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-2">
+        <div class="col text-center pb-4">
+            <h3 class="singer-page-title">🌟 Meet the Finalists</h3>
+        </div>
+    </div>
+
+    {% assign youth_finalists = site.data.data["2026s-youth-finalists"] %}
+    {% for group in page.grade_groups %}
+    {% assign singers = youth_finalists | where: "grade_group", group.key %}
+    <h4 class="age-group-title">{{ group.title }}</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 gx-1 gx-sm-4 gy-4 mb-2">
+        {% for singer in singers %}
+        <div class="col">
+            <div class="card program-card h-100 rounded-4">
+                <div class="program-img-wrapper mx-auto mt-4">
+                    <img src="{{ singer.image }}"
+                         alt="{{ singer.name }}"
+                         class="program-img" loading="lazy" decoding="async">
+                </div>
+                <div class="card-body pt-3 text-center">
+                    <h5 class="program-name text-center">{{ singer.name }}</h5>
+                    <div class="song-set text-start">
+                        <div class="song-block">
+                            <span class="song-tag" title="Round 1: full song with backing track">Round 1</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">With backing track</div>
+                                <div class="song-title">{{ singer.round1_song }}</div>
+                            </div>
+                        </div>
+                        <div class="song-block">
+                            <span class="song-tag" title="Round 2: a cappella">Round 2</span>
+                            <div class="song-block-body">
+                                <div class="song-kind">A cappella</div>
+                                <div class="song-title">{{ singer.round2_song }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>

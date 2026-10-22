@@ -3,28 +3,27 @@
         <div class="row">
             <div class="col-12 col-lg-6 px-2 px-md-2">
                 <div class="row pb-2">
-                    <a href="/"><img alt="载歌在谷" src="/images/zgzglogo.webp" /></a>
+                    <a href="{{ t.home_url }}"><img alt="{{ t.footer.logo_alt }}" src="/images/zgzglogo.webp" /></a>
                 </div>
                 <!-- Begin Mailchimp Signup Form -->
                 <div class="row pb-1">
                     <img id="envelope" src="/images/envelope.svg" />
-                    <label for="mce-EMAIL"> 订阅邮件，获取最新活动资讯！</label>
+                    <label for="mce-EMAIL">{{ t.footer.subscribe_label }}</label>
                 </div>
                 <form action="https://zgzg.us8.list-manage.com/subscribe/post?u=950d5d29a24ced3fd75514828&amp;id=e7addb4cae" method="post" id="mc-embed-signup" name="mc-embedded-subscribe-form" class="row d-flex flex-nowrap validate pb-2" target="_blank" novalidate>
-                    <input class="flex-fill" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="e.g.，email@example.com" required>
+                    <input class="flex-fill" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{{ t.footer.subscribe_placeholder }}" required>
                     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;" aria-hidden="true">
                         <input type="text" name="b_950d5d29a24ced3fd75514828_e7addb4cae" tabindex="-1" value="">
                     </div>
                     <div id="sub-button" class="button w-auto">
-                        <a id="eventbrite" href="https://zgzg.us8.list-manage.com/subscribe/post?u=950d5d29a24ced3fd75514828&id=e7addb4cae" style="color:white;" target="_blank">订阅</a>
+                        <a id="eventbrite" href="https://zgzg.us8.list-manage.com/subscribe/post?u=950d5d29a24ced3fd75514828&id=e7addb4cae" style="color:white;" target="_blank">{{ t.footer.subscribe_button }}</a>
                     </div>
                 </form>
                 <div class="row">
                     <div class="col-12">
                         <p>
-                            © 《载歌在谷》版权所有。<br />
-                            《载歌在谷》由 <a href="https://www.cb-t.org/">Community Builder Toolbox, Inc.</a> （一个注册在美国加利福尼亚州的<a href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3) 非营利组织</a>）承办。
+                            {{ t.footer.copyright }}
                         </p>
                         <p>
                             ZaiGeZaiGu Community is supported and fiscally sponsored by <a href="https://cb-t.org/">Community Builder Toolbox, Inc.</a>, a California registered nonprofit recognized by United States IRS as <a href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations"> 501(c)(3) public charity</a>.<br />
@@ -36,53 +35,24 @@
             <div class="col-12 col-lg-5" style="margin-left: auto;">
                 {%- comment -%} 第一行是最主要的三个平台，图标大一些；第二行是活动报名平台和其余平台。带 qr 的国内平台点开弹出二维码，海外平台直接打开链接。清单在 _data/social.yml {%- endcomment -%}
                 {%- assign rows = "primary|others" | split: "|" %}
+                {%- assign name_key = 'name' | append: t.data_suffix %}
                 {%- for row in rows %}
                 <div class="footer-icon footer-icon--{{ row }} py-1 pst-md-2">
                     {%- if row == "others" %}{% assign row_items = site.data.social.events | concat: site.data.social.others %}{% else %}{% assign row_items = site.data.social[row] %}{% endif %}
                     {%- for item in row_items %}
-                    <a href="{{ item.url }}"{% if item.qr %} data-social-qr="{{ '/images/social/qr/' | append: item.key | append: '.webp' | relative_url }}" data-social-name="{{ item.name }}" aria-haspopup="dialog"{% endif %}>
-                        <img src="{{ '/images/social/' | append: item.icon | relative_url }}" width="40" height="40" alt="{{ item.name }}" loading="lazy" decoding="async" />
+                    {%- assign item_name = item[name_key] | default: item.name %}
+                    <a href="{{ item.url }}"{% if item.qr %} data-social-qr="{{ '/images/social/qr/' | append: item.key | append: '.webp' | relative_url }}" data-social-name="{{ item_name }}" aria-haspopup="dialog"{% endif %}>
+                        <img src="{{ '/images/social/' | append: item.icon | relative_url }}" width="40" height="40" alt="{{ item_name }}" loading="lazy" decoding="async" />
                     </a>
                     {%- endfor %}
                 </div>
                 {%- endfor %}
                 <div class="footer-link">
+                    {%- for link in t.footer.links %}
                     <li>
-                        <a href="/gala/">春节晚会</a>
+                        <a href="{{ link.url }}"{% if link.blank %} target="_blank"{% endif %}>{{ link.name }}</a>
                     </li>
-                    <li>
-                        <a href="/singer/">歌手赛</a>
-                    </li>
-                    <li>
-                        <a href="/tour/">游园会</a>
-                    </li>
-                    <li>
-                        <a href="/yj/">云集栏目</a>
-                    </li>
-                    <li>
-                        <a href="https://mp.weixin.qq.com/s/BzpzveTu9Uyzw9j3c1Nmpg">赞助招商</a>
-                    </li>
-                    <li>
-                        <a href="/past-events/">往届回顾</a>
-                    </li>
-                    <li>
-                        <a href="/go/">常用链接</a>
-                    </li>
-                    <li>
-                        <a href="/announce/">社区公告</a>
-                    </li>
-                    <li>
-                        <a href="/board/">理事会</a>
-                    </li>
-                    <li>
-                        <a href="/join/">加入团队</a>
-                    </li>
-                    <li>
-                        <a href="/about/">关于我们</a>
-                    </li>
-                    <li>
-                        <a href="/assets/files/2025-W-9-CBT-dba-ZGZG.pdf" target="_blank">IRS W-9 Letter</a>
-                    </li>
+                    {%- endfor %}
                 </div>
             </div>
         </div>
@@ -92,12 +62,15 @@
 <!-- 点页脚的国内平台图标弹出二维码；浏览器不支持 dialog 时照常打开该平台的链接 -->
 <dialog class="social-dialog" id="social-dialog" aria-labelledby="social-dialog-title">
   <div class="social-dialog-body">
-    <button type="button" class="social-dialog-close" aria-label="关闭">&times;</button>
+    <button type="button" class="social-dialog-close" aria-label="{{ t.footer.qr.close }}">&times;</button>
     <img width="540" height="540" decoding="async" alt="">
     <p id="social-dialog-title"><span class="social-dialog-name"></span><br><span class="social-dialog-hint"></span></p>
   </div>
 </dialog>
 <style>
+    /* 订阅按钮的文字框按「订阅」两个字定宽 40px，英文的 Subscribe 要放开宽度 */
+    html[lang="en"] #eventbrite { width: auto; }
+    html[lang="en"] #mc-embed-signup input[type="email"] { min-width: 0; }
     .social-dialog { width: min(320px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 12px; text-align: center; }
     .social-dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
     .social-dialog-body { position: relative; padding: 1.75rem 1.5rem 1.25rem; }
@@ -111,15 +84,16 @@
         var dialog = document.getElementById('social-dialog');
         if (!dialog || typeof dialog.showModal !== 'function') return;
         var img = dialog.querySelector('img');
+        var L = {{ t.footer.qr | jsonify }};
         document.querySelectorAll('[data-social-qr]').forEach(function(link) {
             link.addEventListener('click', function(event) {
                 event.preventDefault();
                 var name = link.getAttribute('data-social-name');
                 img.src = link.getAttribute('data-social-qr');
-                img.alt = '载歌在谷' + name + '二维码';
-                dialog.querySelector('.social-dialog-name').textContent = '载歌在谷' + name;
+                img.alt = L.alt_prefix + name + L.alt_suffix;
+                dialog.querySelector('.social-dialog-name').textContent = L.name_prefix + name;
                 dialog.querySelector('.social-dialog-hint').textContent =
-                    name === '微信公众号' ? '微信扫码关注' : '用' + name + ' App 扫码关注';
+                    name === L.wechat_name ? L.wechat_hint : L.hint_prefix + name + L.hint_suffix;
                 dialog.showModal();
             });
         });

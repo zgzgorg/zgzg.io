@@ -1,0 +1,129 @@
+# 中文界面文字。英文对照在 en.yml，两个文件的键一一对应。
+# 模板用 {% assign t = site.data.i18n[page.lang] %} 取文字，page.lang 由 _config.yml 的 defaults 设定。
+# 说明见 README.md「网站有中文版和英文版」一节。
+
+html_lang: zh-Hans
+og_locale: zh_CN
+hreflang: zh-Hans
+# 英文页的网址前缀；中文页没有前缀
+prefix: ""
+# 数据文件（_data/*.yml）里的英文字段带 _en 后缀，中文字段不带后缀
+data_suffix: ""
+home_url: /
+# 当前页面没有对应的英文页时，语言按钮跳到这里
+alt_home: /en/
+switch_label: En
+switch_lang: en
+
+header:
+  site_title: 载歌在谷
+
+footer:
+  logo_alt: 载歌在谷
+  subscribe_label: " 订阅邮件，获取最新活动资讯！"
+  subscribe_placeholder: "e.g.，email@example.com"
+  subscribe_button: 订阅
+  copyright: >-
+    © 《载歌在谷》版权所有。<br />
+    《载歌在谷》由 <a href="https://www.cb-t.org/">Community Builder Toolbox, Inc.</a> （一个注册在美国加利福尼亚州的<a href="https://www.irs.gov/charities-non-profits/charitable-organizations/exemption-requirements-501c3-organizations">501(c)(3) 非营利组织</a>）承办。
+  links:
+    - { name: 春节晚会, url: /gala/ }
+    - { name: 歌手赛, url: /singer/ }
+    - { name: 游园会, url: /tour/ }
+    - { name: 云集栏目, url: /yj/ }
+    - { name: 赞助招商, url: "https://mp.weixin.qq.com/s/BzpzveTu9Uyzw9j3c1Nmpg" }
+    - { name: 往届回顾, url: /past-events/ }
+    - { name: 常用链接, url: /go/ }
+    - { name: 社区公告, url: /announce/ }
+    - { name: 理事会, url: /board/ }
+    - { name: 加入团队, url: /join/ }
+    - { name: 关于我们, url: /about/ }
+    - { name: IRS W-9 Letter, url: /assets/files/2025-W-9-CBT-dba-ZGZG.pdf, blank: true }
+  # 二维码弹窗：标题是 name_prefix + 平台名，图片说明是 alt_prefix + 平台名 + alt_suffix
+  qr:
+    close: 关闭
+    name_prefix: 载歌在谷
+    alt_prefix: 载歌在谷
+    alt_suffix: 二维码
+    wechat_name: 微信公众号
+    wechat_hint: 微信扫码关注
+    hint_prefix: 用
+    hint_suffix: " App 扫码关注"
+
+home:
+  events_label: 近期活动
+  events_carousel: 轮播
+  events_slide: 幻灯片
+  events_choose: 选择活动
+  music_slide: "1 / 2：音乐节"
+  gala_slide: "2 / 2：春晚招募"
+  music_dot: 音乐节 · 购票
+  gala_dot: 春晚 · 节目及主持人报名
+  gala_poster_label: 2027春晚海报：报名节目及主持人
+  gala_poster_alt: 2027载歌在谷春节联欢晚会节目及主持人招募海报，报名截止2026年11月15日，官网 https://zgzg.io
+  gala_site: 官网：https://zgzg.io
+  logos_heading: 我们的志愿者们主要来自硅谷科技圈
+  logos_companies: 看看有没有你的同事
+  logos_schools: 看看有没有你的校友
+  about_heading: 关于 "载歌在谷"
+  about_body: >-
+    <p>载歌在谷社区是一个以硅谷高科技华人从业者为主要贡献者，以文艺文化活动为载体，旨在促进贡献者的快乐、友谊和成长的社区。</p>
+    <p>源自2015年的谷歌内部春晚，"载歌在谷"社区于2017年起走出谷歌、成为面向整个硅谷和旧金山湾区的独立的非盈利社区。</p>
+  yj_heading: 云集社团
+  yj_body: 载歌在谷社区孵化了许多兴趣社团，常年举办各种活动。快来参加吧！
+  friends_heading: 伙伴社区
+  friends_body: 湾区其他以华人为主的非盈利组织。
+  signup_heading: 报名服务
+  signup_slogan_alt: 书法：有爱载歌，有家在谷
+  signup_button: 现在报名
+
+# _includes/2026-music-festival-hero.html
+mf_hero:
+  poster_label: 音乐节海报：打开购票窗口
+  poster_alt: 第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》海报：2026.10.25 12:00-18:00，Leo J. Ryan Park，演出阵容 Flatdog、Hoowan、Midnight Vanette、Phantora、四害 Scourge、Take Turns Jazz Ensemble、TakoTaco、特门道 Tremendo
+  tickets_title: 购票 · Tickets
+  back: ← 看海报
+  loading: 购票窗口加载中…
+  fallback: 购票窗口没有出现？请
+  fallback_link: 在 Eventbrite 上购票
+  fallback_end: 。
+  kicker_extra: " · 第一届载歌在谷音乐节"
+  title: 逆向悬浮
+  subtitle: DEFYING GRAVITY
+  desc: 世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台，10 月 25 日不见不散！
+  date_label: 演出日期
+  date_value: 10/25（周日）<br>12:00 - 18:00
+  venue_label: 演出地点
+  buy: 立即购票
+  more: 了解音乐节 →
+
+# _includes/2027-spring-event-info.html
+gala_2027:
+  title: 2027载歌在谷春节联欢晚会节目及主持人招募
+  subtitle: 2027 ZaiGeZaiGu Lunar New Year Gala
+  lines:
+    - <b>海选报名：</b><span class="event-date">2026/09/25</span> 开始，<span class="event-date event-date-deadline">2026/11/15 截止</span>
+    - <b>海选结果：</b><span class="event-date">2026/11/22</span>；节目及主持人入选结果：<span class="event-date">2026/12/20</span>
+    - <b>线下 Audition：</b><span class="event-date">2026/12/05 - 12/06</span>，Bayside Performing Arts Center（暂定）
+  note: 节目（小品除外）及主持人须参加现场评审方可录取；小品类节目于2027年1月单独评审，时间地点待定。
+  show: <b>春晚：</b><span class="event-date">2027/02/12</span> 晚技术彩排；<span class="event-date">2027/02/13</span> 全天彩排及演出，San Jose Center for the Performing Arts (SJCPA)
+  button: 报名节目及主持人
+
+# _includes/programmes.html 和 _includes/friends.html
+programmes:
+  join_title: 加入我们
+  join_desc: 加入我们社区，孵化你的兴趣小组；或者，帮助已有栏目办得更好！
+  onboard: 新志愿者？请参阅<a href="https://zgzg.link/onboard">《新人大礼包》</a>。
+  concluded_heading: 已完结栏目
+  concluded_body: 完成了历史使命，也值得拥有姓名！
+  concluded_link: 请参见<a href="/yj/">云集专页</a>。
+  more: 更多“云集”
+  friend_more: 更多详情
+
+# _includes/schema-org/home.html
+schema:
+  org_name: 载歌在谷
+  org_alternate: ZaiGeZaiGu
+  site_name: 载歌在谷
+  mf_name: 第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》
+  mf_desc: 世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台。

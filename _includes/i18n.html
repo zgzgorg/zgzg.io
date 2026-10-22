@@ -1,0 +1,22 @@
+{%- comment -%}
+  页面语言的公共变量，在 default.html 开头 include 一次，页头、菜单、页脚都能直接用：
+  t：当前语言的界面文字（_data/i18n/zh.yml 或 en.yml）
+  alt_url：同一页面另一种语言版本的网址；没有对应页面时是另一种语言的首页
+  has_alt：对应页面存在时为 true，这时 head 里才输出 hreflang
+{%- endcomment -%}
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- if page.lang == 'en' -%}
+  {%- assign alt_lang = 'zh' -%}
+  {%- assign alt_url = page.url | remove_first: '/en' -%}
+{%- else -%}
+  {%- assign alt_lang = 'en' -%}
+  {%- assign alt_url = '/en' | append: page.url -%}
+{%- endif -%}
+{%- assign alt_t = site.data.i18n[alt_lang] -%}
+{%- assign alt_page = site.pages | where: 'url', alt_url | first -%}
+{%- if alt_page -%}
+  {%- assign has_alt = true -%}
+{%- else -%}
+  {%- assign has_alt = false -%}
+  {%- assign alt_url = t.alt_home -%}
+{%- endif -%}

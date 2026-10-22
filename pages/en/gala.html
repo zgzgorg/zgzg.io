@@ -1,0 +1,149 @@
+---
+title: Lunar New Year Gala
+layout: default
+permalink: /en/gala/
+description: "The ZaiGeZaiGu Lunar New Year Gala began at Google in 2015. It is now the largest Lunar New Year Gala in the San Francisco Bay Area."
+# 节目名的格式是「类型《名称》」，英文页把类型译成英文，名称保留中文原文
+program_types:
+  舞蹈: Dance
+  歌曲: Song
+  儿童串烧: Children's medley
+  歌舞: Song and dance
+  小品: Comedy skit
+  乐器: Instrumental
+  合唱: Choir
+  乐队: Band
+  脱口秀: Stand-up comedy
+  武术: Martial arts
+  人声合唱: A cappella
+  蒙古舞: Mongolian dance
+---
+{% include page-assets/gala.html %}
+
+<div class="hero gala-bg"></div>
+<div class="container pt-5">
+    <div class="home-section-header fade-in">
+      <div class="row align-items-start">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <h2 class="gala-section-title">🐉 2026 ZaiGeZaiGu Lunar New Year Gala 🧧</h2>
+          <div class="event-info">
+            <p class="event-info-line">📅 <b>Date:</b> Saturday, February 14, 2026, 7:30 PM</p>
+            <p class="event-info-line">📍 <b>Venue:</b> San Jose Center for the Performing Arts</p>
+            <p class="event-info-line text-muted small">255 S Almaden Blvd, San Jose, CA 95113</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="gala-section-title">🎤 2027 Gala: Call for Performers and Hosts</h2>
+          <div class="event-info">
+            <p class="event-info-line">The open call for the 2027 Gala closes on <b>November 15, 2026</b>. The 2027 Gala takes place on February 13, 2027, at the San Jose Center for the Performing Arts.</p>
+            <div class="ticket-action mt-3">
+              <a href="https://d.zgzg.io/2027cnyg/signup" class="btn ticket-btn" target="_blank" rel="noopener noreferrer">
+                Sign Up to Perform or Host
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div id="about-gala" class="tab-content fade-in">
+    <div class="container pt-6 pb-6 pt-md-6 pb-md-6">
+        <div class="row">
+            <div class="col pb-3 text-center">
+                <h1 class="underline">About the ZaiGeZaiGu Gala</h1>
+            </div>
+        </div>
+        <p class="black text-center px-4">
+            Since 2015, ZaiGeZaiGu (载歌在谷) has held the Lunar New Year Gala 11 years in a row. The Gala has wide attention from many communities, especially the Chinese community in North America. Our media partners include Chihuo Xiaofendui, Weibo, Sing Tao Radio, Singtao TV, Chinese American Voice, Ximalaya and more.<br>
+            The Gala has also appeared on CCTV-4 several times, sending Lunar New Year greetings to Chinese people around the world on behalf of the overseas Chinese community.
+        </p>
+    </div>
+</div>
+
+<div id="gala-audition" class="tab-content fade-in pt-6 pb-6">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center pb-4">
+                <h1 class="underline">🌟 2026 Year of the Horse Gala 🌟</h1>
+                <p class="custom-text-style mt-3">
+                    From almost one hundred applications, we selected the most creative and moving performers and hosts.<br>
+                    These are the hosts and acts of the 2026 Gala.
+                </p>
+                <p class="custom-text-style"><a href="/assets/files/gala_handbook.pdf" target="_blank">Audience handbook (in Chinese)</a></p>
+            </div>
+        </div>
+
+        <div class="row pt-5">
+            <div class="col text-center pb-4">
+                <h3 class="underline">🎤 Hosts</h3>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gx-1 gx-sm-4 gy-4">
+            {% for host in site.data.data["2026-gala-hosts"] %}
+            {% assign host_name = host.name | replace: "(少儿主持人)", "(youth host)" %}
+            <div class="col fade-in">
+                <div class="card host-card h-100 rounded-4">
+                    <div class="host-img-wrapper mx-auto mt-4">
+                        <img src="{{ host.image }}" alt="{{ host_name }}" class="host-img" loading="lazy" decoding="async">
+                    </div>
+                    <div class="card-body pt-3">
+                        <h5 class="host-name text-center">{{ host_name }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row pt-5">
+            <div class="col text-center pb-4">
+                <h3 class="underline">🎭 Acts</h3>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gx-1 gx-sm-4 gy-4">
+            {% for program in site.data.data["2026-gala-programs"] %}
+            {% assign parts = program.name | split: "《" %}
+            {% assign program_kind = parts | first %}
+            {% assign program_type = page.program_types[program_kind] %}
+            {% if program_type and parts.size > 1 %}
+              {% assign program_title = parts | last | remove: "》" %}
+              {% assign program_label = program_type | append: ": " | append: program_title %}
+            {% else %}
+              {% assign program_label = program.name %}
+            {% endif %}
+            <div class="col fade-in">
+                <div class="card program-card h-100 rounded-4">
+                    <div class="program-img-wrapper mx-auto mt-4">
+                        <img src="{{ program.image }}" alt="{{ program_label }}" class="program-img" loading="lazy" decoding="async">
+                    </div>
+                    <div class="card-body pt-3">
+                        <h5 class="program-name text-center">{{ program_label }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="gala-sponsor" class="tab-content fade-in pt-6 pb-6">
+    <div class="col col-12 text-center">
+        <h1 class="underline">Sponsors and Partners</h1>
+    </div>
+    <div class="container pt-4 pb-4 pt-md-8 pb-md-8">
+        <div class="container row">
+            <img src="https://res.cloudinary.com/zaigezaigu/image/upload/v1769843679/zgzg-io-website/2026%E6%98%A5%E6%99%9A/sponsor_1.png" class="mx-auto d-block" alt="2026 Gala sponsors, part 1" loading="lazy" />
+        </div>
+        <div class="container row">
+            <img src="https://res.cloudinary.com/zaigezaigu/image/upload/v1769843687/zgzg-io-website/2026%E6%98%A5%E6%99%9A/sponsor_2.png" class="mx-auto d-block" alt="2026 Gala sponsors, part 2" loading="lazy" />
+        </div>
+        <div class="container row">
+            <img src="https://res.cloudinary.com/zaigezaigu/image/upload/v1769843692/zgzg-io-website/2026%E6%98%A5%E6%99%9A/sponsor_3.png" class="mx-auto d-block" alt="2026 Gala sponsors, part 3" loading="lazy" />
+        </div>
+        <div class="container row">
+            <img src="https://res.cloudinary.com/zaigezaigu/image/upload/v1769843697/zgzg-io-website/2026%E6%98%A5%E6%99%9A/sponsor_4.png" class="mx-auto d-block" alt="2026 Gala sponsors, part 4" loading="lazy" />
+        </div>
+    </div>
+</div>

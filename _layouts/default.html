@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+{% include i18n.html -%}
+<html lang="{{ t.html_lang }}">
 <head>
   <meta charset="utf-8">
   {% comment %}
@@ -7,20 +8,29 @@
     慢网下浏览器和抓取程序读到 HTML 开头的几 KB 就能拿到这些信息。
   {% endcomment %}
   {% assign site_origin = site.seo.meta_og_url %}
-  <title>{% if page.title %}{{page.title}}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <title>{% if page.title %}{{page.title}}{% else %}{{ t.header.site_title | escape }}{% endif %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   {% if page.description %}
   <meta name="description" content="{{ page.description }}" />
   {% endif %}
   <link rel="canonical" href="{{ site_origin }}{{ page.url }}">
+  {%- if has_alt %}
+  {%- comment -%} 中英文版本互相标注；x-default 指向中文版 {%- endcomment %}
+  <link rel="alternate" hreflang="{{ t.hreflang }}" href="{{ site_origin }}{{ page.url }}">
+  <link rel="alternate" hreflang="{{ alt_t.hreflang }}" href="{{ site_origin }}{{ alt_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ site_origin }}{% if page.lang == 'en' %}{{ alt_url }}{% else %}{{ page.url }}{% endif %}">
+  {%- endif %}
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:locale" content="zh_CN" />
-  <meta property="og:title" content="{{ site.seo.meta_og_title }}" />
+  <meta property="og:site_name" content="{{ t.header.site_title }}" />
+  <meta property="og:locale" content="{{ t.og_locale }}" />
+  {%- if has_alt %}
+  <meta property="og:locale:alternate" content="{{ alt_t.og_locale }}" />
+  {%- endif %}
+  <meta property="og:title" content="{{ page.og_title | default: t.og_title | default: site.seo.meta_og_title }}" />
   <meta property="og:type" content="{{ site.seo.meta_og_type }}" />
   <meta property="og:url" content="{{ site_origin }}{{ page.url }}" />
   <meta property="og:image" content="{{ site_origin }}{{ site.seo.meta_og_image }}" />
-  <meta property="og:description" content="{{ site.seo.meta_og_description }}" />
+  <meta property="og:description" content="{{ page.og_description | default: t.og_description | default: site.seo.meta_og_description }}" />
   <meta name="twitter:card" content="{{ site.seo.meta_twitter_card }}" />
   <meta name="twitter:site" content="{{ site.seo.meta_twitter_site }}" />
   <meta name="twitter:creator" content="{{ site.seo.meta_twitter_creator }}" />

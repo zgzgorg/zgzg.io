@@ -262,6 +262,10 @@
       text-align: center;
     }
   }
+  /* 英文首页：标题字距按中文设计，英文单词要收紧 */
+  html[lang="en"] .mf-home-title { letter-spacing: 0.02em; }
+  html[lang="en"] .mf-home-kicker { letter-spacing: 0.12em; }
+  html[lang="en"] .mf-home-subtitle { letter-spacing: 0.3em; }
 </style>
 
 <div class="strip mf-home-strip">
@@ -271,7 +275,7 @@
         <div class="mf-flip" id="mf-flip">
           <div class="mf-flip-inner">
             <div class="mf-flip-face mf-flip-front">
-              <a href="https://zgzg.li/mf-2026" data-mf-flip="open" aria-label="音乐节海报：打开购票窗口">
+              <a href="https://zgzg.li/mf-2026" data-mf-flip="open" aria-label="{{ t.mf_hero.poster_label }}">
                 {%- comment -%}
                   海报是首屏最大的元素（LCP）。
                   phase 0：内联的 24px 模糊小图垫底，再加载 400px 宽、约 32 KB 的 WebP，3G 网络也能很快显示。
@@ -286,46 +290,46 @@
                        width="1280" height="1707"
                        fetchpriority="high"
                        style="background-image: url(data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAABwBgCdASoYACEAPu1qrU8ppiQiKrgMATAdiWMAv7AKV12Wl3fbN+A+73M3t96mhop0QONg+MmcS92ZwHgA/uTqeOD7LWkCYiectIGMDUY7ZZA8SbVdAVoU7hb3Fnl630p8X3e2qv+0EhrDqXGsR6kXdYXslIeCDMH0+qli0BiPEOcaBdrYlx4nH1kxSgHotBmnWs9MCOsbaGhA4YJ7v/njoTs92VhnapwhoJ/FxqrE67YmmMDOlhCyEkxe3pDRMXsMKEAtZiiWZ8Jlgz+5VMeeWChypuTARNASq+vhaBBJSYiUXeUxLFAC0N6lOHaKxHp/FjvNoSYhGQr+k8AAAA==);"
-                       alt="第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》海报：2026.10.25 12:00-18:00，Leo J. Ryan Park，演出阵容 Flatdog、Hoowan、Midnight Vanette、Phantora、四害 Scourge、Take Turns Jazz Ensemble、TakoTaco、特门道 Tremendo">
+                       alt="{{ t.mf_hero.poster_alt }}">
                 </picture>
               </a>
             </div>
             <div class="mf-flip-face mf-flip-back" id="mf-tickets" aria-hidden="true" inert>
               <div class="mf-tickets-head">
-                <h2 class="mf-home-tickets-title">购票 · Tickets</h2>
-                <button type="button" class="mf-flip-back-btn" data-mf-flip="close">← 看海报</button>
+                <h2 class="mf-home-tickets-title">{{ t.mf_hero.tickets_title }}</h2>
+                <button type="button" class="mf-flip-back-btn" data-mf-flip="close">{{ t.mf_hero.back }}</button>
               </div>
               <div id="eventbrite-widget-container-2001158142875">
-                <p id="mf-tickets-loading" class="mf-tickets-loading">购票窗口加载中…</p>
+                <p id="mf-tickets-loading" class="mf-tickets-loading">{{ t.mf_hero.loading }}</p>
               </div>
               <p class="mf-home-tickets-fallback">
-                购票窗口没有出现？请
-                <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">在 Eventbrite 上购票</a>。
+                {{ t.mf_hero.fallback }}
+                <a href="https://zgzg.li/mf-2026" target="_blank" rel="noopener noreferrer">{{ t.mf_hero.fallback_link }}</a>{{ t.mf_hero.fallback_end }}
               </p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-7 mf-home-text">
-        <div class="mf-home-kicker">ZGZG Music Festival 2026<span class="mf-home-kicker-extra"> · 第一届载歌在谷音乐节</span></div>
-        <h1 class="mf-home-title">逆向悬浮</h1>
-        <div class="mf-home-subtitle">DEFYING GRAVITY</div>
+        <div class="mf-home-kicker">ZGZG Music Festival 2026<span class="mf-home-kicker-extra">{{ t.mf_hero.kicker_extra }}</span></div>
+        <h1 class="mf-home-title">{{ t.mf_hero.title }}</h1>
+        <div class="mf-home-subtitle">{{ t.mf_hero.subtitle }}</div>
         <p class="mf-home-desc" style="color: rgba(255, 255, 255, 0.85);">
-          世俗向前，我们逆向；万物沉落，我们悬浮。湾区华人乐迷自己的户外舞台，10 月 25 日不见不散！
+          {{ t.mf_hero.desc }}
         </p>
         <div class="mf-home-facts">
           <div class="mf-home-fact">
-            <span class="mf-home-fact-label">演出日期</span>
-            <span class="mf-home-fact-value">10/25（周日）<br>12:00 - 18:00</span>
+            <span class="mf-home-fact-label">{{ t.mf_hero.date_label }}</span>
+            <span class="mf-home-fact-value">{{ t.mf_hero.date_value }}</span>
           </div>
           <div class="mf-home-fact">
-            <span class="mf-home-fact-label">演出地点</span>
+            <span class="mf-home-fact-label">{{ t.mf_hero.venue_label }}</span>
             <span class="mf-home-fact-value">Leo J Ryan Park<br>650 Shell Blvd, Foster City</span>
           </div>
         </div>
         <div class="mf-home-ctas">
-          <a class="mf-home-cta" href="https://zgzg.li/mf-2026" data-mf-flip="open">立即购票</a>
-          <a class="mf-home-cta mf-home-cta-ghost" href="{{ '/music-festival/' | relative_url }}">了解音乐节 →</a>
+          <a class="mf-home-cta" href="https://zgzg.li/mf-2026" data-mf-flip="open">{{ t.mf_hero.buy }}</a>
+          <a class="mf-home-cta mf-home-cta-ghost" href="{{ t.prefix | append: '/music-festival/' | relative_url }}">{{ t.mf_hero.more }}</a>
         </div>
       </div>
     </div>

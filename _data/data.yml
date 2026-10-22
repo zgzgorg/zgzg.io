@@ -1,23 +1,28 @@
 main:
+  # name_en 是英文页的菜单文字；英文页的链接自动加上 /en 前缀，见 _includes/main-menu.html
   - name: "主页"
+    name_en: "Home"
     url: "/"
   - name: "春晚"
+    name_en: "Gala"
     url: "/gala/"
   - name: "游园会"
+    name_en: "Garden Party"
     url: "/galatour/"
   - name: "歌手赛"
+    name_en: "Singers"
     url: "/singer/"
   - name: "音乐节"
+    name_en: "Music Fest"
     url: "/music-festival/"
   - name: "云集社团"
+    name_en: "Clubs"
     url: "/yj/"
   - name: "赞助招商"
+    name_en: "Sponsors"
     url: "/sponsorship/"
-  - name: "En"
-    url: "/english/"
-    icon: true
-  - name: "中"
-    url: "/"
+  # 语言切换按钮：链接到同一页面的另一种语言版本，文字取 _data/i18n/*.yml 的 switch_label
+  - lang_switch: true
     icon: true
 
 gala_ticket_link: "/ticket/gala-ticket"
@@ -41,31 +46,47 @@ special_events:
 
 friends:
   - name: 硅谷脱口秀
+    name_en: "Silicon Valley Stand-up Comedy"
+    description_en: "A Chinese-language comedy club in Silicon Valley."
     image: images/ggtkx.svg
     website: https://ggtkx.org
     description: 硅谷地区汉语喜剧社团。
   - name: 湾区文化沙龙
+    name_en: "Bay Area Cultural Salon"
+    description_en: "A platform for conversation and sharing that feeds our curiosity about the world."
     image: images/baccs.svg
     website: https://baccs.org/
     description: 一个对话、分享的平台。尽可能地满足我们对这个世界不该磨灭的好奇心。
 
 programmes:
   - name: 职挂云帆
+    name_en: "Career Talks"
+    description_en: "Career interview show. Topics include tech, startups, biotech and healthcare, and workplace soft skills."
+    button-text_en: "YouTube Channel"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670660306/zgzg-io-website/%E4%BA%91%E9%9B%86/%E8%81%8C%E6%8C%82%E4%BA%91%E5%B8%86_sjdst6.jpg
     description: 职场访谈类节目。活动内容涵盖，科技，创业，生物医疗，职场软技能等多个方向。
     button-url: https://www.youtube.com/channel/UCG2VTUUT3OWEYcAEi3ELamA
     button-text: YouTube 频道
   - name: 云集音乐会
+    name_en: "Yunji Concerts"
+    description_en: "A dream incubator where music lovers share, create and grow together. We care about the music and also about the connections behind it. Songwriters and performers can both find like-minded partners here. We regularly host medium and large live concerts that are open to the public. With professional planning and production, we give music lovers a stage to shine, and we give audiences themed shows built on passion."
+    button-text_en: "Highlights"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/v1766799004/zgzg-io-website/%E4%BA%91%E9%9B%86/YBYF/yunji_concert_yacmxf.jpg
     description: 致力于打造一个让音乐爱好者共同交流、共同创作、共同成长的梦想孵化器。我们不只关注音乐本身，更关注音乐背后的连接。在这里，无论你是创作者还是演绎者，都能找到志同道合的伙伴。我们定期举办面向公众的中大型Live音乐会，以专业级的策划与制作，为音乐爱好者提供闪耀的展示舞台，更为广大观众呈现一场场由热爱铸就的主题视听盛宴。
     button-url: /ybyf/
     button-text: 往期精选
   - name: 书影婆娑
+    name_en: "Books & Films"
+    description_en: "We host many book and film events: in-person talks, living-room salons, book clubs, a peer-to-peer library, reading nights, movie marathons and more."
+    button-text_en: "Learn More"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670658918/zgzg-io-website/%E4%BA%91%E9%9B%86/shuying_o2xeyt.jpg
     description: 我们组织多种书籍电影类文化活动：线下分享会、客厅沙龙、好书共读、P2P图书馆、朗读会、电影马拉松……
     button-url: https://mp.weixin.qq.com/s/Llop7DVDmyHwg_Jycv5w3A
     button-text: 了解更多
   - name: 体娱风云
+    name_en: "Sports & Games"
+    description_en: "We host online and in-person social events such as badminton, board games, fun sports days and group dinners, so that everyone can enjoy making friends."
+    button-text_en: "Recent Events"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670659563/zgzg-io-website/%E4%BA%91%E9%9B%86/Screen_Shot_2022-12-10_at_00.05.57_yinbrf.png
     description: 我们组织羽毛球、桌游、趣味运动会、聚餐等线上及线下社交娱乐项目。为大家体验到社交的快乐而努力。
     button-url: https://mp.weixin.qq.com/s/udxxeHXpuQP3Nfaq0_JYdg
@@ -73,16 +94,28 @@ programmes:
 
 programmes_chunwan:
   - name: 春节晚会
+    name_en: "Lunar New Year Gala"
+    description_en: "Our gala began as the Google Lunar New Year Gala in 2015 and is now open to the whole Bay Area. More than 200 volunteers and performers, most of them from Bay Area tech companies, spend half a year to prepare it. It is the largest Lunar New Year Gala in the Bay Area, with the biggest audience and a true Silicon Valley character."
+    button-text_en: "Details"
+    button-url_en: "/en/gala/"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/v1702274633/show_09_kwndgx.jpg
     description: 承袭自2015年Google春晚，现面向整个湾区。由200余名主要来自湾区高科技公司的志愿者和演员耗时半年精心打造，是湾区规模最大，观众最多，最具硅谷特色的春节晚会。
     button-url: /gala/
     button-text: 详情
   - name: 歌手赛
+    name_en: "Singer Contest"
+    description_en: "Building on past success, the ZaiGeZaiGu Singer Contest has grown with a brand-new plan. We bring you a high-quality annual contest for Chinese-language singers."
+    button-text_en: "Details"
+    button-url_en: "/en/singer/"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670565567/zgzg-io-website/2022%20singers/DSC02710-2_bwjybv.jpg
     description: “载歌在谷”歌手赛，我们在成功的经验上进一步扩大规模，全新规划，为您打造一年一度的，高水准的华人歌手赛。
     button-url: /singer/
     button-text: 详情
   - name: 游园会
+    name_en: "Garden Party"
+    description_en: "Spring couplets, paper cutting, calligraphy, sugar painting, Hanfu, poetry and a small stage: a Garden Party full of Chinese tradition for the Bay Area Chinese community. Many booths are free. The Garden Party is great for families and lets children experience Chinese culture."
+    button-text_en: "Details"
+    button-url_en: "/en/galatour/"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/v1702274981/Screenshot_2023-12-10_at_10.06.48_PM_yvytdi.jpg
     description: 春联，剪纸，书法，糖画，汉服，诗词，小舞台，为湾区华人朋友们打造一个最具有中华传统的特色游园会。大量摊位免费，尤其适合家庭，让孩子们体验中国文化。
     button-url: /galatour/
@@ -90,16 +123,28 @@ programmes_chunwan:
 
 past-programmes:
   - name: 想唱就唱
+    name_en: "Sing Along"
+    description_en: "Weekend online karaoke and live music get-togethers. We listen, sing and chat on Zoom, and make friends through music on a relaxed Sunday evening."
+    contact_en:
+      - "[Season 2 highlights](https://www.youtube.com/watch?v=E4BjWM-kNXA&list=PLa7OKLszvN9fH1Vsi1ggwPx-h7Yo30bPf&index=9)"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670300156/zgzg-io-website/%E4%BA%91%E9%9B%86/%E4%BA%91%E9%9B%86%EF%BC%9A%E6%97%A5%E5%B8%B8%E6%B4%BB%E5%8A%A8/008i3skNgy1gt4hlqastyj30u00u0djk_grdldr.jpg
     description: 周末线上K歌 + Live music 小聚会，大家在 Zoom 上一起听歌、唱歌、聊天、以歌会友，共度一个惬意的周日晚上。
     contact:
       - "[第二季演唱精彩合辑](https://www.youtube.com/watch?v=E4BjWM-kNXA&list=PLa7OKLszvN9fH1Vsi1ggwPx-h7Yo30bPf&index=9)"
   - name: 众说纷云
+    name_en: "Open Forum"
+    description_en: "A platform for free discussion and debate. Speakers share their views and experiences and build their logical thinking. Listeners hear many different ideas and find inspiration."
+    contact_en:
+      - "[Event recordings](https://www.youtube.com/watch?v=rkqZEjEaUrE&list=PLa7OKLszvN9cCMDy7O_RXHEGPfSKZ7b-6)"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670300162/zgzg-io-website/%E4%BA%91%E9%9B%86/%E4%BA%91%E9%9B%86%EF%BC%9A%E6%97%A5%E5%B8%B8%E6%B4%BB%E5%8A%A8/008i3skNgy1gt4hpjeqnpj30u00u0q7g_m0tvnj.jpg
     description: 一个自由讨论、辩论的平台。我们欢迎：分享者在这里表达观点、经历，培养逻辑思辨能力；听众在这里收获多元想法，启发灵感。
     contact:
       - "[活动录像](https://www.youtube.com/watch?v=rkqZEjEaUrE&list=PLa7OKLszvN9cCMDy7O_RXHEGPfSKZ7b-6)"
   - name: 云生活
+    name_en: "Cloud Living"
+    description_en: "Share your lifestyle! We talk about favorite things for the home, buying and caring for cars, healthy eating, learning new skills and more."
+    contact_en:
+      - "[Event recordings](https://www.youtube.com/watch?v=ox7mGP-Niwo&list=PLa7OKLszvN9cVA2sci9rp2PAmz8kR-Bp1)"
     image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1670300188/zgzg-io-website/%E4%BA%91%E9%9B%86/%E4%BA%91%E9%9B%86%EF%BC%9A%E6%97%A5%E5%B8%B8%E6%B4%BB%E5%8A%A8/008i3skNgy1gumiy3v19jj60mi0mitb802_pklz1d.jpg
     description: 交流你我的生活方式！我们聊宅家好物、买车养车、健康饮食、自学才艺……
     contact:
@@ -889,102 +934,160 @@ singerlist:
 galatour_picture_tradition:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089337/zgzg-io-website/2022-游园/书法_zg2rig.jpg
     name: 书法
+    name_en: "Calligraphy"
+    description_en: "Beautiful writing for a happy home and good fortune at the door."
     description: 人和书美意，家和福临门。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670297444/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E4%BC%A0%E7%BB%9F%E6%96%87%E5%8C%96booth/%E5%89%AA%E7%BA%B8_gfpz4h.jpg
     name: 剪纸
+    name_en: "Paper Cutting"
+    description_en: "Cut your own window flower and send good wishes to your family and friends!"
     description: 窗有簇簇花，心有千千结。自己动手剪一张窗花，为家人朋友带来祝福！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089305/zgzg-io-website/2022-游园/芝麻开门2_euzewx.png
     name: 芝麻开门
+    name_en: "Open Sesame"
+    description_en: "Poems, rhymes and tongue twisters. Read or recite a poem from the screen to unlock a prize!"
     description: 诗眼韵脚长短句，炼字饶舌解谜题。根据屏幕提示念完或者背诵完一篇诗文，从而解锁奖励~
 
 galatour_picture_handmade:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296423/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%89%8B%E5%B7%A5booth/%E4%B8%AD%E5%9B%BD%E7%BB%93_wxafpf.png
     name: 中国结
+    name_en: "Chinese Knots"
+    description_en: "The Chinese knot is a hand-woven craft. It shows the feeling and wisdom of an ancient Chinese tradition."
     description: 中国结是一种手工编织工艺品，它身上所显示的情致与智慧正是汉族古老文明中的一个侧面。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296438/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%89%8B%E5%B7%A5booth/%E7%99%BE%E5%8F%98%E6%B0%94%E7%90%83_hcnqzn.jpg
     name: 百变气球
+    name_en: "Balloon Art"
+    description_en: "Balloons make life colorful and childhood beautiful. Tell our balloon artist which animal you want! You can also come and learn to twist balloons yourself."
     description: 生活因气球而多彩，童年因气球而美丽。你想要什么小动物？气球姐姐可以变给你噢~想要学习拧气球？也欢迎来一展身手！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296445/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%89%8B%E5%B7%A5booth/%E7%B3%96%E7%94%BB_zqlm6o.jpg
     name: 糖画
+    name_en: "Sugar Painting"
+    description_en: "Candy you can look at and eat. Try this intangible cultural heritage craft and make your own sweet sugar painting!"
     description: 亦糖亦画，可观可食，体验非遗，感受甜蜜。来自己动手做一个好看好吃的糖画吧！
 
 galatour_picture_game:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296431/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%B8%B8%E6%88%8Fbooth/%E5%91%BC%E6%8B%89%E5%9C%88_xjnr6t.jpg
     name: 呼啦圈
+    name_en: "Hula Hoop"
+    description_en: "Spin the hoop for happiness and reunion. A smart hula hoop counts your spins. Come and compete!"
     description: 圆圆满满呼啦圈，转出幸福和团圆。智能呼啦圈，自动数圈数，快快来比拼~
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1670296421/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%B8%B8%E6%88%8Fbooth/%E5%A5%97%E5%9C%88_veusju.png
     name: 套圈
+    name_en: "Ring Toss"
+    description_en: "Toss a ring and win a surprise. Come and test your aim!"
     description: 套出惊喜，套出风采。来试试你的准头儿如何！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296440/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%B8%B8%E6%88%8Fbooth/%E4%B8%83%E5%B7%A7%E6%9D%BF_oqtwje.jpg
     name: 七巧板
+    name_en: "Tangram"
+    description_en: "Look at the black-and-white pictures. Can you work out how to build them with tangram pieces?"
     description: 七巧玲珑心，万律一家亲。看着黑白图片，你能猜到它们是怎么用七巧板拼出来的吗？
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296435/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%B8%B8%E6%88%8Fbooth/%E8%B8%A2%E6%AF%BD%E5%AD%90%E6%AF%94%E8%B5%9B_fdgsth.jpg
     name: 踢键子比赛
+    name_en: "Shuttlecock Kicking Contest"
+    description_en: "Let the feathers dance on your toes. Who can kick it the highest and the most times?"
     description: 让羽毛在脚尖上跳舞，看看谁踢得更高更多更强~
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296429/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E6%B8%B8%E6%88%8Fbooth/%E7%94%B2%E9%AA%A8%E6%96%87_j0fphl.jpg
     name: 甲骨文
+    name_en: "Oracle Bone Script"
+    description_en: "Discover the beauty of ancient Chinese writing. Can you guess which modern Chinese character matches the picture on the card?"
     description: 走进古老文字，领略象形之美。你能猜到卡片上的图形是现代的哪个汉字吗？
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089303/zgzg-io-website/2022-%E6%B8%B8%E5%9B%AD/%E7%AB%A5%E8%B6%A3%E4%B9%90%E5%9B%AD1_fieihl.jpg
     name: 自助游戏区
+    name_en: "Puzzle Zone"
+    description_en: "Puzzle locks, mazes, stacking blocks, board games and tangrams. Brain teasers for the whole family. Who has the quickest mind and the cleverest hands?"
     description: 大三通，小三通。孔明锁，鲁班锁。迷宫，叠叠乐，飞行棋，七巧板。益智烧脑，全家齐上阵。看谁脑筋最灵活，双手最灵巧。
 
 galatour_picture_interactive:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089303/zgzg-io-website/2022-%E6%B8%B8%E5%9B%AD/%E5%A7%BB%E7%BC%98%E5%A2%99_cxeeac.jpg
     name: 姻缘墙
+    name_en: "Match Wall"
+    description_en: "Looking for that special someone? Let AI help you meet your match!"
     description: 云里寻TA千百度，蓦然回首，那人却在，姻缘庭墙处。未来已来，用AI让你邂逅意中人，从此告别单身！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662095165/zgzg-io-website/2022-%E6%B8%B8%E5%9B%AD/%E7%85%A7%E7%9B%B8%E9%A6%86_sc5qj5.png
     name: 照相馆
+    name_en: "Photo Studio"
+    description_en: "Dress up in traditional costumes with our props and take a lovely family photo!"
     description: 儒风翩翩公子，长裙纤纤闺秀。使用提供的道具，美美地拍摄一张爱意满满的全家福吧~
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/t_auto_eco_compression/v1662089318/zgzg-io-website/2022-%E6%B8%B8%E5%9B%AD/%E5%B0%8F%E8%88%9E%E5%8F%B0_dytitr.jpg
     name: 小舞台
+    name_en: "Small Stage"
+    description_en: "Talented performers, fun interactive games and great prizes are waiting for you!"
     description: 小舞台将汇聚各路才艺达人，还有更多好玩的互动游戏，丰富大奖等你来拿！
 
 galatour_picture_child:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296449/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E7%AB%A5%E8%B6%A3%E4%B9%90%E5%9B%AD/%E7%BB%98%E8%84%B8_prvzbe.jpg
     name: 画脸
+    name_en: "Face Painting"
+    description_en: "Kids love face painting! Celebrate the new year with a bright and happy face."
     description: 新春处处显神彩，画脸喜迎新春乐！画脸是小朋友的最爱，口罩遮住了我们笑容，遮不住我们对美好的追求！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1639344396/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/534A0550_oaouoy.jpg
     name: 大嘴迎新年
+    name_en: "Big Mouth New Year"
+    description_en: "Use the templates to make your own art. What is inside the big open mouth? It is all up to the child's imagination."
     description: 大嘴装满福禄寿，画笔传神显生辉。在准备好的模版里 进行艺术创作 张开嘴巴里面到底有什么？全凭小朋友的想象力。
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670296447/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%9C%B0%E5%9B%BE/%E7%AB%A5%E8%B6%A3%E4%B9%90%E5%9B%AD/%E7%94%BB%E9%BE%99%E7%82%B9%E7%9D%9B_ekbnpt.jpg
     name: 画龙点睛
+    name_en: "Paint the Dragon"
+    description_en: "A long, long dragon is waiting for you to dress it in all the colors of the rainbow!"
     description: 龙兴阳动乾坤晓，龙之神“彩”由你填！一条长长的巨龙，等你为它穿上七彩的衣裳！
 
 galatour_picture_volunteer:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1636003206/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/%E4%B8%BB%E6%8C%81%E4%BA%BA_3_huvgsq.png
     name: 主持人
+    name_en: "Hosts"
+    description_en: "1-2 people. You lead the show."
     description: 1-2 人, 场面由你掌控
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1670294554/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%BF%97%E6%84%BF%E8%80%85%E5%9B%A2%E9%98%9F/%E7%AD%96%E5%88%92%E7%BB%84_qtysjg.jpg
     name: 策划组
+    name_en: "Planning Team"
+    description_en: "2-3 people. Plan the whole stage program."
     description: 2-3人, 舞台整体策划
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670294568/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%BF%97%E6%84%BF%E8%80%85%E5%9B%A2%E9%98%9F/%E8%8A%82%E7%9B%AE%E7%BB%84_eacumw.jpg
     name: 节目组
+    name_en: "Program Team"
+    description_en: "Work with each act on interviews and rehearsals."
     description: 对接单个节目面试与排练
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670294558/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%BF%97%E6%84%BF%E8%80%85%E5%9B%A2%E9%98%9F/%E5%9C%BA%E5%8A%A1%E7%BB%84_qr3zbd.png
     name: 场务组
+    name_en: "Stage Crew"
+    description_en: "Organize and manage the equipment."
     description: 设备组织管理
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1639344397/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/534A0666_qhnhms.jpg
     name: 游戏组
+    name_en: "Games Team"
+    description_en: "Design and run games on site."
     description: 现场游戏设计组织
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/q_auto:low/v1670294564/zgzg-io-website/2023-%E6%98%A5%E6%99%9A%E6%B8%B8%E5%9B%AD/%E5%85%B3%E4%BA%8E%E6%98%A5%E8%8A%82%E6%B8%B8%E5%9B%AD/%E6%B8%B8%E5%9B%AD%E5%BF%97%E6%84%BF%E8%80%85%E5%9B%A2%E9%98%9F/%E9%9F%B3%E5%93%8D%E7%BB%84_svtc1k.jpg
     name: 音响组
+    name_en: "Sound Team"
+    description_en: "Give technical support for sound."
     description: 音响技术支持
 
 galatour_picture_type:
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1641757238/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/5_yrtt8j.png
     name: 歌唱节目
+    name_en: "Singing"
+    description_en: "Pop, folk, classical, rap, and any music style you like."
     description: ·流行 ·民谣 ·美声 ·Rap·及你所喜欢的任何音乐类型
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1641757235/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/8_dcghfo.png
     name: 传统文化节目
+    name_en: "Traditional Culture"
+    description_en: "Chinese opera, acrobatics, martial arts, dragon and lion dance, Hanfu show, ethnic minority performances, Chinese instrumental music, tai chi, stilt walking, land boat dance, and any act related to traditional culture."
     description: ·戏曲 ·杂技 ·武术 ·武术·舞龙舞狮 ·汉服表演 ·少数民族表演 ·民乐表演 ·太极拳太极剑·踩高跷 ·划旱船 ·任何和传统文化相关的节目
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1641779944/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/15_ruoyas.png
     name: 舞蹈节目
+    name_en: "Dance"
+    description_en: "Classical, modern, folk, street dance, and any dance style you want to show."
     description: ·古典舞 ·现代舞 ·民族舞 ·街舞 ·及你想展现的任何舞蹈类型
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1641757237/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/7_w7ox1f.png
     name: 魔术节目
+    name_en: "Magic"
+    description_en: "Card tricks? Telekinesis? Mind reading? We are looking for the next big magician of the Bay Area!"
     description: 纸牌魔术？隔空取物？还是心灵透视术？小编蹲一个湾区魔术周杰伦！
   - image: https://res.cloudinary.com/zaigezaigu/image/upload/v1641757235/zgzg-io-website/2022%E6%98%A5%E6%99%9A%E6%8B%8D%E6%91%84%E8%8A%B1%E7%B5%AE/6_nj1uat.png
     name: 属于你的X-Part
+    name_en: "Your X-Part"
+    description_en: "Do you have a hidden talent? Martial arts, an instrument, graffiti art? Sign up and you may be on the stage!"
     description: 或许你还有其他隐藏技能？武术表演、乐器演奏、艺术涂鸦？戳戳手指报名，万一安排上了呢！
 
 2026-gala-hosts:

@@ -5,17 +5,18 @@
 #   images/social/qr/<key>.webp，由 tools/social-qr.py 生成；url 是浏览器不支持
 #   弹窗时的后备链接。
 # 不带 qr 的是海外平台，点图标直接打开 url。
+# name_en 是英文页显示的平台名；没有 name_en 的平台中英文同名。
 primary:
-  - { key: wechat, name: 微信公众号, icon: wechat.svg, qr: "http://weixin.qq.com/r/uXQXD9bEdIsLrZJs9yGr", url: "https://mp.weixin.qq.com/s/MQrUzT-XkxsRdRQQRpb4Fw" }
-  - { key: xhs, name: 小红书, icon: xhs.svg, qr: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a", url: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a" }
+  - { key: wechat, name: 微信公众号, name_en: "WeChat", icon: wechat.svg, qr: "http://weixin.qq.com/r/uXQXD9bEdIsLrZJs9yGr", url: "https://mp.weixin.qq.com/s/MQrUzT-XkxsRdRQQRpb4Fw" }
+  - { key: xhs, name: 小红书, name_en: "Xiaohongshu (RED)", icon: xhs.svg, qr: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a", url: "https://www.xiaohongshu.com/user/profile/6056e0a4000000000100180a" }
   - { name: YouTube, icon: youtube.svg, url: "https://www.youtube.com/channel/UCY7-f7HBl8kvmoGtQX4TGUg" }
 # events：活动报名平台，header 里排在主要平台后面，页脚排在第二行开头。
 events:
   - { name: Luma, icon: luma.svg, url: "https://luma.com/zgzg" }
   - { name: Eventbrite, icon: eventbrite.svg, url: "https://www.eventbrite.com/o/zaigezaigu-23383304313" }
 others:
-  - { key: weibo, name: 微博, icon: weibo.svg, qr: "https://weibo.com/zgzggala", url: "https://weibo.com/zgzggala" }
-  - { key: bilibili, name: 哔哩哔哩, icon: bilibili.svg, qr: "https://space.bilibili.com/1295865136", url: "https://space.bilibili.com/1295865136" }
+  - { key: weibo, name: 微博, name_en: "Weibo", icon: weibo.svg, qr: "https://weibo.com/zgzggala", url: "https://weibo.com/zgzggala" }
+  - { key: bilibili, name: 哔哩哔哩, name_en: "Bilibili", icon: bilibili.svg, qr: "https://space.bilibili.com/1295865136", url: "https://space.bilibili.com/1295865136" }
   - { name: Facebook, icon: facebook.svg, url: "https://www.facebook.com/zaigezaigu/" }
   - { name: Instagram, icon: instagram.svg, url: "https://www.instagram.com/zaigezaigu/" }
   - { name: LinkedIn, icon: linkedin.svg, url: "https://www.linkedin.com/company/zgzg/" }

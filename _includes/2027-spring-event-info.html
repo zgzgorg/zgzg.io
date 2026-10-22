@@ -1,3 +1,4 @@
+{%- comment -%} 文字在 _data/i18n/*.yml 的 gala_2027 一节 {%- endcomment -%}
 <div class="container">
   <div class="home-section-header">
     <div class="home-section-content_top">
@@ -6,28 +7,24 @@
         <div class="col-12 text-start">
 
           <h1 class="gala-hero-title cny-2027-event-title mb-2">
-            2027载歌在谷春节联欢晚会节目及主持人招募
+            {{ t.gala_2027.title }}
           </h1>
 
           <h4 class="gala-hero-subtitle mb-4">
-            2027 ZaiGeZaiGu Lunar New Year Gala
+            {{ t.gala_2027.subtitle }}
           </h4>
 
           <div class="gala-info">
+            {%- for line in t.gala_2027.lines %}
             <p class="gala-info-line">
-              <b>海选报名：</b><span class="event-date">2026/09/25</span> 开始，<span class="event-date event-date-deadline">2026/11/15 截止</span>
+              {{ line }}
             </p>
-            <p class="gala-info-line">
-              <b>海选结果：</b><span class="event-date">2026/11/22</span>；节目及主持人入选结果：<span class="event-date">2026/12/20</span>
-            </p>
-            <p class="gala-info-line">
-              <b>线下 Audition：</b><span class="event-date">2026/12/05 - 12/06</span>，Bayside Performing Arts Center（暂定）
-            </p>
+            {%- endfor %}
             <p class="gala-info-line text-muted small">
-              节目（小品除外）及主持人须参加现场评审方可录取；小品类节目于2027年1月单独评审，时间地点待定。
+              {{ t.gala_2027.note }}
             </p>
             <p class="gala-info-line">
-              <b>春晚：</b><span class="event-date">2027/02/12</span> 晚技术彩排；<span class="event-date">2027/02/13</span> 全天彩排及演出，San Jose Center for the Performing Arts (SJCPA)
+              {{ t.gala_2027.show }}
             </p>
           </div>
 
@@ -36,7 +33,7 @@
                href="https://d.zgzg.io/2027cnyg/signup"
                target="_blank"
                rel="noopener noreferrer">
-              报名节目及主持人
+              {{ t.gala_2027.button }}
             </a>
           </div>
 

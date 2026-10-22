@@ -1,4 +1,0 @@
----
-permalink: /english/
-layout: english
----

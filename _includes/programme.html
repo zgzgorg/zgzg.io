@@ -1,16 +1,25 @@
+{%- assign t = site.data.i18n[page.lang] -%}
+{%- comment -%} 英文页优先用数据里带 _en 后缀的字段 {%- endcomment -%}
+{%- assign k_name = 'name' | append: t.data_suffix -%}
+{%- assign k_desc = 'description' | append: t.data_suffix -%}
+{%- assign k_button = 'button-text' | append: t.data_suffix -%}
+{%- assign k_url = 'button-url' | append: t.data_suffix -%}
+{%- assign p_name = programme[k_name] | default: programme.name -%}
+{%- assign k_contact = 'contact' | append: t.data_suffix -%}
+{%- assign p_contact = programme[k_contact] | default: programme.contact -%}
 <div class="col-12 col-md-6 col-lg-4">
   <div class="programme">
     {% if programme.image %}
       <div class="programme-image">
-        <img alt="{{ programme.name }}" src="{{ programme.image | replace: 'res.cloudinary.com/zaigezaigu/image/upload/', 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_640/' }}" loading="lazy" decoding="async" />
+        <img alt="{{ p_name }}" src="{{ programme.image | replace: 'res.cloudinary.com/zaigezaigu/image/upload/', 'res.cloudinary.com/zaigezaigu/image/upload/f_auto,q_auto:eco,c_limit,w_640/' }}" loading="lazy" decoding="async" />
       </div>
     {% endif %}
-    <h2 class="programme-title">{{ programme.name }}</h2>
+    <h2 class="programme-title">{{ p_name }}</h2>
     <div class="programme-content">
-      <p class="programme-description">{{ programme.description }}</p>
-      {% if programme.contact.size > 0 %}
+      <p class="programme-description">{{ programme[k_desc] | default: programme.description }}</p>
+      {% if p_contact.size > 0 %}
         <ul class="programme-contact">
-        {% for contact in programme.contact %}
+        {% for contact in p_contact %}
           <li>{{ contact | markdownify | remove: '<p>' | remove: '</p>' }}</li>
         {% endfor %}
         </ul>
@@ -24,7 +33,7 @@
       {% endif %}
       {% if programme.button-text %}
         <div class="d-flex justify-content-center">
-          <a class="btn btn-secondary btn-md" href="{{ programme.button-url }}">{{ programme.button-text }}</a>
+          <a class="btn btn-secondary btn-md" href="{{ programme[k_url] | default: programme.button-url }}">{{ programme[k_button] | default: programme.button-text }}</a>
         </div>
       {% endif %}
     </div>

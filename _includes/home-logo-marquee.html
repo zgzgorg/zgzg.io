@@ -54,18 +54,19 @@
 
 <section class="home-logos" aria-labelledby="home-logos-heading" style="--sprite-w: {{ site.data.home-logos.silhouettes_width }}">
   <div class="container home-section-header pb-3">
-    <h2 class="underline" id="home-logos-heading">我们的志愿者们主要来自硅谷科技圈</h2>
+    <h2 class="underline" id="home-logos-heading">{{ t.home.logos_heading }}</h2>
   </div>
   {%- assign rows = "companies|schools" | split: "|" -%}
   {%- for key in rows -%}
     {%- if key == "companies" -%}
-      {%- assign title = "看看有没有你的同事" -%}{%- assign dir = "right" -%}
+      {%- assign title = t.home.logos_companies -%}{%- assign dir = "right" -%}
     {%- else -%}
-      {%- assign title = "看看有没有你的校友" -%}{%- assign dir = "left" -%}
+      {%- assign title = t.home.logos_schools -%}{%- assign dir = "left" -%}
     {%- endif -%}
   <div class="home-logos-row home-logos-row--{{ dir }}">
     <h3 class="home-logos-title">{{ title }}</h3>
     {%- comment -%} 按一组 logo 的总宽度算动画时长，两排都以每秒约 90px 的速度滚动 {%- endcomment -%}
+    {%- assign name_key = 'name' | append: t.data_suffix -%}
     {%- assign set_width = 0 -%}
     {%- for logo in site.data.home-logos[key] -%}
       {%- assign half = logo.w | divided_by: 2 -%}
@@ -79,7 +80,7 @@
           {%- for logo in site.data.home-logos[key] %}
           <img src="{{ '/images/home-logos/' | append: logo.file | relative_url }}"
                width="{{ logo.w }}" height="96" loading="lazy" decoding="async"{% if logo.sx %} style="--sx: {{ logo.sx }}"{% endif %}
-               alt="{% if copy == 1 %}{{ logo.name }}{% endif %}">
+               alt="{% if copy == 1 %}{{ logo[name_key] | default: logo.name }}{% endif %}">
           {%- endfor %}
         </div>
         {%- endfor %}
