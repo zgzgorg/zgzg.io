@@ -173,6 +173,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div> -->
 
 
+{%- comment -%} 共用轮播的样式和脚本要排在两个轮播之前，defer 脚本按出现顺序执行 {%- endcomment -%}
+{% include carousel-style.html %}
 {% include home-events.html %}
 
 {% include home-logo-marquee.html %}
@@ -226,7 +228,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     {% assign show_concluded_programmes = false %}
     {% assign show_join_us = false %}
+    {% assign programmes_carousel = true %}
     {% include programmes.html %}
+    {% assign programmes_carousel = false %}
   </div>
 </div>
 
