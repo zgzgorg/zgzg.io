@@ -61,6 +61,13 @@
   .gala-success { text-align: center; padding-top: 8px; }
   .gala-success .gala-check { display: grid; place-items: center; width: 64px; height: 64px; border: 2px solid #f8d58b; border-radius: 50%; background: #fff3d9; color: #d59a1c; margin: 8px auto 16px; }
   .gala-check svg { width: 34px; height: 34px; stroke-width: 3; }
+  @media (max-width: 767px) {
+    .gala-recruit {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding-bottom: calc(104px + env(safe-area-inset-bottom));
+    }
+  }
   @media (min-width: 768px) {
     .gala-hero-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; max-width: 1140px; margin: auto; padding: 44px 24px; gap: 36px; }
     .gala-photo { border-radius: 16px; }
