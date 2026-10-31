@@ -3,6 +3,10 @@
 # Update this file:
 #   pre-commit autoupdate
 repos:
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+    -   id: gitleaks-system
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:

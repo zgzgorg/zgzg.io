@@ -1,5 +1,9 @@
 ---
-title: Stamps
-layout: stamp
+title: 打卡功能已下线
+layout: page
 permalink: /stamp/
 ---
+
+2024 年游园会打卡功能已下线。本站已停止提供打卡登记、记录查询和兑奖功能。
+
+访客仍可浏览 [2024 年游园会地图](/2024-fall-map/)。

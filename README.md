@@ -28,6 +28,10 @@ Assuming you have `pre-commit` installed (perhaps via `brew install pre-commit`)
 pre-commit install
 ```
 
+贡献者需要先安装 Gitleaks（macOS：`brew install gitleaks`）。提交钩子会扫描暂存改动；GitHub Actions 会扫描当前文件和完整 Git 历史。所有扫描输出都会隐藏密钥值。维护者只在 `.gitleaksignore` 记录两处旧 Firebase 公开配置的精确历史指纹；新增命中仍会阻止检查通过。
+
+维护者可以运行 `gitleaks dir --redact .` 检查当前文件，运行 `gitleaks git --redact --log-opts="--all" .` 检查完整历史。
+
 One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript files, including enforcing the [Google JavaScript Code Style](https://google.github.io/styleguide/jsguide.html). (See `.eslintrc.json` for the exact config.) As a [npm package](https://www.npmjs.com/), ESLint is installed via npm and specified in the `package.json`.
 
 ## 本代码库结构简介
@@ -44,6 +48,9 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 ⚠️ **注意**：本代码库虽然包含一个 `images` 文件夹，但它仅应该被用来存放 svg 等源代码格式的图片。若需要存放 jpg、png 等二进制格式的图片，请使用我们自己的 Cloudinary 服务。
 
 ### 如果你想要开发网站功能
+
+2024 年游园会地图 `/2024-fall-map/` 保留历史浏览功能。本站已下线旧打卡登记、个人二维码、记录查询和兑奖功能，移除了 Firebase 配置及 SDK。旧网址 `/stamp/` 显示下线说明。
+
 - `_layouts`：当朴素的 `layout: page` 难以满足您的表达需求时，您可以创建新的 layout，存放于这里。请参见下文"如何自由排版"一节。
 - `_includes`：存放可复用的一些元件。复用可以发生在：
   - 几页之间。例如：**赞助商列表**（`_includes/sponsor-section.html`）被复用于歌手赛、游园、春晚等页面底部。
