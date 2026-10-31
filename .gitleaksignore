@@ -1,0 +1,5 @@
+# Firebase 网页端公开配置曾用于 2024 年游园会打卡。
+# 下线提交已删除当前代码中的配置；以下指纹仅保留历史记录例外。
+# Gitleaks 仍会检查其他文件、提交及新增密钥。
+f5a7258695eb41aed59c60e3a9d7ef58e1d201fb:_layouts/2024-zhong-qiu-map.html:gcp-api-key:393
+c7ee71f8cdb1d4d0381a3ae6eba9d1f952bc7602:_layouts/stamp.html:gcp-api-key:54

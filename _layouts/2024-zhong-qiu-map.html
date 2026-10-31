@@ -7,7 +7,6 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>2024 金谷拾月游园会电子地图</title>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <!-- 全局状态 通用函数 -->
     <script>
       const mapURL = `/images/2024-map/map.png`;
@@ -15,7 +14,6 @@
         selectedLanguage: 'zh',
         isDrawerOpen: false,
         selectedTab: 'guide',
-        qrCodeEle: undefined,
         hasPopupOpen: false,
       };
 
@@ -63,7 +61,6 @@
       }
     </script>
 
-    <script type="text/javascript" src="https://blog.zgzg.io/custom/js/qrcode.js"></script>
 
     <!-- 赞助商信息及生成对应html -->
     <script>
@@ -1249,13 +1246,8 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
       const allBooths = [...cuisinesList, ...kidsList, ...traditionsList, ...functionsList];
 
       function generateBoothListHTML(boothList, sectionName) {
-        const collectedStamps = Cookies.getJSON('collectedStamps');
         return boothList
           .map((booth) => {
-            let stampStatus = '';
-            if (booth.checkin && collectedStamps?.includes(booth.stampIndex)) {
-              stampStatus = `<div class="booth-stamp-status booth-tag">✅</div>`;
-            }
             const supportCheckin = booth.checkin
               ? `<div class="booth-tag" style="
                           color: rgb(206,15,4);
@@ -1316,7 +1308,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
                   ${enNameTag}
                   </div>
                   <div class="booth-tags">
-                    ${stampStatus}
                     ${supportCheckin}
                     ${includedInTicket}
                     ${free}
@@ -1438,59 +1429,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
         returnToBoothListBtn.classList.add('display-none');
         boothDetailsEle.scrollTop = 0;
       }
-    </script>
-
-    <!-- 生成二维码 -->
-    <script>
-      function generateQR() {
-        const phone = Cookies.get('phone');
-        const url = `https://zgzg.io/stamp?phone=${phone}`;
-        if (siteStates.qrCodeEle) {
-          return;
-        } else {
-          const ele = document.createElement('DIV');
-          new QRCode(ele, {
-            text: url,
-            width: 200,
-            height: 200,
-            colorDark: '#151515',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H,
-          });
-          siteStates.qrCodeEle = ele;
-        }
-      }
-    </script>
-
-    <!-- 打开打卡记录弹窗及获取打卡信息 -->
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js';
-      import {
-        collection,
-        query,
-        where,
-        getDocs,
-        getFirestore,
-      } from 'https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js';
-
-      const firebaseConfig = {
-        apiKey: 'AIzaSyA32iYcPDmH7MJLFKpadSkUuR4K3avEYeA',
-        authDomain: 'zgzg-9e6d0.firebaseapp.com',
-        projectId: 'zgzg-9e6d0',
-        storageBucket: 'zgzg-9e6d0.appspot.com',
-        messagingSenderId: '807744488876',
-        appId: '1:807744488876:web:bf6ddbfe0b5ab49f216609',
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-
-      // const db = getFirestore(app);
-      window.firebaseQueryFn = query;
-      window.getDocs = getDocs;
-      window.firebaseCollection = collection;
-      window.firebaseWhere = where;
-      window.firebaseStore = getFirestore(app);
     </script>
 
     <!-- CSS resetting 和 全局 class -->
@@ -1847,165 +1785,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
       }
     </style>
 
-    <!-- 打卡入口样式 -->
-    <style>
-      .checkin-button-container {
-        position: absolute;
-        top: -62px;
-        left: 0;
-        right: 0;
-        display: flex;
-        height: 50px;
-        justify-content: space-evenly;
-      }
-
-      .checkin-button {
-        background: linear-gradient(45deg, rgba(240, 220, 220), rgb(254, 247, 216));
-        border-radius: 8px;
-        width: 90%;
-        display: flex;
-        align-items: center;
-      }
-
-      .checkin-button-logo {
-        object-fit: contain;
-        height: 80%;
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-
-      #showCheckinHistory,
-      #showQRCode {
-        background: linear-gradient(45deg, rgba(240, 220, 220), rgb(254, 247, 216));
-        border-radius: 8px;
-        width: 45%;
-        display: flex;
-        align-items: center;
-      }
-    </style>
-
-    <!-- 打卡记录弹窗样式 -->
-    <style>
-      #checkinHistoryPopup {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(180deg, #ffe1b4, white);
-        height: 80%;
-        z-index: 200;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        box-shadow: 0px -68px 66px 27px #0000007d;
-      }
-
-      #checkinHistoryPopup h1 {
-        text-align: center;
-      }
-
-      #checkinHistoryPopup p {
-        text-align: center;
-      }
-
-      #rewardRedeemedMark {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        z-index: -1;
-        backdrop-filter: blur(5px);
-      }
-
-      .stamp-cards-list {
-        display: grid;
-        padding: 0;
-        justify-content: center;
-        overflow-y: scroll;
-        height: 70%;
-        grid-template-columns: 40% 40%;
-        gap: 10px;
-        align-items: start;
-        justify-items: center;
-      }
-
-      .stamp-card {
-        position: relative;
-        width: 100%;
-        height: 125px;
-        display: flex;
-        /* align-content: center; */
-        justify-content: center;
-        align-items: center;
-      }
-
-      .stamp-name {
-        font-size: 1.2rem;
-        font-weight: bolder;
-        text-align: center;
-        justify-items: center;
-      }
-
-      .stamp-card img {
-        position: absolute;
-        bottom: 1rem;
-        right: 0;
-        width: 5rem;
-        opacity: 0.7;
-      }
-    </style>
-
-    <!-- 输入手机号样式 -->
-    <style>
-      #registerPopup {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(180deg, #ffe1b4, white);
-        height: 50%;
-        z-index: 200;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        box-shadow: 0px -68px 66px 27px #0000007d;
-      }
-
-      #registerPopup h1 {
-        text-align: center;
-      }
-    </style>
-
-    <!-- 二维码弹窗样式 -->
-    <style>
-      #qrCodePopup {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(180deg, #ffe1b4, white);
-        height: 60vh;
-        z-index: 200;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        box-shadow: 0px -68px 66px 27px #0000007d;
-        overflow-y: scroll;
-      }
-
-      #qrCodePopup h1 {
-        text-align: center;
-        margin-bottom: 0.2rem;
-      }
-      #qrCodePopup p {
-        text-align: center;
-        margin-top: 0;
-      }
-
-      #qrCodeContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 2rem;
-      }
-    </style>
-
     <!-- 摊位列表样式 -->
     <style>
       #boothListPopup {
@@ -2095,9 +1874,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
       .booth-name-cn,
       .booth-name-en {
         width: 100%;
-      }
-      .booth-stamp-status {
-        margin-left: auto;
       }
 
       .booth-tags {
@@ -2381,15 +2157,10 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
     </script>
   </head>
   <body>
+    <p role="note" style="position: absolute; top: 0; left: 0; right: 0; z-index: 100; margin: 0; padding: 8px; background: white; text-align: center;">
+      2024 年活动存档。打卡和兑奖功能已下线。
+    </p>
     <div>
-      <!-- 测试按钮 -->
-      <!-- <button
-        onclick="function clearCookies() {Cookies.remove('redeemed'); Cookies.remove('phone'); Cookies.remove('collectedStamps')} clearCookies(); window.location.reload();"
-        style="position: absolute; top: 0; left: 0"
-      >
-        删除登记信息(上线前移除)
-      </button> -->
-
       <!-- <div
         style="
           z-index: 1000;
@@ -2425,76 +2196,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
         <img id="map" alt="" />
       </div>
 
-      <div id="registerPopup" class="display-none">
-        <div id="registerPopupCloseBtn" class="btn-close">×</div>
-        <h1>输入手机号</h1>
-        <p style="margin: 0 2rem 1rem 2rem">
-          输入手机号来获取您的专属二维码。可以用来在支持的摊位进行打卡。收集打卡记录可以换取礼品。
-        </p>
-        <div style="justify-content: center; display: flex">
-          <input
-            id="phoneNumber"
-            type="tel"
-            pattern="[0-9]{10}"
-            required
-            placeholder="格式：1234567890"
-            autocomplete="off"
-            style="height: 2rem; width: 100%; margin: 0 2rem; border-radius: 8px"
-          />
-        </div>
-        <div style="display: flex; margin-top: 1rem; justify-content: center">
-          <button
-            id="confirmPhone"
-            disabled
-            style="
-              font-size: 1rem;
-              padding-top: 5px;
-              padding-bottom: 5px;
-              margin: 0 4rem;
-              background: #ffd400;
-              border: 1px #f5be00 solid;
-              width: 100%;
-              border-radius: 8px;
-            "
-          >
-            确认
-          </button>
-        </div>
-      </div>
-
-      <div id="checkinHistoryPopup" class="display-none">
-        <div id="checkinHistoryPopupCloseBtn" class="btn-close">×</div>
-        <h1>打卡记录</h1>
-
-        <div>
-          <p>
-            您已经收集了
-            <span id="stampCount" style="color: #c72c34; font-weight: bold">0</span>
-            处打卡点
-          </p>
-          <p>凭打卡记录在兑奖处领奖</p>
-        </div>
-
-        <div id="rewardRedeemedMark" class="display-none">
-          <img
-            src="/images/2024-map/redeemed.png"
-            alt=""
-            style="
-              position: absolute;
-              object-fit: contain;
-              width: 70vw;
-              margin: auto;
-              left: 0;
-              right: 0;
-              top: 3rem;
-              transform: rotate(-25deg);
-            "
-          />
-        </div>
-
-        <div class="stamp-cards-list" id="stampCardsList"></div>
-      </div>
-
       <div id="boothListPopup" class="display-none">
         <div id="boothListPopupCloseBtn" class="btn-close">×</div>
         <div id="returnToBoothListBtn" class="display-none">
@@ -2505,17 +2206,7 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
         <div id="boothDetails"></div>
       </div>
 
-      <div id="qrCodePopup" class="display-none">
-        <div id="qrCodePopupCloseBtn" class="btn-close">×</div>
-        <h1>我的二维码</h1>
-        <p>使用的手机号：<span id="registeredPhone"></span><br />建议保存截图</p>
-        <div id="qrCodeContainer"></div>
-      </div>
-
       <div id="drawer">
-        <div class="checkin-button-container" id="checkinButtonContainer"></div>
-
-        <!-- 显示打卡页面 -->
         <div id="drawer-slider-container">
           <button id="drawer-slider"></button>
         </div>
@@ -2578,9 +2269,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
 
     // 弹窗
     const boothListPopupEle = document.querySelector('#boothListPopup');
-    const checkinHistoryPopupEle = document.querySelector('#checkinHistoryPopup');
-    const registerPopupEle = document.querySelector('#registerPopup');
-    const qrCodePopupEle = document.querySelector('#qrCodePopup');
 
     // 摊位相关
     const boothListEle = document.querySelector('#boothList');
@@ -2790,10 +2478,6 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
           sectionNameEle.classList.add('display-block');
           sectionNameEle.classList.remove('display-none');
 
-          closePopup(registerPopupEle);
-          closePopup(checkinHistoryPopupEle);
-          closePopup(registerPopupEle);
-          closePopup(qrCodePopupEle);
           return;
         }
 
@@ -3168,170 +2852,4 @@ Since its establishment in 2020, AAYA was officially registered as a legal 501(c
     }
   </script>
 
-  <!--打卡记录弹窗，注册生成二维码 -->
-  <script>
-    const registeredCheckinButtonsHTML = `<div class="checkin-button" id="showCheckinHistory">
-            <img class="checkin-button-logo" src="/images/2024-map/zgzglogo.png" alt="" />
-            查看打卡记录
-          </div>
-          <div class="checkin-button" id="showQRCode">
-            <img class="checkin-button-logo" style="height: 76%;" src="/images/2024-map/my-qr-code.png" alt="" />
-            我的二维码
-          </div>`;
-    const unregisteredCheckinButtonsHTML = `<div class="checkin-button" id="checkinButton">
-            <img class="checkin-button-logo"  src="/images/2024-map/zgzglogo.png" alt="" />
-            登记以获取打卡二维码
-            <img src="/images/2024-map/arrow.png" alt="" style="object-fit: contain;
-    height: 1.2rem;
-    transform: translate(0px, 2px);
-    margin-left: auto;
-    margin-right: 1rem;"/>
-          </div>`;
-
-    const stampCardsListEle = document.querySelector('#stampCardsList');
-    const stampCountEle = document.querySelector('#stampCount');
-
-    const confirmPhoneEle = document.querySelector('#confirmPhone');
-    const phoneEle = document.querySelector('#phoneNumber');
-
-    function showCheckinhistory() {
-      if (Cookies.get('phone')) {
-        openStampPopup();
-        // 更新摊位列表中打卡信息
-        cuisinesListHTML = generateBoothListHTML(cuisinesList, sectionNames.cuisine);
-        kidsListHTML = generateBoothListHTML(kidsList, sectionNames.kids);
-        traditionsListHTML = generateBoothListHTML(traditionsList, sectionNames.traditions);
-        functionsListHTML = generateBoothListHTML(functionsList, sectionNames.functions);
-      } else {
-        openPopup(registerPopupEle);
-      }
-    }
-
-    if (Cookies.get('phone')) {
-      generateQR();
-      document.querySelector('#checkinButtonContainer').innerHTML = registeredCheckinButtonsHTML;
-
-      if (document.querySelector('#showQRCode')) {
-        document.querySelector('#showQRCode').onclick = () => {
-          document.querySelector('#registeredPhone').innerHTML = Cookies.get('phone');
-          openPopup(qrCodePopupEle);
-        };
-        document.querySelector('#showCheckinHistory').onclick = showCheckinhistory;
-
-        document.querySelector('#qrCodeContainer').appendChild(siteStates.qrCodeEle);
-      }
-    } else {
-      document.querySelector('#checkinButtonContainer').innerHTML = unregisteredCheckinButtonsHTML;
-      document.querySelector('#checkinButton').onclick = () => {
-        openPopup(registerPopupEle);
-      };
-    }
-
-    async function openStampPopup() {
-      const phone = Cookies.get('phone');
-      const query = window.firebaseQueryFn(
-        window.firebaseCollection(window.firebaseStore, 'stamps'),
-        window.firebaseWhere('phone', '==', phone)
-      );
-      const querySnapshot = await window.getDocs(query);
-
-      const stampCards = [];
-      const collectedStamps = new Set();
-
-      querySnapshot.forEach((doc) => {
-        const boothIndex = doc.data().booth;
-        // [
-        //   'cuisine-2',
-        //   'cuisine-3',
-        //   'cuisine-4',
-        //   'cuisine-6',
-        //   'chinese-19',
-        //   'kids-1',
-        //   'kids-2',
-        //   'kids-3',
-        //   'kids-10',
-        //   'function-1112',
-        // ].forEach((doc) => {
-        //   const boothIndex = doc;
-
-        if (boothIndex === 'function-1112') {
-          Cookies.set('redeemed', '1');
-          // 不要在打卡列表里显示兑奖摊位
-          return;
-        }
-
-        collectedStamps.add(boothIndex);
-        const booth = allBooths.find((booth) => booth.stampIndex === boothIndex);
-
-        let boothNameHTML;
-
-        if (booth.stampIndex === 'chinese-19') {
-          boothNameHTML = `<div>糖画</div>  
-            <div>Sugar Painting</div>  `;
-        } else {
-          boothNameHTML = `<div>${booth?.name}</div>  
-            <div>${booth?.nameEng && booth.nameEng !== booth?.name ? booth.nameEng : ''}</div>  `;
-        }
-
-        stampCards.push(`<div class="stamp-card">
-          <div class="stamp-name">
-            ${boothNameHTML}
-          </div>
-          <img src="/images/2024-map/zgzglogo.png" alt="" />
-        </div>`);
-      });
-
-      Cookies.set('collectedStamps', Array.from(collectedStamps));
-      stampCountEle.innerHTML = stampCards.length;
-      stampCardsListEle.innerHTML = stampCards.join('');
-      if (Cookies.get('redeemed') === '1') {
-        document.querySelector('#rewardRedeemedMark').classList.remove('display-none');
-        document.querySelector('#rewardRedeemedMark').classList.add('display-block');
-      }
-      openPopup(checkinHistoryPopupEle);
-    }
-
-    function register() {
-      if (phoneEle.checkValidity()) {
-        Cookies.set('phone', phoneEle.value);
-        generateQR();
-        document.querySelector('#checkinButtonContainer').innerHTML = registeredCheckinButtonsHTML;
-        document.querySelector('#showCheckinHistory').onclick = showCheckinhistory;
-        alert('注册成功，请点击主界面“我的二维码”按钮查看');
-
-        closePopup(registerPopupEle);
-        document.querySelector('#showQRCode').onclick = () => {
-          document.querySelector('#registeredPhone').innerHTML = Cookies.get('phone');
-          openPopup(qrCodePopupEle);
-        };
-
-        document.querySelector('#qrCodeContainer').appendChild(siteStates.qrCodeEle);
-      } else {
-        alert('请输入手机号');
-      }
-    }
-
-    function validatePhone(e) {
-      phoneEle.checkValidity();
-
-      if (phoneEle.checkValidity()) {
-        confirmPhoneEle.disabled = false;
-      } else {
-        confirmPhoneEle.disabled = true;
-      }
-    }
-
-    document.querySelector('#checkinHistoryPopupCloseBtn').onclick = () => {
-      closePopup(checkinHistoryPopupEle);
-    };
-    document.querySelector('#registerPopupCloseBtn').onclick = () => {
-      closePopup(registerPopupEle);
-    };
-    document.querySelector('#qrCodePopupCloseBtn').onclick = () => {
-      closePopup(qrCodePopupEle);
-    };
-    confirmPhoneEle.onclick = register;
-    phoneEle.onblur = validatePhone;
-    phoneEle.oninput = validatePhone;
-  </script>
 </html>
