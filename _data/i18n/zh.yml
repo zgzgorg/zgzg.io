@@ -79,6 +79,40 @@ home:
   signup_button: 现在报名
 
 # _includes/2026-music-festival-hero.html
+gala_home:
+  event_label: 2027 载歌在谷羊年春晚
+  photo_alt: 载歌在谷春晚舞台上的舞蹈表演
+  title: 载歌在谷
+  subtitle: 羊年春晚
+  date: 2027.02.13 · 周六
+  notify: 开票时通知我
+  notify_short: 开票通知
+  join: 报名节目 / 主持人 / 志愿者
+  recap: 2026 春晚精彩回顾
+  recruit_label: 2027 春晚 · 招募进行中
+  recruit_title: 台前幕后，<br>都有你的位置
+  roles:
+    - { icon: music, title: 节目招募, description: 歌舞 · 器乐 · 戏剧 · 创意表演, badge: 11.15 截止 }
+    - { icon: mic, title: 主持人招募, description: 用你的声音，串起整场精彩, badge: 11.15 截止 }
+    - { icon: people, title: 志愿者招募, description: 宣传 · 摄制 · 舞台 · 后勤, badge: 招募中 }
+  form_title: 开票时，<br>第一时间告诉你
+  email: 邮箱（选填）
+  phone: 手机号（选填）
+  phone_placeholder: 输入手机号
+  consent: 我同意接收本次春晚的开票短信通知
+  submit: 订阅开票通知
+  submitting: 正在提交…
+  purpose: 仅用于本次春晚票务通知。
+  no_reservation: 订阅不代表购票或留座。
+  success: 订阅成功
+  done: 完成
+  close: 关闭
+  required: 请填写邮箱或手机号。
+  invalid_phone: 请输入有效的十位 +1 手机号码。
+  unavailable: 开票提醒订阅暂未开放，请稍后再试。
+  error: 提交失败，请稍后重试。
+  demo: 演示模式：不会保存联系方式或发送通知。
+
 mf_hero:
   poster_label: 音乐节海报：打开购票窗口
   poster_alt: 第一届载歌在谷音乐节《逆向悬浮 Defying Gravity》海报：2026.10.25 12:00-18:00，Leo J. Ryan Park，演出阵容 Flatdog、Hoowan、Midnight Vanette、Phantora、四害 Scourge、Take Turns Jazz Ensemble、TakoTaco、特门道 Tremendo

@@ -1,106 +1,141 @@
+{%- assign gala = t.gala_home -%}
 <style>
-  .home-events { background: #262d36; }
-  .home-events { position: relative; }
-  .home-events-controls {
-    display: none;
-    position: absolute;
-    left: 50%;
-    bottom: 0.25rem;
-    transform: translateX(-50%);
-    align-items: center;
-    padding: 0 0.5rem;
-    z-index: 2;
+  .gala-home { --gala-red: #a80922; --gala-cream: #fff9f0; color: #401318; background: var(--gala-cream); }
+  .gala-home [hidden] { display: none !important; }
+  .gala-home svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+  .gala-home :is(a, button, input):focus-visible { outline: 3px solid #1683aa; outline-offset: 4px; }
+  .gala-home button, .gala-home input { font-family: inherit; }
+  .gala-home a { text-decoration: none; }
+  .gala-hero { background: radial-gradient(ellipse at right, #b92025, transparent 65%), linear-gradient(145deg, #9f111c, #630516); color: #ffe4ad; }
+  .gala-photo { position: relative; overflow: hidden; aspect-ratio: 1.6; }
+  .gala-photo img { position: absolute; width: 150%; max-width: none; height: auto; left: -25%; top: 0; }
+  .gala-photo::after { content: ''; position: absolute; inset: 65% 0 0; background: linear-gradient(transparent, #930f1c); }
+  .gala-intro { padding: 12px 24px 24px; text-align: center; }
+  .gala-eyebrow { font-size: 12px; letter-spacing: .06em; margin: 0 0 12px; }
+  .gala-hero .gala-eyebrow, .gala-date { color: #ffe4ad; }
+  .gala-title { color: inherit; font: 600 clamp(42px, 11vw, 66px)/1.22 'Noto Serif SC', 'Songti SC', 'SimSun', serif; margin: 0 0 16px; }
+  .gala-title span { display: block; }
+  .gala-home:lang(en) .gala-title { font-size: clamp(32px, 7vw, 48px); }
+  .gala-date { font-size: 21px; font-weight: 600; margin: 0 0 4px; }
+  .gala-venue { color: #fff8e9; font-size: 15px; line-height: 1.5; margin: 0 auto 26px; max-width: 270px; }
+  .gala-actions { display: grid; gap: 12px; max-width: 440px; margin: auto; }
+  .gala-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 14px; border: 1px solid transparent; border-radius: 10px; cursor: pointer; font-size: 16px; font-weight: 600; line-height: 1.4; text-align: center; background: var(--gala-red); color: #fff; width: 100%; }
+  .gala-btn:hover { background: #87091b; color: #fff; }
+  .gala-btn:disabled { opacity: .65; cursor: wait; }
+  .gala-btn-gold { background: linear-gradient(110deg, #f4d294, #ffc96c); color: #551015; }
+  .gala-btn-gold:hover { background: #ffda94; color: #551015; }
+  .gala-btn-outline { border-color: #e9bb70; color: #ffe4ad; background: transparent; font-size: 15px; }
+  .gala-recap { display: flex; align-items: center; justify-content: center; gap: 16px; min-height: 76px; padding: 16px 24px; border-top: 1px solid #bb7755; color: #fff0da; background: #650916; font-size: 15px; }
+  .gala-recap:hover { color: #fff; background: #7b0a1b; }
+  .gala-recap .gala-play { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid currentColor; border-radius: 50%; }
+  .gala-recruit { max-width: 580px; padding: 44px 24px; margin: auto; scroll-margin-top: 24px; }
+  .gala-recruit > .gala-eyebrow { color: var(--gala-red); text-align: center; }
+  .gala-recruit h2 { text-align: center; color: #401318; font: 600 34px/1.35 'Noto Serif SC', 'Songti SC', 'SimSun', serif; margin: 12px 0 24px; }
+  .gala-role { display: flex; align-items: center; gap: 16px; padding: 26px 0; border-top: 1px solid #e9dfd4; color: #401318; }
+  .gala-role:last-child { border-bottom: 1px solid #e9dfd4; }
+  .gala-role:hover { color: var(--gala-red); background: #fff3e7; }
+  .gala-role-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; color: var(--gala-red); background: #fbe5df; flex-shrink: 0; }
+  .gala-role strong { display: block; font-size: 21px; }
+  .gala-role small { display: block; font-size: 13px; color: #746970; margin: 5px 0 10px; }
+  .gala-role em { display: inline-block; padding: 3px 9px; border-radius: 5px; background: #fae3dc; color: #970b20; font-size: 13px; font-style: normal; }
+  .gala-role > svg { margin-left: auto; width: 16px; color: #65707b; }
+  .gala-sticky { position: fixed; z-index: 100; bottom: 0; left: 0; right: 0; padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); background: rgba(255, 249, 240, .97); box-shadow: 0 -1px 12px #40131812; }
+  .gala-sticky .gala-btn { max-width: 480px; margin: auto; }
+  body.gala-sticky-visible { padding-bottom: 88px; }
+  html.gala-dialog-open { overflow: hidden; }
+  .gala-dialog { position: fixed; inset: auto 0 0; margin: 0 auto; padding: 34px 24px calc(24px + env(safe-area-inset-bottom)); width: 100%; max-width: 480px; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; box-sizing: border-box; border: 0; border-radius: 22px 22px 0 0; background: var(--gala-cream); color: #401318; }
+  .gala-dialog::backdrop { background: #0009; }
+  .gala-handle { display: block; width: 48px; height: 5px; border-radius: 4px; background: #c8c1b7; position: absolute; top: 14px; left: calc(50% - 24px); touch-action: none; }
+  .gala-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: #3b4652; font-size: 30px !important; cursor: pointer; }
+  .gala-dialog .gala-eyebrow { color: var(--gala-red); padding-right: 28px; margin-top: 10px; }
+  .gala-dialog h2 { color: var(--gala-red); font: 600 34px/1.35 'Noto Serif SC', 'Songti SC', 'SimSun', serif; margin: 14px 0 24px; }
+  .gala-dialog label { display: block; margin: 18px 0 8px; font-size: 15px; }
+  .gala-dialog input:not([type=checkbox]) { display: block; width: 100%; min-width: 0; height: 50px; border: 1px solid #d4d9df; border-radius: 8px; padding: 10px 14px; background: #fff; color: #24303d; box-sizing: border-box; }
+  .gala-phone { display: flex; align-items: center; gap: 12px; }
+  .gala-phone span { flex-shrink: 0; }
+  .gala-dialog .gala-consent { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 1.6; margin: 16px 0; color: #59636d; }
+  .gala-consent input { width: 19px; height: 19px; margin-top: 1px; flex-shrink: 0; accent-color: var(--gala-red); }
+  .gala-footnote { text-align: center; font-size: 12px; line-height: 1.7; color: #73808a; margin: 12px 0 0; }
+  .gala-error { color: #a80922; font-size: 14px; margin: 12px 0; }
+  .gala-demo { padding: 8px; background: #fff0cf; color: #634c18; font-size: 13px; }
+  .gala-success { text-align: center; padding-top: 8px; }
+  .gala-success .gala-check { display: grid; place-items: center; width: 64px; height: 64px; border: 2px solid #f8d58b; border-radius: 50%; background: #fff3d9; color: #d59a1c; margin: 8px auto 16px; }
+  .gala-check svg { width: 34px; height: 34px; stroke-width: 3; }
+  @media (min-width: 768px) {
+    .gala-hero-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; max-width: 1140px; margin: auto; padding: 44px 24px; gap: 36px; }
+    .gala-photo { border-radius: 16px; }
+    .gala-intro { padding: 24px 0; }
+    .gala-recap { grid-column: 1 / -1; border: 1px solid #bb7755; border-radius: 12px; max-width: 480px; width: 100%; margin: auto; }
+    .gala-dialog { inset: 0; margin: auto; border-radius: 22px; }
   }
-  .home-events.is-ready .home-events-controls { display: flex; }
-  /* 小点和横线同一个颜色：深色页用白色，春晚浅色页用深色。小点的形状在 carousel-style.html */
-  .home-events-controls button { color: #fff; }
-  .home-events[data-current="1"] .home-events-controls button { color: #262d36; }
-  .home-events button:focus-visible,
-  .home-events a:focus-visible { outline: 3px solid #1384c7; outline-offset: 4px; }
-  .home-events.is-ready .home-events-viewport { overflow: hidden; }
-  .home-events.is-ready .home-events-track {
-    display: flex;
-    transition: transform 650ms ease-in-out;
-  }
-  .home-event { min-width: 0; }
-  .home-events.is-ready .home-event { flex: 0 0 100%; }
-  .home-event > .strip { height: 100%; }
-  .home-events .mf-home-poster,
-  .home-events .mf-flip,
-  .gala-home-poster { max-width: 380px; }
-  .gala-home-poster {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    border-radius: 16px;
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
-  }
-  .home-events .gala-hero-strip > .container { max-width: 1140px; }
-  .home-events .gala-hero-strip .home-section-content_top {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-    backdrop-filter: none;
-  }
-  .home-events .gala-hero-strip .home-section-header { margin: 0; }
-  .home-events .gala-hero-strip .home-section-header p {
-    font-size: 1rem;
-    line-height: 1.65;
-    margin-bottom: 0.85rem;
-  }
-  .home-events .gala-hero-strip .home-section-header > .home-section-content_top { width: 100%; }
-  .home-events .gala-hero-strip .cny-2027-event-title {
-    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-    line-height: 1.35;
-  }
-  .gala-home-site { margin: 1rem 0 0; text-align: center; }
-  .gala-home-site a { color: #7a0000; }
-  .home-events .gala-hero-strip .ticket-btn { padding: 0.75rem 1.25rem !important; }
-  @media (max-width: 767.98px) {
-    .home-events .gala-hero-strip > .container { padding: 1.5rem 1.25rem 2rem !important; }
-    .gala-home-poster-col { margin-bottom: 1.5rem; }
-    .home-events .gala-hero-strip .home-section-content_top { padding: 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .home-events.is-ready .home-events-track { transition: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .gala-dialog[open] { animation: gala-sheet-in .2s ease-out; }
+    @keyframes gala-sheet-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   }
 </style>
-
-<section class="home-events" id="home-events" aria-label="{{ t.home.events_label }}" aria-roledescription="{{ t.home.events_carousel }}">
-  <div class="home-events-viewport" data-carousel-viewport>
-    <div class="home-events-track" data-carousel-track>
-      <div class="home-event" id="home-event-music" data-carousel-slide role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ t.home.music_slide }}">
-        {% include 2026-music-festival-hero.html %}
-      </div>
-      <div class="home-event" id="home-event-gala" data-carousel-slide role="group" aria-roledescription="{{ t.home.events_slide }}" aria-label="{{ t.home.gala_slide }}">
-        <div class="strip gala-hero-strip">
-          <div class="container pb-5 pt-5">
-            <div class="row align-items-center">
-              <div class="col-md-5 gala-home-poster-col">
-                <a href="https://d.zgzg.io/2027cnyg/signup" aria-label="{{ t.home.gala_poster_label }}">
-                  <img class="gala-home-poster"
-                       src="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }}"
-                       data-srcset="{{ '/images/2027-gala/recruitment-420.webp' | relative_url }} 420w, {{ '/images/2027-gala/recruitment-840.webp' | relative_url }} 840w"
-                       sizes="(max-width: 767px) calc(100vw - 40px), 380px"
-                       width="1024" height="1536" loading="lazy" decoding="async"
-                       alt="{{ t.home.gala_poster_alt }}">
-                </a>
-                <p class="gala-home-site"><a href="https://zgzg.io">{{ t.home.gala_site }}</a></p>
-              </div>
-              <div class="col-md-7">
-                {% include 2027-spring-event-info.html %}
-              </div>
-            </div>
-          </div>
+<section class="gala-home" id="home-events" aria-label="{{ gala.event_label }}">
+  <svg width="0" height="0" style="position:absolute;width:0;height:0" aria-hidden="true"><defs>
+    <symbol id="gala-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="gala-music" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></symbol>
+    <symbol id="gala-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></symbol>
+    <symbol id="gala-people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M2 21v-3a7 7 0 0 1 14 0v3ZM16 4a3 3 0 0 1 0 6M18 14a5 5 0 0 1 4 5v2"/></symbol>
+    <symbol id="gala-chevron" viewBox="0 0 24 24"><path d="m9 4 8 8-8 8"/></symbol>
+  </defs></svg>
+  <div class="gala-hero">
+    <div class="gala-hero-inner">
+      <div class="gala-photo"><img src="{{ '/images/2027-gala/recruitment-840.webp' | relative_url }}" width="840" height="1260" fetchpriority="high" alt="{{ gala.photo_alt }}"></div>
+      <div class="gala-intro">
+        <p class="gala-eyebrow">2027 LUNAR NEW YEAR GALA</p>
+        <h1 class="gala-title"><span>{{ gala.title }}</span><span>{{ gala.subtitle }}</span></h1>
+        <p class="gala-date"><time datetime="2027-02-13">{{ gala.date }}</time></p>
+        <p class="gala-venue">San Jose Center for<br>the Performing Arts</p>
+        <div class="gala-actions">
+          <button class="gala-btn gala-btn-gold" id="gala-primary" type="button" data-gala-open><svg aria-hidden="true"><use href="#gala-bell"/></svg>{{ gala.notify }}</button>
+          <a class="gala-btn gala-btn-outline" href="#gala-recruit"><svg aria-hidden="true"><use href="#gala-people"/></svg>{{ gala.join }}</a>
         </div>
       </div>
+      <a class="gala-recap" href="https://m.youtube.com/watch?v=Rw0VrEkuz3Q" target="_blank" rel="noopener noreferrer">
+        <span class="gala-play" aria-hidden="true">▶</span><span>{{ gala.recap }}</span><span aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
-  <div class="home-events-controls" aria-label="{{ t.home.events_choose }}">
-    <button type="button" class="carousel-dot" data-carousel-dot aria-current="true" aria-controls="home-event-music" aria-label="{{ t.home.music_dot }}"></button>
-    <button type="button" class="carousel-dot" data-carousel-dot aria-current="false" aria-controls="home-event-gala" aria-label="{{ t.home.gala_dot }}"></button>
+  <div class="gala-recruit" id="gala-recruit">
+    <p class="gala-eyebrow">{{ gala.recruit_label }}</p>
+    <h2>{{ gala.recruit_title }}</h2>
+    {% for role in gala.roles %}
+      <a class="gala-role" href="{% if role.icon == 'people' %}https://d.zgzg.io/gala-signup{% else %}https://d.zgzg.io/2027cnyg/signup{% endif %}">
+        <span class="gala-role-icon"><svg aria-hidden="true"><use href="#gala-{{ role.icon }}"/></svg></span>
+        <span><strong>{{ role.title }}</strong><small>{{ role.description }}</small><em>{{ role.badge }}</em></span>
+        <svg aria-hidden="true"><use href="#gala-chevron"/></svg>
+      </a>
+    {% endfor %}
   </div>
+  <div class="gala-sticky" id="gala-sticky" hidden><button class="gala-btn" type="button" data-gala-open><svg aria-hidden="true"><use href="#gala-bell"/></svg>{{ gala.notify_short }}</button></div>
+  <dialog class="gala-dialog" id="gala-dialog" aria-labelledby="gala-dialog-title">
+    <span class="gala-handle" aria-hidden="true"></span>
+    <button class="gala-close" type="button" data-gala-close aria-label="{{ gala.close }}">×</button>
+    <p class="gala-demo" id="gala-demo" hidden>{{ gala.demo }}</p>
+    <form id="gala-subscribe" method="post" data-endpoint="{{ site.gala_subscription_endpoint | default: '' | escape }}"
+          data-required="{{ gala.required | escape }}" data-phone="{{ gala.invalid_phone | escape }}"
+          data-unavailable="{{ gala.unavailable | escape }}" data-error="{{ gala.error | escape }}"
+          data-submitting="{{ gala.submitting | escape }}">
+      <p class="gala-eyebrow">{{ gala.event_label }}</p>
+      <h2 id="gala-dialog-title" tabindex="-1">{{ gala.form_title }}</h2>
+      <label for="gala-email">{{ gala.email }}</label>
+      <input id="gala-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254">
+      <label for="gala-phone">{{ gala.phone }}</label>
+      <div class="gala-phone"><span>+1</span><input id="gala-phone" name="phone" type="tel" autocomplete="tel-national" placeholder="{{ gala.phone_placeholder }}" maxlength="24" aria-label="{{ gala.phone }} (+1)"></div>
+      <label class="gala-consent" for="gala-sms"><input id="gala-sms" name="sms_consent" type="checkbox">{{ gala.consent }}</label>
+      <p class="gala-error" id="gala-error" role="alert" hidden></p>
+      <button class="gala-btn" type="submit">{{ gala.submit }}</button>
+      <p class="gala-footnote">{{ gala.purpose }}<br>{{ gala.no_reservation }}</p>
+    </form>
+    <div class="gala-success" id="gala-success" hidden>
+      <span class="gala-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg></span>
+      <h2 id="gala-success-title" tabindex="-1">{{ gala.success }}</h2>
+      <button class="gala-btn" type="button" data-gala-close>{{ gala.done }}</button>
+      <p class="gala-footnote">{{ gala.no_reservation }}</p>
+    </div>
+  </dialog>
 </section>
 <script src="{{ '/assets/js/home-events.js' | relative_url }}" defer></script>
