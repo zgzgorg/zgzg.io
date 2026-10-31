@@ -72,6 +72,40 @@ home:
   signup_slogan_alt: "Chinese calligraphy: “With love we sing; in the Valley we find home.”"
   signup_button: Sign Up Now
 
+gala_home:
+  event_label: 2027 ZaiGeZaiGu Lunar New Year Gala
+  photo_alt: Dancers performing at a ZaiGeZaiGu gala
+  title: ZaiGeZaiGu
+  subtitle: Lunar New Year Gala
+  date: Saturday · February 13, 2027
+  notify: Notify me when tickets open
+  notify_short: Ticket alerts
+  join: Sign up to perform / host / volunteer
+  recap: 2026 Gala Highlights
+  recruit_label: 2027 Gala · Open call
+  recruit_title: Your place,<br>onstage or behind the scenes
+  roles:
+    - { icon: music, title: Performers, description: Dance · Music · Theater · Creative acts, badge: Apply by Nov 15 }
+    - { icon: mic, title: Hosts, description: Bring the evening together with your voice, badge: Apply by Nov 15 }
+    - { icon: people, title: Volunteers, description: Publicity · Video · Stage · Operations, badge: Now recruiting }
+  form_title: Be first to know<br>when tickets open
+  email: Email (optional)
+  phone: Phone (optional)
+  phone_placeholder: Enter your phone number
+  consent: I agree to receive text alerts when tickets for this gala go on sale.
+  submit: Subscribe to ticket alerts
+  submitting: Submitting…
+  purpose: Only used for this gala's ticket announcements.
+  no_reservation: Subscribing does not purchase or reserve a seat.
+  success: You're subscribed
+  done: Done
+  close: Close
+  required: Please enter an email address or phone number.
+  invalid_phone: Please enter a valid ten-digit +1 phone number.
+  unavailable: Ticket alert sign-up is not open yet. Please try again later.
+  error: Could not subscribe. Please try again later.
+  demo: 'Preview only: contact details are not saved and no alerts are sent.'
+
 mf_hero:
   poster_label: "Music Festival poster: open the ticket window"
   poster_alt: "Poster for the first ZaiGeZaiGu Music Festival, Defying Gravity (逆向悬浮): October 25, 2026, 12:00 PM to 6:00 PM, Leo J. Ryan Park. Lineup: Flatdog, Hoowan, Midnight Vanette, Phantora, Scourge (四害), Take Turns Jazz Ensemble, TakoTaco, Tremendo (特门道)"

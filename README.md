@@ -58,7 +58,11 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
   - 其他可复用的元件之内。例如，上述**栏目卡片**也在**云集节目列表**（`_includes/programmes.html`）里被复用：
     <img width="800" alt="image" src="https://user-images.githubusercontent.com/594058/194156682-19832792-da81-4f84-bcb7-a43cc2c3e5cf.png">
 
-首页通过 `_includes/home-events.html` 横向轮播活动，默认展示音乐节，每 9 秒切换。音乐节海报点击后翻面购票，春晚海报直达节目及主持人报名。观众把鼠标移进轮播、用键盘操作、点小点或者横滑之后，轮播停住；鼠标和焦点都离开 1 分钟之后，轮播才继续。购票时轮播也停住。经维护者批准，2027 春晚招募海报随本次网站静态文件发布，存放在 `images/2027-gala/`。轮播底部有两个小点，当前活动的小点显示为横线。
+首页的 `_includes/home-events.html` 展示 2027 春晚主视觉、2026 春晚 YouTube 回顾及节目／主持人／志愿者招募。`assets/js/home-events.js` 管理开票通知弹层、表单校验、提交状态，以及首屏按钮滚出视野后出现的底部通知按钮。复用 `images/2027-gala/` 现有海报，不新增依赖；社团轮播和下方社区内容保持不变。
+
+开票通知后端接入：在 `_config.yml` 设置 `gala_subscription_endpoint`（同源路径或允许本站 CORS 的 HTTPS 地址）。前端以 JSON POST 发送 `event: "2027-gala"`、`email`（可为 null）、`phone`（可为 null，统一成 +1 十位号码）、`sms_consent`（boolean）、`locale`。至少提供一种联系方式，手机号必须同意短信通知。接口应在保存成功后返回 2xx，重复订阅建议也幂等返回 2xx；其他 HTTP 状态或超时显示重试提示。后端仍需独立校验、去重、保存授权及限流。
+
+接口留空时，正常页面不发送数据，也不会显示订阅成功。使用 `/?gala-preview=1` 或 `/en/?gala-preview=1` 可演示完整成功 UI：弹层会显示演示提示，不保存或发送联系方式。配置了接口后，该预览参数不生效。
 
 首页的「云集社团」也是一个轮播，排法和活动轮播一样：每个社团占满一张幻灯片，宽屏左边是大图、右边是介绍和按钮，手机上图片在上、文字在下。四个社团对应四个小点。幻灯片模板是 `_includes/programme-slide.html`。社团轮播和活动轮播一样每 9 秒切到下一个社团，切到最后一个之后回到开头。观众点小点、在小点上按左右方向键或者横滑，轮播也切换社团，并且停住；鼠标和焦点都离开 1 分钟之后，轮播才继续。两个轮播共用 `assets/js/carousel.js` 的切换逻辑和 `_includes/carousel-style.html` 的小点样式。首页在 include `programmes.html` 之前设置 `programmes_carousel = true` 才启用社团轮播，云集专页 `/yj/` 仍然用 `_includes/programme.html` 显示网格。
 
