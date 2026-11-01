@@ -70,6 +70,8 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 
 首页最下方的「报名服务」章节放着书法「有爱载歌，有家在谷」和报名按钮。书法图片在 `images/volunteer/`。
 
+页脚的邮件订阅按钮直接打开 Substack 订阅页。Substack 图标与订阅按钮共用 `_data/social.yml` 的 Substack 地址，第二行社交媒体图标也包含 Substack。
+
 页脚的社交媒体图标分两行，清单在 `_data/social.yml`：第一行是最主要的微信公众号、小红书、YouTube，图标大一些；第二行是 Luma、Eventbrite 两个活动报名平台和其余平台。国内平台点开弹出二维码，海外平台点开直接跳转。二维码在 `images/social/qr/`，由 `tools/social-qr.py` 生成，中间叠了圆形社区 logo。header 右侧也放了这三个最主要的平台和两个活动报名平台（手机和 768px 到 991px 之间的屏幕上只放三个主要平台）。header 默认显示四字横排 logo `images/zgzglogo-horizontal.webp`；768px 到 991px 之间导航菜单已经展开、放不下横排 logo，这一段显示圆形 logo；横排 logo 取自共享云端硬盘「ZGZG Logo Various Size 载歌在谷各种尺寸的Logo」文件夹里的 `logo 16.png`。
 
 - `assets`：存放了一些脚本和样式表文件。
