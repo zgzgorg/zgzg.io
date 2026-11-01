@@ -7,8 +7,8 @@ google_analytics_id: "G-K92JCG018C"
 homepage:
   show_call_box: false
 
-# JSON POST endpoint; leave blank until the subscription backend is ready.
-gala_subscription_endpoint: ""
+# JSON POST endpoint (Netlify Function netlify/functions/gala-subscribe.mjs).
+gala_subscription_endpoint: "/api/gala-subscribe"
 
 logo:
   mobile: "/images/zgzglogo.webp"
@@ -59,6 +59,8 @@ exclude:
   - LICENSE.md
   - LICENSE
   - README.md
+  - netlify
+  - netlify.toml
 
 # 页面语言。英文页放在 pages/en/，网址以 /en/ 开头；界面文字见 _data/i18n/。
 defaults:
