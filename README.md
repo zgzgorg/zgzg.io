@@ -11,7 +11,7 @@
 维护者仍可使用[临时域名](https://web-production-3338d0.up.railway.app)验证。正式域名和 HTTPS 已通过迁移检查。
 `Dockerfile` 用 Jekyll 构建网站，Caddy 提供静态文件服务。Caddy 监听 `PORT`，为缺失路径返回站点的 404 页面。
 维护者可在 [Railway 项目](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e)查看部署。`web` 服务的健康检查路径是 `/`，超时为 120 秒。
-Railway 已连接 `codex/railway-deploy` 分支。GitHub 自动部署仍等待组织授权 Railway App。维护者合并部署 PR 后，需要将 Railway 部署分支改为 `main`。[迁移记录](RAILWAY.md)说明部署更新、域名切换和回退步骤。
+Railway 的 GitHub 自动部署已连接 `codex/railway-deploy` 分支。维护者合并部署 PR 后，需要将 Railway 部署分支改为 `main`。[迁移记录](RAILWAY.md)说明部署更新、域名切换和回退步骤。
 
 ## 贡献指南
 
