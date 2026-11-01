@@ -8,6 +8,11 @@
 
 为《载歌在谷》志愿者社区，本代码库托管[其官方网站](https://zgzg.io/)的源代码。部署在 [Netlify](https://app.netlify.com/projects/zgzg-io/deploys) 上。
 
+Railway 迁移先使用[临时域名](https://web-production-3338d0.up.railway.app)验证。Netlify 继续保留现有部署。
+`Dockerfile` 用 Jekyll 构建网站，Caddy 提供静态文件服务。Caddy 监听 `PORT`，为缺失路径返回站点的 404 页面。
+维护者可在 [Railway 项目](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e)查看部署。`web` 服务的健康检查路径是 `/`，超时为 120 秒。
+Railway 的 GitHub 自动部署跟踪 `codex/railway-deploy` 分支。维护者合并部署 PR 后，需要将 Railway 部署分支改为 `main`。[迁移记录](RAILWAY.md)说明部署更新、域名切换和回退步骤。
+
 ## 贡献指南
 
 想要开发这个网站，需要用到以下工具：

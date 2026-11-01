@@ -1,0 +1,13 @@
+**
+!Dockerfile
+!Caddyfile
+!Gemfile
+!_config.yml
+!_data/**
+!_includes/**
+!_layouts/**
+!_sass/**
+!assets/**
+!collections/**
+!images/**
+!pages/**
