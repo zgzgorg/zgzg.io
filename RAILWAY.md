@@ -6,6 +6,7 @@
 - [临时网站](https://web-production-3338d0.up.railway.app/)
 - [Railway 服务](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e/service/6a914228-408f-4af1-a3e4-ccca2183fe28)
 - [Netlify 部署](https://app.netlify.com/projects/zgzg-io/deploys)
+- [部署配置 PR #302](https://github.com/zgzgorg/zgzg.io/pull/302)
 
 ## Docker 构建生成网站并启动 Caddy
 
