@@ -1,7 +1,7 @@
-# Railway 已提供临时站点供维护者验证
+# Railway 已提供正式网站和临时站点
 
-迁移状态（2026-11-01）：Railway 已部署网站；正式域名仍指向 Netlify。
-维护者目前只使用临时域名，不切换正式域名。
+迁移状态（2026-11-01）：正式域名已指向 Railway，HTTPS 已通过验证。
+Netlify 项目已暂时停用，项目配置和部署历史仍然保留。
 
 - [临时网站](https://web-production-3338d0.up.railway.app/)
 - [Railway 服务](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e/service/6a914228-408f-4af1-a3e4-ccca2183fe28)
@@ -28,9 +28,9 @@ railway up --project c1433a12-9266-4a45-9afe-f21bfc77c07e --environment producti
 ```
 
 Railway 自动识别 `Dockerfile`。服务设置使用健康检查 `/`，超时 120 秒。
-服务失败时最多重启 3 次。Netlify 继续按原有设置跟踪 `main`。
+服务失败时最多重启 3 次。Netlify 项目目前已停用。
 
-## 维护者应先验证临时站点再切换 DNS
+## 正式域名已经通过 DNS 和 HTTPS 验证
 
 部署检查覆盖 41 个路径和 135 项静态资源，检查均通过。
 检查覆盖中英文首页、活动页面、目录跳转和缺失路径的 404 状态。
@@ -39,21 +39,22 @@ Railway 自动识别 `Dockerfile`。服务设置使用健康检查 `/`，超时 
 
 权威 DNS 区域是 `zgzg.io`。
 权威服务器是 `demi.ns.cloudflare.com` 和 `jim.ns.cloudflare.com`。
-Railway 已创建以下域名绑定，但证书仍在等待 DNS 切换：
+Railway 已验证两个域名的所有权，并签发有效证书。
+中文首页和英文首页返回 200，`www` 返回 301 并保留路径和查询参数。
 
-| 主机名 | 类型 | Railway 目标 | 当前值 |
+| 主机名 | 类型 | 当前 Railway 目标 | 原 Netlify 值 |
 | --- | --- | --- | --- |
 | `@` | CNAME | `4wldarhf.up.railway.app` | A `75.2.60.5` |
 | `www` | CNAME | `lvxf794o.up.railway.app` | CNAME `elastic-gates-3455af.netlify.app` |
 
-维护者应先保存 Cloudflare 中原有记录的完整设置。
-维护者只更改根域名和 `www`，保留邮件、其他子域名和域名服务器设置。
-Cloudflare 根域名需要 CNAME flattening；同名 A/AAAA 记录不能与 CNAME 并存。
-维护者应按 Railway 当时显示的验证要求补充记录，并等待域名验证和证书签发。
-维护者需要确认权威解析、递归解析、HTTPS 和 `www` 跳转后，才能完成迁移。
+Cloudflare 根域名使用 CNAME flattening，公共 A 记录返回 Railway 地址。
+`_railway-verify` 和 `_railway-verify.www` 两条 TXT 已分别完成域名验证。
+维护者应保留域名验证 TXT，保留邮件和其他子域名的记录。
 
 ## 维护者可以恢复 Netlify 的 DNS 指向
 
-Netlify 保留现有网站和部署。维护者可恢复上表中的原有值来回退。
+Netlify 保留现有项目和部署。维护者回退前，需要先重新启用 Netlify 项目。
+维护者可在项目配置的 Danger zone 选择 Enable project。
+维护者随后可恢复上表中的原有 DNS 值来回退。
 维护者还应恢复切换前保存的 TTL 和代理设置，再检查 HTTPS。
 维护者不应删除 Netlify 网站或解除 Netlify 的正式域名绑定。

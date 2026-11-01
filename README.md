@@ -6,9 +6,9 @@
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/zgzgorg/yj.zgzg.io/main.svg)](https://results.pre-commit.ci/latest/github/zgzgorg/yj.zgzg.io/main)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6cee17f2-e6ed-45a0-bfb6-dd8234734ebf/deploy-status)](https://app.netlify.com/projects/zgzg-io/deploys)
 
-为《载歌在谷》志愿者社区，本代码库托管[其官方网站](https://zgzg.io/)的源代码。部署在 [Netlify](https://app.netlify.com/projects/zgzg-io/deploys) 上。
+为《载歌在谷》志愿者社区，本代码库托管[其官方网站](https://zgzg.io/)的源代码。正式网站目前部署在 Railway，Netlify 项目已暂时停用并保留。
 
-Railway 迁移先使用[临时域名](https://web-production-3338d0.up.railway.app)验证。Netlify 继续保留现有部署。
+维护者仍可使用[临时域名](https://web-production-3338d0.up.railway.app)验证。正式域名和 HTTPS 已通过迁移检查。
 `Dockerfile` 用 Jekyll 构建网站，Caddy 提供静态文件服务。Caddy 监听 `PORT`，为缺失路径返回站点的 404 页面。
 维护者可在 [Railway 项目](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e)查看部署。`web` 服务的健康检查路径是 `/`，超时为 120 秒。
 Railway 已连接 `codex/railway-deploy` 分支。GitHub 自动部署仍等待组织授权 Railway App。维护者合并部署 PR 后，需要将 Railway 部署分支改为 `main`。[迁移记录](RAILWAY.md)说明部署更新、域名切换和回退步骤。
