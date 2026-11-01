@@ -1,3 +1,5 @@
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 5h24v3H8V5Zm0 6h24v3H8v-3Zm0 6h24v20l-12-7-12 7V17Z" fill="white" />
+    <!-- 官方白色图形：https://substackcdn.com/icons/substack/icon.svg；品牌页：https://substack.com/brand -->
+    <circle cx="20" cy="20" r="20" fill="white" fill-opacity="0.2" />
+    <path transform="translate(0.8 0.455) scale(0.6)" d="M15.93 12.25h32.14v5.15H15.93zm0 9.303h32.14v5.152H15.93zm0 9.304v22.044L32 42.27 48.07 52.9V30.857z" fill="white" />
 </svg>
