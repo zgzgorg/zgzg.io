@@ -59,25 +59,46 @@ test('subscribe creates Brevo contact on the gala list', async () => {
   assert.equal(f.calls[0].url, 'https://api.brevo.com/v3/contacts');
   assert.equal(f.calls[0].init.headers['api-key'], 'xkeysib-test');
   assert.deepEqual(f.calls[0].body, {email: 'a@b.co',
-    attributes: {SMS: '+14085551234'}, listIds: [7], updateEnabled: true});
+    attributes: {SMS: '+14085551234'}, listIds: [7], updateEnabled: false});
 });
 
-test('subscribe is idempotent when phone already belongs to a contact',
-    async () => {
-      const f = fakeFetch([
-        {status: 400, body: {code: 'duplicate_parameter'}},
-        {status: 204},
-        {status: 204},
-      ]);
-      await subscribe({email: 'a@b.co', phone: '+14085551234'}, ENV, f);
-      assert.equal(f.calls[1].url,
-          'https://api.brevo.com/v3/contacts/%2B14085551234' +
-          '?identifierType=phone_id');
-      assert.equal(f.calls[1].init.method, 'PUT');
-      assert.deepEqual(f.calls[1].body, {listIds: [7]});
-      assert.deepEqual(f.calls[2].body, {email: 'a@b.co', listIds: [7],
-        updateEnabled: true});
-    });
+const DUP = {status: 400, body: {code: 'duplicate_parameter'}};
+const PUT_PHONE = 'https://api.brevo.com/v3/contacts/%2B14085551234' +
+  '?identifierType=phone_id';
+
+test('repeat signup only adds existing contacts to the list', async () => {
+  const f = fakeFetch([DUP, DUP, {status: 204}, DUP, {status: 204}]);
+  await subscribe({email: 'a@b.co', phone: '+14085551234'}, ENV, f);
+  assert.equal(f.calls.length, 5);
+  assert.deepEqual(f.calls[1].body, {email: 'a@b.co', listIds: [7],
+    updateEnabled: false});
+  assert.equal(f.calls[2].url,
+      'https://api.brevo.com/v3/contacts/a%40b.co?identifierType=email_id');
+  assert.deepEqual(f.calls[2].body, {listIds: [7]});
+  assert.deepEqual(f.calls[3].body, {attributes: {SMS: '+14085551234'},
+    listIds: [7], updateEnabled: false});
+  assert.equal(f.calls[4].url, PUT_PHONE);
+  assert.equal(f.calls[4].init.method, 'PUT');
+  assert.deepEqual(f.calls[4].body, {listIds: [7]});
+});
+
+test('existing email never gets a new phone written onto it', async () => {
+  const f = fakeFetch([DUP, DUP, {status: 204}, {status: 201}]);
+  await subscribe({email: 'victim@b.co', phone: '+14085551234'}, ENV, f);
+  for (const call of f.calls) assert.equal(call.body.updateEnabled ?? false, false);
+  assert.equal(f.calls[2].init.method, 'PUT');
+  assert.deepEqual(f.calls[2].body, {listIds: [7]});
+  assert.deepEqual(f.calls[3].body.attributes, {SMS: '+14085551234'});
+  assert.equal(f.calls[3].body.email, undefined);
+});
+
+test('phone lookup falls back to digits without +', async () => {
+  const f = fakeFetch([DUP, {status: 404, body: {code: 'document_not_found'}},
+    {status: 204}]);
+  await subscribe({email: null, phone: '+14085551234'}, ENV, f);
+  assert.equal(f.calls[2].url,
+      'https://api.brevo.com/v3/contacts/14085551234?identifierType=phone_id');
+});
 
 test('subscribe throws on Brevo failure', async () => {
   const f = fakeFetch([{status: 401, body: {code: 'unauthorized'}}]);
@@ -112,6 +133,20 @@ test('handle allows Netlify deploy previews', async () => {
   const preview = 'https://deploy-preview-301--zgzg-io.netlify.app';
   assert.equal((await handle(post(good, {origin: preview}), ENV,
       fakeFetch([]))).status, 204);
+});
+
+test('handle silently drops honeypot submissions', async () => {
+  const f = fakeFetch([]);
+  const res = await handle(post({event: '2027-gala', email: 'a@b.co',
+    website: 'spam.example'}), ENV, f);
+  assert.equal(res.status, 204);
+  assert.equal(f.calls.length, 0);
+});
+
+test('handle rejects non-integer list id', async () => {
+  const res = await handle(post({event: '2027-gala', email: 'a@b.co'}),
+      {...ENV, BREVO_GALA_LIST_ID: '7.5'}, fakeFetch([]));
+  assert.equal(res.status, 503);
 });
 
 test('handle returns 502 when Brevo fails', async () => {

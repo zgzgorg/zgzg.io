@@ -98,6 +98,7 @@
             phone: number ? '+1' + number : null,
             sms_consent: Boolean(number && consent.checked),
             locale: document.documentElement.lang,
+            website: form.elements.website.value,
           }),
         });
         if (!response.ok) throw new Error('Subscription failed');
