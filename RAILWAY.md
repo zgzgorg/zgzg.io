@@ -16,8 +16,10 @@ Caddy 将 `www.zgzg.io` 的请求以 301 跳转到 `https://zgzg.io`，保留路
 
 `.dockerignore` 只允许网站源文件进入镜像构建。
 `.railwayignore` 排除本地设计稿、缓存和环境变量文件。
-Railway 的 GitHub 自动部署跟踪 `codex/railway-deploy` 分支。
-维护者推送该分支后，Railway 自动构建并更新临时网站。
+Railway 已连接 `codex/railway-deploy` 分支，并成功构建 GitHub 来源的提交。
+GitHub 自动部署仍等待组织授权 Railway App；当前推送不会自动部署。
+授权页面仅选择 `zgzgorg/zgzg.io`，维护者需要确认 App 权限。
+授权完成后，维护者仍需验证分支推送可以自动更新临时网站。
 维护者合并部署 PR 后，需要在 Railway 服务设置中将部署分支改为 `main`。
 维护者也可使用 CLI 上传更新：
 
