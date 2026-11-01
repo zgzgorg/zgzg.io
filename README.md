@@ -60,7 +60,11 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 
 首页的 `_includes/home-events.html` 展示 2027 春晚主视觉、2026 春晚 YouTube 回顾及节目／主持人／志愿者招募。`assets/js/home-events.js` 管理开票通知弹层、表单校验、提交状态，以及首屏按钮滚出视野后出现的底部通知按钮。复用 `images/2027-gala/` 现有海报，不新增依赖；社团轮播和下方社区内容保持不变。
 
-开票通知后端接入：在 `_config.yml` 设置 `gala_subscription_endpoint`（同源路径或允许本站 CORS 的 HTTPS 地址）。前端以 JSON POST 发送 `event: "2027-gala"`、`email`（可为 null）、`phone`（可为 null，统一成 +1 十位号码）、`sms_consent`（boolean）、`locale`。至少提供一种联系方式，手机号必须同意短信通知。接口应在保存成功后返回 2xx，重复订阅建议也幂等返回 2xx；其他 HTTP 状态或超时显示重试提示。后端仍需独立校验、去重、保存授权及限流。
+开票通知后端：`netlify/functions/gala-subscribe.mjs`（Netlify Function，路径 `/api/gala-subscribe`），逻辑在 `netlify/lib/subscribe.mjs`。它校验表单（至少一种联系方式，手机号必须是 +1 号码并勾选短信同意），再把联系人加入 Brevo 列表（邮箱存 email，手机号存 `SMS` 属性）。重复订阅幂等返回 2xx。每个 IP 每分钟限 5 次。开票时，在 Brevo 后台对这个列表群发邮件或短信即可。
+
+需要在 Netlify 站点设置 → Environment variables 里配置：`BREVO_API_KEY`（载歌在谷自己的 Brevo key，`xkeysib-` 开头）和 `BREVO_GALA_LIST_ID`（Brevo 里「2027 春晚开票通知」列表的数字 ID）。没配置时接口返回 503，页面显示「请稍后重试」。测试：`npm test`。
+
+前端以 JSON POST 发送 `event: "2027-gala"`、`email`（可为 null）、`phone`（可为 null，统一成 +1 十位号码）、`sms_consent`（boolean）、`locale`。`_config.yml` 的 `gala_subscription_endpoint` 指向该接口。
 
 接口留空时，正常页面不发送数据，也不会显示订阅成功。使用 `/?gala-preview=1` 或 `/en/?gala-preview=1` 可演示完整成功 UI：弹层会显示演示提示，不保存或发送联系方式。配置了接口后，该预览参数不生效。
 
