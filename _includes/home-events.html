@@ -44,6 +44,7 @@
   body.gala-sticky-visible { padding-bottom: 88px; }
   html.gala-dialog-open { overflow: hidden; }
   .gala-dialog { position: fixed; inset: auto 0 0; margin: 0 auto; padding: 34px 24px calc(24px + env(safe-area-inset-bottom)); width: 100%; max-width: 480px; max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; overscroll-behavior: contain; box-sizing: border-box; border: 0; border-radius: 22px 22px 0 0; background: var(--gala-cream); color: #401318; }
+  .gala-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
   .gala-dialog::backdrop { background: #0009; }
   .gala-handle { display: block; width: 48px; height: 5px; border-radius: 4px; background: #c8c1b7; position: absolute; top: 14px; left: calc(50% - 24px); touch-action: none; }
   .gala-close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: #3b4652; font-size: 30px !important; cursor: pointer; }
@@ -132,6 +133,7 @@
       <input id="gala-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254">
       <label for="gala-phone">{{ gala.phone }}</label>
       <div class="gala-phone"><span>+1</span><input id="gala-phone" name="phone" type="tel" autocomplete="tel-national" placeholder="{{ gala.phone_placeholder }}" maxlength="24" aria-label="{{ gala.phone }} (+1)"></div>
+      <input class="gala-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="gala-consent" for="gala-sms"><input id="gala-sms" name="sms_consent" type="checkbox">{{ gala.consent }}</label>
       <p class="gala-error" id="gala-error" role="alert" hidden></p>
       <button class="gala-btn" type="submit">{{ gala.submit }}</button>

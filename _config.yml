@@ -7,8 +7,8 @@ google_analytics_id: "G-K92JCG018C"
 homepage:
   show_call_box: false
 
-# JSON POST endpoint; leave blank until the subscription backend is ready.
-gala_subscription_endpoint: ""
+# JSON POST endpoint, served by the d.zgzg.io app (zgzgorg/d.zgzg.io: app/api/gala-subscribe).
+gala_subscription_endpoint: "https://d.zgzg.io/api/gala-subscribe"
 
 logo:
   mobile: "/images/zgzglogo.webp"
