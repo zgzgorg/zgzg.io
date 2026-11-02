@@ -5,21 +5,14 @@
                 <div class="row pb-2">
                     <a href="{{ t.home_url }}"><img alt="{{ t.footer.logo_alt }}" src="/images/zgzglogo.webp" /></a>
                 </div>
-                <!-- Begin Mailchimp Signup Form -->
+                {%- assign substack = site.data.social.others | where: "key", "substack" | first %}
                 <div class="row pb-1">
-                    <img id="envelope" src="/images/envelope.svg" />
-                    <label for="mce-EMAIL">{{ t.footer.subscribe_label }}</label>
+                    <img id="envelope" src="/images/envelope.svg" alt="" />
+                    <p class="footer-subscribe-label">{{ t.footer.subscribe_label }}</p>
                 </div>
-                <form action="https://zgzg.us8.list-manage.com/subscribe/post?u=950d5d29a24ced3fd75514828&amp;id=e7addb4cae" method="post" id="mc-embed-signup" name="mc-embedded-subscribe-form" class="row d-flex flex-nowrap validate pb-2" target="_blank" novalidate>
-                    <input class="flex-fill" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{{ t.footer.subscribe_placeholder }}" required>
-                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                        <input type="text" name="b_950d5d29a24ced3fd75514828_e7addb4cae" tabindex="-1" value="">
-                    </div>
-                    <div id="sub-button" class="button w-auto">
-                        <a id="eventbrite" href="https://zgzg.us8.list-manage.com/subscribe/post?u=950d5d29a24ced3fd75514828&id=e7addb4cae" style="color:white;" target="_blank">{{ t.footer.subscribe_button }}</a>
-                    </div>
-                </form>
+                <div class="row pb-2">
+                    <a class="button footer-subscribe" href="{{ substack.url }}/subscribe">{{ t.footer.subscribe_button }}</a>
+                </div>
                 <div class="row">
                     <div class="col-12">
                         <p>
@@ -68,9 +61,9 @@
   </div>
 </dialog>
 <style>
-    /* 订阅按钮的文字框按「订阅」两个字定宽 40px，英文的 Subscribe 要放开宽度 */
-    html[lang="en"] #eventbrite { width: auto; }
-    html[lang="en"] #mc-embed-signup input[type="email"] { min-width: 0; }
+    .footer-icon--others { flex-wrap: wrap; gap: 0.5rem; }
+    .footer-subscribe-label { margin: 0; font-size: 16px; line-height: 26px; }
+    .footer-subscribe { height: auto; padding: 12px 32px; font-size: 20px; line-height: 32px; text-transform: none; }
     .social-dialog { width: min(320px, calc(100vw - 32px)); padding: 0; border: 0; border-radius: 12px; text-align: center; }
     .social-dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
     .social-dialog-body { position: relative; padding: 1.75rem 1.5rem 1.25rem; }

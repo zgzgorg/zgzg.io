@@ -1,0 +1,14 @@
+.git/
+.claude/
+.codex/
+.agents/
+.aws/
+.bundle/
+.jekyll-cache/
+_site/
+node_modules/
+vendor/
+design/
+tmp/
+.env
+.env.*

@@ -18,9 +18,8 @@ header:
 
 footer:
   logo_alt: ZaiGeZaiGu
-  subscribe_label: " Subscribe to our newsletter for upcoming events!"
-  subscribe_placeholder: "e.g. email@example.com"
-  subscribe_button: Subscribe
+  subscribe_label: "Subscribe on Substack for upcoming events!"
+  subscribe_button: "Subscribe on Substack"
   copyright: "© ZaiGeZaiGu. All rights reserved."
   links:
     - { name: Lunar New Year Gala, url: /en/gala/ }

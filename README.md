@@ -6,7 +6,12 @@
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/zgzgorg/yj.zgzg.io/main.svg)](https://results.pre-commit.ci/latest/github/zgzgorg/yj.zgzg.io/main)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6cee17f2-e6ed-45a0-bfb6-dd8234734ebf/deploy-status)](https://app.netlify.com/projects/zgzg-io/deploys)
 
-为《载歌在谷》志愿者社区，本代码库托管[其官方网站](https://zgzg.io/)的源代码。部署在 [Netlify](https://app.netlify.com/projects/zgzg-io/deploys) 上。
+为《载歌在谷》志愿者社区，本代码库托管[其官方网站](https://zgzg.io/)的源代码。正式网站目前部署在 Railway，Netlify 项目已暂时停用并保留。
+
+维护者仍可使用[临时域名](https://web-production-3338d0.up.railway.app)验证。正式域名和 HTTPS 已通过迁移检查。
+`Dockerfile` 用 Jekyll 构建网站，Caddy 提供静态文件服务。Caddy 监听 `PORT`，为缺失路径返回站点的 404 页面。
+维护者可在 [Railway 项目](https://railway.com/project/c1433a12-9266-4a45-9afe-f21bfc77c07e)查看部署。`web` 服务的健康检查路径是 `/`，超时为 120 秒。
+Railway 的 GitHub 自动部署已连接 `codex/railway-deploy` 分支。维护者合并部署 PR 后，需要将 Railway 部署分支改为 `main`。[迁移记录](RAILWAY.md)说明部署更新、域名切换和回退步骤。
 
 ## 贡献指南
 
@@ -73,6 +78,8 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 首页轮播下方的 `_includes/home-logo-marquee.html` 显示「我们的志愿者们主要来自硅谷科技圈」：公司 logo 一排向右滚动，学校 logo 一排向左滚动。logo 清单在 `_data/home-logos.yml`，图片存放在 `images/home-logos/`。经维护者批准，这批 logo 的 WebP 也放在仓库里。原图下载好之前，页面先用单色轮廓拼图 `images/home-logos/silhouettes.webp`（约 8 KB）占位；增删 logo 之后，请运行 `python3 tools/home-logo-silhouettes.py` 重新生成拼图。
 
 首页最下方的「报名服务」章节放着书法「有爱载歌，有家在谷」和报名按钮。书法图片在 `images/volunteer/`。
+
+页脚的邮件订阅按钮直接打开 Substack 订阅页。Substack 图标与订阅按钮共用 `_data/social.yml` 的 Substack 地址，第二行社交媒体图标也包含 Substack。
 
 页脚的社交媒体图标分两行，清单在 `_data/social.yml`：第一行是最主要的微信公众号、小红书、YouTube，图标大一些；第二行是 Luma、Eventbrite 两个活动报名平台和其余平台。国内平台点开弹出二维码，海外平台点开直接跳转。二维码在 `images/social/qr/`，由 `tools/social-qr.py` 生成，中间叠了圆形社区 logo。header 右侧也放了这三个最主要的平台和两个活动报名平台（手机和 768px 到 991px 之间的屏幕上只放三个主要平台）。header 默认显示四字横排 logo `images/zgzglogo-horizontal.webp`；768px 到 991px 之间导航菜单已经展开、放不下横排 logo，这一段显示圆形 logo；横排 logo 取自共享云端硬盘「ZGZG Logo Various Size 载歌在谷各种尺寸的Logo」文件夹里的 `logo 16.png`。
 

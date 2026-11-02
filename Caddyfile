@@ -1,0 +1,16 @@
+{
+	admin off
+	auto_https off
+}
+
+:{$PORT:8080} {
+	@www host www.zgzg.io
+	redir @www https://zgzg.io{uri} 301
+	root * /srv
+	encode zstd gzip
+	file_server
+	handle_errors {
+		rewrite * /404.html
+		file_server
+	}
+}

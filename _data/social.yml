@@ -15,6 +15,7 @@ events:
   - { name: Luma, icon: luma.svg, url: "https://luma.com/zgzg" }
   - { name: Eventbrite, icon: eventbrite.svg, url: "https://www.eventbrite.com/o/zaigezaigu-23383304313" }
 others:
+  - { key: substack, name: Substack, icon: substack.svg, url: "https://zaigezaigu.substack.com" }
   - { key: weibo, name: 微博, name_en: "Weibo", icon: weibo.svg, qr: "https://weibo.com/zgzggala", url: "https://weibo.com/zgzggala" }
   - { key: bilibili, name: 哔哩哔哩, name_en: "Bilibili", icon: bilibili.svg, qr: "https://space.bilibili.com/1295865136", url: "https://space.bilibili.com/1295865136" }
   - { name: Facebook, icon: facebook.svg, url: "https://www.facebook.com/zaigezaigu/" }
