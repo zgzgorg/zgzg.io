@@ -22,7 +22,7 @@
     "url": "git+https://github.com/zgzgorg/yj.zgzg.io.git"
   },
   "scripts": {
-    "test": "node --test netlify/test/*.test.mjs"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "version": "1.0.0",
   "dependencies": {
