@@ -65,11 +65,11 @@ One of the hooks use the [ESLint](https://eslint.org/) tool to check JavaScript 
 
 首页的 `_includes/home-events.html` 展示 2027 春晚主视觉、2026 春晚 YouTube 回顾及节目／主持人／志愿者招募。`assets/js/home-events.js` 管理开票通知弹层、表单校验、提交状态，以及首屏按钮滚出视野后出现的底部通知按钮。复用 `images/2027-gala/` 现有海报，不新增依赖；社团轮播和下方社区内容保持不变。
 
-开票通知后端在 d.zgzg.io（仓库 zgzgorg/d.zgzg.io，`app/api/gala-subscribe/route.ts`，逻辑在 `lib/gala-ticket-subscribe.ts`），因为 zgzg.io 是纯静态站点。接口跨域接受来自 `https://zgzg.io`、`https://www.zgzg.io` 和 Railway 临时域名的请求。它校验表单（至少一种联系方式，手机号必须是 +1 号码并勾选短信同意），再把联系人加入 Brevo 列表（邮箱存 email，手机号存 `SMS` 属性），已有联系人只加入列表、不改字段。重复订阅幂等返回 2xx，每个 IP 有限流。开票时，在 Brevo 后台对这个列表群发邮件或短信即可。
+开票通知后端在 d.zgzg.io（仓库 zgzgorg/d.zgzg.io，`app/api/gala-subscribe/route.ts`，逻辑在 `lib/gala-ticket-subscribe.ts`），因为 zgzg.io 是纯静态站点。接口跨域接受来自 `https://zgzg.io`、`https://www.zgzg.io` 和 Railway 临时域名的请求。订阅是双重确认：接口校验邮箱后只发一封确认邮件，用户点邮件里的链接、再在 d.zgzg.io/2027cnyg/notify 页面点「确认订阅」，邮箱才加入 Brevo 列表；已有联系人只加入列表、不改字段。每个 IP 和每个邮箱都有限流。短信通知暂停，页面不再收集手机号。开票时，在 Brevo 后台对这个列表群发邮件即可。
 
-需要在 d.zgzg.io 的 Railway 服务（`web`）里配置 `BREVO_GALA_LIST_ID`（Brevo 里「2027 春晚开票通知」列表的数字 ID）；`BREVO_API_KEY` 已有。没配置时接口返回 503，页面显示「请稍后重试」。
+需要在 d.zgzg.io 的 Railway 服务（`web`）里配置 `BREVO_GALA_LIST_ID`（Brevo 里「2027 春晚开票通知」列表的数字 ID）和 `GALA_NOTIFY_SECRET`（确认链接的签名密钥）；`BREVO_API_KEY` 已有。没配置时接口返回 503，页面显示「请稍后重试」。
 
-前端以 JSON POST 发送 `event: "2027-gala"`、`email`（可为 null）、`phone`（可为 null，统一成 +1 十位号码）、`sms_consent`（boolean）、`locale`。`_config.yml` 的 `gala_subscription_endpoint` 指向该接口。
+前端以 JSON POST 发送 `event: "2027-gala"`、`email`、`locale`。`_config.yml` 的 `gala_subscription_endpoint` 指向该接口。
 
 接口留空时，正常页面不发送数据，也不会显示订阅成功。使用 `/?gala-preview=1` 或 `/en/?gala-preview=1` 可演示完整成功 UI：弹层会显示演示提示，不保存或发送联系方式。配置了接口后，该预览参数不生效。
 

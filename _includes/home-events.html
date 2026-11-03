@@ -52,10 +52,8 @@
   .gala-dialog h2 { color: var(--gala-red); font: 600 34px/1.35 'Noto Serif SC', 'Songti SC', 'SimSun', serif; margin: 14px 0 24px; }
   .gala-dialog label { display: block; margin: 18px 0 8px; font-size: 15px; }
   .gala-dialog input:not([type=checkbox]) { display: block; width: 100%; min-width: 0; height: 50px; border: 1px solid #d4d9df; border-radius: 8px; padding: 10px 14px; background: #fff; color: #24303d; box-sizing: border-box; }
-  .gala-phone { display: flex; align-items: center; gap: 12px; }
-  .gala-phone span { flex-shrink: 0; }
-  .gala-dialog .gala-consent { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 1.6; margin: 16px 0; color: #59636d; }
-  .gala-consent input { width: 19px; height: 19px; margin-top: 1px; flex-shrink: 0; accent-color: var(--gala-red); }
+  #gala-subscribe .gala-btn { margin-top: 20px; }
+  .gala-success-note { font-size: 15px; line-height: 1.7; color: #59636d; margin: 0 0 20px; }
   .gala-footnote { text-align: center; font-size: 12px; line-height: 1.7; color: #73808a; margin: 12px 0 0; }
   .gala-error { color: #a80922; font-size: 14px; margin: 12px 0; }
   .gala-demo { padding: 8px; background: #fff0cf; color: #634c18; font-size: 13px; }
@@ -124,17 +122,14 @@
     <button class="gala-close" type="button" data-gala-close aria-label="{{ gala.close }}">×</button>
     <p class="gala-demo" id="gala-demo" hidden>{{ gala.demo }}</p>
     <form id="gala-subscribe" method="post" data-endpoint="{{ site.gala_subscription_endpoint | default: '' | escape }}"
-          data-required="{{ gala.required | escape }}" data-phone="{{ gala.invalid_phone | escape }}"
+          data-required="{{ gala.required | escape }}"
           data-unavailable="{{ gala.unavailable | escape }}" data-error="{{ gala.error | escape }}"
           data-submitting="{{ gala.submitting | escape }}">
       <p class="gala-eyebrow">{{ gala.event_label }}</p>
       <h2 id="gala-dialog-title" tabindex="-1">{{ gala.form_title }}</h2>
       <label for="gala-email">{{ gala.email }}</label>
-      <input id="gala-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254">
-      <label for="gala-phone">{{ gala.phone }}</label>
-      <div class="gala-phone"><span>+1</span><input id="gala-phone" name="phone" type="tel" autocomplete="tel-national" placeholder="{{ gala.phone_placeholder }}" maxlength="24" aria-label="{{ gala.phone }} (+1)"></div>
+      <input id="gala-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required>
       <input class="gala-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label class="gala-consent" for="gala-sms"><input id="gala-sms" name="sms_consent" type="checkbox">{{ gala.consent }}</label>
       <p class="gala-error" id="gala-error" role="alert" hidden></p>
       <button class="gala-btn" type="submit">{{ gala.submit }}</button>
       <p class="gala-footnote">{{ gala.purpose }}<br>{{ gala.no_reservation }}</p>
@@ -142,6 +137,7 @@
     <div class="gala-success" id="gala-success" hidden>
       <span class="gala-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg></span>
       <h2 id="gala-success-title" tabindex="-1">{{ gala.success }}</h2>
+      <p class="gala-success-note">{{ gala.success_note }}</p>
       <button class="gala-btn" type="button" data-gala-close>{{ gala.done }}</button>
       <p class="gala-footnote">{{ gala.no_reservation }}</p>
     </div>

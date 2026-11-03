@@ -5,8 +5,6 @@
   const dialog = root.querySelector('#gala-dialog');
   const form = root.querySelector('#gala-subscribe');
   const email = form.elements.email;
-  const phone = form.elements.phone;
-  const consent = form.elements.sms_consent;
   const submit = form.querySelector('[type=submit]');
   const submitLabel = submit.textContent;
   const error = root.querySelector('#gala-error');
@@ -58,20 +56,13 @@
 
   form.addEventListener('input', () => {
     email.setCustomValidity('');
-    phone.setCustomValidity('');
-    consent.required = Boolean(phone.value.trim());
     error.hidden = true;
   });
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (busy) return;
     const address = email.value.trim();
-    const number = phone.value.trim().replace(/[\s().-]/g, '')
-        .replace(/^\+?1(?=\d{10}$)/, '');
-    email.setCustomValidity(!address && !number ? form.dataset.required : '');
-    phone.setCustomValidity(number && !/^[2-9]\d{2}[2-9]\d{6}$/.test(number) ?
-      form.dataset.phone : '');
-    consent.required = Boolean(number);
+    email.setCustomValidity(!address ? form.dataset.required : '');
     if (!form.reportValidity()) return;
     if (!endpoint && !demo) {
       error.textContent = form.dataset.unavailable;
@@ -94,9 +85,7 @@
           headers: {'Content-Type': 'application/json'},
           signal: controller.signal,
           body: JSON.stringify({
-            event: '2027-gala', email: address || null,
-            phone: number ? '+1' + number : null,
-            sms_consent: Boolean(number && consent.checked),
+            event: '2027-gala', email: address,
             locale: document.documentElement.lang,
             website: form.elements.website.value,
           }),
@@ -106,7 +95,6 @@
       form.hidden = true;
       success.hidden = false;
       form.reset();
-      consent.required = false;
       dialog.setAttribute('aria-labelledby', 'gala-success-title');
       if (dialog.open) root.querySelector('#gala-success-title').focus();
     } catch (failure) {
