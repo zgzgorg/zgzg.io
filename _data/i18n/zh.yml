@@ -95,19 +95,16 @@ gala_home:
     - { icon: mic, title: 主持人招募, description: 用你的声音，串起整场精彩, badge: 11.15 截止 }
     - { icon: people, title: 志愿者招募, description: 宣传 · 摄制 · 舞台 · 后勤, badge: 招募中 }
   form_title: 开票时，<br>第一时间告诉你
-  email: 邮箱（选填）
-  phone: 手机号（选填）
-  phone_placeholder: 输入手机号
-  consent: 我同意接收本次春晚的开票短信通知
+  email: 邮箱
   submit: 订阅开票通知
   submitting: 正在提交…
   purpose: 仅用于本次春晚票务通知。
   no_reservation: 订阅不代表购票或留座。
-  success: 订阅成功
+  success: 请查收确认邮件
+  success_note: 我们已向你的邮箱发送了一封确认邮件。请点击邮件里的按钮，再在打开的页面上点「确认订阅」，订阅才会生效。没收到请查看垃圾邮件。
   done: 完成
   close: 关闭
-  required: 请填写邮箱或手机号。
-  invalid_phone: 请输入有效的十位 +1 手机号码。
+  required: 请填写邮箱。
   unavailable: 开票提醒订阅暂未开放，请稍后再试。
   error: 提交失败，请稍后重试。
   demo: 演示模式：不会保存联系方式或发送通知。

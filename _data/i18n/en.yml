@@ -88,19 +88,16 @@ gala_home:
     - { icon: mic, title: Hosts, description: Bring the evening together with your voice, badge: Apply by Nov 15 }
     - { icon: people, title: Volunteers, description: Publicity · Video · Stage · Operations, badge: Now recruiting }
   form_title: Be first to know<br>when tickets open
-  email: Email (optional)
-  phone: Phone (optional)
-  phone_placeholder: Enter your phone number
-  consent: I agree to receive text alerts when tickets for this gala go on sale.
+  email: Email
   submit: Subscribe to ticket alerts
   submitting: Submitting…
   purpose: Only used for this gala's ticket announcements.
   no_reservation: Subscribing does not purchase or reserve a seat.
-  success: You're subscribed
+  success: Check your inbox
+  success_note: We sent you a confirmation email. Click the button in it, then click "Confirm" on the page that opens. Can't find it? Check your spam folder.
   done: Done
   close: Close
-  required: Please enter an email address or phone number.
-  invalid_phone: Please enter a valid ten-digit +1 phone number.
+  required: Please enter your email address.
   unavailable: Ticket alert sign-up is not open yet. Please try again later.
   error: Could not subscribe. Please try again later.
   demo: 'Preview only: contact details are not saved and no alerts are sent.'
