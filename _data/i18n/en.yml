@@ -94,7 +94,7 @@ gala_home:
   purpose: Only used for this gala's ticket announcements.
   no_reservation: Subscribing does not purchase or reserve a seat.
   success: Check your inbox
-  success_note: We sent you a confirmation email. Click "Confirm" in it to start receiving the alert. Can't find it? Check your spam folder.
+  success_note: We sent you a confirmation email. Click the button in it, then click "Confirm" on the page that opens. Can't find it? Check your spam folder.
   done: Done
   close: Close
   required: Please enter your email address.
