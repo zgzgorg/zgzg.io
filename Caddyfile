@@ -6,6 +6,10 @@
 :{$PORT:8080} {
 	@www host www.zgzg.io
 	redir @www https://zgzg.io{uri} 301
+	# 2027 春晚购票暂时由 d.zgzg.io 承载；tickets.zgzg.io 配好 DNS 后改指过去。
+	# 302: temporary on purpose, browsers must not cache it.
+	redir /tickets https://d.zgzg.io/tickets 302
+	redir /tickets/* https://d.zgzg.io{uri} 302
 	root * /srv
 	encode zstd gzip
 	file_server
