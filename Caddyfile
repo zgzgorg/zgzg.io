@@ -6,14 +6,29 @@
 :{$PORT:8080} {
 	@www host www.zgzg.io
 	redir @www https://zgzg.io{uri} 301
-	# 2027 春晚购票暂时由 d.zgzg.io 承载；tickets.zgzg.io 配好 DNS 后改指过去。
-	# 302: temporary on purpose, browsers must not cache it.
-	redir /tickets https://d.zgzg.io/tickets 302
-	redir /tickets/* https://d.zgzg.io{uri} 302
-	root * /srv
-	encode zstd gzip
-	file_server
+
+	# 2027 春晚购票页：页面由 d.zgzg.io 生成，地址栏始终是 zgzg.io/tickets。
+	# /_next/* 和 /api/tickets/* 是购票页自己要加载的静态资源和接口。
+	# X-ZGZG-Proxy-Key 证明请求来自这里（d.zgzg.io 据此不再跳转，并信任
+	# X-ZGZG-Client-IP 里的买家 IP 做限流）；两边用同一个 TICKETS_PROXY_KEY。
+	@tickets path /tickets /tickets/* /_next/* /api/tickets/*
+	handle @tickets {
+		reverse_proxy https://d.zgzg.io {
+			header_up Host d.zgzg.io
+			header_up -Cookie
+			header_up X-ZGZG-Proxy-Key {$TICKETS_PROXY_KEY}
+			header_up X-ZGZG-Client-IP {http.request.header.X-Real-IP}
+		}
+	}
+
+	handle {
+		root * /srv
+		encode zstd gzip
+		file_server
+	}
+
 	handle_errors {
+		root * /srv
 		rewrite * /404.html
 		file_server
 	}
