@@ -6,10 +6,35 @@
 :{$PORT:8080} {
 	@www host www.zgzg.io
 	redir @www https://zgzg.io{uri} 301
-	root * /srv
-	encode zstd gzip
-	file_server
+
+	# 2027 春晚购票页：页面由 d.zgzg.io 生成，地址栏始终是 zgzg.io/tickets。
+	# /_next/* 和 /api/tickets/* 是购票页自己要加载的静态资源和接口。
+	# X-ZGZG-Proxy-Key 证明请求来自这里（d.zgzg.io 据此不再跳转，并信任
+	# X-ZGZG-Client-IP 里的买家 IP 做限流）；两边用同一个 TICKETS_PROXY_KEY。
+	@tickets path /tickets /tickets/* /_next/* /api/tickets/*
+	handle @tickets {
+		# 没配密钥就直接 503，绝不把请求转过去（否则可能和 d.zgzg.io 的跳转来回循环）。
+		@nokey expression `{env.TICKETS_PROXY_KEY} == ""`
+		respond @nokey "Tickets temporarily unavailable" 503
+		reverse_proxy https://d.zgzg.io {
+			header_up Host d.zgzg.io
+			header_up -Cookie
+			# X-ZGZG-Via: d.zgzg.io 见到它就不再跳回 zgzg.io（防循环，不需要保密）。
+			header_up X-ZGZG-Via zgzg.io
+			header_up X-ZGZG-Proxy-Key {$TICKETS_PROXY_KEY}
+			header_up X-ZGZG-Client-IP {http.request.header.X-Real-IP}
+			header_up X-ZGZG-Client-XFF {http.request.header.X-Forwarded-For}
+		}
+	}
+
+	handle {
+		root * /srv
+		encode zstd gzip
+		file_server
+	}
+
 	handle_errors {
+		root * /srv
 		rewrite * /404.html
 		file_server
 	}
