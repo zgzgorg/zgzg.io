@@ -58,18 +58,53 @@
     email.setCustomValidity('');
     error.hidden = true;
   });
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    if (busy) return;
-    const address = email.value.trim();
-    email.setCustomValidity(!address ? form.dataset.required : '');
-    if (!form.reportValidity()) return;
-    if (!endpoint && !demo) {
-      error.textContent = form.dataset.unavailable;
-      error.hidden = false;
-      return;
-    }
+  // Human check (Cloudflare Turnstile): after a valid email, the widget pops
+  // up under the button; the POST goes out only with its token, which
+  // d.zgzg.io verifies. The widget is removed after every attempt, so each
+  // try gets a fresh single-use token.
+  const verify = root.querySelector('#gala-verify');
+  const widgetBox = root.querySelector('#gala-turnstile');
+  const siteKey = form.dataset.sitekey.trim();
+  let widgetId = null;
+  let turnstileReady = null;
+  function loadTurnstile() {
+    if (window.turnstile) return Promise.resolve();
+    if (turnstileReady) return turnstileReady;
+    turnstileReady = new Promise((resolve, reject) => {
+      window.__galaTurnstileReady = () => resolve();
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js' +
+          '?render=explicit&onload=__galaTurnstileReady';
+      script.async = true;
+      script.onerror = () => {
+        turnstileReady = null;
+        reject(new Error('Turnstile failed to load'));
+      };
+      document.head.appendChild(script);
+    });
+    return turnstileReady;
+  }
+  function closeVerify() {
+    if (widgetId !== null && window.turnstile) window.turnstile.remove(widgetId);
+    widgetId = null;
+    verify.hidden = true;
+    submit.hidden = false;
+  }
+  function showError(message) {
+    error.textContent = message;
+    error.hidden = false;
+  }
+  root.querySelector('#gala-verify-cancel').addEventListener('click', () => {
+    closeVerify();
+    submit.focus();
+  });
+  dialog.addEventListener('close', () => {
+    if (!busy) closeVerify();
+  });
+
+  async function send(address, token) {
     busy = true;
+    closeVerify();
     submit.disabled = true;
     submit.textContent = form.dataset.submitting;
     form.setAttribute('aria-busy', 'true');
@@ -88,8 +123,10 @@
             event: '2027-gala', email: address,
             locale: document.documentElement.lang,
             website: form.elements.website.value,
+            turnstileToken: token,
           }),
         });
+        if (response.status === 403) throw new Error('human');
         if (!response.ok) throw new Error('Subscription failed');
       }
       form.hidden = true;
@@ -98,8 +135,8 @@
       dialog.setAttribute('aria-labelledby', 'gala-success-title');
       if (dialog.open) root.querySelector('#gala-success-title').focus();
     } catch (failure) {
-      error.textContent = form.dataset.error;
-      error.hidden = false;
+      showError(failure.message === 'human' ?
+        form.dataset.verifyFailed : form.dataset.error);
     } finally {
       clearTimeout(timeout);
       busy = false;
@@ -107,6 +144,51 @@
       submit.textContent = submitLabel;
       form.removeAttribute('aria-busy');
     }
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (busy || !verify.hidden) return;
+    const address = email.value.trim();
+    email.setCustomValidity(!address ? form.dataset.required : '');
+    if (!form.reportValidity()) return;
+    if (!endpoint && !demo) {
+      showError(form.dataset.unavailable);
+      return;
+    }
+    error.hidden = true;
+    if (demo) {
+      send(address, 'demo');
+      return;
+    }
+    if (!siteKey) {
+      showError(form.dataset.unavailable);
+      return;
+    }
+    submit.hidden = true;
+    verify.hidden = false;
+    try {
+      await loadTurnstile();
+    } catch (failure) {
+      closeVerify();
+      showError(form.dataset.error);
+      return;
+    }
+    if (verify.hidden || widgetId !== null) return;
+    widgetId = window.turnstile.render(widgetBox, {
+      sitekey: siteKey,
+      language: form.dataset.lang,
+      theme: 'light',
+      callback: (token) => send(address, token),
+      'error-callback': () => {
+        closeVerify();
+        showError(form.dataset.verifyFailed);
+      },
+      'expired-callback': () => {
+        closeVerify();
+        showError(form.dataset.verifyFailed);
+      },
+    });
   });
   root.querySelector('a[href="#gala-recruit"]').addEventListener('click',
       (event) => {

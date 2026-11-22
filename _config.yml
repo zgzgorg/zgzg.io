@@ -9,6 +9,9 @@ homepage:
 
 # JSON POST endpoint, served by the d.zgzg.io app (zgzgorg/d.zgzg.io: app/api/gala-subscribe).
 gala_subscription_endpoint: "https://d.zgzg.io/api/gala-subscribe"
+# Cloudflare Turnstile site key (public) for the human check before that POST;
+# the same key as d.zgzg.io (NEXT_PUBLIC_TURNSTILE_SITE_KEY), which verifies the token.
+turnstile_site_key: "0x4AAAAAAFvtY_UzFcPdzi5O"
 
 logo:
   mobile: "/images/zgzglogo.webp"
