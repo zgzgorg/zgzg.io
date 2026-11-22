@@ -93,6 +93,7 @@
     widgetId = null;
     verify.hidden = true;
     submit.hidden = false;
+    email.readOnly = false;
   }
   function showError(message) {
     error.textContent = message;
@@ -171,6 +172,8 @@
     }
     submit.hidden = true;
     verify.hidden = false;
+    // The token is sent with this address: lock it until the check ends.
+    email.readOnly = true;
     const mine = attempt;
     try {
       await loadTurnstile();
