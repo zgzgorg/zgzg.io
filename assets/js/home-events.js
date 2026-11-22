@@ -67,6 +67,9 @@
   const siteKey = form.dataset.sitekey.trim();
   let widgetId = null;
   let turnstileReady = null;
+  // Bumped whenever a verification closes, so a submit still waiting for the
+  // script cannot render a widget (with its old email) after a cancel.
+  let attempt = 0;
   function loadTurnstile() {
     if (window.turnstile) return Promise.resolve();
     if (turnstileReady) return turnstileReady;
@@ -85,6 +88,7 @@
     return turnstileReady;
   }
   function closeVerify() {
+    attempt += 1;
     if (widgetId !== null && window.turnstile) window.turnstile.remove(widgetId);
     widgetId = null;
     verify.hidden = true;
@@ -167,6 +171,7 @@
     }
     submit.hidden = true;
     verify.hidden = false;
+    const mine = attempt;
     try {
       await loadTurnstile();
     } catch (failure) {
@@ -174,7 +179,7 @@
       showError(form.dataset.error);
       return;
     }
-    if (verify.hidden || widgetId !== null) return;
+    if (mine !== attempt || verify.hidden || widgetId !== null) return;
     widgetId = window.turnstile.render(widgetBox, {
       sitekey: siteKey,
       language: form.dataset.lang,
