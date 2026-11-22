@@ -98,6 +98,9 @@ gala_home:
   email: 邮箱
   submit: 订阅开票通知
   submitting: 正在提交…
+  verify_title: 请完成真人验证
+  verify_failed: 真人验证没有通过，请再试一次。
+  cancel: 取消
   purpose: 仅用于本次春晚票务通知。
   no_reservation: 订阅不代表购票或留座。
   success: 请查收确认邮件

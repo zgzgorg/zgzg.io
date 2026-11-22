@@ -91,6 +91,9 @@ gala_home:
   email: Email
   submit: Subscribe to ticket alerts
   submitting: Submitting…
+  verify_title: Please confirm you're human
+  verify_failed: The human check did not pass. Please try again.
+  cancel: Cancel
   purpose: Only used for this gala's ticket announcements.
   no_reservation: Subscribing does not purchase or reserve a seat.
   success: Check your inbox

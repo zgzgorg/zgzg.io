@@ -56,6 +56,10 @@
   .gala-success-note { font-size: 15px; line-height: 1.7; color: #59636d; margin: 0 0 20px; }
   .gala-footnote { text-align: center; font-size: 12px; line-height: 1.7; color: #73808a; margin: 12px 0 0; }
   .gala-error { color: #a80922; font-size: 14px; margin: 12px 0; }
+  .gala-verify { margin-top: 16px; text-align: center; }
+  .gala-verify-title { font-weight: 700; margin: 0 0 10px; }
+  .gala-turnstile { display: flex; justify-content: center; min-height: 65px; }
+  .gala-verify-cancel { margin-top: 8px; background: none; border: 0; color: #73808a; font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; }
   .gala-demo { padding: 8px; background: #fff0cf; color: #634c18; font-size: 13px; }
   .gala-success { text-align: center; padding-top: 8px; }
   .gala-success .gala-check { display: grid; place-items: center; width: 64px; height: 64px; border: 2px solid #f8d58b; border-radius: 50%; background: #fff3d9; color: #d59a1c; margin: 8px auto 16px; }
@@ -124,7 +128,9 @@
     <form id="gala-subscribe" method="post" data-endpoint="{{ site.gala_subscription_endpoint | default: '' | escape }}"
           data-required="{{ gala.required | escape }}"
           data-unavailable="{{ gala.unavailable | escape }}" data-error="{{ gala.error | escape }}"
-          data-submitting="{{ gala.submitting | escape }}">
+          data-submitting="{{ gala.submitting | escape }}"
+          data-sitekey="{{ site.turnstile_site_key | default: '' | escape }}" data-lang="{% if page.lang == 'en' %}en{% else %}zh-cn{% endif %}"
+          data-verify-failed="{{ gala.verify_failed | escape }}">
       <p class="gala-eyebrow">{{ gala.event_label }}</p>
       <h2 id="gala-dialog-title" tabindex="-1">{{ gala.form_title }}</h2>
       <label for="gala-email">{{ gala.email }}</label>
@@ -132,6 +138,11 @@
       <input class="gala-hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
       <p class="gala-error" id="gala-error" role="alert" hidden></p>
       <button class="gala-btn" type="submit">{{ gala.submit }}</button>
+      <div class="gala-verify" id="gala-verify" hidden>
+        <p class="gala-verify-title">{{ gala.verify_title }}</p>
+        <div class="gala-turnstile" id="gala-turnstile"></div>
+        <button class="gala-verify-cancel" type="button" id="gala-verify-cancel">{{ gala.cancel }}</button>
+      </div>
       <p class="gala-footnote">{{ gala.purpose }}<br>{{ gala.no_reservation }}</p>
     </form>
     <div class="gala-success" id="gala-success" hidden>
